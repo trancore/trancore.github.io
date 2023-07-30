@@ -1,9 +1,10 @@
 {
   "name": "trancore.github.io",
-  "homepage": "http://trancore.github.io/trancore.github.io",
+  "homepage": "https://trancore.github.io/",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "modern-css-reset": "^1.4.0",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",

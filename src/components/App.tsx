@@ -6,7 +6,10 @@ export const App: FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <Layout>🚧工事中。。。</Layout>
+        <Layout>
+          <p>🚧工事中。。。</p>
+          <p>只今作成中です。</p>
+        </Layout>
       </header>
     </div>
   );
