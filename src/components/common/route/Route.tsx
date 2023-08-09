@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { App } from "~/components/App";
-import "~/components/App.modules.scss";
 import { Error } from "~/components/pages/error/Error";
+import { Products } from "~/components/pages/products/Products";
+import { Profile } from "~/components/pages/profile/Profile";
 
 export const Route: FC = () => {
   const router = createBrowserRouter([
@@ -10,16 +11,14 @@ export const Route: FC = () => {
       path: "/",
       element: <App />,
       errorElement: <Error />,
-      children: [
-        {
-          path: "profile",
-          element: <App />,
-        },
-        {
-          path: "products",
-          element: <App />,
-        },
-      ],
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
+    },
+    {
+      path: "products",
+      element: <Products />,
     },
   ]);
 
