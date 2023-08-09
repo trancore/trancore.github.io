@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Layout } from "~/components/common/Layout";
 import { Route } from "~/components/common/route/Route";
 import "~/index.modules.scss";
 
@@ -9,7 +10,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Route />
+    <Layout>
+      <Route />
+    </Layout>
   </React.StrictMode>,
 );
 
