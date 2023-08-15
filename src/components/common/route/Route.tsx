@@ -13,7 +13,7 @@ export const Route: FC = () => {
       errorElement: <Error />,
     },
     {
-      path: "/profile",
+      path: "profile",
       element: <Profile />,
     },
     {
