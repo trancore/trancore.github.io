@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { App } from "~/components/App";
 import { Error } from "~/components/pages/error/Error";
+import { MusicPlayer } from "~/components/pages/music-player/MusicPlayer";
 import { Products } from "~/components/pages/products/Products";
 import { Profile } from "~/components/pages/profile/Profile";
 
@@ -19,6 +20,10 @@ export const Route: FC = () => {
     {
       path: "products",
       element: <Products />,
+    },
+    {
+      path: "musicplayer",
+      element: <MusicPlayer />,
     },
   ]);
 
