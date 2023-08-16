@@ -1,11 +1,14 @@
 import React, { FC } from "react";
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import { PATH } from "~/const";
+
 import { App } from "~/components/App";
 import { Error } from "~/components/pages/error/Error";
 import { MusicPlayer } from "~/components/pages/music-player/MusicPlayer";
 import { Products } from "~/components/pages/products/Products";
 import { Profile } from "~/components/pages/profile/Profile";
-import { PATH } from "~/const";
 
 export const Route: FC = () => {
   const router = createBrowserRouter([

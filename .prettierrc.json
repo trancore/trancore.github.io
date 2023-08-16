@@ -11,14 +11,14 @@
     "^(react/(.*)$)|^(react$)",
     "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
-    "",
     "^~/lib/(.*)$",
+    "^~/const$",
     "^~/components/(.*)$",
     "^~/styles/(.*)$",
     "^~/utils/(.*)$",
     "^[./]"
   ],
-  "importOrderSeparation": false,
-  "importOrderSortSpecifiers": true,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": false,
   "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"]
 }

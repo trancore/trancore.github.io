@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from "react";
+
 import { Header } from "~/components/common/header/Header";
 
 type Props = {
