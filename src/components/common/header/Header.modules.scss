@@ -1,0 +1,9 @@
+.header {
+  margin: 44px 48px;
+
+  > .list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 72px;
+  }
+}
