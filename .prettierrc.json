@@ -13,10 +13,11 @@
     "<THIRD_PARTY_MODULES>",
     "^~/lib/(.*)$",
     "^~/const$",
-    "^~/components/(.*)$",
+    "^~/components/(?!.*.modules.scss$).+$",
     "^~/styles/(.*)$",
     "^~/utils/(.*)$",
-    "^[./]"
+    "^[./]",
+    "^~(.*).modules.scss$"
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": false,
