@@ -44,6 +44,9 @@ body {
     "Helvetica Neue",
     sans-serif;
   background-color: var(--color-background);
+  margin: 0;
+  height: 100vh;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -55,4 +58,8 @@ code {
 
 p {
   color: var(--color-text_default);
+}
+
+#root {
+  height: 100%;
 }
