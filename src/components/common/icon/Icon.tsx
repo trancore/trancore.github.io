@@ -1,9 +1,11 @@
 import React, { FC } from "react";
+
+import { ReactComponent as Book } from "~/assets/images/icon/book_64.svg";
 import { ReactComponent as Home } from "~/assets/images/icon/home_64.svg";
 import { ReactComponent as Music } from "~/assets/images/icon/music_64.svg";
 import { ReactComponent as Person } from "~/assets/images/icon/person_64.svg";
 
-const ICONS = { Home, Music, Person };
+const ICONS = { Book, Home, Music, Person };
 const DEFAULT_ICON_SIZE = 44;
 
 type IconName = keyof typeof ICONS;
