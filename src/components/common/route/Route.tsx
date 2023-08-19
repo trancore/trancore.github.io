@@ -1,5 +1,9 @@
 import React, { FC } from "react";
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import { PATH } from "~/const";
+
 import { App } from "~/components/App";
 import { Error } from "~/components/pages/error/Error";
 import { MusicPlayer } from "~/components/pages/music-player/MusicPlayer";
@@ -9,20 +13,20 @@ import { Profile } from "~/components/pages/profile/Profile";
 export const Route: FC = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: PATH.HOME,
       element: <App />,
       errorElement: <Error />,
     },
     {
-      path: "profile",
+      path: PATH.PROFILE,
       element: <Profile />,
     },
     {
-      path: "products",
+      path: PATH.PRODUCTS,
       element: <Products />,
     },
     {
-      path: "musicplayer",
+      path: PATH.MUSIC_PLAYER,
       element: <MusicPlayer />,
     },
   ]);

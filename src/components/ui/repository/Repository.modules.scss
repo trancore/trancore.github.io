@@ -1,0 +1,54 @@
+.repository {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+
+  > .readme {
+    > .readme_back {
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+      background-color: var(--color-readme_back);
+      border-radius: 50px;
+
+      > .readme_content {
+        width: 85%;
+        background-color: var(--color-readme_content);
+        border-radius: 50px 50px 0 0;
+      }
+    }
+  }
+
+  > .description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 64px 0 24px;
+
+    > .repository_name {
+      display: flex;
+      align-items: center;
+
+      > p {
+        margin: 0 0 0 24px;
+      }
+    }
+
+    > .repository_description {
+      > p {
+        margin: 0;
+      }
+    }
+
+    > .repository_code {
+      display: flex;
+
+      > .code_language {
+        > p {
+          margin: 0 0 0 8px;
+        }
+      }
+    }
+  }
+}
