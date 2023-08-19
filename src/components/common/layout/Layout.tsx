@@ -1,16 +1,19 @@
-import React, { FC, ReactNode } from "react";
+import React from "react";
+
+import { Outlet, useLocation } from "react-router-dom";
 
 import { Header } from "~/components/common/header/Header";
 
-type Props = {
-  children: ReactNode;
-};
+export const Layout: React.FC = () => {
+  const location = useLocation();
+  console.log("🚀 ~ file: Layout.tsx:13 ~ location:", location);
 
-export const Layout: FC<Props> = ({ children }) => {
   return (
     <div className="page">
       <Header />
-      {children}
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };
