@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 
 import { Route } from "~/components/common/route/Route";
 
-import "~/index.modules.scss";
+import "~/index.module.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,

@@ -1,11 +1,13 @@
-import React, { FC } from "react";
-import "~/components/common/header/Header.modules.scss";
+import React from "react";
+
 import { Icon } from "~/components/common/icon/Icon";
 
-export const Header: FC = () => {
+import classes from "~/components/common/header/Header.module.scss";
+
+export const Header: React.FC = () => {
   return (
-    <div className="header">
-      <div className="list">
+    <div className={classes.header}>
+      <div className={classes.list}>
         <Icon name="Home" />
         <Icon name="Person" />
         <Icon name="Music" />
