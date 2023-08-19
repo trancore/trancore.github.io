@@ -59,6 +59,8 @@ code {
     monospace;
 }
 
-p {
+p,
+td,
+tr {
   color: var(--color-text_default);
 }
