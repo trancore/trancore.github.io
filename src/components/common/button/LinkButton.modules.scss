@@ -1,0 +1,11 @@
+.linkButton {
+  background-color: #ffffff;
+
+  border-radius: 50px;
+  padding: 18px;
+
+  > .linkButton_text {
+    color: var(--color-text_black);
+    text-align: center;
+  }
+}
