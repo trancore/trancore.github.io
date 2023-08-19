@@ -24,6 +24,8 @@
   --color-background: #2f3b69;
   --color-readme_back: #ffffff;
   --color-readme_content: #5c4e4e;
+  --color-text_default: #ffffff;
+  --color-text_black: #000000;
 }
 
 body {
@@ -42,6 +44,9 @@ body {
     "Helvetica Neue",
     sans-serif;
   background-color: var(--color-background);
+  margin: 0;
+  height: 100vh;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -49,4 +54,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+p {
+  color: var(--color-text_default);
+}
+
+#root {
+  height: 100%;
 }
