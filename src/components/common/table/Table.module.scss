@@ -9,7 +9,7 @@ table {
   width: 100%;
 
   > tbody {
-    border-top: 3px solid white;
+    border-top: 3px solid var(--color-border-default);
 
     > tr {
       td {
