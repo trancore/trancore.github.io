@@ -4,16 +4,16 @@ import geometry68 from "~/assets/images/geometry68.svg";
 
 import { LinkButton } from "~/components/common/button/LinkButton";
 
-import "~/components/pages/top/Top.modules.scss";
+import classes from "~/components/pages/top/Top.module.scss";
 
 export const Top: React.FC = () => {
   return (
-    <div className="content">
-      <div className="left-content">
-        <p className="welcome">welcome</p>
-        <img className="nazo-image" src={geometry68} />
+    <div className={classes.content}>
+      <div className={classes.left_content}>
+        <p className={classes.welcome}>welcome</p>
+        <img className={classes.nazo_image} src={geometry68} />
       </div>
-      <div className="right-content">
+      <div className={classes.right_content}>
         <ul>
           <li>
             <LinkButton text="Profile" textSize={20} />

@@ -6,13 +6,13 @@ import { PATH } from "~/const";
 
 import { Header } from "~/components/common/header/Header";
 
-import "~/components/common/layout/Layout.modules.scss";
+import classes from "~/components/common/layout/Layout.module.scss";
 
 export const Layout: React.FC = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="page">
+    <div className={classes.page}>
       {pathname !== PATH.TOP && <Header />}
       <main>
         <Outlet />
