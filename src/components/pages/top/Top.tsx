@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import "~/components/App.modules.scss";
 
-export const App: FC = () => {
+import "~/components/pages/top/Top.modules.scss";
+
+export const Top: FC = () => {
   return (
     <div className="App">
       <header className="App-header">

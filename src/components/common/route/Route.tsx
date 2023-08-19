@@ -4,17 +4,17 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { PATH } from "~/const";
 
-import { App } from "~/components/App";
 import { Error } from "~/components/pages/error/Error";
 import { MusicPlayer } from "~/components/pages/music-player/MusicPlayer";
 import { Products } from "~/components/pages/products/Products";
 import { Profile } from "~/components/pages/profile/Profile";
+import { Top } from "~/components/pages/top/Top";
 
 export const Route: FC = () => {
   const router = createBrowserRouter([
     {
-      path: PATH.HOME,
-      element: <App />,
+      path: PATH.TOP,
+      element: <Top />,
       errorElement: <Error />,
     },
     {
