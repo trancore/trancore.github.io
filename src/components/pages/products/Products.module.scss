@@ -1,6 +1,7 @@
 .content {
   display: flex;
   flex-direction: column;
+  padding-bottom: 24px;
 
   > .title {
     font-size: var(--fontsize-text-title);

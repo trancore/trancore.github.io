@@ -29,7 +29,7 @@ export const Repository: React.FC<Props> = ({ repositry }) => {
           <p>{repositry.name}</p>
         </div>
         <div className={classes["repository-description"]}>
-          <p>{repositry.name}</p>
+          <p>{repositry.description}</p>
         </div>
         <div className={classes["repository-code"]}>
           <div className={classes["code-color"]}>⚪️</div>
