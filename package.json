@@ -44,6 +44,7 @@
     "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
+    "postcss-scss": "^4.0.7",
     "prettier": "^3.0.0",
     "stylelint": "^15.10.2",
     "stylelint-config-standard-scss": "^10.0.0",

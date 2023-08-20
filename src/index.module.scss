@@ -3,18 +3,18 @@
 // 英字、数字用フォント
 @font-face {
   font-family: "rounded-mplus-1p";
+  font-style: normal;
+  font-weight: normal;
   src: url("./assets/fonts/rounded-mplus-1p/rounded-mplus-1p-regular.ttf")
     format("truetype");
-  font-weight: normal;
-  font-style: normal;
 }
 
 // 日本語、漢字用フォント
 @font-face {
-  font-family: "uzura";
-  src: url("./assets/fonts/uzura/uzura.ttf") format("truetype");
-  font-weight: normal;
+  font-family: uzura;
   font-style: normal;
+  font-weight: normal;
+  src: url("./assets/fonts/uzura/uzura.ttf") format("truetype");
 }
 
 // 変数
@@ -22,33 +22,38 @@
   // 命名ルール
   // --{対象のCSS}-{対象の要素}
   --color-background: #2f3b69;
-  --color-readme_back: #ffffff;
+  --color-readme_back: #fff;
   --color-readme_content: #5c4e4e;
-  --color-text_default: #ffffff;
-  --color-text_black: #000000;
+  --color-text_default: #fff;
+  --color-text_black: #000;
+  --color-table-border-default: #fff;
+  --color-table-header-title: #abe1fa;
 }
 
 body {
+  background-color: var(--color-background);
   font-family:
-    "uzura",
+    uzura,
     "rounded-mplus-1p",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
     "Fira Sans",
     "Droid Sans",
     "Helvetica Neue",
     sans-serif;
-  background-color: var(--color-background);
-  margin: 0;
-  height: 100vh;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  margin: 0;
+
+  > div {
+    height: 100%;
+  }
 }
 
 code {
@@ -56,10 +61,8 @@ code {
     monospace;
 }
 
-p {
+p,
+td,
+tr {
   color: var(--color-text_default);
-}
-
-#root {
-  height: 100%;
 }

@@ -1,19 +1,19 @@
 .content {
-  height: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   gap: 90px;
+  height: 100%;
+  justify-content: center;
 
   > .left_content {
     > .welcome {
-      margin: 0px;
       font-size: 92px;
+      margin: 0;
     }
 
     > .nazo_image {
-      max-width: 300px;
       margin-top: 54px;
+      max-width: 300px;
     }
   }
 

@@ -5,30 +5,30 @@
 
   > .readme {
     > .readme_back {
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      padding-top: 40px;
       background-color: var(--color-readme_back);
       border-radius: 50px;
+      display: flex;
+      height: 400px;
+      justify-content: center;
+      padding-top: 40px;
 
       > .readme_content {
-        width: 85%;
         background-color: var(--color-readme_content);
         border-radius: 50px 50px 0 0;
+        width: 85%;
       }
     }
   }
 
   > .description {
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     padding: 24px 64px 0 24px;
 
     > .repository_name {
-      display: flex;
       align-items: center;
+      display: flex;
 
       > p {
         margin: 0 0 0 24px;
