@@ -3,13 +3,18 @@
   flex-direction: column;
 
   > .title {
-    font-size: 92px;
+    font-size: var(--fontsize-text-title);
     margin: 0 0 54px;
   }
 
   > .repository-box {
     display: flex;
-    gap: 235px;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: space-between;
+
+    > .repository {
+      width: 45%;
+    }
   }
 }
