@@ -9,11 +9,11 @@ import classes from "~/components/pages/top/Top.module.scss";
 export const Top: React.FC = () => {
   return (
     <div className={classes.content}>
-      <div className={classes.left_content}>
+      <div className={classes["left-content"]}>
         <p className={classes.welcome}>welcome</p>
-        <img className={classes.nazo_image} src={geometry68} />
+        <img className={classes["nazo-image"]} src={geometry68} />
       </div>
-      <div className={classes.right_content}>
+      <div className={classes["right-content"]}>
         <ul>
           <li>
             <LinkButton text="Profile" textSize={20} />
