@@ -22,12 +22,13 @@
   // 命名ルール
   // --{対象のCSS}-{対象の要素}
   --color-background: #2f3b69;
-  --color-readme_back: #fff;
-  --color-readme_content: #5c4e4e;
+  --color-readme-back: #fff;
+  --color-readme-content: #5c4e4e;
   --color-text_default: #fff;
   --color-text_black: #000;
   --color-table-border-default: #fff;
   --color-table-header-title: #abe1fa;
+  --fontsize-text-title: 5.8rem;
 }
 
 body {
@@ -59,6 +60,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+main {
+  padding: 0 108px;
 }
 
 p,

@@ -1,19 +1,18 @@
 .repository {
   display: flex;
   flex-direction: column;
-  max-width: 720px;
 
   > .readme {
-    > .readme_back {
-      background-color: var(--color-readme_back);
+    > .readme-back {
+      background-color: var(--color-readme-back);
       border-radius: 50px;
       display: flex;
-      height: 400px;
+      height: 300px;
       justify-content: center;
       padding-top: 40px;
 
-      > .readme_content {
-        background-color: var(--color-readme_content);
+      > .readme-content {
+        background-color: var(--color-readme-content);
         border-radius: 50px 50px 0 0;
         width: 85%;
       }
@@ -24,9 +23,10 @@
     align-items: flex-start;
     display: flex;
     flex-direction: column;
+    font-size: var(--fontsize-text-text);
     padding: 24px 64px 0 24px;
 
-    > .repository_name {
+    > .repository-name {
       align-items: center;
       display: flex;
 
@@ -35,16 +35,16 @@
       }
     }
 
-    > .repository_description {
+    > .repository-description {
       > p {
-        margin: 0;
+        margin: 8px 0;
       }
     }
 
-    > .repository_code {
+    > .repository-code {
       display: flex;
 
-      > .code_language {
+      > .code-language {
         > p {
           margin: 0 0 0 8px;
         }
