@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  gap: 110px;
+  justify-content: center;
+  padding: 0 108px;
+
+  > .left-content {
+    > .title {
+      font-size: 92px;
+      margin: 0 0 54px;
+    }
+
+    > .profile-image-box {
+      background-color: #fff;
+      border-radius: 100%;
+    }
+  }
+
+  > .right-content {
+    padding-top: 36px;
+  }
+}

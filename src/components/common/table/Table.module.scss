@@ -1,4 +1,6 @@
 .title {
+  color: var(--color-table-header-title);
+  font-size: 2rem;
   margin: 0 0 8px;
 }
 
@@ -9,7 +11,7 @@ table {
   width: 100%;
 
   > tbody {
-    border-top: 3px solid var(--color-border-default);
+    border-top: 3px solid var(--color-table-border-default);
 
     > tr {
       td {

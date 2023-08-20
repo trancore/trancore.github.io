@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from "~/components/common/table/Table.module.scss";
 
-const DEFAULT_TEXT_SIZE = 36;
+const DEFAULT_TEXT_SIZE = "1.5rem";
 
 type Props = {
   tableHeaderTitle: string;
@@ -20,9 +20,7 @@ export const Table: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <p className={classes.title} style={{ fontSize: textSize }}>
-        {tableHeaderTitle}
-      </p>
+      <p className={classes.title}>{tableHeaderTitle}</p>
       <table style={{ fontSize: textSize }}>
         <tbody>
           {tableBodyRows.map((row, index) => {
