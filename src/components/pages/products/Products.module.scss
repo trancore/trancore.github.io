@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  flex-direction: column;
+
+  > .title {
+    font-size: 92px;
+    margin: 0 0 54px;
+  }
+
+  > .repository-box {
+    display: flex;
+    gap: 235px;
+    justify-content: center;
+  }
+}
