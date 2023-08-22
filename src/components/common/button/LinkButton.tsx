@@ -6,7 +6,7 @@ const DEFAULT_TEXT_SIZE = 12;
 const DEFAULT_BUTTON_WIDTH = 350;
 
 type TextSize = typeof DEFAULT_TEXT_SIZE | 14 | 16 | 20;
-type ButtonWidth = typeof DEFAULT_BUTTON_WIDTH;
+type ButtonWidth = 250 | typeof DEFAULT_BUTTON_WIDTH;
 
 type Props = {
   text: string;
@@ -25,8 +25,8 @@ export const LinkButton: React.FC<Props> = ({
   };
 
   return (
-    <div className={classes.linkButton} style={linkButtonStyle}>
-      <p className={classes.linkButton_text}>{text}</p>
+    <div className={classes["link-button"]} style={linkButtonStyle}>
+      <p className={classes["link-button-text"]}>{text}</p>
     </div>
   );
 };

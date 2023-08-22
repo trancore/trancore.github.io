@@ -1,12 +1,15 @@
 import React from "react";
 
 import geometry68 from "~/assets/images/geometry68.svg";
+import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import { LinkButton } from "~/components/common/button/LinkButton";
 
 import classes from "~/components/pages/top/Top.module.scss";
 
 export const Top: React.FC = () => {
+  const { isSp } = useMediaQuery();
+
   return (
     <div className={classes.content}>
       <div className={classes["left-content"]}>
@@ -16,13 +19,25 @@ export const Top: React.FC = () => {
       <div className={classes["right-content"]}>
         <ul>
           <li>
-            <LinkButton text="Profile" textSize={20} />
+            <LinkButton
+              text="Profile"
+              buttonWidth={isSp ? 250 : 350}
+              textSize={20}
+            />
           </li>
           <li>
-            <LinkButton text="Products" textSize={20} />
+            <LinkButton
+              text="Products"
+              buttonWidth={isSp ? 250 : 350}
+              textSize={20}
+            />
           </li>
           <li>
-            <LinkButton text="🎵" textSize={20} />
+            <LinkButton
+              text="🎵"
+              buttonWidth={isSp ? 250 : 350}
+              textSize={20}
+            />
           </li>
         </ul>
       </div>
