@@ -1,7 +1,15 @@
+@use "../../../styles/variables";
+
 .content {
   display: flex;
   gap: 110px;
   justify-content: center;
+
+  @media screen and (max-width: #{map-get(variables.$breakpoints, sp)}) {
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+  }
 
   > .left-content {
     > .title {
@@ -12,10 +20,22 @@
     > .profile-image-box {
       background-color: #fff;
       border-radius: 100%;
+
+      @media screen and (max-width: #{map-get(variables.$breakpoints, sp)}) {
+        margin: 0 auto;
+        width: 80%;
+      }
+    }
+
+    > .profile-image {
     }
   }
 
   > .right-content {
     padding-top: 36px;
+
+    @media screen and (max-width: #{map-get(variables.$breakpoints, sp)}) {
+      margin: 0 12px;
+    }
   }
 }
