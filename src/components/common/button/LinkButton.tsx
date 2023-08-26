@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { PAGE_PATH } from "~/const";
 
@@ -25,20 +25,16 @@ export const LinkButton: React.FC<Props> = ({
   textSize = DEFAULT_TEXT_SIZE,
   to,
 }) => {
-  const navigate = useNavigate();
-
   const linkButtonStyle: React.CSSProperties = {
     width: buttonWidth,
     fontSize: textSize,
   };
 
   return (
-    <div
-      className={classes["link-button"]}
-      style={linkButtonStyle}
-      onClick={() => navigate(to)}
-    >
-      <p className={classes["link-button-text"]}>{text}</p>
-    </div>
+    <Link className={classes["link"]} to={to}>
+      <div className={classes["link-button"]} style={linkButtonStyle}>
+        <p className={classes["link-button-text"]}>{text}</p>
+      </div>
+    </Link>
   );
 };

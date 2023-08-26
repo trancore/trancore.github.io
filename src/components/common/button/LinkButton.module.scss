@@ -1,10 +1,14 @@
-.link-button {
-  background-color: #fff;
-  border-radius: 50px;
-  padding: 18px;
+.link {
+  text-decoration: none;
 
-  > .link-button-text {
-    color: var(--color-text-black);
-    text-align: center;
+  > .link-button {
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 18px;
+
+    > .link-button-text {
+      color: var(--color-text-black);
+      text-align: center;
+    }
   }
 }
