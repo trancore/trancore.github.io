@@ -1,3 +1,5 @@
+@use "./styles/variables";
+
 @import-normalize;
 
 // 英字、数字用フォント
@@ -25,10 +27,11 @@
   --color-readme-back: #fff;
   --color-readme-content: #5c4e4e;
   --color-text_default: #fff;
-  --color-text_black: #000;
+  --color-text-black: #000;
   --color-table-border-default: #fff;
   --color-table-header-title: #abe1fa;
   --fontsize-text-title: 5.8rem;
+  --fontsize-text-text: 1.5rem;
 }
 
 body {
@@ -64,6 +67,10 @@ code {
 
 main {
   padding: 0 108px;
+
+  @media screen and (max-width: #{map-get(variables.$breakpoints, sp)}) {
+    padding: 0;
+  }
 }
 
 p,
