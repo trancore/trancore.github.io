@@ -1,5 +1,9 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
+import { PAGE_PATH } from "~/const";
+
 import classes from "~/components/common/button/LinkButton.module.scss";
 
 const DEFAULT_TEXT_SIZE = 12;
@@ -12,12 +16,14 @@ type Props = {
   text: string;
   buttonWidth?: ButtonWidth;
   textSize?: TextSize;
+  to: (typeof PAGE_PATH)[keyof typeof PAGE_PATH];
 };
 
 export const LinkButton: React.FC<Props> = ({
   buttonWidth = DEFAULT_BUTTON_WIDTH,
   text,
   textSize = DEFAULT_TEXT_SIZE,
+  to,
 }) => {
   const linkButtonStyle: React.CSSProperties = {
     width: buttonWidth,
@@ -25,8 +31,10 @@ export const LinkButton: React.FC<Props> = ({
   };
 
   return (
-    <div className={classes["link-button"]} style={linkButtonStyle}>
-      <p className={classes["link-button-text"]}>{text}</p>
-    </div>
+    <Link className={classes["link"]} to={to}>
+      <div className={classes["link-button"]} style={linkButtonStyle}>
+        <p className={classes["link-button-text"]}>{text}</p>
+      </div>
+    </Link>
   );
 };

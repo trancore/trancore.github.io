@@ -3,6 +3,8 @@ import React from "react";
 import geometry68 from "~/assets/images/geometry68.svg";
 import { useMediaQuery } from "~/hooks/useMediaQuery";
 
+import { PAGE_PATH } from "~/const";
+
 import { LinkButton } from "~/components/common/button/LinkButton";
 
 import classes from "~/components/pages/top/Top.module.scss";
@@ -23,6 +25,7 @@ export const Top: React.FC = () => {
               text="Profile"
               buttonWidth={isSp ? 250 : 350}
               textSize={20}
+              to={PAGE_PATH.PROFILE}
             />
           </li>
           <li>
@@ -30,13 +33,15 @@ export const Top: React.FC = () => {
               text="Products"
               buttonWidth={isSp ? 250 : 350}
               textSize={20}
+              to={PAGE_PATH.PRODUCTS}
             />
           </li>
           <li>
             <LinkButton
-              text="🎵"
+              text="🎵 ※工事中"
               buttonWidth={isSp ? 250 : 350}
               textSize={20}
+              to={PAGE_PATH.MUSIC_PLAYER}
             />
           </li>
         </ul>
