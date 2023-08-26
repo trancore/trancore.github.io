@@ -36,15 +36,14 @@ export const Top: React.FC = () => {
               to={PAGE_PATH.PRODUCTS}
             />
           </li>
-          {/* TODO: musicplayer */}
-          {/* <li>
+          <li>
             <LinkButton
-              text="🎵"
+              text="🎵 ※工事中"
               buttonWidth={isSp ? 250 : 350}
               textSize={20}
               to={PAGE_PATH.MUSIC_PLAYER}
             />
-          </li> */}
+          </li>
         </ul>
       </div>
     </div>
