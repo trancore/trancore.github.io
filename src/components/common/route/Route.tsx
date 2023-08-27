@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { PATH } from "~/const";
 
 import { Layout } from "~/components/common/layout/Layout";
-import { Error } from "~/components/pages/error/Error";
+import { NotFound } from "~/components/pages/error/NotFound";
 import { MusicPlayer } from "~/components/pages/music-player/MusicPlayer";
 import { Products } from "~/components/pages/products/Products";
 import { Profile } from "~/components/pages/profile/Profile";
@@ -16,7 +16,6 @@ export const Route: React.FC = () => {
     {
       path: PATH.TOP,
       element: <Layout />,
-      errorElement: <Error />,
       children: [
         {
           index: true,
@@ -31,6 +30,7 @@ export const Route: React.FC = () => {
           element: <Products />,
         },
         { path: PATH.MUSIC_PLAYER, element: <MusicPlayer /> },
+        { path: "*", element: <NotFound /> },
       ],
     },
   ]);

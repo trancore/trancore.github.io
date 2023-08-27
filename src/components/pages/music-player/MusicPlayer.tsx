@@ -1,12 +1,12 @@
-import React, { FC } from "react";
+import React from "react";
 
-export const MusicPlayer: FC = () => {
+import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
+
+export const MusicPlayer: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>🎵</p>
-        <p>只今作成中です。</p>
-      </header>
+    <div className={classes.content}>
+      <p>🎵</p>
+      <p>只今作成中です。</p>
     </div>
   );
 };

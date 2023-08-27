@@ -5,5 +5,5 @@ export const PATH = {
   TOP: "/",
   PROFILE: "profile",
   PRODUCTS: "products",
-  MUSIC_PLAYER: "musicplayer",
+  MUSIC_PLAYER: "music-player",
 } as const;
