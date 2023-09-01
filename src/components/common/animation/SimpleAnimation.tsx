@@ -9,6 +9,12 @@ type Props = {
   children: ReactNode;
 };
 
+/**
+ * SimpleAnimation Component
+ * @description 属性を必要とするHTMl要素にこのコンポーネントを使用する場合は、componentType=divにし、childrenにその要素を渡す。
+ *
+ * @return {React.FC<Props>} SimpleAnimation
+ */
 export const SimpleAnimation: React.FC<Props> = ({
   componentType,
   animateProps,
