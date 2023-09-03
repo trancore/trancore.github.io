@@ -2,6 +2,7 @@ import React from "react";
 
 import geometry68 from "~/assets/images/geometry68.svg";
 import { useMediaQuery } from "~/hooks/useMediaQuery";
+import { framerMotion } from "~/libs/framer-motion";
 
 import { PAGE_PATH } from "~/const";
 
@@ -24,11 +25,12 @@ const DEFAULT_DELAY_SECOND = 0.5;
 
 export const Top: React.FC = () => {
   const { isSp } = useMediaQuery();
+  const { animationProperty } = framerMotion();
 
-  const animateProps = { y: [50, 0], opacity: [0, 1] };
+  const animateProps = animationProperty.riseFromBelow.animate;
 
   const getTransitionProps = (delay: number) => {
-    return { ease: "easeIn", duration: 1.0, delay: delay };
+    return { ...animationProperty.riseFromBelow.transition, delay: delay };
   };
 
   return (
