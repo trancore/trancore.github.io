@@ -12,8 +12,10 @@ type Props = {
 /**
  * SimpleAnimation Component
  * @description 属性を必要とするHTMl要素にこのコンポーネントを使用する場合は、componentType=divにし、childrenにその要素を渡す。
- *
- * @return {React.FC<Props>} SimpleAnimation
+ * @prop {string} componentType コンポーネントの種類。ex: "p", "div"など
+ * @prop {AnimationProps["animate"]} animateProps motionタグに設定するanimate属性の設定値。
+ * @prop {AnimationProps["transition"]} transitionProps motionタグに設定するtransition属性の設定値。
+ * @return SimpleAnimation
  */
 export const SimpleAnimation: React.FC<Props> = ({
   componentType,
