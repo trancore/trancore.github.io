@@ -47,7 +47,13 @@ export const Profile: React.FC = () => {
           animateProps={animationProps}
           transitionProps={getTransitionProps(DEFAULT_DELAY_SECOND + 0.5)}
         >
-          <Table tableHeaderTitle="career" tableBodyRows={CARRER_LIST} />
+          <Table tableHeaderTitle="Career" tableBodyRows={CARRER_LIST} />
+        </SimpleAnimation>
+        <SimpleAnimation
+          componentType="div"
+          animateProps={animationProps}
+          transitionProps={getTransitionProps(DEFAULT_DELAY_SECOND + 1.0)}
+        >
           <Table
             tableHeaderTitle="Qualification"
             tableBodyRows={QUALIFICATION_LIST}
