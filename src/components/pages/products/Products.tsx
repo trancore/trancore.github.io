@@ -1,8 +1,13 @@
 import React, { ComponentProps } from "react";
 
+import { framerMotion } from "~/libs/framer-motion";
+
+import { SimpleAnimation } from "~/components/common/animation/SimpleAnimation";
 import { Repository } from "~/components/ui/repository/Repository";
 
 import classes from "~/components/pages/products/Products.module.scss";
+
+const DEFAULT_DELAY_SECOND = 0.5;
 
 export const Products: React.FC = () => {
   const dummyList: ComponentProps<typeof Repository>["repositry"][] = [
@@ -27,13 +32,35 @@ export const Products: React.FC = () => {
     },
   ];
 
+  const { animationProperty } = framerMotion();
+
+  const animationProps = animationProperty.riseFromBelow.animate;
+
+  const getTransitionProps = (delay: number) => {
+    return { ...animationProperty.riseFromBelow.transition, delay: delay };
+  };
+
   return (
     <div className={classes.content}>
-      <p className={classes.title}>Products</p>
+      <SimpleAnimation
+        componentType="p"
+        animateProps={animationProps}
+        transitionProps={getTransitionProps(DEFAULT_DELAY_SECOND)}
+      >
+        Products
+      </SimpleAnimation>
       <div className={classes["repository-box"]}>
-        {dummyList.map((dummy) => (
+        {dummyList.map((dummy, index) => (
           <div key={dummy.name} className={classes.repository}>
-            <Repository key={dummy.name} repositry={dummy} />
+            <SimpleAnimation
+              componentType="div"
+              animateProps={animationProps}
+              transitionProps={getTransitionProps(
+                DEFAULT_DELAY_SECOND + (index + 1) * DEFAULT_DELAY_SECOND,
+              )}
+            >
+              <Repository key={dummy.name} repositry={dummy} />
+            </SimpleAnimation>
           </div>
         ))}
       </div>
