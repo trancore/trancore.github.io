@@ -1,13 +1,15 @@
 import React from "react";
 
 import geometry68 from "~/assets/images/geometry68.svg";
-import { useMediaQuery } from "~/hooks/useMediaQuery";
+
 import { framerMotion } from "~/libs/framer-motion";
 
 import { PAGE_PATH } from "~/const";
 
 import { SimpleAnimation } from "~/components/common/animation/SimpleAnimation";
 import { LinkButton } from "~/components/common/button/LinkButton";
+
+import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import classes from "~/components/pages/top/Top.module.scss";
 
@@ -27,9 +29,11 @@ export const Top: React.FC = () => {
   const { isSp } = useMediaQuery();
   const { animationProperty } = framerMotion();
 
-  const animateProps = animationProperty.riseFromBelow.animate;
+  const riseFromBelowAnimateProps = animationProperty.riseFromBelow.animate;
+  const rotateAnimateProps = animationProperty.rotate.animate;
+  const rotateTransitionProps = animationProperty.rotate.transition;
 
-  const getTransitionProps = (delay: number) => {
+  const getRiseFromBelowTransitionProps = (delay: number) => {
     return { ...animationProperty.riseFromBelow.transition, delay: delay };
   };
 
@@ -38,17 +42,25 @@ export const Top: React.FC = () => {
       <div className={classes["left-content"]}>
         <SimpleAnimation
           componentType="p"
-          animateProps={animateProps}
-          transitionProps={getTransitionProps(0)}
+          animateProps={riseFromBelowAnimateProps}
+          transitionProps={getRiseFromBelowTransitionProps(0)}
         >
           welcome
         </SimpleAnimation>
         <SimpleAnimation
           componentType="div"
-          animateProps={animateProps}
-          transitionProps={getTransitionProps(DEFAULT_DELAY_SECOND)}
+          animateProps={riseFromBelowAnimateProps}
+          transitionProps={getRiseFromBelowTransitionProps(
+            DEFAULT_DELAY_SECOND,
+          )}
         >
-          <img className={classes["nazo-image"]} src={geometry68} />
+          <SimpleAnimation
+            componentType="div"
+            animateProps={rotateAnimateProps}
+            transitionProps={rotateTransitionProps}
+          >
+            <img className={classes["nazo-image"]} src={geometry68} />
+          </SimpleAnimation>
         </SimpleAnimation>
       </div>
       <div className={classes["right-content"]}>
@@ -58,8 +70,8 @@ export const Top: React.FC = () => {
               <SimpleAnimation
                 key={button.TEXT}
                 componentType="li"
-                animateProps={animateProps}
-                transitionProps={getTransitionProps(
+                animateProps={riseFromBelowAnimateProps}
+                transitionProps={getRiseFromBelowTransitionProps(
                   DEFAULT_DELAY_SECOND + (index + 1) * DEFAULT_DELAY_SECOND,
                 )}
               >

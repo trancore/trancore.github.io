@@ -23,9 +23,14 @@
       margin: 0;
     }
 
-    > div > .nazo-image {
+    > div {
       margin-top: 54px;
-      max-width: 300px;
+
+      > div {
+        > .nazo-image {
+          max-width: 300px;
+        }
+      }
     }
   }
 
