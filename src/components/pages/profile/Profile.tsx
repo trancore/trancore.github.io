@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import { ReactComponent as Me } from "~/assets/images/icon/me_1024.svg";
 
@@ -13,7 +13,7 @@ import classes from "~/components/pages/profile/Profile.module.scss";
 
 const DEFAULT_DELAY_SECOND = 0.5;
 
-export const Profile: React.FC = () => {
+export const Profile: FC = () => {
   const { animationProperty } = framerMotion();
 
   const animationProps = animationProperty.riseFromBelow.animate;

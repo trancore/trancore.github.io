@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 const ERROR_STATUS = {
   NOT_FOUND: 404,
@@ -8,7 +8,7 @@ type Props = {
   errorStatus: (typeof ERROR_STATUS)[keyof typeof ERROR_STATUS];
 };
 
-export const Error: React.FC<Props> = ({ errorStatus }) => {
+export const Error: FC<Props> = ({ errorStatus }) => {
   const getErrorMessage = () => {
     switch (errorStatus) {
       case ERROR_STATUS.NOT_FOUND:

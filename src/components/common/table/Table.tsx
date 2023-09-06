@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import classes from "~/components/common/table/Table.module.scss";
 
@@ -13,7 +13,7 @@ type Props = {
   textSize?: typeof DEFAULT_TEXT_SIZE;
 };
 
-export const Table: React.FC<Props> = ({
+export const Table: FC<Props> = ({
   tableHeaderTitle,
   tableBodyRows,
   textSize = DEFAULT_TEXT_SIZE,

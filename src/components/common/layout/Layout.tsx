@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import { Outlet, useLocation } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import { Header } from "~/components/common/header/Header";
 
 import classes from "~/components/common/layout/Layout.module.scss";
 
-export const Layout: React.FC = () => {
+export const Layout: FC = () => {
   const { pathname } = useLocation();
 
   return (

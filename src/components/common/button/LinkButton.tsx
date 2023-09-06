@@ -1,4 +1,4 @@
-import React from "react";
+import { CSSProperties, FC } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -19,13 +19,13 @@ type Props = {
   to: (typeof PAGE_PATH)[keyof typeof PAGE_PATH];
 };
 
-export const LinkButton: React.FC<Props> = ({
+export const LinkButton: FC<Props> = ({
   buttonWidth = DEFAULT_BUTTON_WIDTH,
   text,
   textSize = DEFAULT_TEXT_SIZE,
   to,
 }) => {
-  const linkButtonStyle: React.CSSProperties = {
+  const linkButtonStyle: CSSProperties = {
     width: buttonWidth,
     fontSize: textSize,
   };

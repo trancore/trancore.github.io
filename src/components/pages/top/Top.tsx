@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import geometry68 from "~/assets/images/geometry68.svg";
 
@@ -25,7 +25,7 @@ const BUTTON_PROPERtY = {
 
 const DEFAULT_DELAY_SECOND = 0.5;
 
-export const Top: React.FC = () => {
+export const Top: FC = () => {
   const { isSp } = useMediaQuery();
   const { animationProperty } = framerMotion();
 

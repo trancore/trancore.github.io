@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
 
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
-export const MusicPlayer: React.FC = () => {
+export const MusicPlayer: FC = () => {
   return (
     <div className={classes.content}>
       <p>🎵</p>

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 import { AnimationProps, motion } from "framer-motion";
 
@@ -17,7 +17,7 @@ type Props = {
  * @prop {AnimationProps["transition"]} transitionProps motionタグに設定するtransition属性の設定値。
  * @return SimpleAnimation
  */
-export const SimpleAnimation: React.FC<Props> = ({
+export const SimpleAnimation: FC<Props> = ({
   componentType,
   animateProps,
   transitionProps,

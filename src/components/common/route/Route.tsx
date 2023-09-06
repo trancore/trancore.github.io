@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -11,7 +11,7 @@ import { Products } from "~/components/pages/products/Products";
 import { Profile } from "~/components/pages/profile/Profile";
 import { Top } from "~/components/pages/top/Top";
 
-export const Route: React.FC = () => {
+export const Route: FC = () => {
   const router = createBrowserRouter([
     {
       path: PATH.TOP,

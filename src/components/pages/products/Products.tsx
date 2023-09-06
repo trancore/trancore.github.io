@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react";
+import { FC, ComponentProps } from "react";
 
 import { framerMotion } from "~/libs/framer-motion";
 
@@ -9,7 +9,7 @@ import classes from "~/components/pages/products/Products.module.scss";
 
 const DEFAULT_DELAY_SECOND = 0.5;
 
-export const Products: React.FC = () => {
+export const Products: FC = () => {
   const dummyList: ComponentProps<typeof Repository>["repositry"][] = [
     {
       readme: "README",
