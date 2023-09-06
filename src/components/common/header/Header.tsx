@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import { Icon } from "~/components/common/icon/Icon";
 
 import classes from "~/components/common/header/Header.module.scss";
 
-export const Header: React.FC = () => {
+export const Header: FC = () => {
   return (
     <div className={classes.header}>
       <div className={classes.list}>

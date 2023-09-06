@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 import { Icon } from "~/components/common/icon/Icon";
 
@@ -13,7 +13,7 @@ type Props = {
   };
 };
 
-export const Repository: React.FC<Props> = ({ repositry }) => {
+export const Repository: FC<Props> = ({ repositry }) => {
   return (
     <div className={classes.repository}>
       <div className={classes.readme}>

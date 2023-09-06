@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import { ReactComponent as Book } from "~/assets/images/icon/book_64.svg";
 import { ReactComponent as Home } from "~/assets/images/icon/home_64.svg";
