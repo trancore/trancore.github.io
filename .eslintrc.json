@@ -18,5 +18,9 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "react"],
-  "rules": { "@typescript-eslint/no-unused-vars": "warn" }
+  "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-unused-vars": "warn"
+  }
 }
