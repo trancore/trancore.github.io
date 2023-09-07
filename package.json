@@ -18,12 +18,14 @@
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "framer-motion": "^10.16.1",
+    "graphql": "^16.8.0",
     "modern-css-reset": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "urql": "^4.0.5"
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
