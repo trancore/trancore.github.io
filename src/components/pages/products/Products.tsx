@@ -39,6 +39,7 @@ export const Products: FC = () => {
             language: edge?.node?.primaryLanguage?.name || "",
             clolr: edge?.node?.primaryLanguage?.color || "",
           },
+          githubUrl: edge?.node?.url || "",
         };
       });
   }, [data]);

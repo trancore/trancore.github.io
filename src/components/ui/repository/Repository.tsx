@@ -17,6 +17,7 @@ type Props = {
       clolr: string;
       language: string;
     };
+    githubUrl: string;
   };
 };
 
@@ -34,29 +35,31 @@ export const Repository: FC<Props> = ({ repository }) => {
           </ReactMarkdown>
         </div>
       </div>
-      <div className={classes.description}>
-        <div className={classes["repository-name"]}>
-          <Icon name="Book" size={44}></Icon>
-          <p>{repository.name}</p>
-        </div>
-        <div className={classes["repository-description"]}>
-          <p>{repository.description}</p>
-        </div>
-        {(repository.codeLanguage.clolr ||
-          repository.codeLanguage.language) && (
-          <div className={classes["repository-code"]}>
-            <div
-              className={classes["code-color"]}
-              style={{ color: repository.codeLanguage.clolr }}
-            >
-              ●
-            </div>
-            <div className={classes["code-language"]}>
-              <p>{repository.codeLanguage.language}</p>
-            </div>
+      <a href={repository.githubUrl} target="_blank" rel="noreferrer">
+        <div className={classes.description}>
+          <div className={classes["repository-name"]}>
+            <Icon name="Book" size={44}></Icon>
+            <p>{repository.name}</p>
           </div>
-        )}
-      </div>
+          <div className={classes["repository-description"]}>
+            <p>{repository.description}</p>
+          </div>
+          {(repository.codeLanguage.clolr ||
+            repository.codeLanguage.language) && (
+            <div className={classes["repository-code"]}>
+              <div
+                className={classes["code-color"]}
+                style={{ color: repository.codeLanguage.clolr }}
+              >
+                ●
+              </div>
+              <div className={classes["code-language"]}>
+                <p>{repository.codeLanguage.language}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </a>
     </div>
   );
 };

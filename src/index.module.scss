@@ -79,3 +79,11 @@ td,
 tr {
   color: var(--color-text-default);
 }
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: white underline;
+}
