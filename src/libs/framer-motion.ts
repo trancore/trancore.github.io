@@ -6,7 +6,8 @@
 export const framerMotion = () => {
   const animationProperty = {
     riseFromBelow: {
-      animate: { y: [50, 0], opacity: [0, 1] },
+      initial: { y: 50, opacity: 0 },
+      animate: { y: 0, opacity: 1 },
       transition: { ease: "easeIn", duration: 1.0 },
     },
     rotate: {

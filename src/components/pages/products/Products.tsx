@@ -16,6 +16,8 @@ import classes from "~/components/pages/products/Products.module.scss";
 const DEFAULT_DELAY_SECOND = 0.5;
 
 export const Products: FC = () => {
+  const { animationProperty } = framerMotion();
+
   const [{ data, fetching }] = useQuery<RepositoryOwnerQuery>({
     query: RepositoryOwnerDocument,
   });
@@ -44,20 +46,20 @@ export const Products: FC = () => {
       });
   }, [data]);
 
-  const { animationProperty } = framerMotion();
-
   const animationProps = animationProperty.riseFromBelow.animate;
+  const initialProps = animationProperty.riseFromBelow.initial;
 
   const getTransitionProps = (delay: number) => {
     return { ...animationProperty.riseFromBelow.transition, delay: delay };
   };
 
-  return (
+  return repositories ? (
     <div className={classes.content}>
       <SimpleAnimation
         componentType="p"
         animateProps={animationProps}
         transitionProps={getTransitionProps(DEFAULT_DELAY_SECOND)}
+        initialProps={initialProps}
       >
         Products
       </SimpleAnimation>
@@ -73,6 +75,7 @@ export const Products: FC = () => {
                 transitionProps={getTransitionProps(
                   DEFAULT_DELAY_SECOND + (index + 1) * DEFAULT_DELAY_SECOND,
                 )}
+                initialProps={initialProps}
               >
                 <Repository key={repository.name} repository={repository} />
               </SimpleAnimation>
@@ -81,5 +84,7 @@ export const Products: FC = () => {
         </div>
       )}
     </div>
+  ) : (
+    <></>
   );
 };
