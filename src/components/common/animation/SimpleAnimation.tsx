@@ -7,6 +7,7 @@ type Props = {
   animateProps: AnimationProps["animate"];
   transitionProps: AnimationProps["transition"];
   children: ReactNode;
+  initialProps?: AnimationProps["initial"];
 };
 
 /**
@@ -22,11 +23,16 @@ export const SimpleAnimation: FC<Props> = ({
   animateProps,
   transitionProps,
   children,
+  initialProps,
 }) => {
   const MotionComponent = motion(componentType);
 
   return (
-    <MotionComponent animate={animateProps} transition={transitionProps}>
+    <MotionComponent
+      initial={initialProps}
+      animate={animateProps}
+      transition={transitionProps}
+    >
       {children}
     </MotionComponent>
   );

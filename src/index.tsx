@@ -1,6 +1,9 @@
 import React from "react";
 
 import ReactDOM from "react-dom/client";
+import { Provider } from "urql";
+
+import { githubClient } from "~/libs/graphql/graphql";
 
 import { Route } from "~/components/common/route/Route";
 
@@ -12,7 +15,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Route />
+    <Provider value={githubClient}>
+      <Route />
+    </Provider>
   </React.StrictMode>,
 );
 

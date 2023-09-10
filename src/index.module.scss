@@ -26,12 +26,13 @@
   --color-background: #2f3b69;
   --color-readme-back: #fff;
   --color-readme-content: #5c4e4e;
-  --color-text_default: #fff;
+  --color-text-default: #fff;
   --color-text-black: #000;
   --color-table-border-default: #fff;
   --color-table-header-title: #abe1fa;
   --fontsize-text-title: 5.8rem;
   --fontsize-text-text: 1.5rem;
+  --fontsize-text-readme: 0.7rem;
 }
 
 body {
@@ -76,5 +77,13 @@ main {
 p,
 td,
 tr {
-  color: var(--color-text_default);
+  color: var(--color-text-default);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: white underline;
 }
