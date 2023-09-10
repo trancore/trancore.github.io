@@ -30,6 +30,7 @@ export const Top: FC = () => {
   const { animationProperty } = framerMotion();
 
   const riseFromBelowAnimateProps = animationProperty.riseFromBelow.animate;
+  const riseFromBelowInitialProps = animationProperty.riseFromBelow.initial;
   const rotateAnimateProps = animationProperty.rotate.animate;
   const rotateTransitionProps = animationProperty.rotate.transition;
 
@@ -44,6 +45,7 @@ export const Top: FC = () => {
           componentType="p"
           animateProps={riseFromBelowAnimateProps}
           transitionProps={getRiseFromBelowTransitionProps(0)}
+          initialProps={riseFromBelowInitialProps}
         >
           welcome
         </SimpleAnimation>
@@ -53,6 +55,7 @@ export const Top: FC = () => {
           transitionProps={getRiseFromBelowTransitionProps(
             DEFAULT_DELAY_SECOND,
           )}
+          initialProps={riseFromBelowInitialProps}
         >
           <SimpleAnimation
             componentType="div"
@@ -74,6 +77,7 @@ export const Top: FC = () => {
                 transitionProps={getRiseFromBelowTransitionProps(
                   DEFAULT_DELAY_SECOND + (index + 1) * DEFAULT_DELAY_SECOND,
                 )}
+                initialProps={riseFromBelowInitialProps}
               >
                 <LinkButton
                   text={button.TEXT}

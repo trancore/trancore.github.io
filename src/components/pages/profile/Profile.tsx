@@ -17,6 +17,7 @@ export const Profile: FC = () => {
   const { animationProperty } = framerMotion();
 
   const animationProps = animationProperty.riseFromBelow.animate;
+  const initialProps = animationProperty.riseFromBelow.initial;
 
   const getTransitionProps = (delay: number) => {
     return { ...animationProperty.riseFromBelow.transition, delay: delay };
@@ -29,6 +30,7 @@ export const Profile: FC = () => {
           componentType="p"
           animateProps={animationProps}
           transitionProps={getTransitionProps(0)}
+          initialProps={initialProps}
         >
           Profile
         </SimpleAnimation>
@@ -36,6 +38,7 @@ export const Profile: FC = () => {
           componentType="div"
           animateProps={animationProps}
           transitionProps={getTransitionProps(DEFAULT_DELAY_SECOND)}
+          initialProps={initialProps}
         >
           {/* TODO: 自画像に変更する */}
           <Me className={classes["profile-image"]} />
@@ -46,6 +49,7 @@ export const Profile: FC = () => {
           componentType="div"
           animateProps={animationProps}
           transitionProps={getTransitionProps(DEFAULT_DELAY_SECOND + 0.5)}
+          initialProps={initialProps}
         >
           <Table tableHeaderTitle="Career" tableBodyRows={CARRER_LIST} />
         </SimpleAnimation>
@@ -53,6 +57,7 @@ export const Profile: FC = () => {
           componentType="div"
           animateProps={animationProps}
           transitionProps={getTransitionProps(DEFAULT_DELAY_SECOND + 1.0)}
+          initialProps={initialProps}
         >
           <Table
             tableHeaderTitle="Qualification"
