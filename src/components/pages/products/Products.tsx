@@ -21,7 +21,7 @@ export const Products: FC = () => {
   });
 
   const repositories = useMemo<
-    ComponentProps<typeof Repository>["repositry"][] | undefined
+    ComponentProps<typeof Repository>["repository"][] | undefined
   >(() => {
     return data?.repositoryOwner?.repositories.edges
       ?.filter((edge) => {
@@ -32,10 +32,13 @@ export const Products: FC = () => {
           readme:
             (edge?.node?.object?.__typename === "Blob" &&
               edge?.node?.object?.text) ||
-            "",
+            "null",
           name: edge?.node?.name || "",
           description: edge?.node?.description || "",
-          codeLanguage: edge?.node?.primaryLanguage?.name || "",
+          codeLanguage: {
+            language: edge?.node?.primaryLanguage?.name || "",
+            clolr: edge?.node?.primaryLanguage?.color || "",
+          },
         };
       });
   }, [data]);
@@ -70,7 +73,7 @@ export const Products: FC = () => {
                   DEFAULT_DELAY_SECOND + (index + 1) * DEFAULT_DELAY_SECOND,
                 )}
               >
-                <Repository key={repository.name} repositry={repository} />
+                <Repository key={repository.name} repository={repository} />
               </SimpleAnimation>
             </div>
           ))}
