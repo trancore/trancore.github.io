@@ -1,9 +1,8 @@
-/* stylelint-disable no-invalid-position-at-import-rule */
 @use "./styles/variables";
 
-@import-normalize;
-
 @import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap");
+
+@import-normalize;
 
 // 変数
 :root {
