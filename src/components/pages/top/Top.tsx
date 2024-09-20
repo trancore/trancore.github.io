@@ -62,7 +62,12 @@ export const Top: FC = () => {
             animateProps={rotateAnimateProps}
             transitionProps={rotateTransitionProps}
           >
-            <img className={classes["nazo-image"]} src={geometry68} />
+            <img
+              className={classes["nazo-image"]}
+              src={geometry68}
+              width={300}
+              height={314}
+            />
           </SimpleAnimation>
         </SimpleAnimation>
       </div>
