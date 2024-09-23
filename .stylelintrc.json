@@ -6,7 +6,8 @@
     "order/properties-alphabetical-order": true,
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
-    "media-feature-range-notation": "prefix"
+    "media-feature-range-notation": "prefix",
+    "media-query-no-invalid": null
   },
   "customSyntax": "postcss-scss"
 }
