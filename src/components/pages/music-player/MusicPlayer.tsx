@@ -1,4 +1,11 @@
-import { ComponentProps, FC, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  ComponentProps,
+  FC,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { Link } from "react-router-dom";
 
@@ -13,6 +20,14 @@ type MusicList = ComponentProps<typeof MusicTable>["musicList"];
 
 export const MusicPlayer: FC = () => {
   const [musicList, setMusicList] = useState<MusicList>();
+  const fileElement = useRef<HTMLInputElement>(null);
+
+  function onClickInputFileList() {
+    fileElement.current?.click();
+  }
+  function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
+    const { value } = event.target;
+  }
 
   useEffect(() => {
     // setMusicList([
@@ -86,8 +101,14 @@ export const MusicPlayer: FC = () => {
           <Icon name="ArrowLeft" size={32}></Icon>
         </Link>
         <div className={classes["input-file"]}>
-          <input id="fileElement" type="file" multiple></input>
-          <button id="fileSelect" type="button">
+          <input
+            id="fileElement"
+            type="file"
+            ref={fileElement}
+            onChange={onChangeFileList}
+            multiple
+          ></input>
+          <button id="fileSelect" type="button" onClick={onClickInputFileList}>
             ファイル選択
           </button>
         </div>
