@@ -1,11 +1,4 @@
-import {
-  ChangeEvent,
-  ComponentProps,
-  FC,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, ComponentProps, FC, useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -14,19 +7,24 @@ import { PAGE_PATH } from "~/const";
 import { Icon } from "~/components/common/icon/Icon";
 import { MusicTable } from "~/components/common/table/MusicTable";
 
+import useFile from "~/hooks/useFile";
+import useMusicPlayer from "~/hooks/useMusicPlayer";
+
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
 type MusicList = ComponentProps<typeof MusicTable>["musicList"];
 
 export const MusicPlayer: FC = () => {
   const [musicList, setMusicList] = useState<MusicList>();
-  const fileElement = useRef<HTMLInputElement>(null);
+  const { fileRef, onClickInputFileList } = useFile();
+  const { getMusicList } = useMusicPlayer();
 
-  function onClickInputFileList() {
-    fileElement.current?.click();
-  }
   function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
-    const { value } = event.target;
+    const { files } = event.target;
+
+    if (files === null || files.length === 0) return;
+
+    const musicList = getMusicList(files);
   }
 
   useEffect(() => {
@@ -104,7 +102,7 @@ export const MusicPlayer: FC = () => {
           <input
             id="fileElement"
             type="file"
-            ref={fileElement}
+            ref={fileRef}
             onChange={onChangeFileList}
             multiple
           ></input>
