@@ -1,3 +1,5 @@
+@use "../../../styles/variables";
+
 .header {
   background-color: var(--color-background);
   padding: 44px 48px;
@@ -8,5 +10,9 @@
     display: flex;
     gap: 72px;
     justify-content: flex-end;
+
+    @media screen and (max-width: #{map-get(variables.$breakpoints, sp)}) {
+      justify-content: center;
+    }
   }
 }

@@ -4,7 +4,7 @@ const BREAK_POINTS = {
   SP: "767px",
   TABLAT: "1179px",
   PC: "1180px",
-};
+} as const;
 
 export const useMediaQuery = () => {
   const matchMediaForSp = `screen and (max-width: ${BREAK_POINTS.SP})`;
