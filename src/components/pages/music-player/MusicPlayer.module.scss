@@ -21,6 +21,10 @@
     }
   }
 
+  .no-music {
+    font-size: var(--fontsize-text-text);
+  }
+
   .content {
     display: flex;
     flex-direction: column;

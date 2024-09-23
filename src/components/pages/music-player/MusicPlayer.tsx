@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { ComponentProps, FC, useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -9,69 +9,75 @@ import { MusicTable } from "~/components/common/table/MusicTable";
 
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
+type MusicList = ComponentProps<typeof MusicTable>["musicList"];
+
 export const MusicPlayer: FC = () => {
-  const musicList = [
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-    {
-      artist: "kosuke iwasaki",
-      title: "test test test",
-      length: "20:00",
-    },
-  ];
+  const [musicList, setMusicList] = useState<MusicList>();
+
+  useEffect(() => {
+    // setMusicList([
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    //   {
+    //     artist: "kosuke iwasaki",
+    //     title: "test test test",
+    //     length: "20:00",
+    //   },
+    // ]);
+  }, []);
 
   return (
     <div className={classes["music-player"]}>
@@ -86,30 +92,34 @@ export const MusicPlayer: FC = () => {
           </button>
         </div>
       </header>
-      <div className={classes.content}>
-        <div className={classes["music-meta"]}>
-          <div className={classes["jacket-picture"]}></div>
-          <div className={classes["player-control"]}>
-            <div className={classes.player}>
-              <div className={classes.time}>
-                <p>0:00</p>
-                <input className={classes.seekbar} type="range"></input>
-                <p>999:99</p>
+      {musicList && musicList.length > 0 ? (
+        <div className={classes.content}>
+          <div className={classes["music-meta"]}>
+            <div className={classes["jacket-picture"]}></div>
+            <div className={classes["player-control"]}>
+              <div className={classes.player}>
+                <div className={classes.time}>
+                  <p>0:00</p>
+                  <input className={classes.seekbar} type="range"></input>
+                  <p>999:99</p>
+                </div>
+                <p>Artist - 曲名</p>
+                <div className={classes.control}>
+                  <Icon name="Backforward" size={24}></Icon>
+                  <span className={classes.play}>
+                    <Icon name="Fish" size={44}></Icon>
+                    {/* <Icon name="Resume" size={44}></Icon> */}
+                  </span>
+                  <Icon name="Forward" size={24}></Icon>
+                </div>
               </div>
-              <p>Artist - 曲名</p>
-              <div className={classes.control}>
-                <Icon name="Backforward" size={24}></Icon>
-                <span className={classes.play}>
-                  <Icon name="Fish" size={44}></Icon>
-                  {/* <Icon name="Resume" size={44}></Icon> */}
-                </span>
-                <Icon name="Forward" size={24}></Icon>
-              </div>
+              <MusicTable musicList={musicList}></MusicTable>
             </div>
-            <MusicTable musicList={musicList}></MusicTable>
           </div>
         </div>
-      </div>
+      ) : (
+        <p className={classes["no-music"]}>音楽を選択してください</p>
+      )}
     </div>
   );
 };
