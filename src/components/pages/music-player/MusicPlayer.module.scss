@@ -31,6 +31,10 @@
     flex-grow: 1;
     justify-content: center;
 
+    @media screen and (max-width: #{map-get(variables.$breakpoints, sp)}) {
+      justify-content: normal;
+    }
+
     > .music-meta {
       display: flex;
       flex-direction: row;
@@ -41,6 +45,7 @@
         align-items: center;
         display: flex;
         flex-direction: column;
+        gap: 16px;
       }
 
       > .jacket-picture {
