@@ -4,27 +4,66 @@ import { Link } from "react-router-dom";
 
 import { PAGE_PATH } from "~/const";
 
+import { Loading } from "~/components/common/animation/Loading";
+import { IconButton } from "~/components/common/button/IconButton";
 import { Icon } from "~/components/common/icon/Icon";
 import { MusicTable } from "~/components/common/table/MusicTable";
 
 import useFile from "~/hooks/useFile";
-import useMusicPlayer from "~/hooks/useMusicPlayer";
+import useMusic from "~/hooks/useMusic";
 
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
-type MusicList = ComponentProps<typeof MusicTable>["musicList"];
+type CurrentMusic = {
+  url: string;
+  musicMetadata: ComponentProps<typeof MusicTable>["musicList"][number];
+};
 
 export const MusicPlayer: FC = () => {
-  const [musicList, setMusicList] = useState<MusicList>();
+  const [currentMusicList, setCurrentMusicList] = useState<CurrentMusic[]>([]);
   const { fileRef, onClickInputFileList } = useFile();
-  const { getMusicList } = useMusicPlayer();
+  const {
+    currentMusic,
+    isLoading,
+    status,
+    getAudioArrayBuffer,
+    getMusicURL,
+    pause,
+    play,
+    setIsLoading,
+  } = useMusic();
 
-  function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
+  async function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
     const { files } = event.target;
 
-    if (files === null || files.length === 0) return;
+    setIsLoading(true);
+    setCurrentMusicList([]);
 
-    const musicList = getMusicList(files);
+    if (files === null || files.length === 0) {
+      setIsLoading(false);
+      return;
+    }
+
+    for (let i = 0; i < files.length; i++) {
+      const objectURLMusic = getMusicURL(files[i]);
+      const arrayBuffer = await getAudioArrayBuffer(files[i]);
+      const music = {
+        url: objectURLMusic,
+        musicMetadata: {
+          title: "test",
+          artist: "test",
+          length: "999:99",
+        },
+      };
+      currentMusicList.push(music);
+    }
+
+    currentMusic.src = currentMusicList[0].url;
+
+    setCurrentMusicList(currentMusicList);
+    setIsLoading(false);
+
+    console.log("準備完了");
   }
 
   useEffect(() => {
@@ -111,7 +150,8 @@ export const MusicPlayer: FC = () => {
           </button>
         </div>
       </header>
-      {musicList && musicList.length > 0 ? (
+      {isLoading && <Loading />}
+      {currentMusicList && currentMusicList.length > 0 ? (
         <div className={classes.content}>
           <div className={classes["music-meta"]}>
             <div className={classes["jacket-picture"]}></div>
@@ -125,14 +165,25 @@ export const MusicPlayer: FC = () => {
                 <p>Artist - 曲名</p>
                 <div className={classes.control}>
                   <Icon name="Backforward" size={24}></Icon>
-                  <span className={classes.play}>
-                    <Icon name="Fish" size={44}></Icon>
-                    {/* <Icon name="Resume" size={44}></Icon> */}
-                  </span>
+                  {status === "PLAY" ? (
+                    <IconButton
+                      icon={{ name: "Resume", size: 44 }}
+                      onclick={() => pause()}
+                    />
+                  ) : (
+                    <span className={classes.play}>
+                      <IconButton
+                        icon={{ name: "Fish", size: 44 }}
+                        onclick={() => play()}
+                      />
+                    </span>
+                  )}
                   <Icon name="Forward" size={24}></Icon>
                 </div>
               </div>
-              <MusicTable musicList={musicList}></MusicTable>
+              <MusicTable
+                musicList={currentMusicList.map((music) => music.musicMetadata)}
+              ></MusicTable>
             </div>
           </div>
         </div>
