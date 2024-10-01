@@ -24,18 +24,22 @@ export const MusicPlayer: FC = () => {
   const { fileRef, onClickInputFileList } = useFile();
   const {
     currentMusic,
+    currentMusicTime,
     isLoading,
     status,
+    clear,
     getAudioArrayBuffer,
     getMusicURL,
     pause,
     play,
     setIsLoading,
+    setCurrentMusic,
   } = useMusic();
 
   async function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
     const { files } = event.target;
 
+    clear();
     setIsLoading(true);
     setCurrentMusicList([]);
 
@@ -44,6 +48,7 @@ export const MusicPlayer: FC = () => {
       return;
     }
 
+    // 音楽リストの作成
     for (let i = 0; i < files.length; i++) {
       const objectURLMusic = getMusicURL(files[i]);
       const arrayBuffer = await getAudioArrayBuffer(files[i]);
@@ -58,8 +63,10 @@ export const MusicPlayer: FC = () => {
       currentMusicList.push(music);
     }
 
+    // 現在選択されている音楽に音楽ソースを設定
     currentMusic.src = currentMusicList[0].url;
 
+    setCurrentMusic(currentMusic);
     setCurrentMusicList(currentMusicList);
     setIsLoading(false);
 
@@ -158,7 +165,7 @@ export const MusicPlayer: FC = () => {
             <div className={classes["player-control"]}>
               <div className={classes.player}>
                 <div className={classes.time}>
-                  <p>0:00</p>
+                  <p>{currentMusicTime}</p>
                   <input className={classes.seekbar} type="range"></input>
                   <p>999:99</p>
                 </div>

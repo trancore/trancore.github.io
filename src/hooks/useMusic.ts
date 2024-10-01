@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+﻿import { useEffect, useState } from "react";
 
 const STATUS = {
   PLAY: "PLAY",
@@ -9,15 +9,29 @@ const STATUS = {
 type Status = keyof typeof STATUS;
 
 export default function useMusic() {
-  const context = new AudioContext();
-  const [currentMusic] = useState<HTMLAudioElement>(new Audio());
+  // const context = new AudioContext();
+  const [currentMusic, setCurrentMusic] = useState<HTMLAudioElement>(
+    new Audio(),
+  );
+  const [currentMusicTime, setCurrentMusicTime] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<Status>(STATUS.STOP);
 
-  const volumeControl = context.createGain();
+  // const volumeControl = context.createGain();
   //   const analyser = context.createAnalyser();
 
-  volumeControl.connect(context.destination);
+  // volumeControl.connect(context.destination);
+
+  useEffect(() => {
+    function updateCurrentTime() {
+      setCurrentMusicTime(currentMusic.currentTime);
+    }
+
+    currentMusic.addEventListener("timeupdate", updateCurrentTime);
+    return () => {
+      currentMusic.removeEventListener("timeupdate", updateCurrentTime);
+    };
+  }, [currentMusicTime, currentMusic, setCurrentMusicTime]);
 
   /**
    * 音楽ソースファイルへのURLをObjectURLに変換した音楽の取得
@@ -52,6 +66,15 @@ export default function useMusic() {
   }
 
   /**
+   * 状態の初期化
+   */
+  function clear() {
+    setCurrentMusic(new Audio());
+    setCurrentMusicTime(0);
+    setStatus(STATUS.STOP);
+  }
+
+  /**
    * 音楽の再生
    */
   function play() {
@@ -69,12 +92,15 @@ export default function useMusic() {
 
   return {
     currentMusic,
+    currentMusicTime,
     isLoading,
     status,
+    clear,
     getAudioArrayBuffer,
     getMusicURL,
     pause,
     play,
+    setCurrentMusic,
     setIsLoading,
   };
 }
