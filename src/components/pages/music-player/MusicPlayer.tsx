@@ -12,6 +12,8 @@ import { MusicTable } from "~/components/common/table/MusicTable";
 import useFile from "~/hooks/useFile";
 import useMusic from "~/hooks/useMusic";
 
+import { formatSecondsToMMSS } from "~/utils/format";
+
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
 type CurrentMusic = {
@@ -165,7 +167,7 @@ export const MusicPlayer: FC = () => {
             <div className={classes["player-control"]}>
               <div className={classes.player}>
                 <div className={classes.time}>
-                  <p>{currentMusicTime}</p>
+                  <p>{formatSecondsToMMSS(currentMusicTime)}</p>
                   <input className={classes.seekbar} type="range"></input>
                   <p>999:99</p>
                 </div>
