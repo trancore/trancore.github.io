@@ -1,5 +1,7 @@
 ﻿import { useEffect, useState } from "react";
 
+import { Metadata } from "~/types/Music";
+
 const STATUS = {
   PLAY: "PLAY",
   STOP: "STOP",
@@ -7,12 +9,18 @@ const STATUS = {
 } as const;
 
 type Status = keyof typeof STATUS;
+type CurrentMusic = {
+  url: string;
+  // TODO useMusicPlayerにするのでdisplayで問題ない。
+  display: Pick<Metadata, "title" | "artist" | "length">;
+};
 
 export default function useMusic() {
   // const context = new AudioContext();
   const [currentMusic, setCurrentMusic] = useState<HTMLAudioElement>(
     new Audio(),
   );
+  const [currentMusicList, setCurrentMusicList] = useState<CurrentMusic[]>([]);
   const [currentMusicTime, setCurrentMusicTime] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<Status>(STATUS.STOP);
@@ -92,6 +100,7 @@ export default function useMusic() {
 
   return {
     currentMusic,
+    currentMusicList,
     currentMusicTime,
     isLoading,
     status,
@@ -101,6 +110,7 @@ export default function useMusic() {
     pause,
     play,
     setCurrentMusic,
+    setCurrentMusicList,
     setIsLoading,
   };
 }

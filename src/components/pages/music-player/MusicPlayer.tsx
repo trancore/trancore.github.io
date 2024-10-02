@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentProps, FC, useEffect, useState } from "react";
+import { ChangeEvent, FC, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -16,16 +16,11 @@ import { formatSecondsToMMSS } from "~/utils/format";
 
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
-type CurrentMusic = {
-  url: string;
-  musicMetadata: ComponentProps<typeof MusicTable>["musicList"][number];
-};
-
 export const MusicPlayer: FC = () => {
-  const [currentMusicList, setCurrentMusicList] = useState<CurrentMusic[]>([]);
   const { fileRef, onClickInputFileList } = useFile();
   const {
     currentMusic,
+    currentMusicList,
     currentMusicTime,
     isLoading,
     status,
@@ -36,40 +31,46 @@ export const MusicPlayer: FC = () => {
     play,
     setIsLoading,
     setCurrentMusic,
+    setCurrentMusicList,
   } = useMusic();
 
   async function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
+    setIsLoading(true);
+
     const { files } = event.target;
 
     clear();
-    setIsLoading(true);
-    setCurrentMusicList([]);
+    setCurrentMusic(new Audio());
+    setCurrentMusicList((prevArray) =>
+      prevArray.filter((_, index) => index !== index),
+    );
 
     if (files === null || files.length === 0) {
       setIsLoading(false);
       return;
     }
 
+    const flushMusicList: typeof currentMusicList = [];
     // 音楽リストの作成
     for (let i = 0; i < files.length; i++) {
       const objectURLMusic = getMusicURL(files[i]);
       const arrayBuffer = await getAudioArrayBuffer(files[i]);
-      const music = {
+      const music: (typeof currentMusicList)[number] = {
         url: objectURLMusic,
-        musicMetadata: {
-          title: "test",
-          artist: "test",
+        display: {
+          title: `test${i}`,
+          artist: `test${i}`,
           length: "999:99",
         },
       };
-      currentMusicList.push(music);
+      flushMusicList.push(music);
     }
 
     // 現在選択されている音楽に音楽ソースを設定
-    currentMusic.src = currentMusicList[0].url;
+    currentMusic.src = flushMusicList[0].url;
 
     setCurrentMusic(currentMusic);
-    setCurrentMusicList(currentMusicList);
+    setCurrentMusicList(() => flushMusicList);
     setIsLoading(false);
 
     console.log("準備完了");
@@ -191,7 +192,7 @@ export const MusicPlayer: FC = () => {
                 </div>
               </div>
               <MusicTable
-                musicList={currentMusicList.map((music) => music.musicMetadata)}
+                musicList={currentMusicList.map((music) => music.display)}
               ></MusicTable>
             </div>
           </div>
