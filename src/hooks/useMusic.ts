@@ -17,9 +17,13 @@ type CurrentMusic = {
 
 export default function useMusic() {
   // const context = new AudioContext();
-  const [currentMusic, setCurrentMusic] = useState<HTMLAudioElement>(
-    new Audio(),
-  );
+  const [currentMusic, setCurrentMusic] = useState<{
+    no: number;
+    audioElement: HTMLAudioElement;
+  }>({
+    no: 0,
+    audioElement: new Audio(),
+  });
   const [currentMusicList, setCurrentMusicList] = useState<CurrentMusic[]>([]);
   const [currentMusicTime, setCurrentMusicTime] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,12 +36,15 @@ export default function useMusic() {
 
   useEffect(() => {
     function updateCurrentTime() {
-      setCurrentMusicTime(currentMusic.currentTime);
+      setCurrentMusicTime(currentMusic.audioElement.currentTime);
     }
 
-    currentMusic.addEventListener("timeupdate", updateCurrentTime);
+    currentMusic.audioElement.addEventListener("timeupdate", updateCurrentTime);
     return () => {
-      currentMusic.removeEventListener("timeupdate", updateCurrentTime);
+      currentMusic.audioElement.removeEventListener(
+        "timeupdate",
+        updateCurrentTime,
+      );
     };
   }, [currentMusicTime, currentMusic, setCurrentMusicTime]);
 
@@ -77,7 +84,7 @@ export default function useMusic() {
    * 状態の初期化
    */
   function clear() {
-    setCurrentMusic(new Audio());
+    setCurrentMusic({ no: 0, audioElement: new Audio() });
     setCurrentMusicTime(0);
     setStatus(STATUS.STOP);
   }
@@ -86,7 +93,7 @@ export default function useMusic() {
    * 音楽の再生
    */
   function play() {
-    currentMusic.play();
+    currentMusic.audioElement.play();
     setStatus(STATUS.PLAY);
   }
 
@@ -94,9 +101,19 @@ export default function useMusic() {
    * 音楽の一時停止
    */
   function pause() {
-    currentMusic.pause();
+    currentMusic.audioElement.pause();
     setStatus(STATUS.PAUSE);
   }
+
+  function forward() {
+    const nextMusic = new Audio();
+    const nextNo =
+      currentMusicList.length > currentMusic.no + 1 ? currentMusic.no + 1 : 1;
+    nextMusic.src = currentMusicList[nextNo - 1].url;
+    setCurrentMusic({ no: nextNo, audioElement: nextMusic });
+  }
+
+  function backForward() {}
 
   return {
     currentMusic,
@@ -105,6 +122,7 @@ export default function useMusic() {
     isLoading,
     status,
     clear,
+    forward,
     getAudioArrayBuffer,
     getMusicURL,
     pause,

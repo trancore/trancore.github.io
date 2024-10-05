@@ -25,6 +25,7 @@ export const MusicPlayer: FC = () => {
     isLoading,
     status,
     clear,
+    forward,
     getAudioArrayBuffer,
     getMusicURL,
     pause,
@@ -40,7 +41,7 @@ export const MusicPlayer: FC = () => {
     const { files } = event.target;
 
     clear();
-    setCurrentMusic(new Audio());
+    setCurrentMusic({ no: 0, audioElement: new Audio() });
     setCurrentMusicList((prevArray) =>
       prevArray.filter((_, index) => index !== index),
     );
@@ -67,9 +68,9 @@ export const MusicPlayer: FC = () => {
     }
 
     // 現在選択されている音楽に音楽ソースを設定
-    currentMusic.src = flushMusicList[0].url;
+    currentMusic.audioElement.src = flushMusicList[0].url;
 
-    setCurrentMusic(currentMusic);
+    setCurrentMusic({ no: 1, audioElement: currentMusic.audioElement });
     setCurrentMusicList(() => flushMusicList);
     setIsLoading(false);
 
@@ -188,7 +189,10 @@ export const MusicPlayer: FC = () => {
                       />
                     </span>
                   )}
-                  <Icon name="Forward" size={24}></Icon>
+                  <IconButton
+                    icon={{ name: "Forward", size: 24 }}
+                    onclick={() => forward()}
+                  />
                 </div>
               </div>
               <MusicTable
