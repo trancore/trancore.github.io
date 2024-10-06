@@ -24,6 +24,7 @@ export const MusicPlayer: FC = () => {
     currentMusicTime,
     isLoading,
     status,
+    backForward,
     clear,
     forward,
     getAudioArrayBuffer,
@@ -31,23 +32,22 @@ export const MusicPlayer: FC = () => {
     pause,
     play,
     setIsLoading,
-    setCurrentMusic,
     setCurrentMusicList,
   } = useMusic();
 
   async function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
-    setIsLoading(true);
+    setIsLoading(() => true);
 
     const { files } = event.target;
 
     clear();
-    setCurrentMusic({ no: 0, audioElement: new Audio() });
+    currentMusic.current = { no: 0, audioElement: new Audio() };
     setCurrentMusicList((prevArray) =>
       prevArray.filter((_, index) => index !== index),
     );
 
     if (files === null || files.length === 0) {
-      setIsLoading(false);
+      setIsLoading(() => false);
       return;
     }
 
@@ -68,11 +68,14 @@ export const MusicPlayer: FC = () => {
     }
 
     // 現在選択されている音楽に音楽ソースを設定
-    currentMusic.audioElement.src = flushMusicList[0].url;
+    currentMusic.current.audioElement.src = flushMusicList[0].url;
 
-    setCurrentMusic({ no: 1, audioElement: currentMusic.audioElement });
-    setCurrentMusicList(() => flushMusicList);
-    setIsLoading(false);
+    currentMusic.current = {
+      no: 1,
+      audioElement: currentMusic.current.audioElement,
+    };
+    setCurrentMusicList(flushMusicList);
+    setIsLoading(() => false);
 
     console.log("準備完了");
   }
@@ -175,7 +178,13 @@ export const MusicPlayer: FC = () => {
                 </div>
                 <p>Artist - 曲名</p>
                 <div className={classes.control}>
-                  <Icon name="Backforward" size={24}></Icon>
+                  <IconButton
+                    icon={{ name: "Backforward", size: 24 }}
+                    onclick={async () => {
+                      backForward();
+                      await play();
+                    }}
+                  />
                   {status === "PLAY" ? (
                     <IconButton
                       icon={{ name: "Resume", size: 44 }}
@@ -191,7 +200,10 @@ export const MusicPlayer: FC = () => {
                   )}
                   <IconButton
                     icon={{ name: "Forward", size: 24 }}
-                    onclick={() => forward()}
+                    onclick={async () => {
+                      forward();
+                      await play();
+                    }}
                   />
                 </div>
               </div>
