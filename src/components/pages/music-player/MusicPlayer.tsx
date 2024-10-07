@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useEffect } from "react";
+import { ChangeEvent, FC, useEffect, useRef } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -22,6 +22,7 @@ export const MusicPlayer: FC = () => {
     currentMusic,
     currentMusicList,
     currentMusicTime,
+    duration,
     isLoading,
     status,
     backForward,
@@ -29,11 +30,14 @@ export const MusicPlayer: FC = () => {
     forward,
     getAudioArrayBuffer,
     getMusicURL,
+    loadedAudioMetadata,
     pause,
     play,
     setIsLoading,
     setCurrentMusicList,
+    setDuration,
   } = useMusic();
+  const seekBarRef = useRef<HTMLInputElement>(null);
 
   async function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
     setIsLoading(() => true);
@@ -69,18 +73,31 @@ export const MusicPlayer: FC = () => {
 
     // 現在選択されている音楽に音楽ソースを設定
     currentMusic.current.audioElement.src = flushMusicList[0].url;
+    const duration = await loadedAudioMetadata(
+      currentMusic.current.audioElement,
+    );
 
     currentMusic.current = {
       no: 1,
       audioElement: currentMusic.current.audioElement,
     };
     setCurrentMusicList(flushMusicList);
+    setDuration(duration);
     setIsLoading(() => false);
 
     console.log("準備完了");
   }
 
+  function onClickSeekbar(event: ChangeEvent<HTMLInputElement>) {
+    const { value } = event.target;
+    currentMusic.current.audioElement.currentTime = Number(value);
+  }
+
   useEffect(() => {
+    if (seekBarRef.current) {
+      seekBarRef.current.value = String(currentMusicTime);
+    }
+
     // setMusicList([
     //   {
     //     artist: "kosuke iwasaki",
@@ -143,7 +160,7 @@ export const MusicPlayer: FC = () => {
     //     length: "20:00",
     //   },
     // ]);
-  }, []);
+  }, [currentMusicTime]);
 
   return (
     <div className={classes["music-player"]}>
@@ -173,8 +190,16 @@ export const MusicPlayer: FC = () => {
               <div className={classes.player}>
                 <div className={classes.time}>
                   <p>{formatSecondsToMMSS(currentMusicTime)}</p>
-                  <input className={classes.seekbar} type="range"></input>
-                  <p>999:99</p>
+                  <input
+                    className={classes.seekbar}
+                    type="range"
+                    ref={seekBarRef}
+                    step={1}
+                    max={duration}
+                    value={currentMusicTime || 0}
+                    onChange={onClickSeekbar}
+                  ></input>
+                  <p>{formatSecondsToMMSS(duration)}</p>
                 </div>
                 <p>Artist - 曲名</p>
                 <div className={classes.control}>

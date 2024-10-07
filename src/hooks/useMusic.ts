@@ -26,6 +26,7 @@ export default function useMusic() {
   });
   const [currentMusicList, setCurrentMusicList] = useState<CurrentMusic[]>([]);
   const [currentMusicTime, setCurrentMusicTime] = useState<number>(0);
+  const [duration, setDuration] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<Status>(STATUS.STOP);
 
@@ -49,7 +50,7 @@ export default function useMusic() {
         updateCurrentTime,
       );
     };
-  }, [currentMusicTime, currentMusic, setCurrentMusicTime]);
+  }, [currentMusicTime, currentMusic.current, setCurrentMusicTime]);
 
   /**
    * 音楽ソースファイルへのURLをObjectURLに変換した音楽の取得
@@ -83,6 +84,17 @@ export default function useMusic() {
     });
   }
 
+  function loadedAudioMetadata(
+    audioElement: HTMLAudioElement,
+  ): Promise<number> {
+    return new Promise((resolve, reject) => {
+      audioElement.addEventListener("loadedmetadata", () => {
+        const { duration } = audioElement;
+        resolve(duration);
+      });
+    });
+  }
+
   /**
    * 状態の初期化
    */
@@ -90,6 +102,7 @@ export default function useMusic() {
     currentMusic.current.audioElement.remove();
     currentMusic.current = { no: 0, audioElement: new Audio() };
     setCurrentMusicTime(0);
+    setDuration(0);
     setStatus(STATUS.STOP);
   }
 
@@ -152,6 +165,7 @@ export default function useMusic() {
     currentMusic,
     currentMusicList,
     currentMusicTime,
+    duration,
     isLoading,
     status,
     backForward,
@@ -159,9 +173,11 @@ export default function useMusic() {
     forward,
     getAudioArrayBuffer,
     getMusicURL,
+    loadedAudioMetadata,
     pause,
     play,
     setCurrentMusicList,
+    setDuration,
     setIsLoading,
     stop,
   };
