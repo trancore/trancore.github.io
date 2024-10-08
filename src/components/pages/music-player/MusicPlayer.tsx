@@ -10,7 +10,7 @@ import { Icon } from "~/components/common/icon/Icon";
 import { MusicTable } from "~/components/common/table/MusicTable";
 
 import useFile from "~/hooks/useFile";
-import useMusic from "~/hooks/useMusic";
+import useMusicPlayer from "~/hooks/useMusicPlayer";
 
 import { formatSecondsToMMSS } from "~/utils/format";
 
@@ -36,7 +36,7 @@ export const MusicPlayer: FC = () => {
     setIsLoading,
     setCurrentMusicList,
     setDuration,
-  } = useMusic();
+  } = useMusicPlayer();
   const seekBarRef = useRef<HTMLInputElement>(null);
 
   async function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
