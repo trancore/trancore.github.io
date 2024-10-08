@@ -11,7 +11,6 @@ const STATUS = {
 type Status = keyof typeof STATUS;
 type CurrentMusic = {
   url: string;
-  // TODO useMusicPlayerにするのでdisplayで問題ない。
   display: Pick<Metadata, "title" | "artist" | "length">;
 };
 
@@ -103,7 +102,7 @@ export default function useMusicPlayer() {
   /**
    * 次の音楽へ進む
    */
-  function forward() {
+  async function forward() {
     stop();
     currentMusic.current.audioElement.remove();
     const nextMusic = new Audio();
@@ -113,6 +112,7 @@ export default function useMusicPlayer() {
         : 1;
     nextMusic.src = currentMusicList[nextNo - 1].url;
     currentMusic.current = { no: nextNo, audioElement: nextMusic };
+    await play();
   }
 
   /**
@@ -128,6 +128,7 @@ export default function useMusicPlayer() {
         : currentMusic.current.no - 1;
     previousMusic.src = currentMusicList[previousNo - 1].url;
     currentMusic.current = { no: previousNo, audioElement: previousMusic };
+    await play();
   }
 
   return {

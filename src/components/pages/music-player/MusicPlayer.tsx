@@ -206,30 +206,24 @@ export const MusicPlayer: FC = () => {
                 <div className={classes.control}>
                   <IconButton
                     icon={{ name: "Backforward", size: 24 }}
-                    onclick={async () => {
-                      backForward();
-                      await play();
-                    }}
+                    onclick={backForward}
                   />
                   {status === "PLAY" ? (
                     <IconButton
                       icon={{ name: "Resume", size: 44 }}
-                      onclick={() => pause()}
+                      onclick={pause}
                     />
                   ) : (
                     <span className={classes.play}>
                       <IconButton
                         icon={{ name: "Fish", size: 44 }}
-                        onclick={() => play()}
+                        onclick={play}
                       />
                     </span>
                   )}
                   <IconButton
                     icon={{ name: "Forward", size: 24 }}
-                    onclick={async () => {
-                      forward();
-                      await play();
-                    }}
+                    onclick={forward}
                   />
                 </div>
               </div>
