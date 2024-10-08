@@ -15,6 +15,9 @@ type CurrentMusic = {
   display: Pick<Metadata, "title" | "artist" | "length">;
 };
 
+/**
+ * ミュージックプレーヤーを扱うためのhooks
+ */
 export default function useMusicPlayer() {
   // const context = new AudioContext();
   const currentMusic = useRef<{
@@ -59,40 +62,6 @@ export default function useMusicPlayer() {
    */
   function getMusicURL(file: File): string {
     return window.URL.createObjectURL(file);
-  }
-
-  /**
-   * 音楽のBinary Dataを取得
-   * @param {File} file 音楽ファイル
-   * @returns {Promise<string | ArrayBuffer | null>} Binary Data
-   */
-  function getAudioArrayBuffer(
-    file: File,
-  ): Promise<string | ArrayBuffer | null> {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-
-      fileReader.readAsArrayBuffer(file);
-
-      fileReader.onload = function () {
-        const result = fileReader.result;
-        resolve(result);
-      };
-      fileReader.onerror = () => {
-        reject(new Error("File reading failed"));
-      };
-    });
-  }
-
-  function loadedAudioMetadata(
-    audioElement: HTMLAudioElement,
-  ): Promise<number> {
-    return new Promise((resolve, reject) => {
-      audioElement.addEventListener("loadedmetadata", () => {
-        const { duration } = audioElement;
-        resolve(duration);
-      });
-    });
   }
 
   /**
@@ -171,9 +140,7 @@ export default function useMusicPlayer() {
     backForward,
     clear,
     forward,
-    getAudioArrayBuffer,
     getMusicURL,
-    loadedAudioMetadata,
     pause,
     play,
     setCurrentMusicList,
