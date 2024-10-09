@@ -27,10 +27,12 @@ export default function useMusicPlayer() {
     audioElement: new Audio(),
   });
   const [currentMusicList, setCurrentMusicList] = useState<CurrentMusic[]>([]);
-  const [currentMusicTime, setCurrentMusicTime] = useState<number>(0);
-  const [duration, setDuration] = useState(0);
+  const [currentMusicPlayTime, setCurrentMusicPlayTime] = useState<number>(0);
+  const [currentMusicDuration, setCurrentMusicDuration] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState<Status>(STATUS.STOP);
+  const [currentMusicStatus, setCurrentMusicStatus] = useState<Status>(
+    STATUS.STOP,
+  );
 
   // const volumeControl = context.createGain();
   //   const analyser = context.createAnalyser();
@@ -39,7 +41,7 @@ export default function useMusicPlayer() {
 
   useEffect(() => {
     function updateCurrentTime() {
-      setCurrentMusicTime(currentMusic.current.audioElement.currentTime);
+      setCurrentMusicPlayTime(currentMusic.current.audioElement.currentTime);
     }
 
     currentMusic.current.audioElement.addEventListener(
@@ -52,7 +54,7 @@ export default function useMusicPlayer() {
         updateCurrentTime,
       );
     };
-  }, [currentMusicTime, currentMusic.current, setCurrentMusicTime]);
+  }, [currentMusicPlayTime, currentMusic.current, setCurrentMusicPlayTime]);
 
   /**
    * 音楽ソースファイルへのURLをObjectURLに変換した音楽の取得
@@ -69,9 +71,9 @@ export default function useMusicPlayer() {
   function clear() {
     currentMusic.current.audioElement.remove();
     currentMusic.current = { no: 0, audioElement: new Audio() };
-    setCurrentMusicTime(0);
-    setDuration(0);
-    setStatus(STATUS.STOP);
+    setCurrentMusicPlayTime(0);
+    setCurrentMusicDuration(0);
+    setCurrentMusicStatus(STATUS.STOP);
   }
 
   /**
@@ -79,7 +81,7 @@ export default function useMusicPlayer() {
    */
   async function play(): Promise<void> {
     await currentMusic.current.audioElement.play();
-    setStatus(STATUS.PLAY);
+    setCurrentMusicStatus(STATUS.PLAY);
   }
 
   /**
@@ -87,7 +89,7 @@ export default function useMusicPlayer() {
    */
   function pause(): void {
     currentMusic.current.audioElement.pause();
-    setStatus(STATUS.PAUSE);
+    setCurrentMusicStatus(STATUS.PAUSE);
   }
 
   /**
@@ -96,7 +98,7 @@ export default function useMusicPlayer() {
   function stop() {
     currentMusic.current.audioElement.pause();
     currentMusic.current.audioElement.currentTime = 0;
-    setStatus(STATUS.STOP);
+    setCurrentMusicStatus(STATUS.STOP);
   }
 
   /**
@@ -134,19 +136,21 @@ export default function useMusicPlayer() {
   return {
     currentMusic,
     currentMusicList,
-    currentMusicTime,
-    duration,
-    isLoading,
-    status,
-    backForward,
-    clear,
-    forward,
-    getMusicURL,
-    pause,
-    play,
     setCurrentMusicList,
-    setDuration,
+    currentMusicPlayTime,
+    setCurrentMusicPlayTime,
+    currentMusicDuration,
+    setCurrentMusicDuration,
+    isLoading,
     setIsLoading,
+    currentMusicStatus,
+    setCurrentMusicStatus,
+    clear,
+    play,
     stop,
+    pause,
+    forward,
+    backForward,
+    getMusicURL,
   };
 }

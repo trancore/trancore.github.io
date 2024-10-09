@@ -24,19 +24,19 @@ export const MusicPlayer: FC = () => {
   const {
     currentMusic,
     currentMusicList,
-    currentMusicTime,
-    duration,
-    isLoading,
-    status,
-    backForward,
-    clear,
-    forward,
-    getMusicURL,
-    pause,
-    play,
-    setIsLoading,
     setCurrentMusicList,
-    setDuration,
+    currentMusicPlayTime,
+    currentMusicDuration,
+    setCurrentMusicDuration,
+    isLoading,
+    setIsLoading,
+    currentMusicStatus,
+    clear,
+    play,
+    pause,
+    forward,
+    backForward,
+    getMusicURL,
   } = useMusicPlayer();
   const seekBarRef = useRef<HTMLInputElement>(null);
 
@@ -83,7 +83,7 @@ export const MusicPlayer: FC = () => {
       audioElement: currentMusic.current.audioElement,
     };
     setCurrentMusicList(flushMusicList);
-    setDuration(duration);
+    setCurrentMusicDuration(duration);
     setIsLoading(() => false);
 
     console.log("準備完了");
@@ -96,7 +96,7 @@ export const MusicPlayer: FC = () => {
 
   useEffect(() => {
     if (seekBarRef.current) {
-      seekBarRef.current.value = String(currentMusicTime);
+      seekBarRef.current.value = String(currentMusicPlayTime);
     }
 
     // setMusicList([
@@ -161,7 +161,7 @@ export const MusicPlayer: FC = () => {
     //     length: "20:00",
     //   },
     // ]);
-  }, [currentMusicTime]);
+  }, [currentMusicPlayTime]);
 
   return (
     <div className={classes["music-player"]}>
@@ -190,17 +190,17 @@ export const MusicPlayer: FC = () => {
             <div className={classes["player-control"]}>
               <div className={classes.player}>
                 <div className={classes.time}>
-                  <p>{formatSecondsToMMSS(currentMusicTime)}</p>
+                  <p>{formatSecondsToMMSS(currentMusicPlayTime)}</p>
                   <input
                     className={classes.seekbar}
                     type="range"
                     ref={seekBarRef}
                     step={1}
-                    max={duration}
-                    value={currentMusicTime || 0}
+                    max={currentMusicDuration}
+                    value={currentMusicPlayTime || 0}
                     onChange={onClickSeekbar}
                   ></input>
-                  <p>{formatSecondsToMMSS(duration)}</p>
+                  <p>{formatSecondsToMMSS(currentMusicDuration)}</p>
                 </div>
                 <p>Artist - 曲名</p>
                 <div className={classes.control}>
@@ -208,7 +208,7 @@ export const MusicPlayer: FC = () => {
                     icon={{ name: "Backforward", size: 24 }}
                     onclick={backForward}
                   />
-                  {status === "PLAY" ? (
+                  {currentMusicStatus === "PLAY" ? (
                     <IconButton
                       icon={{ name: "Resume", size: 44 }}
                       onclick={pause}
