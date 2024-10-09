@@ -1,33 +1,7 @@
-﻿import { useState } from "react";
-
-const STATUS = {
-  PLAY: "PLAY",
-  STOP: "STOP",
-  PAUSE: "PAUSE",
-} as const;
-
-type Status = keyof typeof STATUS;
-
+﻿/**
+ * 音楽そのものを取り扱うためのhooks
+ */
 export default function useMusic() {
-  const context = new AudioContext();
-  const [currentMusic] = useState<HTMLAudioElement>(new Audio());
-  const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState<Status>(STATUS.STOP);
-
-  const volumeControl = context.createGain();
-  //   const analyser = context.createAnalyser();
-
-  volumeControl.connect(context.destination);
-
-  /**
-   * 音楽ソースファイルへのURLをObjectURLに変換した音楽の取得
-   * @param {File} file 選択されたファイル
-   * @returns {string} ObjectURLに変換した音楽
-   */
-  function getMusicURL(file: File): string {
-    return window.URL.createObjectURL(file);
-  }
-
   /**
    * 音楽のBinary Dataを取得
    * @param {File} file 音楽ファイル
@@ -52,29 +26,22 @@ export default function useMusic() {
   }
 
   /**
-   * 音楽の再生
+   * 音楽メタタグ情報の読み込み
+   * @param {HTMLAudioElement} audioElement 音楽要素
+   * @returns {number} （今のところ）再生時間
    */
-  function play() {
-    currentMusic.play();
-    setStatus(STATUS.PLAY);
+  function loadedAudioMetadata(
+    audioElement: HTMLAudioElement,
+  ): Promise<number> {
+    return new Promise((resolve, reject) => {
+      audioElement.addEventListener("loadedmetadata", () => {
+        const { duration } = audioElement;
+        resolve(duration);
+      });
+    });
   }
-
-  /**
-   * 音楽の一時停止
-   */
-  function pause() {
-    currentMusic.pause();
-    setStatus(STATUS.PAUSE);
-  }
-
   return {
-    currentMusic,
-    isLoading,
-    status,
     getAudioArrayBuffer,
-    getMusicURL,
-    pause,
-    play,
-    setIsLoading,
+    loadedAudioMetadata,
   };
 }
