@@ -20,7 +20,7 @@ import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 export const MusicPlayer: FC = () => {
   const { fileRef, onClickInputFileList } = useFile();
   // FIXME 一旦直接取得。できればuseMusicPlayerで取得したい。
-  const { getAudioArrayBuffer, loadedAudioMetadata } = useMusic();
+  const { getAudioUint8Array, loadedAudioMetadata } = useMusic();
   const {
     currentMusic,
     currentMusicList,
@@ -60,7 +60,7 @@ export const MusicPlayer: FC = () => {
     // 音楽リストの作成
     for (let i = 0; i < files.length; i++) {
       const objectURLMusic = getMusicURL(files[i]);
-      const arrayBuffer = await getAudioArrayBuffer(files[i]);
+      const arrayBuffer = await getAudioUint8Array(files[i]);
       const music: (typeof currentMusicList)[number] = {
         url: objectURLMusic,
         display: {

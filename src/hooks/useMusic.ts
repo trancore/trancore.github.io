@@ -7,9 +7,7 @@ export default function useMusic() {
    * @param {File} file 音楽ファイル
    * @returns {Promise<string | ArrayBuffer | null>} Binary Data
    */
-  function getAudioArrayBuffer(
-    file: File,
-  ): Promise<string | ArrayBuffer | null> {
+  function getAudioUint8Array(file: File): Promise<Uint8Array> {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
 
@@ -17,10 +15,15 @@ export default function useMusic() {
 
       fileReader.onload = function () {
         const result = fileReader.result;
-        resolve(result);
+        if (result === null || typeof result === "string") {
+          return reject(new Error("File reading failed"));
+        }
+        // FIXME 8じゃなくて16の方が良い？？？
+        const uint8ArrayResult = new Uint8Array(result);
+        return resolve(uint8ArrayResult);
       };
       fileReader.onerror = () => {
-        reject(new Error("File reading failed"));
+        return reject(new Error("File reading failed"));
       };
     });
   }
@@ -41,7 +44,7 @@ export default function useMusic() {
     });
   }
   return {
-    getAudioArrayBuffer,
+    getAudioUint8Array,
     loadedAudioMetadata,
   };
 }
