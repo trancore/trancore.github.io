@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentProps, FC, useEffect, useState } from "react";
+import { ChangeEvent, FC, useEffect, useRef } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -11,62 +11,94 @@ import { MusicTable } from "~/components/common/table/MusicTable";
 
 import useFile from "~/hooks/useFile";
 import useMusic from "~/hooks/useMusic";
+import useMusicPlayer from "~/hooks/useMusicPlayer";
+
+import { formatSecondsToMMSS } from "~/utils/format";
 
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
-type CurrentMusic = {
-  url: string;
-  musicMetadata: ComponentProps<typeof MusicTable>["musicList"][number];
-};
-
 export const MusicPlayer: FC = () => {
-  const [currentMusicList, setCurrentMusicList] = useState<CurrentMusic[]>([]);
   const { fileRef, onClickInputFileList } = useFile();
+  // FIXME 一旦直接取得。できればuseMusicPlayerで取得したい。
+  const { getAudioUint8Array, loadedAudioMetadata } = useMusic();
   const {
     currentMusic,
+    currentMusicList,
+    setCurrentMusicList,
+    currentMusicPlayTime,
+    currentMusicDuration,
+    setCurrentMusicDuration,
     isLoading,
-    status,
-    getAudioArrayBuffer,
-    getMusicURL,
-    pause,
-    play,
     setIsLoading,
-  } = useMusic();
+    currentMusicStatus,
+    clear,
+    play,
+    pause,
+    forward,
+    backForward,
+    getMusicURL,
+  } = useMusicPlayer();
+  const seekBarRef = useRef<HTMLInputElement>(null);
 
   async function onChangeFileList(event: ChangeEvent<HTMLInputElement>) {
+    setIsLoading(() => true);
+
     const { files } = event.target;
 
-    setIsLoading(true);
-    setCurrentMusicList([]);
+    clear();
+    currentMusic.current = { no: 0, audioElement: new Audio() };
+    setCurrentMusicList((prevArray) =>
+      prevArray.filter((_, index) => index !== index),
+    );
 
     if (files === null || files.length === 0) {
-      setIsLoading(false);
+      setIsLoading(() => false);
       return;
     }
 
+    const flushMusicList: typeof currentMusicList = [];
+    // 音楽リストの作成
     for (let i = 0; i < files.length; i++) {
       const objectURLMusic = getMusicURL(files[i]);
-      const arrayBuffer = await getAudioArrayBuffer(files[i]);
-      const music = {
+      const arrayBuffer = await getAudioUint8Array(files[i]);
+      const music: (typeof currentMusicList)[number] = {
         url: objectURLMusic,
-        musicMetadata: {
-          title: "test",
-          artist: "test",
+        display: {
+          title: `test${i}`,
+          artist: `test${i}`,
           length: "999:99",
         },
       };
-      currentMusicList.push(music);
+      flushMusicList.push(music);
     }
 
-    currentMusic.src = currentMusicList[0].url;
+    // 現在選択されている音楽に音楽ソースを設定
+    currentMusic.current.audioElement.src = flushMusicList[0].url;
+    const duration = await loadedAudioMetadata(
+      currentMusic.current.audioElement,
+    );
 
-    setCurrentMusicList(currentMusicList);
-    setIsLoading(false);
+    currentMusic.current = {
+      no: 1,
+      audioElement: currentMusic.current.audioElement,
+    };
+    setCurrentMusicList(flushMusicList);
+    setCurrentMusicDuration(duration);
+    setIsLoading(() => false);
 
     console.log("準備完了");
   }
 
+  function onClickSeekbar(event: ChangeEvent<HTMLInputElement>) {
+    const { value } = event.target;
+    currentMusic.current.audioElement.currentTime = Number(value);
+  }
+
   useEffect(() => {
+    if (seekBarRef.current) {
+      seekBarRef.current.value = String(currentMusicPlayTime);
+    }
+
     // setMusicList([
     //   {
     //     artist: "kosuke iwasaki",
@@ -129,7 +161,7 @@ export const MusicPlayer: FC = () => {
     //     length: "20:00",
     //   },
     // ]);
-  }, []);
+  }, [currentMusicPlayTime]);
 
   return (
     <div className={classes["music-player"]}>
@@ -158,37 +190,55 @@ export const MusicPlayer: FC = () => {
             <div className={classes["player-control"]}>
               <div className={classes.player}>
                 <div className={classes.time}>
-                  <p>0:00</p>
-                  <input className={classes.seekbar} type="range"></input>
-                  <p>999:99</p>
+                  <p>{formatSecondsToMMSS(currentMusicPlayTime)}</p>
+                  <input
+                    className={classes.seekbar}
+                    type="range"
+                    ref={seekBarRef}
+                    step={1}
+                    max={currentMusicDuration}
+                    value={currentMusicPlayTime || 0}
+                    onChange={onClickSeekbar}
+                  ></input>
+                  <p>{formatSecondsToMMSS(currentMusicDuration)}</p>
                 </div>
                 <p>Artist - 曲名</p>
                 <div className={classes.control}>
-                  <Icon name="Backforward" size={24}></Icon>
-                  {status === "PLAY" ? (
+                  <IconButton
+                    icon={{ name: "Backforward", size: 24 }}
+                    onclick={backForward}
+                  />
+                  {currentMusicStatus === "PLAY" ? (
                     <IconButton
                       icon={{ name: "Resume", size: 44 }}
-                      onclick={() => pause()}
+                      onclick={pause}
                     />
                   ) : (
                     <span className={classes.play}>
                       <IconButton
                         icon={{ name: "Fish", size: 44 }}
-                        onclick={() => play()}
+                        onclick={play}
                       />
                     </span>
                   )}
-                  <Icon name="Forward" size={24}></Icon>
+                  <IconButton
+                    icon={{ name: "Forward", size: 24 }}
+                    onclick={forward}
+                  />
                 </div>
               </div>
               <MusicTable
-                musicList={currentMusicList.map((music) => music.musicMetadata)}
+                musicList={currentMusicList.map((music) => music.display)}
               ></MusicTable>
             </div>
           </div>
         </div>
       ) : (
-        <p className={classes["no-music"]}>音楽を選択してください</p>
+        <p className={classes["no-music"]}>
+          音楽を選択してください。
+          <br />
+          ※選択したファイルはメモリ上に保持されるだけなので、永続的には保存されません。
+        </p>
       )}
     </div>
   );
