@@ -234,7 +234,11 @@ export const MusicPlayer: FC = () => {
           </div>
         </div>
       ) : (
-        <p className={classes["no-music"]}>音楽を選択してください</p>
+        <p className={classes["no-music"]}>
+          音楽を選択してください。
+          <br />
+          ※選択したファイルはメモリ上に保持されるだけなので、永続的には保存されません。
+        </p>
       )}
     </div>
   );
