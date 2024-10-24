@@ -10,17 +10,15 @@ import { Icon } from "~/components/common/icon/Icon";
 import { MusicTable } from "~/components/common/table/MusicTable";
 
 import useFile from "~/hooks/useFile";
-import useMusic from "~/hooks/useMusic";
 import useMusicPlayer from "~/hooks/useMusicPlayer";
 
 import { formatSecondsToMMSS } from "~/utils/format";
+import { getAudioUint8Array, loadedAudioMetadata } from "~/utils/music";
 
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
 export const MusicPlayer: FC = () => {
   const { fileRef, onClickInputFileList } = useFile();
-  // FIXME 一旦直接取得。できればuseMusicPlayerで取得したい。
-  const { getAudioUint8Array, loadedAudioMetadata } = useMusic();
   const {
     currentMusic,
     currentMusicList,
