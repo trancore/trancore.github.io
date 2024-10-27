@@ -12,6 +12,79 @@ const HEXADECIMAL = {
   "0XFE": 0xfe,
   "0XFF": 0xff,
 };
+/**
+ * エンコードテーブル
+ */
+const ENCODE_TABLE = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "+",
+  "/",
+] as const;
+
+const GETA = "=" as const;
+
+const NUM_OF_BYTES = 3 as const;
 
 /**
  * Latin1文字コードでの文字テキストを取得する。
@@ -29,7 +102,7 @@ const HEXADECIMAL = {
  * @param {number} size Latin1でエンコードされる文字列の長さ
  * @return {string} Latin1でエンコードされた文字列
  */
-function getStringLatin1(
+export function getStringLatin1(
   data: Uint8Array,
   beginIndex: number,
   size: number,
@@ -47,7 +120,7 @@ function getStringLatin1(
  * @return {string} UTF-16でエンコードされた文字列
  * @returns
  */
-function getStringUTF16(
+export function getStringUTF16(
   data: Uint8Array,
   beginIndex: number,
   size: number,
@@ -78,7 +151,7 @@ function getStringUTF16(
  * @param {number} size UTF-16でエンコードされた文字列
  * @returns {string} UTF-8文字コードでエンコードされた文字列
  */
-function getStringUTF8(
+export function getStringUTF8(
   data: Uint8Array,
   beginIndex: number,
   size: number,
@@ -152,4 +225,75 @@ function getStringUTF8(
   }
 
   return String.fromCharCode.apply(null, array16);
+}
+
+/**
+ * 引数modの値に応じてGetaを付与する
+ * @param {Uint8Array} binary Base64バイナリデータ
+ * @param {number} index インデックス
+ * @param {number} mod Base64バイナリデータをテキストが始まるByteインデックスで割ったときの剰余
+ * @returns {string} Geta
+ */
+function encodePlusGeta(binary: Uint8Array, index: number, mod: number) {
+  switch (mod) {
+    case 1:
+    case 2:
+      const equalsMod1 = mod === 1;
+      const iNum = equalsMod1
+        ? (binary[index] << 8) + binary[index + 1]
+        : binary[index];
+
+      return [
+        equalsMod1 ? ENCODE_TABLE[iNum >> 10] : ENCODE_TABLE[iNum >> 2],
+        equalsMod1
+          ? ENCODE_TABLE[(iNum >> 4) & HEXADECIMAL["0x3f"]]
+          : ENCODE_TABLE[(iNum << 4) & HEXADECIMAL["0x3f"]],
+        equalsMod1 ? ENCODE_TABLE[(iNum << 2) & HEXADECIMAL["0x3f"]] : GETA,
+        GETA,
+      ];
+    default:
+      return [];
+  }
+}
+
+/**
+ * Base64バイナリデータを解読可能なテキストデータに変換する
+ * @see https://qiita.com/PlanetMeron/items/2905e2d0aa7fe46a36d4
+ * @param {Uint8Array} binary Base64バイナリデータ
+ * @returns {string} テキスト
+ */
+export function encodeBase64(binary: Uint8Array): string {
+  if (!binary) {
+    return "";
+  }
+
+  // TODO エンコードテーブルを用いてバイナリデータをエンコードしているが、
+  // これだとエンコードテーブルにのみ存在する文字列しか変換できない。
+  // そのため、以下の参照リンクを用いて変換する必要がありそう
+  // https://developer.mozilla.org/ja/docs/Glossary/Base64#%E3%80%8Cunicode_%E5%95%8F%E9%A1%8C%E3%80%8D
+  // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint
+
+  const outStrArray: string[] = [];
+  const length = binary.length;
+  const count = Math.floor(length / NUM_OF_BYTES);
+  const mod = length % NUM_OF_BYTES;
+
+  for (let i = 0; i < count; i++) {
+    const index = NUM_OF_BYTES * i;
+    const indexNumber =
+      (binary[index] << 16) + (binary[index + 1] << 8) + binary[index + 2];
+
+    outStrArray.push(
+      ...[
+        ENCODE_TABLE[indexNumber >> 18],
+        ENCODE_TABLE[(indexNumber >> 12) & HEXADECIMAL["0x3f"]],
+        ENCODE_TABLE[(indexNumber >> 6) & HEXADECIMAL["0x3f"]],
+        ENCODE_TABLE[indexNumber & HEXADECIMAL["0x3f"]],
+      ],
+    );
+  }
+
+  outStrArray.push(...encodePlusGeta(binary, NUM_OF_BYTES * count, mod));
+
+  return outStrArray.join("");
 }
