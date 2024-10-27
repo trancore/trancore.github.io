@@ -6,12 +6,12 @@
  * 音楽メタデータ
  */
 export type Metadata = {
-  artist: string;
   title: string;
-  artists: string;
+  artist: string;
   album: string;
   albumArtists: string;
   genre: string;
+  albumWork: string;
 };
 
 /**

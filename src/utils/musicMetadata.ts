@@ -1,5 +1,14 @@
 ﻿import { useRef } from "react";
 
+import { Metadata } from "~/types/Music";
+
+import {
+  encodeBase64,
+  getStringLatin1,
+  getStringUTF16,
+  getStringUTF8,
+} from "~/utils/encode";
+
 /** 16進数 */
 const HEXADECIMAL = {
   "0x00": 0x00,
@@ -33,7 +42,10 @@ const ID3_FRAME_ID = {
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
 
-export function getMusicMetadata(musicData: Uint8Array) {}
+export function getMusicMetadata(musicData: Uint8Array) {
+  const metadata = getMetadataMp3(musicData);
+  return metadata;
+}
 
 /**
  * ID3タグの読み込み関数。
@@ -485,4 +497,43 @@ function ID3v2TagReader(musicData: Uint8Array) {
       return ID3Frames.current.APIC;
     },
   };
+}
+
+/**
+ * MP3の音楽メタデータの取得
+ * @param {Uint8Array} musicData 安岳バイナリデータ
+ * @returns {Metadata | undefined} MP3の音楽メタデータ | MP3でなおい場合はundefined
+ */
+function getMetadataMp3(musicData: Uint8Array): Metadata | undefined {
+  const {
+    isID3v2,
+    read,
+    getTIT2,
+    getTPE1,
+    getTALB,
+    getTPE2,
+    getTCON,
+    getAPIC,
+  } = ID3v2TagReader(musicData);
+
+  if (isID3v2()) {
+    read();
+
+    const musicMetadata: Metadata = {
+      title: getTIT2(),
+      artist: getTPE1(),
+      album: getTALB(),
+      albumArtists: getTPE2(),
+      genre: getTCON(),
+      albumWork: "",
+    };
+    const { mimeType, binary } = getAPIC();
+
+    if (mimeType !== "") {
+      const imgSrc = "data:" + mimeType + ";base64," + encodeBase64(binary);
+      musicMetadata.albumWork = imgSrc;
+    }
+
+    return musicMetadata;
+  }
 }
