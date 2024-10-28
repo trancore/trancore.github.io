@@ -1,6 +1,4 @@
-﻿import { useRef } from "react";
-
-import { Metadata } from "~/types/Music";
+﻿import { Metadata } from "~/types/Music";
 
 import {
   encodeBase64,
@@ -55,7 +53,7 @@ export function getMusicMetadata(musicData: Uint8Array) {
  * @returns
  */
 function ID3v2TagReader(musicData: Uint8Array) {
-  const ID3Frames = useRef({
+  const ID3Frames = {
     TIT2: "",
     TPE1: "",
     TALB: "",
@@ -65,7 +63,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
       mimeType: "",
       binary: new Uint8Array(),
     },
-  });
+  };
 
   /** ヘッダ拡張子 */
   const headerExtention = isID3v2() ? "ID3" : "inValid";
@@ -157,7 +155,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
      * @param index
      * @returns
      */
-    readFrameBodySizeV24ForAPIC: function (index: number) {
+    readFrameBodySizeV24ForAPIC: function () {
       return (
         // 21ビット左にシフト
         (musicData[4] << 21) |
@@ -176,7 +174,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
      */
     readMimeType: function (beginIndex: number): string {
       let endIndex = beginIndex;
-      while (true) {
+      for (;;) {
         if (musicData[endIndex] === HEXADECIMAL["0x00"]) {
           break;
         }
@@ -417,23 +415,23 @@ function ID3v2TagReader(musicData: Uint8Array) {
     for (let i = 0; i < headerSize; ) {
       if (isID3FrameID("TIT2", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.current.TIT2 = text;
+        ID3Frames.TIT2 = text;
         i += skip;
       } else if (isID3FrameID("TPE1", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.current.TPE1 = text;
+        ID3Frames.TPE1 = text;
         i += skip - 1;
       } else if (isID3FrameID("TALB", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.current.TALB = text;
+        ID3Frames.TALB = text;
         i += skip;
       } else if (isID3FrameID("TPE2", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.current.TPE2 = text;
+        ID3Frames.TPE2 = text;
         i += skip - 1;
       } else if (isID3FrameID("TCON", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.current.TCON = text;
+        ID3Frames.TCON = text;
         i += skip - 1;
       } else if (isID3FrameID("APIC", i)) {
         let frameSize = readID3FrameSize(i);
@@ -444,7 +442,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
           isFrameHeaderFmtFlgIncludeOrgSize(i)
         ) {
           orgSizeByte = 4;
-          frameSize = readFrameBodySizeV24ForAPIC(i);
+          frameSize = readFrameBodySizeV24ForAPIC();
           // v2.4対応がうまくいかず、ここで書くのを一旦終了
         }
 
@@ -452,8 +450,8 @@ function ID3v2TagReader(musicData: Uint8Array) {
         const imageIndex =
           i + HEADER_FRAME_BYTES + (1 + orgSizeByte + mimetype.length + 1 + 2);
 
-        ID3Frames.current.APIC.mimeType = mimetype;
-        ID3Frames.current.APIC.binary = getImageInUint8Array(
+        ID3Frames.APIC.mimeType = mimetype;
+        ID3Frames.APIC.binary = getImageInUint8Array(
           imageIndex,
           frameSize - (1 + mimetype.length + 1 + 2),
         );
@@ -479,22 +477,22 @@ function ID3v2TagReader(musicData: Uint8Array) {
       readID3Frames();
     },
     getTIT2: function () {
-      return ID3Frames.current.TIT2;
+      return ID3Frames.TIT2;
     },
     getTPE1: function () {
-      return ID3Frames.current.TPE1;
+      return ID3Frames.TPE1;
     },
     getTALB: function () {
-      return ID3Frames.current.TALB;
+      return ID3Frames.TALB;
     },
     getTPE2: function () {
-      return ID3Frames.current.TPE2;
+      return ID3Frames.TPE2;
     },
     getTCON: function () {
-      return ID3Frames.current.TCON;
+      return ID3Frames.TCON;
     },
     getAPIC: function () {
-      return ID3Frames.current.APIC;
+      return ID3Frames.APIC;
     },
   };
 }
@@ -537,3 +535,5 @@ function getMetadataMp3(musicData: Uint8Array): Metadata | undefined {
     return musicMetadata;
   }
 }
+
+function getMetadataFLAC(musicData: Uint8Array): Metadata | undefined {}
