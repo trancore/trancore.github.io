@@ -5,6 +5,7 @@ const HEXADECIMAL = {
   "0x1f": 0x1f,
   "0x3f": 0x3f,
   "0x80": 0x80,
+  "0xc0": 0xc0,
   "0xc2": 0xc2,
   "0xe0": 0xe0,
   "0xf0": 0xf0,
@@ -110,6 +111,7 @@ export function getStringLatin1(
   const latin1Uint8Array = data.subarray(beginIndex, beginIndex + size);
   return String.fromCharCode.apply(null, [...latin1Uint8Array]);
 }
+
 /**
  * UTF-16文字コードでの文字テキストを取得する。
  * リトルエンディアン、ビッグエンディアン、サロゲートパエに対応している。
@@ -128,9 +130,9 @@ export function getStringUTF16(
   const isLittleEndian =
     data[beginIndex] === HEXADECIMAL["0XFF"] &&
     data[beginIndex + 1] === HEXADECIMAL["0XFE"];
-  const isBigEndian =
-    data[beginIndex] === HEXADECIMAL["0XFE"] &&
-    data[beginIndex + 1] === HEXADECIMAL["0XFF"];
+  // const isBigEndian =
+  //   data[beginIndex] === HEXADECIMAL["0XFE"] &&
+  //   data[beginIndex + 1] === HEXADECIMAL["0XFF"];
 
   const array16 = [];
   const lastIndex = size + beginIndex;
@@ -143,6 +145,7 @@ export function getStringUTF16(
 
   return String.fromCharCode.apply(null, array16);
 }
+
 // 符号位置（マルチバイト位置）がどの領域にあるかで表現するbyte数が変わる。
 /**
  * UTF-8文字コードでの文字テキストを取得する。
@@ -232,12 +235,16 @@ export function getStringUTF8(
  * @param {Uint8Array} binary Base64バイナリデータ
  * @param {number} index インデックス
  * @param {number} mod Base64バイナリデータをテキストが始まるByteインデックスで割ったときの剰余
- * @returns {string} Geta
+ * @returns {string[]} Geta
  */
-function encodePlusGeta(binary: Uint8Array, index: number, mod: number) {
+function encodePlusGeta(
+  binary: Uint8Array,
+  index: number,
+  mod: number,
+): string[] {
   switch (mod) {
     case 1:
-    case 2:
+    case 2: {
       const equalsMod1 = mod === 1;
       const iNum = equalsMod1
         ? (binary[index] << 8) + binary[index + 1]
@@ -251,6 +258,7 @@ function encodePlusGeta(binary: Uint8Array, index: number, mod: number) {
         equalsMod1 ? ENCODE_TABLE[(iNum << 2) & HEXADECIMAL["0x3f"]] : GETA,
         GETA,
       ];
+    }
     default:
       return [];
   }
@@ -296,4 +304,71 @@ export function encodeBase64(binary: Uint8Array): string {
   outStrArray.push(...encodePlusGeta(binary, NUM_OF_BYTES * count, mod));
 
   return outStrArray.join("");
+}
+
+/**5
+ * バイナリデータの配列から引数で指定したバイト数Integerを取り出す
+ * @param {Uint8Array} binary Base64バイナリデータ
+ * @param {number} index インデックス
+ * @param {1 | 2 | 3 | 4} byteNumber バイナリデータから取り出すバイト数
+ * @param {boolean} isLittleEndian true: リトルエンディアン / false: ビッグエンディアン （byteNumberが4の時のみ計算に反映されます）
+ * @returns {number} 1バイトIntegerを取り出す
+ */
+export function getIntNumberFromBinary(
+  binary: Uint8Array,
+  index: number,
+  byteNumber: 1 | 2 | 3 | 4,
+  isLittleEndian?: boolean,
+): number {
+  switch (byteNumber) {
+    case 1:
+      return binary[index++];
+    case 2:
+      return (binary[index] << 8) | binary[index + 1];
+    case 3:
+      return (
+        (binary[index] << 16) | (binary[index + 1] << 8) | binary[index + 2]
+      );
+    case 4:
+      return isLittleEndian
+        ? binary[index] |
+            (binary[index + 1] << 8) |
+            (binary[index + 2] << 16) |
+            (binary[index + 3] << 24)
+        : (binary[index] << 24) |
+            (binary[index + 1] << 16) |
+            (binary[index + 2] << 8) |
+            binary[index + 3];
+    default:
+      return 0;
+  }
+}
+
+/**
+ * UTF-8テキストをUTF-16テキストに変換する
+ * @param utf8Text UTF-8でエンコードされているテキスト
+ * @returns UTF-16でエンコードされているテキスト
+ */
+export function utf8ToUtf16(utf8Text: string) {
+  let utf16Text = "";
+  for (let i = 0; i < utf8Text.length; ) {
+    const char = utf8Text.charCodeAt(i);
+    if ((char & HEXADECIMAL["0xe0"]) == HEXADECIMAL["0xc0"]) {
+      utf16Text += String.fromCharCode(
+        ((char & HEXADECIMAL["0x1f"]) << 6) |
+          (utf8Text.charCodeAt(i + 1) & HEXADECIMAL["0x3f"]),
+      );
+      i += 2;
+    } else if ((char & HEXADECIMAL["0xf0"]) == HEXADECIMAL["0xe0"]) {
+      utf16Text += String.fromCharCode(
+        ((char & HEXADECIMAL["0x0f"]) << 12) |
+          ((utf8Text.charCodeAt(i + 1) & HEXADECIMAL["0x3f"]) << 6) |
+          (utf8Text.charCodeAt(i + 2) & HEXADECIMAL["0x3f"]),
+      );
+      i += 3;
+    } else {
+      utf16Text += utf8Text[i++];
+    }
+  }
+  return utf16Text;
 }
