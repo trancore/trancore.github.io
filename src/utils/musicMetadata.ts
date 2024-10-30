@@ -2,9 +2,11 @@
 
 import {
   encodeBase64,
+  getIntNumberFromBinary,
   getStringLatin1,
   getStringUTF16,
   getStringUTF8,
+  utf8ToUtf16,
 } from "~/utils/encode";
 
 /** 16進数 */
@@ -13,6 +15,7 @@ const HEXADECIMAL = {
   "0x01": 0x01,
   "0x02": 0x02,
   "0x03": 0x03,
+  "0x7f": 0x7f,
 } as const;
 const ID3_V2_VERSION = {
   "v2.2": "v2.2",
@@ -41,7 +44,8 @@ const ID3_FRAME_ID = {
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
 
 export function getMusicMetadata(musicData: Uint8Array) {
-  const metadata = getMetadataMp3(musicData);
+  // const metadata = getMetadataMp3(musicData);
+  const metadata = getMetadataFLAC(musicData);
   return metadata;
 }
 
@@ -411,7 +415,6 @@ function ID3v2TagReader(musicData: Uint8Array) {
       getImageInUint8Array,
     } = ID3Frame;
 
-    // TODO textをどうやって保持すれば良いのかを考える
     for (let i = 0; i < headerSize; ) {
       if (isID3FrameID("TIT2", i)) {
         const { text, skip } = readText(i);
@@ -473,9 +476,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
   return {
     header,
     isID3v2,
-    read: function () {
-      readID3Frames();
-    },
+    read: readID3Frames,
     getTIT2: function () {
       return ID3Frames.TIT2;
     },
@@ -536,4 +537,166 @@ function getMetadataMp3(musicData: Uint8Array): Metadata | undefined {
   }
 }
 
-function getMetadataFLAC(musicData: Uint8Array): Metadata | undefined {}
+function vorbisCommentTagReader(musicData: Uint8Array) {
+  const vorbisCommentMetadataBlocks = {
+    title: "",
+    artist: "",
+    album: "",
+    albumArtist: "",
+    length: "",
+    genre: "",
+    picture: {
+      mimeType: "",
+      binary: new Uint8Array(),
+    },
+  };
+
+  function isFLAC() {
+    // ASCII表記でfLaC
+    return getIntNumberFromBinary(musicData, 0, 4) == 0x664c6143 ? true : false;
+  }
+
+  function readVorbisComment() {
+    let index = 4;
+    for (;;) {
+      // METADATA_BLOCK_HEADER
+      if (index + 4 > musicData.length) {
+        return;
+      }
+
+      const flagType = getIntNumberFromBinary(musicData, index, 1);
+      index += 1;
+      let length = getIntNumberFromBinary(musicData, index, 3);
+      index += 3;
+
+      if (index + length > musicData.length) {
+        return;
+      }
+
+      // METADATA_BLOCK_DATAの領域
+      switch (
+        // BLOCK_TYPEの領域
+        flagType & HEXADECIMAL["0x7f"]
+      ) {
+        case 4: {
+          // VORBIS_COMMENT
+          // 曲タイトル，アーティスト名を取得
+          const skip = index + length;
+          if (length < 4) {
+            return;
+          }
+
+          length = getIntNumberFromBinary(musicData, index, 4, true);
+          index += 4;
+          if (length & 0x80000000) {
+            // vendor_length
+            return;
+          }
+          if (index + length > musicData.length) {
+            return;
+          }
+
+          index += length;
+          if (index + 4 > musicData.length) {
+            // vendor_string
+            return false;
+          }
+
+          // user_comment_list_length
+          const n_comments = getIntNumberFromBinary(musicData, index, 4, true);
+          index += 4;
+          if (n_comments & 0x80000000) {
+            return;
+          }
+
+          // let f = 0x3;
+          for (let i = 0; i < n_comments; i++) {
+            if (index + 4 > musicData.length) {
+              return;
+            }
+
+            length = getIntNumberFromBinary(musicData, index, 4, true);
+            index += 4;
+            if (length & 0x80000000) {
+              // length
+              return;
+            }
+            if (index + length > musicData.length) {
+              return;
+            }
+
+            let comment = "";
+            for (let j = length; j > 0; j--) {
+              comment += String.fromCharCode(musicData[index++]);
+            }
+
+            const isTitle = comment.substring(0, 6).toUpperCase() === "TITLE=";
+            const isArtist =
+              comment.substring(0, 7).toUpperCase() === "ARTIST=";
+            const isAlbum = comment.substring(0, 6).toUpperCase() === "ALBUM=";
+            const isAlbumArtist =
+              comment.substring(0, 12).toUpperCase() === "ALBUMARTIST=";
+            const isLength =
+              comment.substring(0, 7).toUpperCase() === "LENGTH=";
+            const isGenre = comment.substring(0, 6).toUpperCase() === "GENRE=";
+
+            // TODO ここから音楽メタデータを取得する
+            if (isTitle) {
+              const title = utf8ToUtf16(comment.substring(6));
+              console.log("🚀 ~ readVorbisComment ~ title:", title);
+            }
+            if (isArtist) {
+              const artist = utf8ToUtf16(comment.substring(7));
+              console.log("🚀 ~ readVorbisComment ~ artist:", artist);
+            }
+            if (isAlbum) {
+              const album = utf8ToUtf16(comment.substring(6));
+              console.log("🚀 ~ readVorbisComment ~ album:", album);
+            }
+            if (isAlbumArtist) {
+              const albumArtist = utf8ToUtf16(comment.substring(12));
+              console.log("🚀 ~ readVorbisComment ~ albumArtist:", albumArtist);
+            }
+            if (isLength) {
+              const length = utf8ToUtf16(comment.substring(7));
+              console.log("🚀 ~ readVorbisComment ~ length:", length);
+            }
+            if (isGenre) {
+              const genre = utf8ToUtf16(comment.substring(7));
+              console.log("🚀 ~ readVorbisComment ~ genre:", genre);
+            }
+          }
+
+          index = skip;
+          break;
+        }
+        case 6: {
+          // 画像（アートワーク）
+          // document.getElementById("album-work").src =
+          //   "/assets/no-image-9406927235933d1db5dc5141cb0bf262374ff1a2744e6bac8ccdc72ff0362ea2.jpg";
+          break;
+        }
+        case 127:
+          return;
+        default:
+          index += length;
+      }
+      if (flagType & 0x80) {
+        // last metadata block
+        break;
+      }
+    }
+  }
+
+  return { isFLAC, read: readVorbisComment };
+}
+
+function getMetadataFLAC(musicData: Uint8Array) {
+  const { isFLAC, read } = vorbisCommentTagReader(musicData);
+
+  if (isFLAC()) {
+    read();
+  }
+
+  return isFLAC();
+}
