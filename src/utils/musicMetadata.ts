@@ -58,12 +58,12 @@ export function getMusicMetadata(musicData: Uint8Array) {
  */
 function ID3v2TagReader(musicData: Uint8Array) {
   const ID3Frames = {
-    TIT2: "",
-    TPE1: "",
-    TALB: "",
-    TPE2: "",
-    TCON: "",
-    APIC: {
+    tit2: "",
+    tpe1: "",
+    talb: "",
+    tpe2: "",
+    tcon: "",
+    apic: {
       mimeType: "",
       binary: new Uint8Array(),
     },
@@ -418,23 +418,23 @@ function ID3v2TagReader(musicData: Uint8Array) {
     for (let i = 0; i < headerSize; ) {
       if (isID3FrameID("TIT2", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.TIT2 = text;
+        ID3Frames.tit2 = text;
         i += skip;
       } else if (isID3FrameID("TPE1", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.TPE1 = text;
+        ID3Frames.tpe1 = text;
         i += skip - 1;
       } else if (isID3FrameID("TALB", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.TALB = text;
+        ID3Frames.talb = text;
         i += skip;
       } else if (isID3FrameID("TPE2", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.TPE2 = text;
+        ID3Frames.tpe2 = text;
         i += skip - 1;
       } else if (isID3FrameID("TCON", i)) {
         const { text, skip } = readText(i);
-        ID3Frames.TCON = text;
+        ID3Frames.tcon = text;
         i += skip - 1;
       } else if (isID3FrameID("APIC", i)) {
         let frameSize = readID3FrameSize(i);
@@ -453,8 +453,8 @@ function ID3v2TagReader(musicData: Uint8Array) {
         const imageIndex =
           i + HEADER_FRAME_BYTES + (1 + orgSizeByte + mimetype.length + 1 + 2);
 
-        ID3Frames.APIC.mimeType = mimetype;
-        ID3Frames.APIC.binary = getImageInUint8Array(
+        ID3Frames.apic.mimeType = mimetype;
+        ID3Frames.apic.binary = getImageInUint8Array(
           imageIndex,
           frameSize - (1 + mimetype.length + 1 + 2),
         );
@@ -478,22 +478,22 @@ function ID3v2TagReader(musicData: Uint8Array) {
     isID3v2,
     read: readID3Frames,
     getTIT2: function () {
-      return ID3Frames.TIT2;
+      return ID3Frames.tit2;
     },
     getTPE1: function () {
-      return ID3Frames.TPE1;
+      return ID3Frames.tpe1;
     },
     getTALB: function () {
-      return ID3Frames.TALB;
+      return ID3Frames.talb;
     },
     getTPE2: function () {
-      return ID3Frames.TPE2;
+      return ID3Frames.tpe2;
     },
     getTCON: function () {
-      return ID3Frames.TCON;
+      return ID3Frames.tcon;
     },
     getAPIC: function () {
-      return ID3Frames.APIC;
+      return ID3Frames.apic;
     },
   };
 }
