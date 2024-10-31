@@ -551,25 +551,43 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
     },
   };
 
+  function vorbisCommentMetadataBlock() {
+    // METADATA_BLOCK_HEADERの4バイト分をスキップ
+    let index = 4;
+
+    return {
+      getIndex: function () {
+        return index;
+      },
+      setIndex: function (newIndex: number) {
+        index = newIndex;
+      },
+      increment: function (byNum: number) {
+        index += byNum;
+      },
+    };
+  }
+
   function isFLAC() {
     // ASCII表記でfLaC
     return getIntNumberFromBinary(musicData, 0, 4) == 0x664c6143 ? true : false;
   }
 
-  function readVorbisComment() {
-    let index = 4;
+  function readVorbisCommentMetadataBlocks() {
+    const { getIndex, setIndex, increment } = vorbisCommentMetadataBlock();
+
     for (;;) {
       // METADATA_BLOCK_HEADER
-      if (index + 4 > musicData.length) {
+      if (getIndex() + 4 > musicData.length) {
         return;
       }
 
-      const flagType = getIntNumberFromBinary(musicData, index, 1);
-      index += 1;
-      let length = getIntNumberFromBinary(musicData, index, 3);
-      index += 3;
+      const flagType = getIntNumberFromBinary(musicData, getIndex(), 1);
+      increment(1);
+      let length = getIntNumberFromBinary(musicData, getIndex(), 3);
+      increment(3);
 
-      if (index + length > musicData.length) {
+      if (getIndex() + length > musicData.length) {
         return;
       }
 
@@ -581,53 +599,59 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
         case 4: {
           // VORBIS_COMMENT
           // 曲タイトル，アーティスト名を取得
-          const skip = index + length;
+          const skip = getIndex() + length;
           if (length < 4) {
             return;
           }
 
-          length = getIntNumberFromBinary(musicData, index, 4, true);
-          index += 4;
+          length = getIntNumberFromBinary(musicData, getIndex(), 4, true);
+          increment(4);
           if (length & 0x80000000) {
             // vendor_length
             return;
           }
-          if (index + length > musicData.length) {
+          if (getIndex() + length > musicData.length) {
             return;
           }
 
-          index += length;
-          if (index + 4 > musicData.length) {
+          increment(length);
+          if (getIndex() + 4 > musicData.length) {
             // vendor_string
-            return false;
+            return;
           }
 
           // user_comment_list_length
-          const n_comments = getIntNumberFromBinary(musicData, index, 4, true);
-          index += 4;
+          const n_comments = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+            true,
+          );
+          increment(4);
           if (n_comments & 0x80000000) {
             return;
           }
 
-          // let f = 0x3;
           for (let i = 0; i < n_comments; i++) {
-            if (index + 4 > musicData.length) {
+            if (getIndex() + 4 > musicData.length) {
               return;
             }
 
-            length = getIntNumberFromBinary(musicData, index, 4, true);
-            index += 4;
+            length = getIntNumberFromBinary(musicData, getIndex(), 4, true);
+            increment(4);
             if (length & 0x80000000) {
               // length
               return;
             }
-            if (index + length > musicData.length) {
+            if (getIndex() + length > musicData.length) {
               return;
             }
 
             let comment = "";
             for (let j = length; j > 0; j--) {
-              comment += String.fromCharCode(musicData[index++]);
+              const index = getIndex();
+              comment += String.fromCharCode(musicData[index]);
+              setIndex(index + 1);
             }
 
             const isTitle = comment.substring(0, 6).toUpperCase() === "TITLE=";
@@ -640,34 +664,33 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
               comment.substring(0, 7).toUpperCase() === "LENGTH=";
             const isGenre = comment.substring(0, 6).toUpperCase() === "GENRE=";
 
-            // TODO ここから音楽メタデータを取得する
             if (isTitle) {
               const title = utf8ToUtf16(comment.substring(6));
-              console.log("🚀 ~ readVorbisComment ~ title:", title);
+              vorbisCommentMetadataBlocks.title = title;
             }
             if (isArtist) {
               const artist = utf8ToUtf16(comment.substring(7));
-              console.log("🚀 ~ readVorbisComment ~ artist:", artist);
+              vorbisCommentMetadataBlocks.artist = artist;
             }
             if (isAlbum) {
               const album = utf8ToUtf16(comment.substring(6));
-              console.log("🚀 ~ readVorbisComment ~ album:", album);
+              vorbisCommentMetadataBlocks.album = album;
             }
             if (isAlbumArtist) {
               const albumArtist = utf8ToUtf16(comment.substring(12));
-              console.log("🚀 ~ readVorbisComment ~ albumArtist:", albumArtist);
+              vorbisCommentMetadataBlocks.albumArtist = albumArtist;
             }
             if (isLength) {
               const length = utf8ToUtf16(comment.substring(7));
-              console.log("🚀 ~ readVorbisComment ~ length:", length);
+              vorbisCommentMetadataBlocks.length = length;
             }
             if (isGenre) {
               const genre = utf8ToUtf16(comment.substring(7));
-              console.log("🚀 ~ readVorbisComment ~ genre:", genre);
+              vorbisCommentMetadataBlocks.genre = genre;
             }
           }
 
-          index = skip;
+          setIndex(skip);
           break;
         }
         case 6: {
@@ -679,7 +702,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
         case 127:
           return;
         default:
-          index += length;
+          increment(length);
       }
       if (flagType & 0x80) {
         // last metadata block
@@ -688,15 +711,58 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
     }
   }
 
-  return { isFLAC, read: readVorbisComment };
+  return {
+    isFLAC,
+    read: readVorbisCommentMetadataBlocks,
+    getTitle: function () {
+      return vorbisCommentMetadataBlocks.title;
+    },
+    getArtist: function () {
+      return vorbisCommentMetadataBlocks.artist;
+    },
+    getAlbum: function () {
+      return vorbisCommentMetadataBlocks.album;
+    },
+    getAlbumArtist: function () {
+      return vorbisCommentMetadataBlocks.albumArtist;
+    },
+    getLength: function () {
+      return vorbisCommentMetadataBlocks.length;
+    },
+    getGenre: function () {
+      return vorbisCommentMetadataBlocks.genre;
+    },
+    getPicture: function () {
+      return vorbisCommentMetadataBlocks.picture;
+    },
+  };
 }
 
-function getMetadataFLAC(musicData: Uint8Array) {
-  const { isFLAC, read } = vorbisCommentTagReader(musicData);
+function getMetadataFLAC(musicData: Uint8Array): Metadata | undefined {
+  const {
+    isFLAC,
+    read,
+    getTitle,
+    getArtist,
+    getAlbum,
+    getAlbumArtist,
+    getGenre,
+    getPicture,
+  } = vorbisCommentTagReader(musicData);
 
   if (isFLAC()) {
     read();
-  }
 
-  return isFLAC();
+    const musicMetadata: Metadata = {
+      title: getTitle(),
+      artist: getArtist(),
+      album: getAlbum(),
+      albumArtists: getAlbumArtist(),
+      genre: getGenre(),
+      albumWork: "",
+    };
+    const { mimeType, binary } = getPicture();
+
+    return musicMetadata;
+  }
 }
