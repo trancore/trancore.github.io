@@ -14,6 +14,7 @@ import useMusicPlayer from "~/hooks/useMusicPlayer";
 
 import { formatSecondsToMMSS } from "~/utils/format";
 import { getAudioUint8Array, loadedAudioMetadata } from "~/utils/music";
+import { getMusicMetadata } from "~/utils/musicMetadata";
 
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
@@ -59,12 +60,13 @@ export const MusicPlayer: FC = () => {
     for (let i = 0; i < files.length; i++) {
       const objectURLMusic = getMusicURL(files[i]);
       const arrayBuffer = await getAudioUint8Array(files[i]);
+      const musicMetadata = getMusicMetadata(arrayBuffer);
       const music: (typeof currentMusicList)[number] = {
         url: objectURLMusic,
         display: {
-          title: `test${i}`,
-          artist: `test${i}`,
-          length: "999:99",
+          title: musicMetadata?.title || "",
+          artist: musicMetadata?.artist || "",
+          length: "",
         },
       };
       flushMusicList.push(music);
