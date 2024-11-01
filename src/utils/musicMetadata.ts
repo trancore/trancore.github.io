@@ -40,6 +40,17 @@ const ID3_FRAME_ID = {
   TCON: [84, 67, 79, 78],
   APIC: [65, 80, 73, 67],
 } as const;
+/**
+ * FLACのVorbisComment
+ */
+const VORBIS_COMMENT = {
+  TITLE: "TITLE",
+  ARTIST: "ARTIST",
+  ALBUM: "ALBUM",
+  ALBUMARTIST: "ALBUMARTIST",
+  LENGTH: "LENGTH",
+  GENRE: "GENRE",
+} as const;
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
 
@@ -573,6 +584,15 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           return;
         }
       },
+      isVorbisComment: function (
+        comment: keyof typeof VORBIS_COMMENT,
+        text: string,
+        substringEndNum: number,
+      ) {
+        return (
+          text.substring(0, substringEndNum).toUpperCase() === `${comment}=`
+        );
+      },
     };
   }
 
@@ -582,7 +602,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
   }
 
   function readVorbisCommentMetadataBlocks() {
-    const { getIndex, setIndex, increment, checkSizeLength } =
+    const { getIndex, setIndex, increment, checkSizeLength, isVorbisComment } =
       vorbisCommentMetadataBlock();
 
     for (;;) {
@@ -655,37 +675,27 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
               setIndex(index + 1);
             }
 
-            const isTitle = comment.substring(0, 6).toUpperCase() === "TITLE=";
-            const isArtist =
-              comment.substring(0, 7).toUpperCase() === "ARTIST=";
-            const isAlbum = comment.substring(0, 6).toUpperCase() === "ALBUM=";
-            const isAlbumArtist =
-              comment.substring(0, 12).toUpperCase() === "ALBUMARTIST=";
-            const isLength =
-              comment.substring(0, 7).toUpperCase() === "LENGTH=";
-            const isGenre = comment.substring(0, 6).toUpperCase() === "GENRE=";
-
-            if (isTitle) {
+            if (isVorbisComment("TITLE", comment, 6)) {
               const title = utf8ToUtf16(comment.substring(6));
               vorbisCommentMetadataBlocks.title = title;
             }
-            if (isArtist) {
+            if (isVorbisComment("ARTIST", comment, 7)) {
               const artist = utf8ToUtf16(comment.substring(7));
               vorbisCommentMetadataBlocks.artist = artist;
             }
-            if (isAlbum) {
+            if (isVorbisComment("ALBUM", comment, 6)) {
               const album = utf8ToUtf16(comment.substring(6));
               vorbisCommentMetadataBlocks.album = album;
             }
-            if (isAlbumArtist) {
+            if (isVorbisComment("ALBUMARTIST", comment, 12)) {
               const albumArtist = utf8ToUtf16(comment.substring(12));
               vorbisCommentMetadataBlocks.albumArtist = albumArtist;
             }
-            if (isLength) {
+            if (isVorbisComment("LENGTH", comment, 7)) {
               const length = utf8ToUtf16(comment.substring(7));
               vorbisCommentMetadataBlocks.length = length;
             }
-            if (isGenre) {
+            if (isVorbisComment("GENRE", comment, 7)) {
               const genre = utf8ToUtf16(comment.substring(7));
               vorbisCommentMetadataBlocks.genre = genre;
             }
