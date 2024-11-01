@@ -580,7 +580,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
   /**
    * VorbisCommentのクロージャ関数
    */
-  function vorbisCommentMetadataBlock() {
+  function vorbisComment() {
     // METADATA_BLOCK_HEADERの4バイト分をスキップ
     let index = 4;
 
@@ -627,9 +627,9 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
    * VorbisCommentを読み込む。
    * @returns {void}
    */
-  function readVorbisCommentMetadataBlocks(): void {
+  function readVorbisComments(): void {
     const { getIndex, setIndex, increment, checkSizeLength, isVorbisComment } =
-      vorbisCommentMetadataBlock();
+      vorbisComment();
 
     for (;;) {
       // METADATA_BLOCK_HEADER
@@ -752,7 +752,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
 
   return {
     isFLAC,
-    read: readVorbisCommentMetadataBlocks,
+    read: readVorbisComments,
     getTitle: function () {
       return vorbisCommentMetadataBlocks.title;
     },
