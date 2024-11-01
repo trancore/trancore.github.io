@@ -16,6 +16,7 @@ const HEXADECIMAL = {
   "0x02": 0x02,
   "0x03": 0x03,
   "0x7f": 0x7f,
+  "0x80": 0x80,
 } as const;
 const ID3_V2_VERSION = {
   "v2.2": "v2.2",
@@ -715,7 +716,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
         default:
           increment(length);
       }
-      if (flagType & 0x80) {
+      if (flagType & HEXADECIMAL["0x80"]) {
         // last metadata block
         break;
       }
