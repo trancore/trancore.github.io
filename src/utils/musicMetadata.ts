@@ -18,6 +18,9 @@ const HEXADECIMAL = {
   "0x7f": 0x7f,
   "0x80": 0x80,
 } as const;
+/**
+ * ID3v2のバージョン
+ */
 const ID3_V2_VERSION = {
   "v2.2": "v2.2",
   "v2.3": "v2.3",
@@ -66,7 +69,6 @@ export function getMusicMetadata(musicData: Uint8Array) {
  * ID3v2ヘッダにおける数値表現はビッグエンディアン(MSB first)。
  * @see https://atmarkit.itmedia.co.jp/icd/root/24/92677424.html
  * @param musicData UTF-8文字コード配列の音楽データ
- * @returns
  */
 function ID3v2TagReader(musicData: Uint8Array) {
   const ID3Frames = {
@@ -98,9 +100,12 @@ function ID3v2TagReader(musicData: Uint8Array) {
      * `IDName`があるかどうかを判定する
      * @param {keyof typeof ID3_FRAME_ID} IDName ID3フレームID名
      * @param {number} index UTF-8文字コード配列のインデックス
-     * @returns true: `IDName`のID3フレームIDを持つ。 / false: ID3フレームIDを持たない。
+     * @returns {boolean} true: `IDName`のID3フレームIDを持つ。 / false: ID3フレームIDを持たない。
      */
-    isID3FrameID: function (IDName: keyof typeof ID3_FRAME_ID, index: number) {
+    isID3FrameID: function (
+      IDName: keyof typeof ID3_FRAME_ID,
+      index: number,
+    ): boolean {
       return (
         musicData[index] === ID3_FRAME_ID[IDName][0] &&
         musicData[index + 1] === ID3_FRAME_ID[IDName][1] &&
@@ -139,7 +144,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
       };
     },
     /**
-     * フレームサイズを読み込む
+     * フレームサイズを読み込む。
      * 4バイト分のデータを結合し、32ビットの整数値を生成する。
      * @param {number} index UTF-8文字コード配列のインデックス。
      * @returns {number} フレームサイズ。
@@ -157,21 +162,21 @@ function ID3v2TagReader(musicData: Uint8Array) {
       );
     },
     /**
-     *
-     * @param index
-     * @returns
+     * ヘッダーフレームフォーマットがorgSizeを含むフラグかどうか。
+     * @param index インデックス
+     * @returns {boolean} true: 含む / false: 含まない
      */
-    isFrameHeaderFmtFlgIncludeOrgSize: function (index: number) {
+    isFrameHeaderFmtFlgIncludeOrgSize: function (index: number): boolean {
       return (
         (musicData[index + 9] & HEXADECIMAL["0x01"]) === HEXADECIMAL["0x01"]
       );
     },
     /**
-     *
-     * @param index
-     * @returns
+     * ID3v2.4のAPICのフレームボディを読み込む
+     * @param index インデックス
+     * @returns {number} フレームサイズ
      */
-    readFrameBodySizeV24ForAPIC: function () {
+    readFrameBodySizeV24ForAPIC: function (): number {
       return (
         // 21ビット左にシフト
         (musicData[4] << 21) |
@@ -203,9 +208,12 @@ function ID3v2TagReader(musicData: Uint8Array) {
      * UTF-8コード文字配列の画像データを取得する
      * @param beginIndex 画像データの始まりのインデックス
      * @param size 画像データサイズ
-     * @returns UTF-8コード文字配列の画像データ
+     * @returns {Uint8Array} UTF-8コード文字配列の画像データ
      */
-    getImageInUint8Array: function (beginIndex: number, size: number) {
+    getImageInUint8Array: function (
+      beginIndex: number,
+      size: number,
+    ): Uint8Array {
       return musicData.subarray(beginIndex, beginIndex + size);
     },
   };
@@ -223,7 +231,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
   }
   /**
    * ID3タグヘッダーのバージョン2系のマイナーバージョンを取得する。
-   * @returns {ID3V2Version | "inValid"} ID3v2のバージョン。該当の値がなければ"inValid"を返す。
+   * @returns {ID3V2Version | undefined} ID3v2のバージョン。該当の値がなければ"inValid"を返す。
    */
   function getID3HeaderVersion(): ID3V2Version | undefined {
     switch (musicData[3]) {
@@ -415,8 +423,9 @@ function ID3v2TagReader(musicData: Uint8Array) {
 
   /**
    * ID3のフレームを読み込む。
+   * @returns {void}
    */
-  function readID3Frames() {
+  function readID3Frames(): void {
     const {
       isID3FrameID,
       readText,
@@ -427,6 +436,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
       getImageInUint8Array,
     } = ID3Frame;
 
+    // 音楽メタ情報を取得する。
     for (let i = 0; i < headerSize; ) {
       if (isID3FrameID("TIT2", i)) {
         const { text, skip } = readText(i);
@@ -512,8 +522,8 @@ function ID3v2TagReader(musicData: Uint8Array) {
 
 /**
  * MP3の音楽メタデータの取得
- * @param {Uint8Array} musicData 安岳バイナリデータ
- * @returns {Metadata | undefined} MP3の音楽メタデータ | MP3でなおい場合はundefined
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ * @returns {Metadata | undefined} MP3の音楽メタデータ | MP3でない場合はundefined
  */
 function getMetadataMp3(musicData: Uint8Array): Metadata | undefined {
   const {
@@ -549,6 +559,10 @@ function getMetadataMp3(musicData: Uint8Array): Metadata | undefined {
   }
 }
 
+/**
+ * VorbisCommentの読み込み関数。
+ * @param musicData 音楽情報 UTF-8文字コード配列の音楽データ
+ */
 function vorbisCommentTagReader(musicData: Uint8Array) {
   const vorbisCommentMetadataBlocks = {
     title: "",
@@ -563,6 +577,9 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
     },
   };
 
+  /**
+   * VorbisCommentのクロージャ関数
+   */
   function vorbisCommentMetadataBlock() {
     // METADATA_BLOCK_HEADERの4バイト分をスキップ
     let index = 4;
@@ -597,12 +614,20 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
     };
   }
 
-  function isFLAC() {
+  /**
+   * FLACファイルかどうか
+   * @returns {boolean} true: FLACファイルである / false: FLACファイルでない
+   */
+  function isFLAC(): boolean {
     // ASCII表記でfLaC
     return getIntNumberFromBinary(musicData, 0, 4) == 0x664c6143 ? true : false;
   }
 
-  function readVorbisCommentMetadataBlocks() {
+  /**
+   * VorbisCommentを読み込む。
+   * @returns {void}
+   */
+  function readVorbisCommentMetadataBlocks(): void {
     const { getIndex, setIndex, increment, checkSizeLength, isVorbisComment } =
       vorbisCommentMetadataBlock();
 
@@ -612,6 +637,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
 
       const flagType = getIntNumberFromBinary(musicData, getIndex(), 1);
       increment(1);
+
       let length = getIntNumberFromBinary(musicData, getIndex(), 3);
       increment(3);
 
@@ -639,6 +665,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           }
 
           checkSizeLength(getIndex, length);
+
           increment(length);
           // vendor_string
           checkSizeLength(getIndex, 4);
@@ -650,13 +677,13 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
             4,
             true,
           );
-
           increment(4);
 
           if (nComments & 0x80000000) {
             return;
           }
 
+          // ここからVorbisCommentの走査
           for (let i = 0; i < nComments; i++) {
             checkSizeLength(getIndex, 4);
             length = getIntNumberFromBinary(musicData, getIndex(), 4, true);
@@ -668,7 +695,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
             }
 
             checkSizeLength(getIndex, length);
-
+            // commentの抽出
             let comment = "";
             for (let j = length; j > 0; j--) {
               const index = getIndex();
@@ -750,6 +777,11 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
   };
 }
 
+/**
+ * FLACの音楽メタデータの取得
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ * @returns {Metadata | undefined} FLACの音楽メタデータ | FLACでない場合はundefined
+ */
 function getMetadataFLAC(musicData: Uint8Array): Metadata | undefined {
   const {
     isFLAC,
