@@ -565,6 +565,14 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
       increment: function (byNum: number) {
         index += byNum;
       },
+      checkSizeLength: function (
+        getIndex: () => number,
+        skipNumber: number = 0,
+      ) {
+        if (getIndex() + skipNumber > musicData.length) {
+          return;
+        }
+      },
     };
   }
 
@@ -574,22 +582,19 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
   }
 
   function readVorbisCommentMetadataBlocks() {
-    const { getIndex, setIndex, increment } = vorbisCommentMetadataBlock();
+    const { getIndex, setIndex, increment, checkSizeLength } =
+      vorbisCommentMetadataBlock();
 
     for (;;) {
       // METADATA_BLOCK_HEADER
-      if (getIndex() + 4 > musicData.length) {
-        return;
-      }
+      checkSizeLength(getIndex, 4);
 
       const flagType = getIntNumberFromBinary(musicData, getIndex(), 1);
       increment(1);
       let length = getIntNumberFromBinary(musicData, getIndex(), 3);
       increment(3);
 
-      if (getIndex() + length > musicData.length) {
-        return;
-      }
+      checkSizeLength(getIndex, length);
 
       // METADATA_BLOCK_DATAの領域
       switch (
@@ -598,54 +603,50 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
       ) {
         case 4: {
           // VORBIS_COMMENT
-          // 曲タイトル，アーティスト名を取得
           const skip = getIndex() + length;
+
           if (length < 4) {
             return;
           }
 
           length = getIntNumberFromBinary(musicData, getIndex(), 4, true);
           increment(4);
+
           if (length & 0x80000000) {
             // vendor_length
             return;
           }
-          if (getIndex() + length > musicData.length) {
-            return;
-          }
 
+          checkSizeLength(getIndex, length);
           increment(length);
-          if (getIndex() + 4 > musicData.length) {
-            // vendor_string
-            return;
-          }
+          // vendor_string
+          checkSizeLength(getIndex, 4);
 
           // user_comment_list_length
-          const n_comments = getIntNumberFromBinary(
+          const nComments = getIntNumberFromBinary(
             musicData,
             getIndex(),
             4,
             true,
           );
+
           increment(4);
-          if (n_comments & 0x80000000) {
+
+          if (nComments & 0x80000000) {
             return;
           }
 
-          for (let i = 0; i < n_comments; i++) {
-            if (getIndex() + 4 > musicData.length) {
-              return;
-            }
-
+          for (let i = 0; i < nComments; i++) {
+            checkSizeLength(getIndex, 4);
             length = getIntNumberFromBinary(musicData, getIndex(), 4, true);
             increment(4);
+
             if (length & 0x80000000) {
               // length
               return;
             }
-            if (getIndex() + length > musicData.length) {
-              return;
-            }
+
+            checkSizeLength(getIndex, length);
 
             let comment = "";
             for (let j = length; j > 0; j--) {
