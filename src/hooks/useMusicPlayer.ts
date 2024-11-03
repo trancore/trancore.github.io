@@ -1,6 +1,6 @@
 ﻿import { useEffect, useRef, useState } from "react";
 
-import { Metadata } from "~/types/Music";
+import { DisplayMetadata } from "~/types/Music";
 
 const STATUS = {
   PLAY: "PLAY",
@@ -11,7 +11,7 @@ const STATUS = {
 type Status = keyof typeof STATUS;
 type CurrentMusic = {
   url: string;
-  display: Pick<Metadata, "title" | "artist" | "length">;
+  display: DisplayMetadata;
 };
 
 /**

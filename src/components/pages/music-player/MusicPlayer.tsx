@@ -10,17 +10,16 @@ import { Icon } from "~/components/common/icon/Icon";
 import { MusicTable } from "~/components/common/table/MusicTable";
 
 import useFile from "~/hooks/useFile";
-import useMusic from "~/hooks/useMusic";
 import useMusicPlayer from "~/hooks/useMusicPlayer";
 
 import { formatSecondsToMMSS } from "~/utils/format";
+import { getAudioUint8Array, loadedAudioMetadata } from "~/utils/music";
+import { getMusicMetadata } from "~/utils/musicMetadata";
 
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
 export const MusicPlayer: FC = () => {
   const { fileRef, onClickInputFileList } = useFile();
-  // FIXME 一旦直接取得。できればuseMusicPlayerで取得したい。
-  const { getAudioUint8Array, loadedAudioMetadata } = useMusic();
   const {
     currentMusic,
     currentMusicList,
@@ -61,12 +60,13 @@ export const MusicPlayer: FC = () => {
     for (let i = 0; i < files.length; i++) {
       const objectURLMusic = getMusicURL(files[i]);
       const arrayBuffer = await getAudioUint8Array(files[i]);
+      const musicMetadata = getMusicMetadata(arrayBuffer);
       const music: (typeof currentMusicList)[number] = {
         url: objectURLMusic,
         display: {
-          title: `test${i}`,
-          artist: `test${i}`,
-          length: "999:99",
+          title: musicMetadata?.title || "",
+          artist: musicMetadata?.artist || "",
+          length: "",
         },
       };
       flushMusicList.push(music);
@@ -98,69 +98,6 @@ export const MusicPlayer: FC = () => {
     if (seekBarRef.current) {
       seekBarRef.current.value = String(currentMusicPlayTime);
     }
-
-    // setMusicList([
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    // ]);
   }, [currentMusicPlayTime]);
 
   return (
@@ -202,7 +139,15 @@ export const MusicPlayer: FC = () => {
                   ></input>
                   <p>{formatSecondsToMMSS(currentMusicDuration)}</p>
                 </div>
-                <p>Artist - 曲名</p>
+                <p className={classes["current-music-display"]}>
+                  {currentMusic.current.no}
+                  {". "}
+                  {
+                    currentMusicList[currentMusic.current.no - 1].display.artist
+                  }{" "}
+                  -{" "}
+                  {currentMusicList[currentMusic.current.no - 1].display.title}
+                </p>
                 <div className={classes.control}>
                   <IconButton
                     icon={{ name: "Backforward", size: 24 }}
@@ -229,6 +174,7 @@ export const MusicPlayer: FC = () => {
               </div>
               <MusicTable
                 musicList={currentMusicList.map((music) => music.display)}
+                currentMusicNo={currentMusic.current.no}
               ></MusicTable>
             </div>
           </div>
