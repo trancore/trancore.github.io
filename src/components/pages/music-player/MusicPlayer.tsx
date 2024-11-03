@@ -98,69 +98,6 @@ export const MusicPlayer: FC = () => {
     if (seekBarRef.current) {
       seekBarRef.current.value = String(currentMusicPlayTime);
     }
-
-    // setMusicList([
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    //   {
-    //     artist: "kosuke iwasaki",
-    //     title: "test test test",
-    //     length: "20:00",
-    //   },
-    // ]);
   }, [currentMusicPlayTime]);
 
   return (

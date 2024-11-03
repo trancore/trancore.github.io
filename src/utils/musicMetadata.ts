@@ -58,10 +58,18 @@ const VORBIS_COMMENT = {
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
 
-export function getMusicMetadata(musicData: Uint8Array) {
-  // const metadata = getMetadataMp3(musicData);
-  const metadata = getMetadataFLAC(musicData);
-  return metadata;
+export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
+  const { data: dataMp3, isID3v2 } = getMetadataMp3(musicData);
+  if (isID3v2()) {
+    return dataMp3;
+  }
+
+  const { data: dataFLAC, isFLAC } = getMetadataFLAC(musicData);
+  if (isFLAC()) {
+    return dataFLAC;
+  }
+
+  return;
 }
 
 /**
@@ -387,7 +395,10 @@ function ID3v2TagReader(musicData: Uint8Array) {
  * @param {Uint8Array} musicData 音楽バイナリデータ
  * @returns {Metadata | undefined} MP3の音楽メタデータ | MP3でない場合はundefined
  */
-function getMetadataMp3(musicData: Uint8Array): Metadata | undefined {
+function getMetadataMp3(musicData: Uint8Array): {
+  data?: Metadata;
+  isID3v2: () => boolean;
+} {
   const {
     isID3v2,
     read,
@@ -417,8 +428,15 @@ function getMetadataMp3(musicData: Uint8Array): Metadata | undefined {
       musicMetadata.albumWork = imgSrc;
     }
 
-    return musicMetadata;
+    return {
+      data: musicMetadata,
+      isID3v2,
+    };
   }
+
+  return {
+    isID3v2,
+  };
 }
 
 /**
@@ -642,9 +660,12 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
 /**
  * FLACの音楽メタデータの取得
  * @param {Uint8Array} musicData 音楽バイナリデータ
- * @returns {Metadata | undefined} FLACの音楽メタデータ | FLACでない場合はundefined
+ * @returns FLACの音楽メタデータ | FLACでない場合はundefined
  */
-function getMetadataFLAC(musicData: Uint8Array): Metadata | undefined {
+function getMetadataFLAC(musicData: Uint8Array): {
+  data?: Metadata;
+  isFLAC: () => boolean;
+} {
   const {
     isFLAC,
     read,
@@ -656,9 +677,9 @@ function getMetadataFLAC(musicData: Uint8Array): Metadata | undefined {
     getPicture,
   } = vorbisCommentTagReader(musicData);
 
-  if (isFLAC()) {
-    read();
+  read();
 
+  if (isFLAC()) {
     const musicMetadata: Metadata = {
       title: getTitle(),
       artist: getArtist(),
@@ -669,6 +690,13 @@ function getMetadataFLAC(musicData: Uint8Array): Metadata | undefined {
     };
     const { mimeType, binary } = getPicture();
 
-    return musicMetadata;
+    return {
+      data: musicMetadata,
+      isFLAC,
+    };
   }
+
+  return {
+    isFLAC,
+  };
 }
