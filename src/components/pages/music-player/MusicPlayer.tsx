@@ -139,7 +139,15 @@ export const MusicPlayer: FC = () => {
                   ></input>
                   <p>{formatSecondsToMMSS(currentMusicDuration)}</p>
                 </div>
-                <p>Artist - 曲名</p>
+                <p className={classes["current-music-display"]}>
+                  {currentMusic.current.no}
+                  {". "}
+                  {
+                    currentMusicList[currentMusic.current.no - 1].display.artist
+                  }{" "}
+                  -{" "}
+                  {currentMusicList[currentMusic.current.no - 1].display.title}
+                </p>
                 <div className={classes.control}>
                   <IconButton
                     icon={{ name: "Backforward", size: 24 }}
