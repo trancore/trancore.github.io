@@ -7,7 +7,7 @@ import { PAGE_PATH } from "~/const";
 import { Loading } from "~/components/common/animation/Loading";
 import { IconButton } from "~/components/common/button/IconButton";
 import { Icon } from "~/components/common/icon/Icon";
-import { MusicTable } from "~/components/common/table/MusicTable";
+import { MusicTable } from "~/components/ui/musictable/MusicTable";
 
 import useFile from "~/hooks/useFile";
 import useMusicPlayer from "~/hooks/useMusicPlayer";

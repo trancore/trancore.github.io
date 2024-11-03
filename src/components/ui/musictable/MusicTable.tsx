@@ -1,6 +1,6 @@
 ﻿import { FC } from "react";
 
-import classes from "~/components/common/table/MusicTable.module.scss";
+import classes from "~/components/ui/musictable/MusicTable.module.scss";
 
 type Props = {
   musicList: {
