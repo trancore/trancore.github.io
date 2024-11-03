@@ -8,9 +8,10 @@ type Props = {
     title: string;
     length: string;
   }[];
+  currentMusicNo: number | undefined;
 };
 
-export const MusicTable: FC<Props> = ({ musicList }) => {
+export const MusicTable: FC<Props> = ({ musicList, currentMusicNo }) => {
   return (
     <table>
       <tbody>
@@ -21,10 +22,22 @@ export const MusicTable: FC<Props> = ({ musicList }) => {
               <td key={`no_${no}`} className={classes.no}>
                 {no}
               </td>
-              <td key={`name_${index}`} className={classes.name}>
+              <td
+                key={`name_${index}`}
+                className={classes.name}
+                style={{
+                  fontWeight: no === currentMusicNo ? "bold" : undefined,
+                }}
+              >
                 {music.artist} - {music.title}
               </td>
-              <td key={`length_${index}`} className={classes.length}>
+              <td
+                key={`length_${index}`}
+                className={classes.length}
+                style={{
+                  fontWeight: no === currentMusicNo ? "bold" : undefined,
+                }}
+              >
                 {music.length}
               </td>
             </tr>

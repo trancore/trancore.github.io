@@ -174,6 +174,7 @@ export const MusicPlayer: FC = () => {
               </div>
               <MusicTable
                 musicList={currentMusicList.map((music) => music.display)}
+                currentMusicNo={currentMusic.current.no}
               ></MusicTable>
             </div>
           </div>
