@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useEffect, useRef } from "react";
+import { ChangeEvent, FC, useEffect, useRef, MouseEvent } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ import useFile from "~/hooks/useFile";
 import useMusicPlayer from "~/hooks/useMusicPlayer";
 
 import { formatSecondsToMMSS } from "~/utils/format";
-import { getAudioUint8Array, loadedAudioMetadata } from "~/utils/music";
+import { getAudioUint8Array } from "~/utils/music";
 import { getMusicMetadata } from "~/utils/musicMetadata";
 
 import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
@@ -22,11 +22,11 @@ export const MusicPlayer: FC = () => {
   const { fileRef, onClickInputFileList } = useFile();
   const {
     currentMusic,
+    updateCurrentMusic,
     currentMusicList,
     setCurrentMusicList,
     currentMusicPlayTime,
     currentMusicDuration,
-    setCurrentMusicDuration,
     isLoading,
     setIsLoading,
     currentMusicStatus,
@@ -73,17 +73,8 @@ export const MusicPlayer: FC = () => {
     }
 
     // 現在選択されている音楽に音楽ソースを設定
-    currentMusic.current.audioElement.src = flushMusicList[0].url;
-    const duration = await loadedAudioMetadata(
-      currentMusic.current.audioElement,
-    );
-
-    currentMusic.current = {
-      no: 1,
-      audioElement: currentMusic.current.audioElement,
-    };
+    await updateCurrentMusic(1, flushMusicList[0]);
     setCurrentMusicList(flushMusicList);
-    setCurrentMusicDuration(duration);
     setIsLoading(() => false);
 
     console.log("準備完了");
@@ -92,6 +83,16 @@ export const MusicPlayer: FC = () => {
   function onClickSeekbar(event: ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
     currentMusic.current.audioElement.currentTime = Number(value);
+  }
+
+  async function onClickMusicRow(
+    event: MouseEvent<HTMLTableRowElement, globalThis.MouseEvent>,
+  ) {
+    const { id } = event.currentTarget;
+    const clickedMusic = currentMusicList[Number(id) - 1];
+
+    await updateCurrentMusic(Number(id), clickedMusic);
+    play();
   }
 
   useEffect(() => {
@@ -175,6 +176,7 @@ export const MusicPlayer: FC = () => {
               <MusicTable
                 musicList={currentMusicList.map((music) => music.display)}
                 currentMusicNo={currentMusic.current.no}
+                onClick={onClickMusicRow}
               ></MusicTable>
             </div>
           </div>
