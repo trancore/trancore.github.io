@@ -32,7 +32,7 @@ export function getAudioUint8Array(file: File): Promise<Uint8Array> {
 export function loadedAudioMetadata(
   audioElement: HTMLAudioElement,
 ): Promise<number> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     audioElement.addEventListener("loadedmetadata", () => {
       const { duration } = audioElement;
       resolve(duration);
