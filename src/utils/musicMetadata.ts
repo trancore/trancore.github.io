@@ -491,6 +491,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           text.substring(0, substringEndNum).toUpperCase() === `${comment}=`
         );
       },
+      getPicture: function () {},
     };
   }
 
@@ -508,8 +509,14 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
    * @returns {void}
    */
   function readVorbisComments(): void {
-    const { getIndex, setIndex, increment, checkSizeLength, isVorbisComment } =
-      vorbisComment();
+    const {
+      getIndex,
+      setIndex,
+      increment,
+      checkSizeLength,
+      isVorbisComment,
+      getPicture,
+    } = vorbisComment();
 
     for (;;) {
       // METADATA_BLOCK_HEADER
@@ -530,6 +537,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
       ) {
         case 4: {
           // VORBIS_COMMENT
+          // 構造：https://www.xiph.org/vorbis/doc/v-comment.html#structure
           const skip = getIndex() + length;
 
           if (length < 4) {
@@ -613,9 +621,40 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           break;
         }
         case 6: {
-          // 画像（アートワーク）
-          // document.getElementById("album-work").src =
-          //   "/assets/no-image-9406927235933d1db5dc5141cb0bf262374ff1a2744e6bac8ccdc72ff0362ea2.jpg";
+          // PICTURE
+          const skip = getIndex() + length;
+
+          // ID3v2 APICフレームに従った画像のタイプ
+          const pictureType = getIntNumberFromBinary(musicData, getIndex(), 4);
+          increment(4);
+          if (pictureType & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, length);
+
+          // MIMEタイプ文字列の長さ（バイト単位）
+          const mimeTypeStringLength = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          if (mimeTypeStringLength & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, mimeTypeStringLength);
+
+          // MIMEタイプ文字列
+          let mimeType = "";
+          for (let j = mimeTypeStringLength; j > 0; j--) {
+            const index = getIndex();
+            mimeType += String.fromCharCode(musicData[index]);
+            setIndex(index + 1);
+          }
+          increment(mimeTypeStringLength);
+
+          const test2 = getPicture();
+          setIndex(skip);
           break;
         }
         case 127:
