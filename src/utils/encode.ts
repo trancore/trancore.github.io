@@ -265,21 +265,15 @@ function encodePlusGeta(
 }
 
 /**
- * Base64バイナリデータを解読可能なテキストデータに変換する
+ * バイナリデータをbase64のテキストデータに変換する
  * @see https://qiita.com/PlanetMeron/items/2905e2d0aa7fe46a36d4
- * @param {Uint8Array} binary Base64バイナリデータ
- * @returns {string} テキスト
+ * @param {Uint8Array} binary Uint8Arrayバイナリデータ
+ * @returns {string} base64テキストデータ
  */
 export function encodeBase64(binary: Uint8Array): string {
   if (!binary) {
     return "";
   }
-
-  // TODO エンコードテーブルを用いてバイナリデータをエンコードしているが、
-  // これだとエンコードテーブルにのみ存在する文字列しか変換できない。
-  // そのため、以下の参照リンクを用いて変換する必要がありそう
-  // https://developer.mozilla.org/ja/docs/Glossary/Base64#%E3%80%8Cunicode_%E5%95%8F%E9%A1%8C%E3%80%8D
-  // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint
 
   const outStrArray: string[] = [];
   const length = binary.length;
