@@ -735,7 +735,8 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           );
           vorbisCommentMetadataBlocks.picture.binary = pictureBinary;
 
-          const test2 = getPicture();
+          // TODO: 似た処理が続くので、それらを共通化する。
+
           setIndex(skip);
           break;
         }
