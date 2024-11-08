@@ -14,7 +14,6 @@ export function getAudioUint8Array(file: File): Promise<Uint8Array> {
       if (result === null || typeof result === "string") {
         return reject(new Error("File reading failed"));
       }
-      // FIXME 8じゃなくて16の方が良い？？？
       const uint8ArrayResult = new Uint8Array(result);
       return resolve(uint8ArrayResult);
     };
@@ -41,6 +40,7 @@ export function getImageInUint8Array(
 
 /**
  * 音楽メタタグ情報の読み込み
+ * TODO この関数を見直す
  * @param {HTMLAudioElement} audioElement 音楽要素
  * @returns {number} （今のところ）再生時間
  */
