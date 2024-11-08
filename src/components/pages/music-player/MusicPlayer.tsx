@@ -100,6 +100,9 @@ export const MusicPlayer: FC = () => {
     if (seekBarRef.current) {
       seekBarRef.current.value = String(currentMusicPlayTime);
     }
+    if (currentMusic.current.audioElement.ended) {
+      forward();
+    }
   }, [currentMusicPlayTime]);
 
   return (
