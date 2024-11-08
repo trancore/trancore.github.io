@@ -67,6 +67,7 @@ export const MusicPlayer: FC = () => {
           title: musicMetadata?.title || "",
           artist: musicMetadata?.artist || "",
           length: "",
+          albumWork: musicMetadata?.albumWork || "",
         },
       };
       flushMusicList.push(music);
@@ -124,7 +125,13 @@ export const MusicPlayer: FC = () => {
       {currentMusicList && currentMusicList.length > 0 ? (
         <div className={classes.content}>
           <div className={classes["music-meta"]}>
-            <div className={classes["jacket-picture"]}></div>
+            <img
+              className={classes["jacket-picture"]}
+              src={
+                currentMusicList[currentMusic.current.no - 1].display.albumWork
+              }
+              alt="albumwork"
+            />
             <div className={classes["player-control"]}>
               <div className={classes.player}>
                 <div className={classes.time}>

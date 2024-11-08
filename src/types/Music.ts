@@ -17,6 +17,9 @@ export type Metadata = {
 /**
  * 表示用音楽メタデータ
  */
-export type DisplayMetadata = Pick<Metadata, "title" | "artist"> & {
+export type DisplayMetadata = Pick<
+  Metadata,
+  "title" | "artist" | "albumWork"
+> & {
   length: string;
 };
