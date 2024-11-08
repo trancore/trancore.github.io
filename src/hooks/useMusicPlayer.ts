@@ -132,7 +132,7 @@ export default function useMusicPlayer() {
   }
 
   /**
-   * 次の音楽へ進む
+   * 前の音楽に戻る
    */
   async function backForward(): Promise<void> {
     stop();
