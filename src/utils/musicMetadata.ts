@@ -8,6 +8,7 @@ import {
   getStringUTF8,
   utf8ToUtf16,
 } from "~/utils/encode";
+import { getImageInUint8Array } from "~/utils/music";
 
 /** 16進数 */
 const HEXADECIMAL = {
@@ -212,18 +213,6 @@ function ID3v2TagReader(musicData: Uint8Array) {
       const mimeTypeUint8Array = musicData.subarray(beginIndex, endIndex);
       return String.fromCharCode.apply(null, [...mimeTypeUint8Array]);
     },
-    /**
-     * UTF-8コード文字配列の画像データを取得する
-     * @param beginIndex 画像データの始まりのインデックス
-     * @param size 画像データサイズ
-     * @returns {Uint8Array} UTF-8コード文字配列の画像データ
-     */
-    getImageInUint8Array: function (
-      beginIndex: number,
-      size: number,
-    ): Uint8Array {
-      return musicData.subarray(beginIndex, beginIndex + size);
-    },
   };
 
   /**
@@ -303,7 +292,6 @@ function ID3v2TagReader(musicData: Uint8Array) {
       isFrameHeaderFmtFlgIncludeOrgSize,
       readFrameBodySizeV24ForAPIC,
       readMimeType,
-      getImageInUint8Array,
     } = ID3Frame;
 
     // 音楽メタ情報を取得する。
@@ -347,6 +335,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
 
         ID3Frames.apic.mimeType = mimetype;
         ID3Frames.apic.binary = getImageInUint8Array(
+          musicData,
           imageIndex,
           frameSize - (1 + mimetype.length + 1 + 2),
         );
@@ -491,6 +480,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           text.substring(0, substringEndNum).toUpperCase() === `${comment}=`
         );
       },
+      getPicture: function () {},
     };
   }
 
@@ -508,8 +498,14 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
    * @returns {void}
    */
   function readVorbisComments(): void {
-    const { getIndex, setIndex, increment, checkSizeLength, isVorbisComment } =
-      vorbisComment();
+    const {
+      getIndex,
+      setIndex,
+      increment,
+      checkSizeLength,
+      isVorbisComment,
+      getPicture,
+    } = vorbisComment();
 
     for (;;) {
       // METADATA_BLOCK_HEADER
@@ -530,6 +526,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
       ) {
         case 4: {
           // VORBIS_COMMENT
+          // 構造：https://www.xiph.org/vorbis/doc/v-comment.html#structure
           const skip = getIndex() + length;
 
           if (length < 4) {
@@ -613,11 +610,133 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           break;
         }
         case 6: {
-          // 画像（アートワーク）
-          // document.getElementById("album-work").src =
-          //   "/assets/no-image-9406927235933d1db5dc5141cb0bf262374ff1a2744e6bac8ccdc72ff0362ea2.jpg";
+          // PICTURE
+          const skip = getIndex() + length;
+
+          // ID3v2 APICフレームに従った画像のタイプ
+          const pictureType = getIntNumberFromBinary(musicData, getIndex(), 4);
+          increment(4);
+          if (pictureType & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, length);
+
+          // MIMEタイプの長さ
+          const mimeTypeStringLengthByByte = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          if (mimeTypeStringLengthByByte & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, mimeTypeStringLengthByByte);
+
+          // MIMEタイプ
+          let mimeType = "";
+          for (let j = mimeTypeStringLengthByByte; j > 0; j--) {
+            const index = getIndex();
+            mimeType += String.fromCharCode(musicData[index]);
+            increment(1);
+          }
+          vorbisCommentMetadataBlocks.picture.mimeType = mimeType;
+
+          // 説明の長さ
+          const descriptionLengthByByte = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          if (descriptionLengthByByte & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, descriptionLengthByByte);
+
+          // 説明
+          let description = "";
+          for (let j = descriptionLengthByByte; j > 0; j--) {
+            const index = getIndex();
+            description += String.fromCharCode(musicData[index]);
+            increment(1);
+          }
+
+          // 画像幅
+          const widthOfPictureByPixel = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          if (widthOfPictureByPixel & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, widthOfPictureByPixel);
+
+          // 画像高さ
+          const hHeightOfPictureByPixel = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          if (hHeightOfPictureByPixel & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, hHeightOfPictureByPixel);
+
+          // 色深度(ビット/ピクセル)
+          const colorDepthOfPicture = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          if (colorDepthOfPicture & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, colorDepthOfPicture);
+
+          // 色数
+          const colorOfnumberAndPicture = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          if (colorOfnumberAndPicture & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, colorOfnumberAndPicture);
+
+          // 画像データの長さ
+          const pictureLengthByByte = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          if (pictureLengthByByte & 0x80000000) {
+            return;
+          }
+          checkSizeLength(getIndex, pictureLengthByByte);
+
+          // 画像データ
+          const pictureBinary = getImageInUint8Array(
+            musicData,
+            getIndex(),
+            pictureLengthByByte + 1,
+          );
+
+          vorbisCommentMetadataBlocks.picture.binary = pictureBinary;
+
+          // TODO: 似た処理が続くので、それらを共通化する。
+
+          setIndex(skip);
           break;
         }
+
         case 127:
           return;
         default:
@@ -689,6 +808,12 @@ function getMetadataFLAC(musicData: Uint8Array): {
       albumWork: "",
     };
     const { mimeType, binary } = getPicture();
+
+    // TODO: MP3と合わせて共通化する
+    if (mimeType !== "") {
+      const imgSrc = "data:" + mimeType + ";base64," + encodeBase64(binary);
+      musicMetadata.albumWork = imgSrc;
+    }
 
     return {
       data: musicMetadata,

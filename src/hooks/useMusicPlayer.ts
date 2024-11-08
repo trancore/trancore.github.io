@@ -2,6 +2,8 @@
 
 import { DisplayMetadata } from "~/types/Music";
 
+import { loadedAudioMetadata } from "~/utils/music";
+
 const STATUS = {
   PLAY: "PLAY",
   STOP: "STOP",
@@ -65,6 +67,18 @@ export default function useMusicPlayer() {
     return window.URL.createObjectURL(file);
   }
 
+  async function updateCurrentMusic(id: number, updateedMusic: CurrentMusic) {
+    currentMusic.current.audioElement.src = updateedMusic.url;
+    const duration = await loadedAudioMetadata(
+      currentMusic.current.audioElement,
+    );
+    currentMusic.current = {
+      no: Number(id),
+      audioElement: currentMusic.current.audioElement,
+    };
+    setCurrentMusicDuration(duration);
+  }
+
   /**
    * 状態の初期化
    */
@@ -118,7 +132,7 @@ export default function useMusicPlayer() {
   }
 
   /**
-   * 次の音楽へ進む
+   * 前の音楽に戻る
    */
   async function backForward(): Promise<void> {
     stop();
@@ -135,6 +149,7 @@ export default function useMusicPlayer() {
 
   return {
     currentMusic,
+    updateCurrentMusic,
     currentMusicList,
     setCurrentMusicList,
     currentMusicPlayTime,

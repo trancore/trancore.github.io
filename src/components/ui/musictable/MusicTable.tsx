@@ -1,6 +1,6 @@
-﻿import { FC } from "react";
+﻿import { FC, MouseEventHandler } from "react";
 
-import classes from "~/components/common/table/MusicTable.module.scss";
+import classes from "~/components/ui/musictable/MusicTable.module.scss";
 
 type Props = {
   musicList: {
@@ -9,21 +9,27 @@ type Props = {
     length: string;
   }[];
   currentMusicNo: number | undefined;
+  onClick: MouseEventHandler<HTMLTableRowElement>;
 };
 
-export const MusicTable: FC<Props> = ({ musicList, currentMusicNo }) => {
+export const MusicTable: FC<Props> = ({
+  musicList,
+  currentMusicNo,
+  onClick,
+}) => {
   return (
     <table>
       <tbody>
         {musicList.map((music, index) => {
           const no = index + 1;
           return (
-            <tr key={`row-${no}`}>
-              <td key={`no_${no}`} className={classes.no}>
+            <tr key={`row-${no}`} id={String(no)} onClick={onClick}>
+              <td key={`no_${no}`} id={String(no)} className={classes.no}>
                 {no}
               </td>
               <td
                 key={`name_${index}`}
+                id={String(no)}
                 className={classes.name}
                 style={{
                   fontWeight: no === currentMusicNo ? "bold" : undefined,
@@ -33,6 +39,7 @@ export const MusicTable: FC<Props> = ({ musicList, currentMusicNo }) => {
               </td>
               <td
                 key={`length_${index}`}
+                id={String(no)}
                 className={classes.length}
                 style={{
                   fontWeight: no === currentMusicNo ? "bold" : undefined,
