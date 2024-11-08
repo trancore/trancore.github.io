@@ -728,11 +728,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
             getIndex(),
             pictureLengthByByte + 1,
           );
-          // TODO 画像がきちんと表示できるまで残す
-          console.log(
-            "🚀 ~ readVorbisComments ~ pictureBinary:",
-            pictureBinary,
-          );
+
           vorbisCommentMetadataBlocks.picture.binary = pictureBinary;
 
           // TODO: 似た処理が続くので、それらを共通化する。
