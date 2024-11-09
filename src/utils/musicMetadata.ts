@@ -7,7 +7,7 @@ import {
   getStringUTF8,
   utf8ToUtf16,
 } from "~/utils/encode";
-import { getAlbumworkBase64, getImageInUint8Array } from "~/utils/music";
+import { getImageInBase64, getImageInUint8Array } from "~/utils/music";
 
 /** 16進数 */
 const HEXADECIMAL = {
@@ -412,7 +412,7 @@ function getMetadataMp3(musicData: Uint8Array): {
     const { mimeType, binary } = getAPIC();
 
     if (mimeType !== "") {
-      musicMetadata.albumWork = getAlbumworkBase64(mimeType, binary);
+      musicMetadata.albumWork = getImageInBase64(mimeType, binary);
     }
 
     return {
@@ -478,9 +478,36 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           text.substring(0, substringEndNum).toUpperCase() === `${comment}=`
         );
       },
-      getPicture: function () {},
     };
   }
+
+  /**
+   * pictureのプロトタイプオブジェクト
+   */
+  const picture = {
+    /**
+     * 規定のバイト数で定義される画像情報の長さを取得する
+     * @param {1 | 2 | 3 | 4} byteNumber バイナリデータから取り出すバイト数
+     * @param vorbisComment VorbisCommentのクロージャ関数
+     * @returns {number | undefined} 画像情報の長さ
+     */
+    getFieldLength: function (
+      byteNumber: 1 | 2 | 3 | 4,
+      {
+        getIndex,
+        increment,
+        checkSizeLength,
+      }: ReturnType<typeof vorbisComment>,
+    ): number | undefined {
+      const length = getIntNumberFromBinary(musicData, getIndex(), byteNumber);
+      increment(byteNumber);
+      if (length & 0x80000000) {
+        return;
+      }
+      checkSizeLength(getIndex, length);
+      return length;
+    },
+  };
 
   /**
    * FLACファイルかどうか
@@ -496,14 +523,10 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
    * @returns {void}
    */
   function readVorbisComments(): void {
-    const {
-      getIndex,
-      setIndex,
-      increment,
-      checkSizeLength,
-      isVorbisComment,
-      getPicture,
-    } = vorbisComment();
+    const resultVorbisComment = vorbisComment();
+    const { getIndex, setIndex, increment, checkSizeLength, isVorbisComment } =
+      resultVorbisComment;
+    const { getFieldLength } = picture;
 
     for (;;) {
       // METADATA_BLOCK_HEADER
@@ -620,16 +643,11 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           checkSizeLength(getIndex, length);
 
           // MIMEタイプの長さ
-          const mimeTypeStringLengthByByte = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
+          const mimeTypeStringLengthByByte = getFieldLength(
             4,
+            resultVorbisComment,
           );
-          increment(4);
-          if (mimeTypeStringLengthByByte & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, mimeTypeStringLengthByByte);
+          if (mimeTypeStringLengthByByte === undefined) return;
 
           // MIMEタイプ
           let mimeType = "";
@@ -641,16 +659,11 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           vorbisCommentMetadataBlocks.picture.mimeType = mimeType;
 
           // 説明の長さ
-          const descriptionLengthByByte = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
+          const descriptionLengthByByte = getFieldLength(
             4,
+            resultVorbisComment,
           );
-          increment(4);
-          if (descriptionLengthByByte & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, descriptionLengthByByte);
+          if (descriptionLengthByByte === undefined) return;
 
           // 説明
           let description = "";
@@ -661,64 +674,30 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           }
 
           // 画像幅
-          const widthOfPictureByPixel = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
-            4,
-          );
-          increment(4);
-          if (widthOfPictureByPixel & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, widthOfPictureByPixel);
+          const widthOfPictureByPixel = getFieldLength(4, resultVorbisComment);
+          if (widthOfPictureByPixel === undefined) return;
 
           // 画像高さ
-          const hHeightOfPictureByPixel = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
+          const hHeightOfPictureByPixel = getFieldLength(
             4,
+            resultVorbisComment,
           );
-          increment(4);
-          if (hHeightOfPictureByPixel & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, hHeightOfPictureByPixel);
+          if (hHeightOfPictureByPixel === undefined) return;
 
           // 色深度(ビット/ピクセル)
-          const colorDepthOfPicture = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
-            4,
-          );
-          increment(4);
-          if (colorDepthOfPicture & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, colorDepthOfPicture);
+          const colorDepthOfPicture = getFieldLength(4, resultVorbisComment);
+          if (colorDepthOfPicture === undefined) return;
 
           // 色数
-          const colorOfnumberAndPicture = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
+          const colorOfnumberAndPicture = getFieldLength(
             4,
+            resultVorbisComment,
           );
-          increment(4);
-          if (colorOfnumberAndPicture & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, colorOfnumberAndPicture);
+          if (colorOfnumberAndPicture === undefined) return;
 
           // 画像データの長さ
-          const pictureLengthByByte = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
-            4,
-          );
-          increment(4);
-          if (pictureLengthByByte & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, pictureLengthByByte);
+          const pictureLengthByByte = getFieldLength(4, resultVorbisComment);
+          if (pictureLengthByByte === undefined) return;
 
           // 画像データ
           const pictureBinary = getImageInUint8Array(
@@ -807,9 +786,8 @@ function getMetadataFLAC(musicData: Uint8Array): {
     };
     const { mimeType, binary } = getPicture();
 
-    // TODO: MP3と合わせて共通化する
     if (mimeType !== "") {
-      musicMetadata.albumWork = getAlbumworkBase64(mimeType, binary);
+      musicMetadata.albumWork = getImageInBase64(mimeType, binary);
     }
 
     return {
