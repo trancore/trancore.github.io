@@ -708,8 +708,6 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
 
           vorbisCommentMetadataBlocks.picture.binary = pictureBinary;
 
-          // TODO: 似た処理が続くので、それらを共通化する。
-
           setIndex(skip);
           break;
         }
