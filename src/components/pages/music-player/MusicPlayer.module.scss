@@ -36,6 +36,7 @@
     }
 
     > .music-meta {
+      align-items: flex-start;
       display: flex;
       flex-direction: row;
       gap: 64px;
@@ -51,10 +52,14 @@
       > .jacket-picture {
         aspect-ratio: 1/1;
         object-fit: contain;
+        position: sticky;
+        top: 230px;
         width: 30%;
 
         @media screen and (max-width: #{map-get(variables.$breakpoints, sp)}) {
           margin-bottom: 24px;
+          position: static;
+          top: 0;
           width: 100%;
         }
       }
