@@ -124,10 +124,13 @@ function ID3v2TagReader(musicData: Uint8Array) {
     /**
      * テキストの読み込み
      * @param {number} index UTF-8文字コード配列のインデックス
+     * @param {number} size フレームサイズ
      * @returns {{ text: string; skip: number }} { text: エンコードされたテキスト skip: スキップ数 }
      */
-    readText: function (index: number): { text: string; skip: number } {
-      const size = getID3HeaderSize();
+    readText: function (
+      index: number,
+      size: number,
+    ): { text: string; skip: number } {
       const encodeIndex = index + HEADER_FRAME_BYTES;
       const code = musicData[encodeIndex];
 
@@ -296,23 +299,23 @@ function ID3v2TagReader(musicData: Uint8Array) {
     // 音楽メタ情報を取得する。
     for (let i = 0; i < headerSize; ) {
       if (isID3FrameID("TIT2", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.tit2 = text;
         i += skip;
       } else if (isID3FrameID("TPE1", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.tpe1 = text;
         i += skip - 1;
       } else if (isID3FrameID("TALB", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.talb = text;
         i += skip;
       } else if (isID3FrameID("TPE2", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.tpe2 = text;
         i += skip - 1;
       } else if (isID3FrameID("TCON", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.tcon = text;
         i += skip - 1;
       } else if (isID3FrameID("APIC", i)) {
