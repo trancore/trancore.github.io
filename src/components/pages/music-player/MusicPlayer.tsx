@@ -2,6 +2,8 @@ import { ChangeEvent, FC, useEffect, useRef, MouseEvent } from "react";
 
 import { Link } from "react-router-dom";
 
+import noImage from "~/assets/images/no-image.jpg";
+
 import { PAGE_PATH } from "~/const";
 
 import { Loading } from "~/components/common/animation/Loading";
@@ -131,7 +133,8 @@ export const MusicPlayer: FC = () => {
             <img
               className={classes["jacket-picture"]}
               src={
-                currentMusicList[currentMusic.current.no - 1].display.albumWork
+                currentMusicList[currentMusic.current.no - 1].display
+                  .albumWork || noImage
               }
               alt="albumwork"
             />
