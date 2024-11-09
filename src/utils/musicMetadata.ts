@@ -1,14 +1,13 @@
 ﻿import { Metadata } from "~/types/Music";
 
 import {
-  encodeBase64,
   getIntNumberFromBinary,
   getStringLatin1,
   getStringUTF16,
   getStringUTF8,
   utf8ToUtf16,
 } from "~/utils/encode";
-import { getImageInUint8Array } from "~/utils/music";
+import { getAlbumworkBase64, getImageInUint8Array } from "~/utils/music";
 
 /** 16進数 */
 const HEXADECIMAL = {
@@ -413,8 +412,7 @@ function getMetadataMp3(musicData: Uint8Array): {
     const { mimeType, binary } = getAPIC();
 
     if (mimeType !== "") {
-      const imgSrc = "data:" + mimeType + ";base64," + encodeBase64(binary);
-      musicMetadata.albumWork = imgSrc;
+      musicMetadata.albumWork = getAlbumworkBase64(mimeType, binary);
     }
 
     return {
@@ -811,8 +809,7 @@ function getMetadataFLAC(musicData: Uint8Array): {
 
     // TODO: MP3と合わせて共通化する
     if (mimeType !== "") {
-      const imgSrc = "data:" + mimeType + ";base64," + encodeBase64(binary);
-      musicMetadata.albumWork = imgSrc;
+      musicMetadata.albumWork = getAlbumworkBase64(mimeType, binary);
     }
 
     return {

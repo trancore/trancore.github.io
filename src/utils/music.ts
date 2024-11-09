@@ -1,4 +1,6 @@
-﻿/**
+﻿import { encodeBase64 } from "~/utils/encode";
+
+/**
  * 音楽のBinary Dataを取得
  * @param {File} file 音楽ファイル
  * @returns {Promise<string | ArrayBuffer | null>} Binary Data
@@ -36,6 +38,16 @@ export function getImageInUint8Array(
   size: number,
 ): Uint8Array {
   return musicData.subarray(beginIndex, beginIndex + size);
+}
+
+/**
+ * Uint8Array形式のバイナリデータを、Base64形式のデータに変換する。
+ * @param {string} mimeType マイムタイプ
+ * @param {Uint8Array} binary バイナリデータ
+ * @returns Base64形式のデータ
+ */
+export function getImageInBase64(mimeType: string, binary: Uint8Array) {
+  return "data:" + mimeType + ";base64," + encodeBase64(binary);
 }
 
 /**
