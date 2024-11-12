@@ -35,6 +35,7 @@ export const MusicPlayer: FC = () => {
     clear,
     play,
     pause,
+    stop,
     forward,
     backForward,
     getMusicURL,
@@ -46,6 +47,7 @@ export const MusicPlayer: FC = () => {
 
     const { files } = event.target;
 
+    stop();
     clear();
     currentMusic.current = { no: 0, audioElement: new Audio() };
     setCurrentMusicList((prevArray) =>
