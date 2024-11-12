@@ -13,6 +13,7 @@ import { MusicTable } from "~/components/ui/musictable/MusicTable";
 
 import useFile from "~/hooks/useFile";
 import useMusicPlayer from "~/hooks/useMusicPlayer";
+import useNavigate from "~/hooks/useNavigate";
 
 import { formatSecondsToMMSS } from "~/utils/format";
 import { getAudioUint8Array } from "~/utils/music";
@@ -22,6 +23,7 @@ import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
 export const MusicPlayer: FC = () => {
   const { fileRef, onClickInputFileList } = useFile();
+  const { navigateHandler } = useNavigate();
   const {
     currentMusic,
     updateCurrentMusic,
@@ -100,6 +102,8 @@ export const MusicPlayer: FC = () => {
     play();
   }
 
+  navigateHandler(stop);
+
   useEffect(() => {
     if (seekBarRef.current) {
       seekBarRef.current.value = String(currentMusicPlayTime);
@@ -107,7 +111,7 @@ export const MusicPlayer: FC = () => {
     if (currentMusic.current.audioElement.ended) {
       forward();
     }
-  }, [currentMusicPlayTime]);
+  }, [currentMusicPlayTime, location]);
 
   return (
     <div className={classes["music-player"]}>
