@@ -301,15 +301,15 @@ export function encodeBase64(binary: Uint8Array): string {
 }
 
 /**5
- * バイナリデータの配列から引数で指定したバイト数Integerを取り出す
+ * バイナリデータの配列から引数で指定したバイト数の整数を取り出す
  * @param {Uint8Array} binary Base64バイナリデータ
  * @param {number} index インデックス
  * @param {1 | 2 | 3 | 4} byteNumber バイナリデータから取り出すバイト数
- * @param {boolean} isLittleEndian true: リトルエンディアン / false: ビッグエンディアン （byteNumberが4の時のみ計算に反映されます）
- * @returns {number} 1バイトIntegerを取り出す
+ * @param {boolean} isLittleEndian true: リトルエンディアン / false: ビッグエンディアン
+ * @returns {number} 整数
  */
 export function getIntNumberFromBinary(
-  binary: Uint8Array,
+  binary: Uint8Array | Uint16Array,
   index: number,
   byteNumber: 1 | 2 | 3 | 4,
   isLittleEndian?: boolean,
@@ -318,7 +318,9 @@ export function getIntNumberFromBinary(
     case 1:
       return binary[index++];
     case 2:
-      return (binary[index] << 8) | binary[index + 1];
+      return isLittleEndian
+        ? binary[index] | (binary[index + 1] << 8)
+        : (binary[index] << 8) | binary[index + 1];
     case 3:
       return (
         (binary[index] << 16) | (binary[index + 1] << 8) | binary[index + 2]

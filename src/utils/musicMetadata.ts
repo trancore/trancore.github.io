@@ -32,6 +32,7 @@ const HEADER_FRAME_BYTES = 10 as const;
  */
 const ID3_HEADER_EXTENSION = {
   ID3: [73, 68, 51],
+  RIFF: [82, 73, 70, 70],
 } as const;
 /**
  * ID3タグフレームIDとUTF-16文字コードのペア
@@ -55,6 +56,15 @@ const VORBIS_COMMENT = {
   LENGTH: "LENGTH",
   GENRE: "GENRE",
 } as const;
+const RESOURCE_INTERCHANGE_FILE_FORMAT = {
+  IART: "IART",
+  INAM: "INAM",
+  IPRD: "IPRD",
+  ICMT: "ICMT",
+  ICRD: "ICRD",
+  IGNR: "IGNR",
+  ISFT: "ISFT",
+} as const;
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
 
@@ -66,6 +76,12 @@ export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
 
   const { data: dataFLAC, isFLAC } = getMetadataFLAC(musicData);
   if (isFLAC()) {
+    return dataFLAC;
+  }
+
+  const { isID3WAVE } = getMetadataWAVE(musicData);
+  console.log("🚀 ~ getMusicMetadata ~ isID3Thunk:", isID3WAVE());
+  if (isID3WAVE()) {
     return dataFLAC;
   }
 
@@ -383,8 +399,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
 
 /**
  * MP3の音楽メタデータの取得
- * @param {Uint8Array} musicData 音楽バイナリデータ
- * @returns {Metadata | undefined} MP3の音楽メタデータ | MP3でない場合はundefined
+ * @param {Uint8Array} musicData 音楽バイナリデータ`
  */
 function getMetadataMp3(musicData: Uint8Array): {
   data?: Metadata;
@@ -799,5 +814,196 @@ function getMetadataFLAC(musicData: Uint8Array): {
 
   return {
     isFLAC,
+  };
+}
+
+function RIFFTagReader(musicData: Uint8Array) {
+  /**
+   * RIFFのクロージャ関数
+   */
+  function RIFF() {
+    // ChunkIDの4バイト分をスキップ
+    let index = 4;
+
+    return {
+      getIndex: function () {
+        return index;
+      },
+      setIndex: function (newIndex: number) {
+        index = newIndex;
+      },
+      increment: function (byNum: number) {
+        index += byNum;
+      },
+      isRIFF: function (
+        comment: keyof typeof RESOURCE_INTERCHANGE_FILE_FORMAT,
+        text: string,
+        substringEndNum: number,
+      ) {
+        return (
+          text.substring(0, substringEndNum).toUpperCase() === `${comment}=`
+        );
+      },
+    };
+  }
+
+  /**
+   * WAVEかどうかを判定する。
+   * @returns {boolean} true: iD3v2である / false: iD3v2ではない
+   */
+  function isID3WAVE(): boolean {
+    return (
+      musicData[0] === ID3_HEADER_EXTENSION["RIFF"][0] &&
+      musicData[1] === ID3_HEADER_EXTENSION["RIFF"][1] &&
+      musicData[2] === ID3_HEADER_EXTENSION["RIFF"][2] &&
+      musicData[3] === ID3_HEADER_EXTENSION["RIFF"][3]
+    );
+  }
+
+  function readRIFFs(): void {
+    const { getIndex, increment } = RIFF();
+    for (;;) {
+      // ファイル全体のバイト数からChunkIDとChunkSizeの8バイトを引いたサイズ
+      const chunkSize = getIntNumberFromBinary(musicData, getIndex(), 4, true);
+      console.log("🚀 ~ readRIFFs ~ chunkSize:", chunkSize);
+      increment(4);
+
+      // ファイル識別子
+      const formatNumber = getIntNumberFromBinary(musicData, getIndex(), 4);
+      const format = String.fromCharCode(
+        (formatNumber >> 24) & 0xff,
+        (formatNumber >> 16) & 0xff,
+        (formatNumber >> 8) & 0xff,
+        formatNumber & 0xff,
+      );
+      console.log("🚀 ~ readRIFFs ~ format:", format);
+      increment(4);
+
+      // フォーマットチャンクID（formatChunkID="fmt "）
+      const formatChunkIDNumber = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        4,
+      );
+      const formatChunkID = String.fromCharCode(
+        (formatChunkIDNumber >> 24) & 0xff,
+        (formatChunkIDNumber >> 16) & 0xff,
+        (formatChunkIDNumber >> 8) & 0xff,
+        formatChunkIDNumber & 0xff,
+      );
+      console.log("🚀 ~ readRIFFs ~ formatChunkID:", formatChunkID);
+      increment(4);
+
+      // フォーマットチャンクサイズ（formatChunkID="fmt "）
+      // 16: リニアPCM。そのほかは16+拡張パラメータ
+      const formatChunk1Size = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        4,
+        true,
+      );
+      console.log("🚀 ~ readRIFFs ~ formatChunk1Size:", formatChunk1Size);
+      increment(4);
+
+      // 音声フォーマット（formatChunkID="fmt "）。
+      // 1: 非圧縮のリニアPCMフォーマット / 6: A-law / 7: μ-law。それ以外もある。
+      const audioFormat = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        2,
+        true,
+      );
+      console.log("🚀 ~ readRIFFs ~ audioFormat:", audioFormat);
+      increment(2);
+
+      // チャンネル数（formatChunkID="fmt "）。
+      // 1: モノラル / 2: ステレオ
+      const numChannels = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        2,
+        true,
+      );
+      console.log("🚀 ~ readRIFFs ~ numChannels:", numChannels);
+      increment(2);
+
+      // サンプリングレート[Hz]（formatChunkID="fmt "）
+      const sampleRate = getIntNumberFromBinary(musicData, getIndex(), 4, true);
+      console.log("🚀 ~ readRIFFs ~ sampleRate:", sampleRate);
+      increment(4);
+
+      // 1秒あたりのバイト数の平均（formatChunkID="fmt "）。
+      // byteRate = SampleRate * NumChannels * BitsPerSample/8
+      const byteRate = getIntNumberFromBinary(musicData, getIndex(), 4, true);
+      console.log("🚀 ~ readRIFFs ~ byteRate:", byteRate);
+      increment(4);
+
+      // ブロックサイズ（formatChunkID="fmt "）。
+      // blockAlign = NumChannels * BitsPerSample/8
+      const blockAlign = getIntNumberFromBinary(musicData, getIndex(), 2, true);
+      console.log("🚀 ~ readRIFFs ~ blockAlign:", blockAlign);
+      increment(2);
+
+      // ビット／サンプル。1サンプルに必要なビット数（formatChunkID="fmt "）。
+      const bitsPerSample = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        2,
+        true,
+      );
+      console.log("🚀 ~ readRIFFs ~ bitsPerSample:", bitsPerSample);
+      increment(2);
+
+      // TODO ここから、音声フォーマットが1以外の場合、拡張パラメータが入る場合がある。
+      // ここでは一旦無視する。
+
+      // リストチャンクID（listChunkID="LIST"）
+      const listChunkIDNumber = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        4,
+      );
+      const listChunkID = String.fromCharCode(
+        (listChunkIDNumber >> 24) & 0xff,
+        (listChunkIDNumber >> 16) & 0xff,
+        (listChunkIDNumber >> 8) & 0xff,
+        listChunkIDNumber & 0xff,
+      );
+      console.log("🚀 ~ readRIFFs ~ listChunkID:", listChunkID);
+      increment(4);
+
+      // リストチャンクサイズ（listChunkID="LIST"）
+      const listChunkSize = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        4,
+        true,
+      );
+      console.log("🚀 ~ readRIFFs ~ listChunkSize:", listChunkSize);
+      increment(4);
+
+      let test = "";
+      for (let j = listChunkSize; j > 0; j--) {
+        const index = getIndex();
+        test += String.fromCharCode(musicData[index]);
+        increment(1);
+      }
+      console.log("🚀 ~ readRIFFs ~ test:", test);
+
+      return;
+    }
+  }
+
+  return { isID3WAVE, readRIFFs };
+}
+
+function getMetadataWAVE(musicData: Uint8Array) {
+  // const musicDataByUint16Array = new Uint16Array(musicData.buffer);
+  const { isID3WAVE, readRIFFs } = RIFFTagReader(musicData);
+
+  readRIFFs();
+
+  return {
+    isID3WAVE,
   };
 }
