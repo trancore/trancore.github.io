@@ -56,7 +56,7 @@ const VORBIS_COMMENT = {
   LENGTH: "LENGTH",
   GENRE: "GENRE",
 } as const;
-const RESOURCE_INTERCHANGE_FILE_FORMAT = {
+const RIFF_CHUNK_LABEL = {
   IART: "IART",
   INAM: "INAM",
   IPRD: "IPRD",
@@ -818,6 +818,19 @@ function getMetadataFLAC(musicData: Uint8Array): {
 }
 
 function RIFFTagReader(musicData: Uint8Array) {
+  const RIFFMetadata = {
+    title: "",
+    artist: "",
+    album: "",
+    albumArtist: "",
+    length: "",
+    genre: "",
+    picture: {
+      mimeType: "",
+      binary: new Uint8Array(),
+    },
+  };
+
   /**
    * RIFFのクロージャ関数
    */
@@ -836,13 +849,39 @@ function RIFFTagReader(musicData: Uint8Array) {
         index += byNum;
       },
       isRIFF: function (
-        comment: keyof typeof RESOURCE_INTERCHANGE_FILE_FORMAT,
+        comment: keyof typeof RIFF_CHUNK_LABEL,
         text: string,
         substringEndNum: number,
       ) {
         return (
           text.substring(0, substringEndNum).toUpperCase() === `${comment}=`
         );
+      },
+      isRIFFChunkLabel: function (
+        labelName: keyof typeof RIFF_CHUNK_LABEL,
+        index: number,
+      ) {
+        const labelNumber =
+          (musicData[index] >> 24) |
+          (musicData[index + 1] >> 16) |
+          (musicData[index + 2] >> 8) |
+          musicData[index + 3];
+        const label = String.fromCharCode(labelNumber);
+        return label === RIFF_CHUNK_LABEL[labelName];
+      },
+      readText: function (index: number, byteNum: 1 | 2 | 3 | 4) {
+        const number = getIntNumberFromBinary(musicData, index, byteNum);
+        const text = String.fromCharCode(
+          (number >> 24) & 0xff,
+          (number >> 16) & 0xff,
+          (number >> 8) & 0xff,
+          number & 0xff,
+        );
+
+        return {
+          text,
+          skip: byteNum,
+        };
       },
     };
   }
@@ -861,7 +900,7 @@ function RIFFTagReader(musicData: Uint8Array) {
   }
 
   function readRIFFs(): void {
-    const { getIndex, increment } = RIFF();
+    const { getIndex, increment, isRIFFChunkLabel, readText } = RIFF();
     for (;;) {
       // ファイル全体のバイト数からChunkIDとChunkSizeの8バイトを引いたサイズ
       const chunkSize = getIntNumberFromBinary(musicData, getIndex(), 4, true);
@@ -982,13 +1021,61 @@ function RIFFTagReader(musicData: Uint8Array) {
       console.log("🚀 ~ readRIFFs ~ listChunkSize:", listChunkSize);
       increment(4);
 
+      // リストチャンクタイプ（listChunkID="LIST"）
+      const listChunkTypeNumber = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        4,
+      );
+      const listChunkType = String.fromCharCode(
+        (listChunkTypeNumber >> 24) & 0xff,
+        (listChunkTypeNumber >> 16) & 0xff,
+        (listChunkTypeNumber >> 8) & 0xff,
+        listChunkTypeNumber & 0xff,
+      );
+      console.log("🚀 ~ readRIFFs ~ listChunkType:", listChunkType);
+      increment(4);
+
       let test = "";
-      for (let j = listChunkSize; j > 0; j--) {
-        const index = getIndex();
-        test += String.fromCharCode(musicData[index]);
-        increment(1);
+      const index = getIndex();
+      for (let j = 0; j < listChunkSize - 4; j++) {
+        test += String.fromCharCode(musicData[index + j]);
       }
       console.log("🚀 ~ readRIFFs ~ test:", test);
+
+      // 以下はinfoIDでまとめられる
+      // リストチャンクインフォID（listChunkID="LIST"）
+      const listChunkInfoIDNumber = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        4,
+      );
+      const listChunkInfoID = String.fromCharCode(
+        (listChunkInfoIDNumber >> 24) & 0xff,
+        (listChunkInfoIDNumber >> 16) & 0xff,
+        (listChunkInfoIDNumber >> 8) & 0xff,
+        listChunkInfoIDNumber & 0xff,
+      );
+      console.log("🚀 ~ readRIFFs ~ listChunkInfoID:", listChunkInfoID);
+      increment(4);
+      // リストチャンクインフォIDサイズ（listChunkID="LIST"）
+      const listChunkInfoIDTextSize = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        4,
+        true,
+      );
+      console.log(
+        "🚀 ~ readRIFFs ~ listChunkInfoIDTextSize:",
+        listChunkInfoIDTextSize,
+      );
+      increment(4);
+      let text = "";
+      for (let j = 0; j < listChunkInfoIDTextSize; j++) {
+        const index = getIndex();
+        text += String.fromCharCode(musicData[index + j]);
+      }
+      console.log("🚀 ~ readRIFFs ~ text:", text);
 
       return;
     }
