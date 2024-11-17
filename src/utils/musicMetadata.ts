@@ -48,6 +48,7 @@ const ID3_FRAME_ID = {
 /**
  * FLACのVorbisComment
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const VORBIS_COMMENT = {
   TITLE: "TITLE",
   ARTIST: "ARTIST",
@@ -58,12 +59,19 @@ const VORBIS_COMMENT = {
 } as const;
 const RIFF_LIST_TYPE_INFO_ID = {
   IAAT: "IAAT",
+  // アーティスト名
   IART: "IART",
+  // 曲のタイトル
   INAM: "INAM",
+  // アルバム名
   IPRD: "IPRD",
+  // コメント
   ICMT: "ICMT",
+  // 作成日
   ICRD: "ICRD",
+  // ジャンル
   IGNR: "IGNR",
+  // 作成に使用されたソフトウェア名
   ISFT: "ISFT",
 } as const;
 
@@ -688,6 +696,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           let description = "";
           for (let j = descriptionLengthByByte; j > 0; j--) {
             const index = getIndex();
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             description += String.fromCharCode(musicData[index]);
             increment(1);
           }
@@ -881,11 +890,9 @@ function RIFFTagReader(musicData: Uint8Array) {
           text += String.fromCharCode(musicData[byteNum + index + j]);
         }
 
-        console.log("🚀 ~ RIFF ~ text:", text);
-
         return {
           text,
-          skip: byteNum + size + 1,
+          skip: byteNum + size - 1,
         };
       },
     };
@@ -1047,6 +1054,7 @@ function RIFFTagReader(musicData: Uint8Array) {
         if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.INAM, getIndex(), 4)) {
           // infoIDの分を進める
           increment(4);
+          i += 4;
 
           const { text, skip } = readText(getIndex(), 4);
           RIFFMetadata.title = text;
@@ -1056,23 +1064,58 @@ function RIFFTagReader(musicData: Uint8Array) {
         if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IAAT, getIndex(), 4)) {
           // infoIDの分を進める
           increment(4);
+          i += 4;
+
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { text, skip } = readText(getIndex(), 4);
+          // RIFFMetadata.artist = text;
+          increment(skip);
+          i += skip;
+        }
+        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IART, getIndex(), 4)) {
+          // infoIDの分を進める
+          increment(4);
+          i += 4;
 
           const { text, skip } = readText(getIndex(), 4);
           RIFFMetadata.artist = text;
+          increment(skip);
+          i += skip;
+        }
+        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.ICRD, getIndex(), 4)) {
+          // infoIDの分を進める
+          increment(4);
+          i += 4;
+
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { text, skip } = readText(getIndex(), 4);
+          // RIFFMetadata.artist = text;
+          increment(skip);
+          i += skip;
+        }
+        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IPRD, getIndex(), 4)) {
+          // infoIDの分を進める
+          increment(4);
+          i += 4;
+
+          const { text, skip } = readText(getIndex(), 4);
+          RIFFMetadata.album = text;
+          increment(skip);
+          i += skip;
+        }
+        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IGNR, getIndex(), 4)) {
+          // infoIDの分を進める
+          increment(4);
+          i += 4;
+
+          const { text, skip } = readText(getIndex(), 4);
+          RIFFMetadata.genre = text;
+          increment(skip);
           i += skip;
         }
 
-        // FIXME デバッグ用（削除予定）
-        let test = "";
-        const index = getIndex();
-        for (let j = 0; j < listChunkSize - 4; j++) {
-          test += String.fromCharCode(musicData[index + j]);
-        }
-        console.log("🚀 ~ readRIFFs ~ test:", test);
+        increment(1);
       }
-
-      // FIXME: デバッグ用
-      console.log("🚀 ~ RIFFTagReader ~ RIFFMetadata:", RIFFMetadata);
 
       return;
     }
