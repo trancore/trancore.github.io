@@ -32,7 +32,6 @@ const HEADER_FRAME_BYTES = 10 as const;
  */
 const ID3_HEADER_EXTENSION = {
   ID3: [73, 68, 51],
-  RIFF: [82, 73, 70, 70],
 } as const;
 /**
  * ID3タグフレームIDとUTF-16文字コードのペア
@@ -56,6 +55,12 @@ const VORBIS_COMMENT = {
   ALBUMARTIST: "ALBUMARTIST",
   LENGTH: "LENGTH",
   GENRE: "GENRE",
+} as const;
+/**
+ * RIFFヘッダ拡張子とUTF-16文字コードのペア
+ */
+const RIFF_HEADER = {
+  RIFF: [82, 73, 70, 70],
 } as const;
 const RIFF_LIST_TYPE_INFO_ID = {
   IAAT: "IAAT",
@@ -903,10 +908,10 @@ function RIFFTagReader(musicData: Uint8Array) {
    */
   function isWAVE(): boolean {
     return (
-      musicData[0] === ID3_HEADER_EXTENSION["RIFF"][0] &&
-      musicData[1] === ID3_HEADER_EXTENSION["RIFF"][1] &&
-      musicData[2] === ID3_HEADER_EXTENSION["RIFF"][2] &&
-      musicData[3] === ID3_HEADER_EXTENSION["RIFF"][3]
+      musicData[0] === RIFF_HEADER["RIFF"][0] &&
+      musicData[1] === RIFF_HEADER["RIFF"][1] &&
+      musicData[2] === RIFF_HEADER["RIFF"][2] &&
+      musicData[3] === RIFF_HEADER["RIFF"][3]
     );
   }
 
