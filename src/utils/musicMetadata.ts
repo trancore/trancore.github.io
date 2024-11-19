@@ -826,6 +826,10 @@ function getMetadataFLAC(musicData: Uint8Array): {
   };
 }
 
+/**
+ * RIFFの読み込み関数。
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ */
 function RIFFTagReader(musicData: Uint8Array) {
   const RIFFMetadata = {
     title: "",
@@ -906,6 +910,10 @@ function RIFFTagReader(musicData: Uint8Array) {
     );
   }
 
+  /**
+   * RIFFを読み込む。
+   * @returns {void}
+   */
   function readRIFFs(): void {
     const { getIndex, increment, isRIFFListTypeInfoID, readText } = RIFF();
     for (;;) {
@@ -1160,6 +1168,11 @@ function RIFFTagReader(musicData: Uint8Array) {
   };
 }
 
+/**
+ * WAVEの音楽メタデータの取得
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ * @returns WAVEの音楽メタデータ | FLACでない場合はundefined
+ */
 function getMetadataWAVE(musicData: Uint8Array) {
   const {
     isWAVE,
