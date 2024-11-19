@@ -834,10 +834,6 @@ function RIFFTagReader(musicData: Uint8Array) {
     albumArtist: "",
     length: "",
     genre: "",
-    picture: {
-      mimeType: "",
-      binary: new Uint8Array(),
-    },
   };
 
   /**
@@ -1141,9 +1137,6 @@ function RIFFTagReader(musicData: Uint8Array) {
     getGenre: function () {
       return RIFFMetadata.genre;
     },
-    getPicture: function () {
-      return RIFFMetadata.picture;
-    },
   };
 }
 
@@ -1156,7 +1149,6 @@ function getMetadataWAVE(musicData: Uint8Array) {
     getAlbum,
     getAlbumArtist,
     getGenre,
-    getPicture,
   } = RIFFTagReader(musicData);
 
   read();
@@ -1168,13 +1160,9 @@ function getMetadataWAVE(musicData: Uint8Array) {
       album: getAlbum(),
       albumArtists: getAlbumArtist(),
       genre: getGenre(),
+      // WAVEはアルバムワークをもてないためから文字のまま
       albumWork: "",
     };
-    const { mimeType, binary } = getPicture();
-
-    if (mimeType !== "") {
-      musicMetadata.albumWork = getImageInBase64(mimeType, binary);
-    }
 
     return {
       data: musicMetadata,
