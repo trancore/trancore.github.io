@@ -910,37 +910,37 @@ function RIFFTagReader(musicData: Uint8Array) {
     const { getIndex, increment, isRIFFListTypeInfoID, readText } = RIFF();
     for (;;) {
       // ファイル全体のバイト数からChunkIDとChunkSizeの8バイトを引いたサイズ
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const chunkSize = getIntNumberFromBinary(musicData, getIndex(), 4, true);
-      console.log("🚀 ~ readRIFFs ~ chunkSize:", chunkSize);
       increment(4);
 
       // ファイル識別子
       const formatNumber = getIntNumberFromBinary(musicData, getIndex(), 4);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const format = String.fromCharCode(
         (formatNumber >> 24) & 0xff,
         (formatNumber >> 16) & 0xff,
         (formatNumber >> 8) & 0xff,
         formatNumber & 0xff,
       );
-      console.log("🚀 ~ readRIFFs ~ format:", format);
       increment(4);
 
-      // フォーマットチャンクID（formatChunkID="fmt "）
+      // フォーマットチャンクID
       const formatChunkIDNumber = getIntNumberFromBinary(
         musicData,
         getIndex(),
         4,
       );
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const formatChunkID = String.fromCharCode(
         (formatChunkIDNumber >> 24) & 0xff,
         (formatChunkIDNumber >> 16) & 0xff,
         (formatChunkIDNumber >> 8) & 0xff,
         formatChunkIDNumber & 0xff,
       );
-      console.log("🚀 ~ readRIFFs ~ formatChunkID:", formatChunkID);
       increment(4);
 
-      // フォーマットチャンクサイズ（formatChunkID="fmt "）
+      // フォーマットチャンクサイズ
       // 16: リニアPCM。そのほかは16+拡張パラメータ
       const formatChunk1Size = getIntNumberFromBinary(
         musicData,
@@ -948,168 +948,188 @@ function RIFFTagReader(musicData: Uint8Array) {
         4,
         true,
       );
-      console.log("🚀 ~ readRIFFs ~ formatChunk1Size:", formatChunk1Size);
       increment(4);
 
-      // 音声フォーマット（formatChunkID="fmt "）。
-      // 1: 非圧縮のリニアPCMフォーマット / 6: A-law / 7: μ-law。それ以外もある。
-      const audioFormat = getIntNumberFromBinary(
-        musicData,
-        getIndex(),
-        2,
-        true,
-      );
-      console.log("🚀 ~ readRIFFs ~ audioFormat:", audioFormat);
-      increment(2);
+      if (formatChunk1Size === 16) {
+        // 音声フォーマット。
+        // 1: 非圧縮のリニアPCMフォーマット / 6: A-law / 7: μ-law。それ以外もある。
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const audioFormat = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          2,
+          true,
+        );
+        increment(2);
 
-      // チャンネル数（formatChunkID="fmt "）。
-      // 1: モノラル / 2: ステレオ
-      const numChannels = getIntNumberFromBinary(
-        musicData,
-        getIndex(),
-        2,
-        true,
-      );
-      console.log("🚀 ~ readRIFFs ~ numChannels:", numChannels);
-      increment(2);
+        // チャンネル数。
+        // 1: モノラル / 2: ステレオ
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const numChannels = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          2,
+          true,
+        );
+        increment(2);
 
-      // サンプリングレート[Hz]（formatChunkID="fmt "）
-      const sampleRate = getIntNumberFromBinary(musicData, getIndex(), 4, true);
-      console.log("🚀 ~ readRIFFs ~ sampleRate:", sampleRate);
+        // サンプリングレート[Hz]。
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const sampleRate = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          4,
+          true,
+        );
+        increment(4);
+
+        // 1秒あたりのバイト数の平均。
+        // byteRate = SampleRate * NumChannels * BitsPerSample/8
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const byteRate = getIntNumberFromBinary(musicData, getIndex(), 4, true);
+        increment(4);
+
+        // ブロックサイズ。
+        // blockAlign = NumChannels * BitsPerSample/8
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const blockAlign = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          2,
+          true,
+        );
+        increment(2);
+
+        // ビット／サンプル。1サンプルに必要なビット数。
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const bitsPerSample = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          2,
+          true,
+        );
+        increment(2);
+
+        // TODO ここから、音声フォーマットが1以外の場合、拡張パラメータが入る場合がある。
+        // ここでは一旦無視する。
+      }
+
+      // チャンクID（listChunkID="LIST"）
+      const chunkIDNumber = getIntNumberFromBinary(musicData, getIndex(), 4);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const chunkID = String.fromCharCode(
+        (chunkIDNumber >> 24) & 0xff,
+        (chunkIDNumber >> 16) & 0xff,
+        (chunkIDNumber >> 8) & 0xff,
+        chunkIDNumber & 0xff,
+      );
       increment(4);
 
-      // 1秒あたりのバイト数の平均（formatChunkID="fmt "）。
-      // byteRate = SampleRate * NumChannels * BitsPerSample/8
-      const byteRate = getIntNumberFromBinary(musicData, getIndex(), 4, true);
-      console.log("🚀 ~ readRIFFs ~ byteRate:", byteRate);
-      increment(4);
+      if (chunkID === "LIST") {
+        // リストチャンクサイズ
+        const listChunkSize = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          4,
+          true,
+        );
+        increment(4);
 
-      // ブロックサイズ（formatChunkID="fmt "）。
-      // blockAlign = NumChannels * BitsPerSample/8
-      const blockAlign = getIntNumberFromBinary(musicData, getIndex(), 2, true);
-      console.log("🚀 ~ readRIFFs ~ blockAlign:", blockAlign);
-      increment(2);
+        // リストチャンクタイプ
+        const listChunkTypeNumber = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          4,
+        );
+        const listChunkType = String.fromCharCode(
+          (listChunkTypeNumber >> 24) & 0xff,
+          (listChunkTypeNumber >> 16) & 0xff,
+          (listChunkTypeNumber >> 8) & 0xff,
+          listChunkTypeNumber & 0xff,
+        );
+        increment(4);
 
-      // ビット／サンプル。1サンプルに必要なビット数（formatChunkID="fmt "）。
-      const bitsPerSample = getIntNumberFromBinary(
-        musicData,
-        getIndex(),
-        2,
-        true,
-      );
-      console.log("🚀 ~ readRIFFs ~ bitsPerSample:", bitsPerSample);
-      increment(2);
+        if (listChunkType === "INFO") {
+          // リストチャンクインフォID
+          for (let i = 0; i < listChunkSize; i++) {
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.INAM, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
 
-      // TODO ここから、音声フォーマットが1以外の場合、拡張パラメータが入る場合がある。
-      // ここでは一旦無視する。
+              const { text, skip } = readText(getIndex(), 4);
+              RIFFMetadata.title = text;
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IAAT, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
 
-      // リストチャンクID（listChunkID="LIST"）
-      const listChunkIDNumber = getIntNumberFromBinary(
-        musicData,
-        getIndex(),
-        4,
-      );
-      const listChunkID = String.fromCharCode(
-        (listChunkIDNumber >> 24) & 0xff,
-        (listChunkIDNumber >> 16) & 0xff,
-        (listChunkIDNumber >> 8) & 0xff,
-        listChunkIDNumber & 0xff,
-      );
-      console.log("🚀 ~ readRIFFs ~ listChunkID:", listChunkID);
-      increment(4);
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              const { text, skip } = readText(getIndex(), 4);
 
-      // リストチャンクサイズ（listChunkID="LIST"）
-      const listChunkSize = getIntNumberFromBinary(
-        musicData,
-        getIndex(),
-        4,
-        true,
-      );
-      console.log("🚀 ~ readRIFFs ~ listChunkSize:", listChunkSize);
-      increment(4);
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IART, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
 
-      // リストチャンクタイプ（listChunkID="LIST"）
-      const listChunkTypeNumber = getIntNumberFromBinary(
-        musicData,
-        getIndex(),
-        4,
-      );
-      const listChunkType = String.fromCharCode(
-        (listChunkTypeNumber >> 24) & 0xff,
-        (listChunkTypeNumber >> 16) & 0xff,
-        (listChunkTypeNumber >> 8) & 0xff,
-        listChunkTypeNumber & 0xff,
-      );
-      console.log("🚀 ~ readRIFFs ~ listChunkType:", listChunkType);
-      increment(4);
+              const { text, skip } = readText(getIndex(), 4);
+              RIFFMetadata.artist = text;
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.ICRD, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
 
-      // 以下はinfoIDでまとめられる
-      // リストチャンクインフォID（listChunkID="LIST"）
-      for (let i = 0; i < listChunkSize; i++) {
-        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.INAM, getIndex(), 4)) {
-          // infoIDの分を進める
-          increment(4);
-          i += 4;
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              const { text, skip } = readText(getIndex(), 4);
 
-          const { text, skip } = readText(getIndex(), 4);
-          RIFFMetadata.title = text;
-          increment(skip);
-          i += skip;
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IPRD, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
+
+              const { text, skip } = readText(getIndex(), 4);
+              RIFFMetadata.album = text;
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IGNR, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
+
+              const { text, skip } = readText(getIndex(), 4);
+              RIFFMetadata.genre = text;
+              increment(skip);
+              i += skip;
+            }
+
+            increment(1);
+          }
         }
-        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IAAT, getIndex(), 4)) {
-          // infoIDの分を進める
-          increment(4);
-          i += 4;
-
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          const { text, skip } = readText(getIndex(), 4);
-          // RIFFMetadata.artist = text;
-          increment(skip);
-          i += skip;
-        }
-        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IART, getIndex(), 4)) {
-          // infoIDの分を進める
-          increment(4);
-          i += 4;
-
-          const { text, skip } = readText(getIndex(), 4);
-          RIFFMetadata.artist = text;
-          increment(skip);
-          i += skip;
-        }
-        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.ICRD, getIndex(), 4)) {
-          // infoIDの分を進める
-          increment(4);
-          i += 4;
-
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          const { text, skip } = readText(getIndex(), 4);
-          // RIFFMetadata.artist = text;
-          increment(skip);
-          i += skip;
-        }
-        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IPRD, getIndex(), 4)) {
-          // infoIDの分を進める
-          increment(4);
-          i += 4;
-
-          const { text, skip } = readText(getIndex(), 4);
-          RIFFMetadata.album = text;
-          increment(skip);
-          i += skip;
-        }
-        if (isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IGNR, getIndex(), 4)) {
-          // infoIDの分を進める
-          increment(4);
-          i += 4;
-
-          const { text, skip } = readText(getIndex(), 4);
-          RIFFMetadata.genre = text;
-          increment(skip);
-          i += skip;
-        }
-
-        increment(1);
       }
 
       return;
@@ -1160,7 +1180,7 @@ function getMetadataWAVE(musicData: Uint8Array) {
       album: getAlbum(),
       albumArtists: getAlbumArtist(),
       genre: getGenre(),
-      // WAVEはアルバムワークをもてないためから文字のまま
+      // WAVEはアルバムワークが定義されていないので空文字のまま
       albumWork: "",
     };
 
