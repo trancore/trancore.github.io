@@ -88,10 +88,9 @@ export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
     return dataFLAC;
   }
 
-  const { isID3WAVE } = getMetadataWAVE(musicData);
-  console.log("🚀 ~ getMusicMetadata ~ isID3Thunk:", isID3WAVE());
-  if (isID3WAVE()) {
-    return dataFLAC;
+  const { data: dataWAVE, isWAVE } = getMetadataWAVE(musicData);
+  if (isWAVE()) {
+    return dataWAVE;
   }
 
   return;
@@ -902,7 +901,7 @@ function RIFFTagReader(musicData: Uint8Array) {
    * WAVEかどうかを判定する。
    * @returns {boolean} true: iD3v2である / false: iD3v2ではない
    */
-  function isID3WAVE(): boolean {
+  function isWAVE(): boolean {
     return (
       musicData[0] === ID3_HEADER_EXTENSION["RIFF"][0] &&
       musicData[1] === ID3_HEADER_EXTENSION["RIFF"][1] &&
@@ -1121,16 +1120,69 @@ function RIFFTagReader(musicData: Uint8Array) {
     }
   }
 
-  return { isID3WAVE, readRIFFs };
+  return {
+    isWAVE,
+    read: readRIFFs,
+    getTitle: function () {
+      return RIFFMetadata.title;
+    },
+    getArtist: function () {
+      return RIFFMetadata.artist;
+    },
+    getAlbum: function () {
+      return RIFFMetadata.album;
+    },
+    getAlbumArtist: function () {
+      return RIFFMetadata.albumArtist;
+    },
+    getLength: function () {
+      return RIFFMetadata.length;
+    },
+    getGenre: function () {
+      return RIFFMetadata.genre;
+    },
+    getPicture: function () {
+      return RIFFMetadata.picture;
+    },
+  };
 }
 
 function getMetadataWAVE(musicData: Uint8Array) {
-  // const musicDataByUint16Array = new Uint16Array(musicData.buffer);
-  const { isID3WAVE, readRIFFs } = RIFFTagReader(musicData);
+  const {
+    isWAVE,
+    read,
+    getTitle,
+    getArtist,
+    getAlbum,
+    getAlbumArtist,
+    getGenre,
+    getPicture,
+  } = RIFFTagReader(musicData);
 
-  readRIFFs();
+  read();
+
+  if (isWAVE()) {
+    const musicMetadata: Metadata = {
+      title: getTitle(),
+      artist: getArtist(),
+      album: getAlbum(),
+      albumArtists: getAlbumArtist(),
+      genre: getGenre(),
+      albumWork: "",
+    };
+    const { mimeType, binary } = getPicture();
+
+    if (mimeType !== "") {
+      musicMetadata.albumWork = getImageInBase64(mimeType, binary);
+    }
+
+    return {
+      data: musicMetadata,
+      isWAVE,
+    };
+  }
 
   return {
-    isID3WAVE,
+    isWAVE,
   };
 }
