@@ -1,14 +1,13 @@
 ﻿import { Metadata } from "~/types/Music";
 
 import {
-  encodeBase64,
   getIntNumberFromBinary,
   getStringLatin1,
   getStringUTF16,
   getStringUTF8,
   utf8ToUtf16,
 } from "~/utils/encode";
-import { getImageInUint8Array } from "~/utils/music";
+import { getImageInBase64, getImageInUint8Array } from "~/utils/music";
 
 /** 16進数 */
 const HEXADECIMAL = {
@@ -33,6 +32,7 @@ const HEADER_FRAME_BYTES = 10 as const;
  */
 const ID3_HEADER_EXTENSION = {
   ID3: [73, 68, 51],
+  RIFF: [82, 73, 70, 70],
 } as const;
 /**
  * ID3タグフレームIDとUTF-16文字コードのペア
@@ -48,6 +48,7 @@ const ID3_FRAME_ID = {
 /**
  * FLACのVorbisComment
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const VORBIS_COMMENT = {
   TITLE: "TITLE",
   ARTIST: "ARTIST",
@@ -55,6 +56,23 @@ const VORBIS_COMMENT = {
   ALBUMARTIST: "ALBUMARTIST",
   LENGTH: "LENGTH",
   GENRE: "GENRE",
+} as const;
+const RIFF_LIST_TYPE_INFO_ID = {
+  IAAT: "IAAT",
+  // アーティスト名
+  IART: "IART",
+  // 曲のタイトル
+  INAM: "INAM",
+  // アルバム名
+  IPRD: "IPRD",
+  // コメント
+  ICMT: "ICMT",
+  // 作成日
+  ICRD: "ICRD",
+  // ジャンル
+  IGNR: "IGNR",
+  // 作成に使用されたソフトウェア名
+  ISFT: "ISFT",
 } as const;
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
@@ -68,6 +86,11 @@ export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
   const { data: dataFLAC, isFLAC } = getMetadataFLAC(musicData);
   if (isFLAC()) {
     return dataFLAC;
+  }
+
+  const { data: dataWAVE, isWAVE } = getMetadataWAVE(musicData);
+  if (isWAVE()) {
+    return dataWAVE;
   }
 
   return;
@@ -125,10 +148,13 @@ function ID3v2TagReader(musicData: Uint8Array) {
     /**
      * テキストの読み込み
      * @param {number} index UTF-8文字コード配列のインデックス
+     * @param {number} size フレームサイズ
      * @returns {{ text: string; skip: number }} { text: エンコードされたテキスト skip: スキップ数 }
      */
-    readText: function (index: number): { text: string; skip: number } {
-      const size = getID3HeaderSize();
+    readText: function (
+      index: number,
+      size: number,
+    ): { text: string; skip: number } {
       const encodeIndex = index + HEADER_FRAME_BYTES;
       const code = musicData[encodeIndex];
 
@@ -297,23 +323,23 @@ function ID3v2TagReader(musicData: Uint8Array) {
     // 音楽メタ情報を取得する。
     for (let i = 0; i < headerSize; ) {
       if (isID3FrameID("TIT2", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.tit2 = text;
         i += skip;
       } else if (isID3FrameID("TPE1", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.tpe1 = text;
         i += skip - 1;
       } else if (isID3FrameID("TALB", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.talb = text;
         i += skip;
       } else if (isID3FrameID("TPE2", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.tpe2 = text;
         i += skip - 1;
       } else if (isID3FrameID("TCON", i)) {
-        const { text, skip } = readText(i);
+        const { text, skip } = readText(i, readID3FrameSize(i));
         ID3Frames.tcon = text;
         i += skip - 1;
       } else if (isID3FrameID("APIC", i)) {
@@ -381,8 +407,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
 
 /**
  * MP3の音楽メタデータの取得
- * @param {Uint8Array} musicData 音楽バイナリデータ
- * @returns {Metadata | undefined} MP3の音楽メタデータ | MP3でない場合はundefined
+ * @param {Uint8Array} musicData 音楽バイナリデータ`
  */
 function getMetadataMp3(musicData: Uint8Array): {
   data?: Metadata;
@@ -413,8 +438,7 @@ function getMetadataMp3(musicData: Uint8Array): {
     const { mimeType, binary } = getAPIC();
 
     if (mimeType !== "") {
-      const imgSrc = "data:" + mimeType + ";base64," + encodeBase64(binary);
-      musicMetadata.albumWork = imgSrc;
+      musicMetadata.albumWork = getImageInBase64(mimeType, binary);
     }
 
     return {
@@ -480,9 +504,36 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           text.substring(0, substringEndNum).toUpperCase() === `${comment}=`
         );
       },
-      getPicture: function () {},
     };
   }
+
+  /**
+   * pictureのプロトタイプオブジェクト
+   */
+  const picture = {
+    /**
+     * 規定のバイト数で定義される画像情報の長さを取得する
+     * @param {1 | 2 | 3 | 4} byteNumber バイナリデータから取り出すバイト数
+     * @param vorbisComment VorbisCommentのクロージャ関数
+     * @returns {number | undefined} 画像情報の長さ
+     */
+    getFieldLength: function (
+      byteNumber: 1 | 2 | 3 | 4,
+      {
+        getIndex,
+        increment,
+        checkSizeLength,
+      }: ReturnType<typeof vorbisComment>,
+    ): number | undefined {
+      const length = getIntNumberFromBinary(musicData, getIndex(), byteNumber);
+      increment(byteNumber);
+      if (length & 0x80000000) {
+        return;
+      }
+      checkSizeLength(getIndex, length);
+      return length;
+    },
+  };
 
   /**
    * FLACファイルかどうか
@@ -498,14 +549,10 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
    * @returns {void}
    */
   function readVorbisComments(): void {
-    const {
-      getIndex,
-      setIndex,
-      increment,
-      checkSizeLength,
-      isVorbisComment,
-      getPicture,
-    } = vorbisComment();
+    const resultVorbisComment = vorbisComment();
+    const { getIndex, setIndex, increment, checkSizeLength, isVorbisComment } =
+      resultVorbisComment;
+    const { getFieldLength } = picture;
 
     for (;;) {
       // METADATA_BLOCK_HEADER
@@ -622,16 +669,11 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           checkSizeLength(getIndex, length);
 
           // MIMEタイプの長さ
-          const mimeTypeStringLengthByByte = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
+          const mimeTypeStringLengthByByte = getFieldLength(
             4,
+            resultVorbisComment,
           );
-          increment(4);
-          if (mimeTypeStringLengthByByte & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, mimeTypeStringLengthByByte);
+          if (mimeTypeStringLengthByByte === undefined) return;
 
           // MIMEタイプ
           let mimeType = "";
@@ -643,84 +685,46 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           vorbisCommentMetadataBlocks.picture.mimeType = mimeType;
 
           // 説明の長さ
-          const descriptionLengthByByte = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
+          const descriptionLengthByByte = getFieldLength(
             4,
+            resultVorbisComment,
           );
-          increment(4);
-          if (descriptionLengthByByte & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, descriptionLengthByByte);
+          if (descriptionLengthByByte === undefined) return;
 
           // 説明
           let description = "";
           for (let j = descriptionLengthByByte; j > 0; j--) {
             const index = getIndex();
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             description += String.fromCharCode(musicData[index]);
             increment(1);
           }
 
           // 画像幅
-          const widthOfPictureByPixel = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
-            4,
-          );
-          increment(4);
-          if (widthOfPictureByPixel & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, widthOfPictureByPixel);
+          const widthOfPictureByPixel = getFieldLength(4, resultVorbisComment);
+          if (widthOfPictureByPixel === undefined) return;
 
           // 画像高さ
-          const hHeightOfPictureByPixel = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
+          const hHeightOfPictureByPixel = getFieldLength(
             4,
+            resultVorbisComment,
           );
-          increment(4);
-          if (hHeightOfPictureByPixel & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, hHeightOfPictureByPixel);
+          if (hHeightOfPictureByPixel === undefined) return;
 
           // 色深度(ビット/ピクセル)
-          const colorDepthOfPicture = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
-            4,
-          );
-          increment(4);
-          if (colorDepthOfPicture & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, colorDepthOfPicture);
+          const colorDepthOfPicture = getFieldLength(4, resultVorbisComment);
+          if (colorDepthOfPicture === undefined) return;
 
           // 色数
-          const colorOfnumberAndPicture = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
+          const colorOfnumberAndPicture = getFieldLength(
             4,
+            resultVorbisComment,
           );
-          increment(4);
-          if (colorOfnumberAndPicture & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, colorOfnumberAndPicture);
+          if (colorOfnumberAndPicture === undefined) return;
 
           // 画像データの長さ
-          const pictureLengthByByte = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
-            4,
-          );
-          increment(4);
-          if (pictureLengthByByte & 0x80000000) {
-            return;
-          }
-          checkSizeLength(getIndex, pictureLengthByByte);
+          const pictureLengthByByte = getFieldLength(4, resultVorbisComment);
+          if (pictureLengthByByte === undefined) return;
 
           // 画像データ
           const pictureBinary = getImageInUint8Array(
@@ -730,8 +734,6 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
           );
 
           vorbisCommentMetadataBlocks.picture.binary = pictureBinary;
-
-          // TODO: 似た処理が続くので、それらを共通化する。
 
           setIndex(skip);
           break;
@@ -809,10 +811,8 @@ function getMetadataFLAC(musicData: Uint8Array): {
     };
     const { mimeType, binary } = getPicture();
 
-    // TODO: MP3と合わせて共通化する
     if (mimeType !== "") {
-      const imgSrc = "data:" + mimeType + ";base64," + encodeBase64(binary);
-      musicMetadata.albumWork = imgSrc;
+      musicMetadata.albumWork = getImageInBase64(mimeType, binary);
     }
 
     return {
@@ -823,5 +823,387 @@ function getMetadataFLAC(musicData: Uint8Array): {
 
   return {
     isFLAC,
+  };
+}
+
+/**
+ * RIFFの読み込み関数。
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ */
+function RIFFTagReader(musicData: Uint8Array) {
+  const RIFFMetadata = {
+    title: "",
+    artist: "",
+    album: "",
+    albumArtist: "",
+    length: "",
+    genre: "",
+  };
+
+  /**
+   * RIFFのクロージャ関数
+   */
+  function RIFF() {
+    // ChunkIDの4バイト分をスキップ
+    let index = 4;
+
+    return {
+      getIndex: function () {
+        return index;
+      },
+      setIndex: function (newIndex: number) {
+        index = newIndex;
+      },
+      increment: function (byNum: number) {
+        index += byNum;
+      },
+      isRIFF: function (
+        comment: keyof typeof RIFF_LIST_TYPE_INFO_ID,
+        text: string,
+        substringEndNum: number,
+      ) {
+        return (
+          text.substring(0, substringEndNum).toUpperCase() === `${comment}=`
+        );
+      },
+      isRIFFListTypeInfoID: function (
+        id: keyof typeof RIFF_LIST_TYPE_INFO_ID,
+        index: number,
+        byteNum: 4,
+      ) {
+        const number = getIntNumberFromBinary(musicData, index, byteNum);
+        const text = String.fromCharCode(
+          (number >> 24) & 0xff,
+          (number >> 16) & 0xff,
+          (number >> 8) & 0xff,
+          number & 0xff,
+        );
+
+        return text === RIFF_LIST_TYPE_INFO_ID[id];
+      },
+      readText: function (index: number, byteNum: 1 | 2 | 3 | 4) {
+        const size = getIntNumberFromBinary(musicData, index, byteNum, true);
+
+        let text = "";
+        for (let j = 0; j < size; j++) {
+          text += String.fromCharCode(musicData[byteNum + index + j]);
+        }
+
+        return {
+          text,
+          skip: byteNum + size - 1,
+        };
+      },
+    };
+  }
+
+  /**
+   * WAVEかどうかを判定する。
+   * @returns {boolean} true: iD3v2である / false: iD3v2ではない
+   */
+  function isWAVE(): boolean {
+    return (
+      musicData[0] === ID3_HEADER_EXTENSION["RIFF"][0] &&
+      musicData[1] === ID3_HEADER_EXTENSION["RIFF"][1] &&
+      musicData[2] === ID3_HEADER_EXTENSION["RIFF"][2] &&
+      musicData[3] === ID3_HEADER_EXTENSION["RIFF"][3]
+    );
+  }
+
+  /**
+   * RIFFを読み込む。
+   * @returns {void}
+   */
+  function readRIFFs(): void {
+    const { getIndex, increment, isRIFFListTypeInfoID, readText } = RIFF();
+    for (;;) {
+      // ファイル全体のバイト数からChunkIDとChunkSizeの8バイトを引いたサイズ
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const chunkSize = getIntNumberFromBinary(musicData, getIndex(), 4, true);
+      increment(4);
+
+      // ファイル識別子
+      const formatNumber = getIntNumberFromBinary(musicData, getIndex(), 4);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const format = String.fromCharCode(
+        (formatNumber >> 24) & 0xff,
+        (formatNumber >> 16) & 0xff,
+        (formatNumber >> 8) & 0xff,
+        formatNumber & 0xff,
+      );
+      increment(4);
+
+      // フォーマットチャンクID
+      const formatChunkIDNumber = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        4,
+      );
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const formatChunkID = String.fromCharCode(
+        (formatChunkIDNumber >> 24) & 0xff,
+        (formatChunkIDNumber >> 16) & 0xff,
+        (formatChunkIDNumber >> 8) & 0xff,
+        formatChunkIDNumber & 0xff,
+      );
+      increment(4);
+
+      // フォーマットチャンクサイズ
+      // 16: リニアPCM。そのほかは16+拡張パラメータ
+      const formatChunk1Size = getIntNumberFromBinary(
+        musicData,
+        getIndex(),
+        4,
+        true,
+      );
+      increment(4);
+
+      if (formatChunk1Size === 16) {
+        // 音声フォーマット。
+        // 1: 非圧縮のリニアPCMフォーマット / 6: A-law / 7: μ-law。それ以外もある。
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const audioFormat = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          2,
+          true,
+        );
+        increment(2);
+
+        // チャンネル数。
+        // 1: モノラル / 2: ステレオ
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const numChannels = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          2,
+          true,
+        );
+        increment(2);
+
+        // サンプリングレート[Hz]。
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const sampleRate = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          4,
+          true,
+        );
+        increment(4);
+
+        // 1秒あたりのバイト数の平均。
+        // byteRate = SampleRate * NumChannels * BitsPerSample/8
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const byteRate = getIntNumberFromBinary(musicData, getIndex(), 4, true);
+        increment(4);
+
+        // ブロックサイズ。
+        // blockAlign = NumChannels * BitsPerSample/8
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const blockAlign = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          2,
+          true,
+        );
+        increment(2);
+
+        // ビット／サンプル。1サンプルに必要なビット数。
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const bitsPerSample = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          2,
+          true,
+        );
+        increment(2);
+
+        // TODO ここから、音声フォーマットが1以外の場合、拡張パラメータが入る場合がある。
+        // ここでは一旦無視する。
+      }
+
+      // チャンクID（listChunkID="LIST"）
+      const chunkIDNumber = getIntNumberFromBinary(musicData, getIndex(), 4);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const chunkID = String.fromCharCode(
+        (chunkIDNumber >> 24) & 0xff,
+        (chunkIDNumber >> 16) & 0xff,
+        (chunkIDNumber >> 8) & 0xff,
+        chunkIDNumber & 0xff,
+      );
+      increment(4);
+
+      if (chunkID === "LIST") {
+        // リストチャンクサイズ
+        const listChunkSize = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          4,
+          true,
+        );
+        increment(4);
+
+        // リストチャンクタイプ
+        const listChunkTypeNumber = getIntNumberFromBinary(
+          musicData,
+          getIndex(),
+          4,
+        );
+        const listChunkType = String.fromCharCode(
+          (listChunkTypeNumber >> 24) & 0xff,
+          (listChunkTypeNumber >> 16) & 0xff,
+          (listChunkTypeNumber >> 8) & 0xff,
+          listChunkTypeNumber & 0xff,
+        );
+        increment(4);
+
+        if (listChunkType === "INFO") {
+          // リストチャンクインフォID
+          for (let i = 0; i < listChunkSize; i++) {
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.INAM, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
+
+              const { text, skip } = readText(getIndex(), 4);
+              RIFFMetadata.title = text;
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IAAT, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
+
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              const { text, skip } = readText(getIndex(), 4);
+
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IART, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
+
+              const { text, skip } = readText(getIndex(), 4);
+              RIFFMetadata.artist = text;
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.ICRD, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
+
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              const { text, skip } = readText(getIndex(), 4);
+
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IPRD, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
+
+              const { text, skip } = readText(getIndex(), 4);
+              RIFFMetadata.album = text;
+              increment(skip);
+              i += skip;
+            }
+            if (
+              isRIFFListTypeInfoID(RIFF_LIST_TYPE_INFO_ID.IGNR, getIndex(), 4)
+            ) {
+              // infoIDの分を進める
+              increment(4);
+              i += 4;
+
+              const { text, skip } = readText(getIndex(), 4);
+              RIFFMetadata.genre = text;
+              increment(skip);
+              i += skip;
+            }
+
+            increment(1);
+          }
+        }
+      }
+
+      return;
+    }
+  }
+
+  return {
+    isWAVE,
+    read: readRIFFs,
+    getTitle: function () {
+      return RIFFMetadata.title;
+    },
+    getArtist: function () {
+      return RIFFMetadata.artist;
+    },
+    getAlbum: function () {
+      return RIFFMetadata.album;
+    },
+    getAlbumArtist: function () {
+      return RIFFMetadata.albumArtist;
+    },
+    getLength: function () {
+      return RIFFMetadata.length;
+    },
+    getGenre: function () {
+      return RIFFMetadata.genre;
+    },
+  };
+}
+
+/**
+ * WAVEの音楽メタデータの取得
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ * @returns WAVEの音楽メタデータ | FLACでない場合はundefined
+ */
+function getMetadataWAVE(musicData: Uint8Array) {
+  const {
+    isWAVE,
+    read,
+    getTitle,
+    getArtist,
+    getAlbum,
+    getAlbumArtist,
+    getGenre,
+  } = RIFFTagReader(musicData);
+
+  read();
+
+  if (isWAVE()) {
+    const musicMetadata: Metadata = {
+      title: getTitle(),
+      artist: getArtist(),
+      album: getAlbum(),
+      albumArtists: getAlbumArtist(),
+      genre: getGenre(),
+      // WAVEはアルバムワークが定義されていないので空文字のまま
+      albumWork: "",
+    };
+
+    return {
+      data: musicMetadata,
+      isWAVE,
+    };
+  }
+
+  return {
+    isWAVE,
   };
 }

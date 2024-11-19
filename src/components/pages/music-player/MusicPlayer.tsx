@@ -2,6 +2,8 @@ import { ChangeEvent, FC, useEffect, useRef, MouseEvent } from "react";
 
 import { Link } from "react-router-dom";
 
+import noImage from "~/assets/images/no-image.jpg";
+
 import { PAGE_PATH } from "~/const";
 
 import { Loading } from "~/components/common/animation/Loading";
@@ -11,6 +13,7 @@ import { MusicTable } from "~/components/ui/musictable/MusicTable";
 
 import useFile from "~/hooks/useFile";
 import useMusicPlayer from "~/hooks/useMusicPlayer";
+import useNavigate from "~/hooks/useNavigate";
 
 import { formatSecondsToMMSS } from "~/utils/format";
 import { getAudioUint8Array } from "~/utils/music";
@@ -20,6 +23,7 @@ import classes from "~/components/pages/music-player/MusicPlayer.module.scss";
 
 export const MusicPlayer: FC = () => {
   const { fileRef, onClickInputFileList } = useFile();
+  const { navigateHandler } = useNavigate();
   const {
     currentMusic,
     updateCurrentMusic,
@@ -33,6 +37,7 @@ export const MusicPlayer: FC = () => {
     clear,
     play,
     pause,
+    stop,
     forward,
     backForward,
     getMusicURL,
@@ -44,6 +49,7 @@ export const MusicPlayer: FC = () => {
 
     const { files } = event.target;
 
+    stop();
     clear();
     currentMusic.current = { no: 0, audioElement: new Audio() };
     setCurrentMusicList((prevArray) =>
@@ -96,6 +102,8 @@ export const MusicPlayer: FC = () => {
     play();
   }
 
+  navigateHandler(stop);
+
   useEffect(() => {
     if (seekBarRef.current) {
       seekBarRef.current.value = String(currentMusicPlayTime);
@@ -103,7 +111,7 @@ export const MusicPlayer: FC = () => {
     if (currentMusic.current.audioElement.ended) {
       forward();
     }
-  }, [currentMusicPlayTime]);
+  }, [currentMusicPlayTime, location]);
 
   return (
     <div className={classes["music-player"]}>
@@ -131,7 +139,8 @@ export const MusicPlayer: FC = () => {
             <img
               className={classes["jacket-picture"]}
               src={
-                currentMusicList[currentMusic.current.no - 1].display.albumWork
+                currentMusicList[currentMusic.current.no - 1].display
+                  .albumWork || noImage
               }
               alt="albumwork"
             />

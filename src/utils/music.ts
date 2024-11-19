@@ -1,4 +1,6 @@
-﻿/**
+﻿import { encodeBase64 } from "~/utils/encode";
+
+/**
  * 音楽のBinary Dataを取得
  * @param {File} file 音楽ファイル
  * @returns {Promise<string | ArrayBuffer | null>} Binary Data
@@ -14,7 +16,6 @@ export function getAudioUint8Array(file: File): Promise<Uint8Array> {
       if (result === null || typeof result === "string") {
         return reject(new Error("File reading failed"));
       }
-      // FIXME 8じゃなくて16の方が良い？？？
       const uint8ArrayResult = new Uint8Array(result);
       return resolve(uint8ArrayResult);
     };
@@ -40,7 +41,18 @@ export function getImageInUint8Array(
 }
 
 /**
+ * Uint8Array形式のバイナリデータを、Base64形式のデータに変換する。
+ * @param {string} mimeType マイムタイプ
+ * @param {Uint8Array} binary バイナリデータ
+ * @returns Base64形式のデータ
+ */
+export function getImageInBase64(mimeType: string, binary: Uint8Array) {
+  return "data:" + mimeType + ";base64," + encodeBase64(binary);
+}
+
+/**
  * 音楽メタタグ情報の読み込み
+ * TODO この関数を見直す
  * @param {HTMLAudioElement} audioElement 音楽要素
  * @returns {number} （今のところ）再生時間
  */
