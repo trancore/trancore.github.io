@@ -98,6 +98,17 @@ export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
     return dataWAVE;
   }
 
+  // const { data: dataApev2, isApev2 } = getMetadataAAC(musicData);
+  const { isMp4Box } = getMetadataMp4(musicData);
+  console.log(
+    "🚀 ~ getMusicMetadata ~ musicData:",
+    new TextDecoder().decode(musicData),
+  );
+  console.log("🚀 ~ getMusicMetadata ~ isMp4Box():", isMp4Box());
+  if (isMp4Box()) {
+    // return dataWAVE;
+  }
+
   return;
 }
 
@@ -1210,5 +1221,115 @@ function getMetadataWAVE(musicData: Uint8Array) {
 
   return {
     isWAVE,
+  };
+}
+
+/**
+ * Mp4Boxの読み込み関数。
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ */
+function mp4BoxTagReader(musicData: Uint8Array) {
+  const mp4BoxMetadata = {
+    title: "",
+    artist: "",
+    album: "",
+    albumArtist: "",
+    length: "",
+    genre: "",
+  };
+
+  /**
+   * MP4Boxのクロージャ関数
+   */
+  function mp4Box() {
+    // ChunkIDの4バイト分をスキップ
+    let index = 4;
+
+    return {
+      getIndex: function () {
+        return index;
+      },
+      setIndex: function (newIndex: number) {
+        index = newIndex;
+      },
+      increment: function (byNum: number) {
+        index += byNum;
+      },
+      readText: function (index: number, byteNum: 1 | 2 | 3 | 4) {
+        const size = getIntNumberFromBinary(musicData, index, byteNum, true);
+
+        let text = "";
+        for (let j = 0; j < size; j++) {
+          text += String.fromCharCode(musicData[byteNum + index + j]);
+        }
+
+        return {
+          text,
+          skip: byteNum + size - 1,
+        };
+      },
+    };
+  }
+
+  /**
+   * MP4Boxかどうかを判定する。
+   * @returns {boolean} true: APEv2である / false: APEv2ではない
+   */
+  function isMp4Box(): boolean {
+    return (
+      // musicData[0] === APEV2_HEADER["APEV2"][0] &&
+      // musicData[1] === APEV2_HEADER["APEV2"][1] &&
+      // musicData[2] === APEV2_HEADER["APEV2"][2] &&
+      // musicData[3] === APEV2_HEADER["APEV2"][3] &&
+      // musicData[4] === APEV2_HEADER["APEV2"][4] &&
+      // musicData[5] === APEV2_HEADER["APEV2"][5] &&
+      // musicData[6] === APEV2_HEADER["APEV2"][6] &&
+      // musicData[7] === APEV2_HEADER["APEV2"][7]
+    );
+  }
+
+  /**
+   * MP4Boxを読み込む。
+   * @returns {void}
+   */
+  function readMp4Boxs(): void {
+    const { getIndex, increment, readText } = mp4Box();
+    for (;;) {
+      return;
+    }
+  }
+
+  return { isMp4Box };
+}
+
+/**
+ * MP4の音楽メタデータの取得
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ * @returns MP4の音楽メタデータ | MP4でない場合はundefined
+ */
+function getMetadataMp4(musicData: Uint8Array) {
+  const { isMp4Box } = mp4BoxTagReader(musicData);
+
+  // read();
+
+  // if (isWAVE()) {
+  //   const musicMetadata: Metadata = {
+  //     title: getTitle(),
+  //     artist: getArtist(),
+  //     album: getAlbum(),
+  //     albumArtists: getAlbumArtist(),
+  //     genre: getGenre(),
+  //     // WAVEはアルバムワークが定義されていないので空文字のまま
+  //     albumWork: "",
+  //   };
+
+  //   return {
+  //     data: musicMetadata,
+  //     isWAVE,
+  //   };
+  // }
+
+  return {
+    isMp4Box,
   };
 }
