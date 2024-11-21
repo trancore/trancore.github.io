@@ -79,6 +79,14 @@ const RIFF_LIST_TYPE_INFO_ID = {
   // 作成に使用されたソフトウェア名
   ISFT: "ISFT",
 } as const;
+/**
+ * MP4のBoxType
+ */
+const MP4_BOX_TYPE = {
+  FTYP: "ftyp",
+  MOOV: "moov",
+  META: "meta",
+};
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
 
@@ -104,7 +112,7 @@ export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
     "🚀 ~ getMusicMetadata ~ musicData:",
     new TextDecoder().decode(musicData),
   );
-  console.log("🚀 ~ getMusicMetadata ~ isMp4Box():", isMp4Box());
+
   if (isMp4Box()) {
     // return dataWAVE;
   }
@@ -1242,8 +1250,7 @@ function mp4BoxTagReader(musicData: Uint8Array) {
    * MP4Boxのクロージャ関数
    */
   function mp4Box() {
-    // ChunkIDの4バイト分をスキップ
-    let index = 4;
+    let index = 0;
 
     return {
       getIndex: function () {
@@ -1276,16 +1283,16 @@ function mp4BoxTagReader(musicData: Uint8Array) {
    * @returns {boolean} true: APEv2である / false: APEv2ではない
    */
   function isMp4Box(): boolean {
-    return (
-      // musicData[0] === APEV2_HEADER["APEV2"][0] &&
-      // musicData[1] === APEV2_HEADER["APEV2"][1] &&
-      // musicData[2] === APEV2_HEADER["APEV2"][2] &&
-      // musicData[3] === APEV2_HEADER["APEV2"][3] &&
-      // musicData[4] === APEV2_HEADER["APEV2"][4] &&
-      // musicData[5] === APEV2_HEADER["APEV2"][5] &&
-      // musicData[6] === APEV2_HEADER["APEV2"][6] &&
-      // musicData[7] === APEV2_HEADER["APEV2"][7]
+    // const boxSize = getIntNumberFromBinary(musicData, 0, 4);
+    const ftyp = getIntNumberFromBinary(musicData, 4, 4);
+    const ftypText = String.fromCharCode(
+      (ftyp >> 24) & 0xff,
+      (ftyp >> 16) & 0xff,
+      (ftyp >> 8) & 0xff,
+      ftyp & 0xff,
     );
+
+    return ftypText === MP4_BOX_TYPE.FTYP;
   }
 
   /**
@@ -1293,13 +1300,65 @@ function mp4BoxTagReader(musicData: Uint8Array) {
    * @returns {void}
    */
   function readMp4Boxs(): void {
-    const { getIndex, increment, readText } = mp4Box();
-    for (;;) {
-      return;
+    const { getIndex, setIndex, increment, readText } = mp4Box();
+
+    console.log("🚀 ~ readMp4Boxs ~ musicData.length:", musicData.length);
+
+    for (let i = 0; i < musicData.length; i++) {
+      const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
+      increment(4);
+      i += 4;
+
+      const boxTypeNumber = getIntNumberFromBinary(musicData, getIndex(), 4);
+      increment(4);
+      i += 4;
+
+      const boxTypeText = String.fromCharCode(
+        (boxTypeNumber >> 24) & 0xff,
+        (boxTypeNumber >> 16) & 0xff,
+        (boxTypeNumber >> 8) & 0xff,
+        boxTypeNumber & 0xff,
+      );
+
+      if (boxTypeText === MP4_BOX_TYPE.MOOV) {
+        for (let j = 0; j < boxSize - 8; j++) {
+          const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
+          increment(4);
+          j += 4;
+
+          const boxTypeNumber = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          j += 4;
+
+          const boxTypeText = String.fromCharCode(
+            (boxTypeNumber >> 24) & 0xff,
+            (boxTypeNumber >> 16) & 0xff,
+            (boxTypeNumber >> 8) & 0xff,
+            boxTypeNumber & 0xff,
+          );
+
+          if (boxTypeText === MP4_BOX_TYPE.META) {
+            console.log("🚀 ~ readMp4Boxs ~ boxText:", boxTypeText);
+          } else {
+            const skip = boxSize - 8;
+            increment(skip);
+            j += skip;
+          }
+        }
+        return;
+      } else {
+        const skip = boxSize - 8;
+        increment(skip);
+        i += skip;
+      }
     }
   }
 
-  return { isMp4Box };
+  return { isMp4Box, read: readMp4Boxs };
 }
 
 /**
@@ -1308,9 +1367,9 @@ function mp4BoxTagReader(musicData: Uint8Array) {
  * @returns MP4の音楽メタデータ | MP4でない場合はundefined
  */
 function getMetadataMp4(musicData: Uint8Array) {
-  const { isMp4Box } = mp4BoxTagReader(musicData);
+  const { isMp4Box, read } = mp4BoxTagReader(musicData);
 
-  // read();
+  read();
 
   // if (isWAVE()) {
   //   const musicMetadata: Metadata = {
