@@ -1343,6 +1343,89 @@ function mp4BoxTagReader(musicData: Uint8Array) {
 
           if (boxTypeText === MP4_BOX_TYPE.META) {
             console.log("🚀 ~ readMp4Boxs ~ boxText:", boxTypeText);
+            console.log("🚀 ~ readMp4Boxs ~ boxSize:", boxSize);
+            for (let k = 0; k < boxSize; k++) {
+              const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
+              // TODO boxSizeが0のままサイイズ数が取れていない。
+              console.log("🚀 ~ readMp4Boxs ~ boxSize:", boxSize);
+              increment(4);
+              k += 4;
+
+              const boxTypeNumber = getIntNumberFromBinary(
+                musicData,
+                getIndex(),
+                4,
+              );
+              increment(4);
+              k += 4;
+
+              const boxTypeText = String.fromCharCode(
+                (boxTypeNumber >> 24) & 0xff,
+                (boxTypeNumber >> 16) & 0xff,
+                (boxTypeNumber >> 8) & 0xff,
+                boxTypeNumber & 0xff,
+              );
+
+              if (boxTypeText === "©nam") {
+                const boxSize = getIntNumberFromBinary(
+                  musicData,
+                  getIndex(),
+                  4,
+                );
+                increment(4);
+                k += 4;
+
+                const boxTypeNumber = getIntNumberFromBinary(
+                  musicData,
+                  getIndex(),
+                  4,
+                );
+                increment(4);
+                k += 4;
+
+                const boxTypeText = String.fromCharCode(
+                  (boxTypeNumber >> 24) & 0xff,
+                  (boxTypeNumber >> 16) & 0xff,
+                  (boxTypeNumber >> 8) & 0xff,
+                  boxTypeNumber & 0xff,
+                );
+
+                if (boxTypeText === "data") {
+                  const boxSize = getIntNumberFromBinary(
+                    musicData,
+                    getIndex(),
+                    4,
+                  );
+                  increment(4);
+                  k += 4;
+
+                  const boxTypeNumber = getIntNumberFromBinary(
+                    musicData,
+                    getIndex(),
+                    4,
+                  );
+                  increment(4);
+                  k += 4;
+
+                  const boxTypeText = String.fromCharCode(
+                    (boxTypeNumber >> 24) & 0xff,
+                    (boxTypeNumber >> 16) & 0xff,
+                    (boxTypeNumber >> 8) & 0xff,
+                    boxTypeNumber & 0xff,
+                  );
+                  // TODO 取得したいmetadataの想定
+                  console.log("🚀 ~ readMp4Boxs ~ boxTypeText:", boxTypeText);
+                } else {
+                  const skip = boxSize - 8;
+                  increment(skip);
+                  k += skip;
+                }
+              } else {
+                const skip = boxSize - 8;
+                increment(skip);
+                k += skip;
+              }
+            }
           } else {
             const skip = boxSize - 8;
             increment(skip);
