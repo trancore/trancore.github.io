@@ -32,7 +32,6 @@ const HEADER_FRAME_BYTES = 10 as const;
  */
 const ID3_HEADER_EXTENSION = {
   ID3: [73, 68, 51],
-  RIFF: [82, 73, 70, 70],
 } as const;
 /**
  * ID3タグフレームIDとUTF-16文字コードのペア
@@ -57,6 +56,12 @@ const VORBIS_COMMENT = {
   LENGTH: "LENGTH",
   GENRE: "GENRE",
 } as const;
+/**
+ * RIFFヘッダ拡張子とUTF-16文字コードのペア
+ */
+const RIFF_HEADER = {
+  RIFF: [82, 73, 70, 70],
+} as const;
 const RIFF_LIST_TYPE_INFO_ID = {
   IAAT: "IAAT",
   // アーティスト名
@@ -74,6 +79,14 @@ const RIFF_LIST_TYPE_INFO_ID = {
   // 作成に使用されたソフトウェア名
   ISFT: "ISFT",
 } as const;
+/**
+ * MP4のBoxType
+ */
+const MP4_BOX_TYPE = {
+  FTYP: "ftyp",
+  MOOV: "moov",
+  META: "meta",
+};
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
 
@@ -91,6 +104,17 @@ export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
   const { data: dataWAVE, isWAVE } = getMetadataWAVE(musicData);
   if (isWAVE()) {
     return dataWAVE;
+  }
+
+  // const { data: dataApev2, isApev2 } = getMetadataAAC(musicData);
+  const { isMp4Box } = getMetadataMp4(musicData);
+  console.log(
+    "🚀 ~ getMusicMetadata ~ musicData:",
+    new TextDecoder().decode(musicData),
+  );
+
+  if (isMp4Box()) {
+    // return dataWAVE;
   }
 
   return;
@@ -903,10 +927,10 @@ function RIFFTagReader(musicData: Uint8Array) {
    */
   function isWAVE(): boolean {
     return (
-      musicData[0] === ID3_HEADER_EXTENSION["RIFF"][0] &&
-      musicData[1] === ID3_HEADER_EXTENSION["RIFF"][1] &&
-      musicData[2] === ID3_HEADER_EXTENSION["RIFF"][2] &&
-      musicData[3] === ID3_HEADER_EXTENSION["RIFF"][3]
+      musicData[0] === RIFF_HEADER["RIFF"][0] &&
+      musicData[1] === RIFF_HEADER["RIFF"][1] &&
+      musicData[2] === RIFF_HEADER["RIFF"][2] &&
+      musicData[3] === RIFF_HEADER["RIFF"][3]
     );
   }
 
@@ -1205,5 +1229,250 @@ function getMetadataWAVE(musicData: Uint8Array) {
 
   return {
     isWAVE,
+  };
+}
+
+/**
+ * Mp4Boxの読み込み関数。
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ */
+function mp4BoxTagReader(musicData: Uint8Array) {
+  const mp4BoxMetadata = {
+    title: "",
+    artist: "",
+    album: "",
+    albumArtist: "",
+    length: "",
+    genre: "",
+  };
+
+  /**
+   * MP4Boxのクロージャ関数
+   */
+  function mp4Box() {
+    let index = 0;
+
+    return {
+      getIndex: function () {
+        return index;
+      },
+      setIndex: function (newIndex: number) {
+        index = newIndex;
+      },
+      increment: function (byNum: number) {
+        index += byNum;
+      },
+      readText: function (index: number, byteNum: 1 | 2 | 3 | 4) {
+        const size = getIntNumberFromBinary(musicData, index, byteNum, true);
+
+        let text = "";
+        for (let j = 0; j < size; j++) {
+          text += String.fromCharCode(musicData[byteNum + index + j]);
+        }
+
+        return {
+          text,
+          skip: byteNum + size - 1,
+        };
+      },
+    };
+  }
+
+  /**
+   * MP4Boxかどうかを判定する。
+   * @returns {boolean} true: APEv2である / false: APEv2ではない
+   */
+  function isMp4Box(): boolean {
+    // const boxSize = getIntNumberFromBinary(musicData, 0, 4);
+    const ftyp = getIntNumberFromBinary(musicData, 4, 4);
+    const ftypText = String.fromCharCode(
+      (ftyp >> 24) & 0xff,
+      (ftyp >> 16) & 0xff,
+      (ftyp >> 8) & 0xff,
+      ftyp & 0xff,
+    );
+
+    return ftypText === MP4_BOX_TYPE.FTYP;
+  }
+
+  /**
+   * MP4Boxを読み込む。
+   * @returns {void}
+   */
+  function readMp4Boxs(): void {
+    const { getIndex, setIndex, increment, readText } = mp4Box();
+
+    for (let i = 0; i < musicData.length; i++) {
+      const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
+      increment(4);
+      i += 4;
+
+      const boxTypeNumber = getIntNumberFromBinary(musicData, getIndex(), 4);
+      increment(4);
+      i += 4;
+
+      const boxTypeText = String.fromCharCode(
+        (boxTypeNumber >> 24) & 0xff,
+        (boxTypeNumber >> 16) & 0xff,
+        (boxTypeNumber >> 8) & 0xff,
+        boxTypeNumber & 0xff,
+      );
+
+      if (boxTypeText === MP4_BOX_TYPE.MOOV) {
+        for (let j = 0; j < boxSize - 8; j++) {
+          const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
+          increment(4);
+          j += 4;
+
+          const boxTypeNumber = getIntNumberFromBinary(
+            musicData,
+            getIndex(),
+            4,
+          );
+          increment(4);
+          j += 4;
+
+          const boxTypeText = String.fromCharCode(
+            (boxTypeNumber >> 24) & 0xff,
+            (boxTypeNumber >> 16) & 0xff,
+            (boxTypeNumber >> 8) & 0xff,
+            boxTypeNumber & 0xff,
+          );
+          console.log("🚀 ~ readMp4Boxs ~ boxTypeText:", boxTypeText);
+
+          // TODO 後ろの方のmetaを参照していることに注意
+          if (boxTypeText === MP4_BOX_TYPE.META) {
+            console.log("🚀 ~ readMp4Boxs ~ boxText:", boxTypeText);
+            console.log("🚀 ~ readMp4Boxs ~ boxSize:", boxSize);
+            for (let k = 0; k < boxSize; k++) {
+              // const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
+              // // TODO boxSizeが0のままサイイズ数が取れていない。
+              // console.log("🚀 ~ readMp4Boxs ~ boxSize:", boxSize);
+              // increment(4);
+              // k += 4;
+
+              const boxTypeNumber = getIntNumberFromBinary(
+                musicData,
+                getIndex(),
+                4,
+              );
+              increment(4);
+              k += 4;
+
+              const boxTypeText = String.fromCharCode(
+                (boxTypeNumber >> 24) & 0xff,
+                (boxTypeNumber >> 16) & 0xff,
+                (boxTypeNumber >> 8) & 0xff,
+                boxTypeNumber & 0xff,
+              );
+              console.log("🚀 ~ readMp4Boxs ~ boxTypeTextここ:", boxTypeText);
+
+              if (boxTypeText === "©nam") {
+                const boxSize = getIntNumberFromBinary(
+                  musicData,
+                  getIndex(),
+                  4,
+                );
+                increment(4);
+                k += 4;
+
+                const boxTypeNumber = getIntNumberFromBinary(
+                  musicData,
+                  getIndex(),
+                  4,
+                );
+                increment(4);
+                k += 4;
+
+                const boxTypeText = String.fromCharCode(
+                  (boxTypeNumber >> 24) & 0xff,
+                  (boxTypeNumber >> 16) & 0xff,
+                  (boxTypeNumber >> 8) & 0xff,
+                  boxTypeNumber & 0xff,
+                );
+
+                if (boxTypeText === "data") {
+                  const boxSize = getIntNumberFromBinary(
+                    musicData,
+                    getIndex(),
+                    4,
+                  );
+                  increment(4);
+                  k += 4;
+
+                  const boxTypeNumber = getIntNumberFromBinary(
+                    musicData,
+                    getIndex(),
+                    4,
+                  );
+                  increment(4);
+                  k += 4;
+
+                  const boxTypeText = String.fromCharCode(
+                    (boxTypeNumber >> 24) & 0xff,
+                    (boxTypeNumber >> 16) & 0xff,
+                    (boxTypeNumber >> 8) & 0xff,
+                    boxTypeNumber & 0xff,
+                  );
+                  // TODO 取得したいmetadataの想定
+                  console.log("🚀 ~ readMp4Boxs ~ boxTypeText:", boxTypeText);
+                } else {
+                  const skip = boxSize - 8;
+                  increment(skip);
+                  k += skip;
+                }
+              } else {
+                // const skip = boxSize - 8;
+                // increment(skip);
+                // k += skip;
+              }
+            }
+          } else {
+            const skip = boxSize - 8;
+            increment(skip);
+            j += skip;
+          }
+        }
+        return;
+      } else {
+        const skip = boxSize - 8;
+        increment(skip);
+        i += skip;
+      }
+    }
+  }
+
+  return { isMp4Box, read: readMp4Boxs };
+}
+
+/**
+ * MP4の音楽メタデータの取得
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ * @returns MP4の音楽メタデータ | MP4でない場合はundefined
+ */
+function getMetadataMp4(musicData: Uint8Array) {
+  const { isMp4Box, read } = mp4BoxTagReader(musicData);
+
+  read();
+
+  // if (isWAVE()) {
+  //   const musicMetadata: Metadata = {
+  //     title: getTitle(),
+  //     artist: getArtist(),
+  //     album: getAlbum(),
+  //     albumArtists: getAlbumArtist(),
+  //     genre: getGenre(),
+  //     // WAVEはアルバムワークが定義されていないので空文字のまま
+  //     albumWork: "",
+  //   };
+
+  //   return {
+  //     data: musicMetadata,
+  //     isWAVE,
+  //   };
+  // }
+
+  return {
+    isMp4Box,
   };
 }
