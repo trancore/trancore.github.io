@@ -1302,8 +1302,6 @@ function mp4BoxTagReader(musicData: Uint8Array) {
   function readMp4Boxs(): void {
     const { getIndex, setIndex, increment, readText } = mp4Box();
 
-    console.log("🚀 ~ readMp4Boxs ~ musicData.length:", musicData.length);
-
     for (let i = 0; i < musicData.length; i++) {
       const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
       increment(4);
@@ -1340,16 +1338,18 @@ function mp4BoxTagReader(musicData: Uint8Array) {
             (boxTypeNumber >> 8) & 0xff,
             boxTypeNumber & 0xff,
           );
+          console.log("🚀 ~ readMp4Boxs ~ boxTypeText:", boxTypeText);
 
+          // TODO 後ろの方のmetaを参照していることに注意
           if (boxTypeText === MP4_BOX_TYPE.META) {
             console.log("🚀 ~ readMp4Boxs ~ boxText:", boxTypeText);
             console.log("🚀 ~ readMp4Boxs ~ boxSize:", boxSize);
             for (let k = 0; k < boxSize; k++) {
-              const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
-              // TODO boxSizeが0のままサイイズ数が取れていない。
-              console.log("🚀 ~ readMp4Boxs ~ boxSize:", boxSize);
-              increment(4);
-              k += 4;
+              // const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
+              // // TODO boxSizeが0のままサイイズ数が取れていない。
+              // console.log("🚀 ~ readMp4Boxs ~ boxSize:", boxSize);
+              // increment(4);
+              // k += 4;
 
               const boxTypeNumber = getIntNumberFromBinary(
                 musicData,
@@ -1365,6 +1365,7 @@ function mp4BoxTagReader(musicData: Uint8Array) {
                 (boxTypeNumber >> 8) & 0xff,
                 boxTypeNumber & 0xff,
               );
+              console.log("🚀 ~ readMp4Boxs ~ boxTypeTextここ:", boxTypeText);
 
               if (boxTypeText === "©nam") {
                 const boxSize = getIntNumberFromBinary(
@@ -1421,9 +1422,9 @@ function mp4BoxTagReader(musicData: Uint8Array) {
                   k += skip;
                 }
               } else {
-                const skip = boxSize - 8;
-                increment(skip);
-                k += skip;
+                // const skip = boxSize - 8;
+                // increment(skip);
+                // k += skip;
               }
             }
           } else {
