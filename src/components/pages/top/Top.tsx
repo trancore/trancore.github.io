@@ -19,7 +19,7 @@ const BUTTON_PROPERtY = {
   LIST: [
     { TEXT: "Profile", TO: PAGE_PATH.PROFILE },
     { TEXT: "Products", TO: PAGE_PATH.PRODUCTS },
-    { TEXT: "🎵 ※工事中", TO: PAGE_PATH.MUSIC_PLAYER },
+    { TEXT: "🎵", TO: PAGE_PATH.MUSIC_PLAYER },
   ],
 } as const;
 
