@@ -85,7 +85,14 @@ const RIFF_LIST_TYPE_INFO_ID = {
 const MP4_BOX_TYPE = {
   FTYP: "ftyp",
   MOOV: "moov",
+  UDTA: "udta",
+  TITL: "titl",
+  PERF: "perf",
+  ALBM: "albm",
+  YRRC: "yrrc",
   META: "meta",
+  HDLR: "hdlr",
+  ILST: "ilst",
 };
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
@@ -1262,17 +1269,64 @@ function mp4BoxTagReader(musicData: Uint8Array) {
       increment: function (byNum: number) {
         index += byNum;
       },
-      readText: function (index: number, byteNum: 1 | 2 | 3 | 4) {
-        const size = getIntNumberFromBinary(musicData, index, byteNum, true);
+      readBox: function (boxIndex: number, preBoxSize: number) {
+        let skip = boxIndex;
 
-        let text = "";
-        for (let j = 0; j < size; j++) {
-          text += String.fromCharCode(musicData[byteNum + index + j]);
+        // BoxSize > 1 なら BoxSize, BoxType を含む全体の長さ。
+        // BoxSize == 0 なら MP4ファイルの終端(BinaryStreamの終端)までがBoxSizeとみなされる
+        // BoxSize == 1 なら BoxData の先頭に8byteの BoxSize (largesize) が格納される
+        const boxSize = getIntNumberFromBinary(musicData, index, 4);
+        index += 4;
+        skip += 4;
+
+        const boxTypeNumber = getIntNumberFromBinary(musicData, index, 4);
+        index += 4;
+        skip += 4;
+
+        const boxTypeText = String.fromCharCode(
+          (boxTypeNumber >> 24) & 0xff,
+          (boxTypeNumber >> 16) & 0xff,
+          (boxTypeNumber >> 8) & 0xff,
+          boxTypeNumber & 0xff,
+        );
+
+        const boxDataSize = boxSize === 0 ? preBoxSize - 8 : boxSize - 8;
+        const boxData = musicData.slice(index, index + boxDataSize);
+
+        if (boxSize === 0) {
+          skip += boxData.length;
         }
+        // TODO boxSizeOne === 1の時の処理
 
         return {
-          text,
-          skip: byteNum + size - 1,
+          boxSize,
+          boxType: boxTypeText,
+          boxData,
+          skip,
+        };
+      },
+      readText: function (length: number) {
+        let text = "";
+        for (let n = length; n > 0; n--) {
+          text += String.fromCharCode(musicData[index]);
+          index += 1;
+        }
+        return text;
+      },
+      readMeta: function (boxIndex: number) {
+        let skip = boxIndex;
+
+        const metaSize = getIntNumberFromBinary(musicData, index, 4);
+        index += 4;
+        skip += 4;
+
+        const metaDataSize = metaSize - 4;
+        const metaData = musicData.slice(index, index + metaDataSize);
+
+        return {
+          metaSize,
+          metaData,
+          skip,
         };
       },
     };
@@ -1299,150 +1353,182 @@ function mp4BoxTagReader(musicData: Uint8Array) {
    * MP4Boxを読み込む。
    * @returns {void}
    */
-  function readMp4Boxs(): void {
-    const { getIndex, setIndex, increment, readText } = mp4Box();
+  function readMp4Boxes(): void {
+    const { getIndex, setIndex, increment, readBox, readText, readMeta } =
+      mp4Box();
 
+    // Data One
     for (let i = 0; i < musicData.length; i++) {
-      const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
-      increment(4);
-      i += 4;
+      const {
+        boxType: boxTypeOne,
+        boxData: boxDataOne,
+        skip: skipOne,
+      } = readBox(i, musicData.length);
 
-      const boxTypeNumber = getIntNumberFromBinary(musicData, getIndex(), 4);
-      increment(4);
-      i += 4;
+      if (boxTypeOne === MP4_BOX_TYPE.MOOV) {
+        // Data Two
+        for (let j = 0; j < boxDataOne.length; j++) {
+          const {
+            boxSize: boxSizeTwo,
+            boxType: boxTypeTwo,
+            boxData: boxDataTwo,
+            skip: skipTwo,
+          } = readBox(j, boxDataOne.length);
 
-      const boxTypeText = String.fromCharCode(
-        (boxTypeNumber >> 24) & 0xff,
-        (boxTypeNumber >> 16) & 0xff,
-        (boxTypeNumber >> 8) & 0xff,
-        boxTypeNumber & 0xff,
-      );
+          if (boxTypeTwo === MP4_BOX_TYPE.UDTA) {
+            // Data Three
+            for (let k = 0; k < boxDataTwo.length; k++) {
+              const {
+                boxSize: boxSizeThree,
+                boxType: boxTypeThree,
+                boxData: boxDataThree,
+                skip: skipThree,
+              } = readBox(k, boxDataTwo.length);
 
-      if (boxTypeText === MP4_BOX_TYPE.MOOV) {
-        for (let j = 0; j < boxSize - 8; j++) {
-          const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
-          increment(4);
-          j += 4;
+              if (boxTypeThree === MP4_BOX_TYPE.TITL) {
+                // Data Four
+                for (let l = 0; l < boxDataThree.length; l++) {
+                  const {
+                    boxSize: boxSizeFour,
+                    boxType: boxTypeFour,
+                    boxData: boxDataFour,
+                    skip: skipFour,
+                  } = readBox(l, boxDataThree.length);
 
-          const boxTypeNumber = getIntNumberFromBinary(
-            musicData,
-            getIndex(),
-            4,
-          );
-          increment(4);
-          j += 4;
+                  const text = readText(boxDataFour.length);
+                  console.log("🚀 ~ readMp4Boxes ~ TITL:", text);
 
-          const boxTypeText = String.fromCharCode(
-            (boxTypeNumber >> 24) & 0xff,
-            (boxTypeNumber >> 16) & 0xff,
-            (boxTypeNumber >> 8) & 0xff,
-            boxTypeNumber & 0xff,
-          );
-          console.log("🚀 ~ readMp4Boxs ~ boxTypeText:", boxTypeText);
+                  l += skipFour;
+                }
+              } else if (boxTypeThree === MP4_BOX_TYPE.ALBM) {
+                // Data Four
+                for (let l = 0; l < boxDataThree.length; l++) {
+                  const {
+                    boxSize: boxSizeFour,
+                    boxType: boxTypeFour,
+                    boxData: boxDataFour,
+                    skip: skipFour,
+                  } = readBox(l, boxDataThree.length);
 
-          // TODO 後ろの方のmetaを参照していることに注意
-          if (boxTypeText === MP4_BOX_TYPE.META) {
-            console.log("🚀 ~ readMp4Boxs ~ boxText:", boxTypeText);
-            console.log("🚀 ~ readMp4Boxs ~ boxSize:", boxSize);
-            for (let k = 0; k < boxSize; k++) {
-              // const boxSize = getIntNumberFromBinary(musicData, getIndex(), 4);
-              // // TODO boxSizeが0のままサイイズ数が取れていない。
-              // console.log("🚀 ~ readMp4Boxs ~ boxSize:", boxSize);
-              // increment(4);
-              // k += 4;
+                  const text = readText(boxDataFour.length);
+                  console.log("🚀 ~ readMp4Boxes ~ ALBM:", text);
 
-              const boxTypeNumber = getIntNumberFromBinary(
-                musicData,
-                getIndex(),
-                4,
-              );
-              increment(4);
-              k += 4;
+                  l += skipFour;
+                }
+              } else if (boxTypeThree === MP4_BOX_TYPE.META) {
+                /**
+                 * @see https://developer.apple.com/documentation/quicktime-file-format/metadata_atom
+                 */
 
-              const boxTypeText = String.fromCharCode(
-                (boxTypeNumber >> 24) & 0xff,
-                (boxTypeNumber >> 16) & 0xff,
-                (boxTypeNumber >> 8) & 0xff,
-                boxTypeNumber & 0xff,
-              );
-              console.log("🚀 ~ readMp4Boxs ~ boxTypeTextここ:", boxTypeText);
-
-              if (boxTypeText === "©nam") {
-                const boxSize = getIntNumberFromBinary(
-                  musicData,
-                  getIndex(),
-                  4,
+                // DEBUG: あとで削除する
+                console.log(
+                  "🚀 ~ boxDataFour ~ boxDataThree:",
+                  new TextDecoder().decode(boxDataThree),
                 );
+                console.log("🚀 ~ readMp4Boxes ~ boxDataThree:", boxDataThree);
+
+                // meta size前の4バイト分をスキップ
                 increment(4);
-                k += 4;
 
-                const boxTypeNumber = getIntNumberFromBinary(
-                  musicData,
-                  getIndex(),
-                  4,
-                );
-                increment(4);
-                k += 4;
+                // Data Four
+                for (let l = 0; l < boxDataThree.length - 4; l++) {
+                  const { metaSize, metaData, skip } = readMeta(l);
+                  const metaType = readText(4);
+                  const metaSizeOpt = metaData.length - 4;
+                  console.log("🚀 ~ readMp4Boxes ~ metaType:", metaType);
 
-                const boxTypeText = String.fromCharCode(
-                  (boxTypeNumber >> 24) & 0xff,
-                  (boxTypeNumber >> 16) & 0xff,
-                  (boxTypeNumber >> 8) & 0xff,
-                  boxTypeNumber & 0xff,
-                );
+                  /**
+                   * @see https://developer.apple.com/documentation/quicktime-file-format/metadata_handler_atom
+                   */
+                  if (metaType === MP4_BOX_TYPE.HDLR) {
+                    const text = readText(metaSizeOpt);
+                    console.log("🚀 ~ readMp4Boxes ~ HDLR:", text);
+                  }
+                  if (metaType === MP4_BOX_TYPE.ILST) {
+                    const text = readText(metaSizeOpt);
+                    console.log("🚀 ~ readMp4Boxes ~ ILST:", text);
+                  }
+                  if (metaType === MP4_BOX_TYPE.META) {
+                    const text = readText(metaSizeOpt);
+                    console.log("🚀 ~ readMp4Boxes ~ META:", text);
+                    // ここからID3v2タグ
+                    for (let m = 0; m < metaSizeOpt; m++) {
+                      // isID3FrameIDとreadID3FrameSizeが参考になる
+                    }
+                  }
+                  // const {
+                  //   boxSize: boxSizeFour,
+                  //   boxType: boxTypeFour,
+                  //   boxData: boxDataFour,
+                  //   skip: skipFour,
+                  // } = readBox(l, boxDataThree.length);
 
-                if (boxTypeText === "data") {
-                  const boxSize = getIntNumberFromBinary(
-                    musicData,
-                    getIndex(),
-                    4,
-                  );
-                  increment(4);
-                  k += 4;
-
-                  const boxTypeNumber = getIntNumberFromBinary(
-                    musicData,
-                    getIndex(),
-                    4,
-                  );
-                  increment(4);
-                  k += 4;
-
-                  const boxTypeText = String.fromCharCode(
-                    (boxTypeNumber >> 24) & 0xff,
-                    (boxTypeNumber >> 16) & 0xff,
-                    (boxTypeNumber >> 8) & 0xff,
-                    boxTypeNumber & 0xff,
-                  );
-                  // TODO 取得したいmetadataの想定
-                  console.log("🚀 ~ readMp4Boxs ~ boxTypeText:", boxTypeText);
-                } else {
-                  const skip = boxSize - 8;
-                  increment(skip);
-                  k += skip;
+                  // // DEBUG: あとで削除する
+                  // console.log(
+                  //   "🚀 ~ boxDataFour ~ boxDataFour:",
+                  //   new TextDecoder().decode(boxDataFour),
+                  // );
+                  // const metaType = readText(boxDataFour.length);
+                  // console.log("🚀 ~ readMp4Boxes ~ metaType:", metaType);
+                  // const boxTypeNumber = getIntNumberFromBinary(
+                  //   musicData,
+                  //   getIndex(),
+                  //   4,
+                  // );
+                  // const boxTypeText = String.fromCharCode(
+                  //   (boxTypeNumber >> 24) & 0xff,
+                  //   (boxTypeNumber >> 16) & 0xff,
+                  //   (boxTypeNumber >> 8) & 0xff,
+                  //   boxTypeNumber & 0xff,
+                  // );
+                  // increment(4);
+                  // l += 4;
+                  // if (boxTypeText === MP4_BOX_TYPE.HDLR) {
+                  //   /**
+                  //    * @see https://developer.apple.com/documentation/quicktime-file-format/metadata_handler_atom
+                  //    */
+                  //   // Data Five
+                  //   for (let m = 0; m < boxDataThree.length; m++) {
+                  //     const {
+                  //       boxSize: boxSizeFive,
+                  //       boxType: boxTypeFive,
+                  //       boxData: boxDataFive,
+                  //       skip: skipFive,
+                  //     } = readBox(l, boxDataThree.length);
+                  //     const text = readText(boxDataFour.length);
+                  //     console.log("🚀 ~ readMp4Boxes ~ META:", text);
+                  //     /**
+                  //      * @see https://developer.apple.com/documentation/quicktime-file-format/metadata_handler_atom
+                  //      */
+                  //     m += skipFour;
+                  //   }
+                  // }
+                  l += skip;
                 }
               } else {
-                // const skip = boxSize - 8;
-                // increment(skip);
-                // k += skip;
+                increment(boxDataThree.length);
+                k += boxDataThree.length;
               }
+
+              k += skipThree;
             }
           } else {
-            const skip = boxSize - 8;
-            increment(skip);
-            j += skip;
+            increment(boxDataTwo.length);
+            j += boxDataTwo.length;
           }
+
+          j += skipTwo;
         }
-        return;
       } else {
-        const skip = boxSize - 8;
-        increment(skip);
-        i += skip;
+        increment(boxDataOne.length);
+        i += boxDataOne.length;
       }
+
+      i += skipOne;
     }
   }
 
-  return { isMp4Box, read: readMp4Boxs };
+  return { isMp4Box, read: readMp4Boxes };
 }
 
 /**
