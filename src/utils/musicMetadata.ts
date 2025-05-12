@@ -1329,6 +1329,63 @@ function mp4BoxTagReader(musicData: Uint8Array) {
           skip,
         };
       },
+      isID3FrameID: function (
+        IDName: keyof typeof ID3_FRAME_ID,
+        metaData: Uint8Array,
+        index: number,
+      ): boolean {
+        return (
+          metaData[index] === ID3_FRAME_ID[IDName][0] &&
+          metaData[index + 1] === ID3_FRAME_ID[IDName][1] &&
+          metaData[index + 2] === ID3_FRAME_ID[IDName][2] &&
+          metaData[index + 3] === ID3_FRAME_ID[IDName][3]
+        );
+      },
+      readID3Text: function (
+        index: number,
+        size: number,
+      ): { text: string; skip: number } {
+        const encodeIndex = index + HEADER_FRAME_BYTES;
+        const code = musicData[encodeIndex];
+
+        let text = "";
+        if (code === HEXADECIMAL["0x00"]) {
+          // ISO-8859-1(Latin-1)
+          text = getStringLatin1(musicData, encodeIndex + 1, size - 1);
+        } else if (code === HEXADECIMAL["0x01"]) {
+          // UTF-16 with BOM
+          text = getStringUTF16(musicData, encodeIndex + 1, size - 3);
+        } else if (code === HEXADECIMAL["0x02"]) {
+          // UTF-16BE without BOM
+          text = getStringUTF16(musicData, encodeIndex + 1, size - 1);
+        } else if (code === HEXADECIMAL["0x03"]) {
+          // UTF-8 (v2.4)
+          text = getStringUTF8(musicData, encodeIndex + 1, size - 1);
+        }
+
+        return {
+          text: text,
+          skip: HEADER_FRAME_BYTES + size,
+        };
+      },
+      /**
+       * フレームサイズを読み込む。
+       * 4バイト分のデータを結合し、32ビットの整数値を生成する。
+       * @param {number} index UTF-8文字コード配列のインデックス。
+       * @returns {number} フレームサイズ。
+       */
+      readID3FrameSize: function (index: number): number {
+        return (
+          // 24ビット左にシフト
+          (musicData[index + 4] << 24) |
+          // 16ビット左にシフト
+          (musicData[index + 5] << 16) |
+          // 8ビット左にシフト
+          (musicData[index + 6] << 8) |
+          // シフト操作無し
+          musicData[index + 7]
+        );
+      },
     };
   }
 
@@ -1354,8 +1411,17 @@ function mp4BoxTagReader(musicData: Uint8Array) {
    * @returns {void}
    */
   function readMp4Boxes(): void {
-    const { getIndex, setIndex, increment, readBox, readText, readMeta } =
-      mp4Box();
+    const {
+      getIndex,
+      setIndex,
+      increment,
+      readBox,
+      readText,
+      readMeta,
+      isID3FrameID,
+      readID3Text,
+      readID3FrameSize,
+    } = mp4Box();
 
     // Data One
     for (let i = 0; i < musicData.length; i++) {
@@ -1449,11 +1515,29 @@ function mp4BoxTagReader(musicData: Uint8Array) {
                     console.log("🚀 ~ readMp4Boxes ~ ILST:", text);
                   }
                   if (metaType === MP4_BOX_TYPE.META) {
-                    const text = readText(metaSizeOpt);
-                    console.log("🚀 ~ readMp4Boxes ~ META:", text);
+                    // ここでhrlr分をスキップする
+                    // meta size前の4バイト分をスキップ
+                    increment(4);
+
                     // ここからID3v2タグ
-                    for (let m = 0; m < metaSizeOpt; m++) {
+                    for (let m = 0; m < metaSizeOpt - 4; m++) {
+                      const { metaSize, metaData, skip } = readMeta(m);
+                      const metaType = readText(4);
+                      const metaSizeOpt = metaData.length - 4;
+                      console.log(
+                        "🚀 ~ now ~ readMp4Boxes ~ metaType:",
+                        metaType,
+                      );
+
+                      if (metaType === MP4_BOX_TYPE.HDLR) {
+                        const text = readText(metaSizeOpt);
+                        console.log("🚀 ~ readMp4Boxes ~ HDLR:", text);
+                      }
                       // isID3FrameIDとreadID3FrameSizeが参考になる
+                      if (isID3FrameID("TPE1", metaData, m)) {
+                        //
+                      }
+                      m += skip;
                     }
                   }
                   // const {
