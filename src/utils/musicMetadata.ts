@@ -97,7 +97,9 @@ const MP4_BOX_TYPE = {
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
 
-export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
+export function getMusicMetadata(
+  musicData: Uint8Array<ArrayBuffer>,
+): Metadata | undefined {
   const { data: dataMp3, isID3v2 } = getMetadataMp3(musicData);
   if (isID3v2()) {
     return dataMp3;
@@ -133,7 +135,7 @@ export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
  * @see https://atmarkit.itmedia.co.jp/icd/root/24/92677424.html
  * @param musicData UTF-8文字コード配列の音楽データ
  */
-function ID3v2TagReader(musicData: Uint8Array) {
+function ID3v2TagReader(musicData: Uint8Array<ArrayBuffer>) {
   const ID3Frames = {
     tit2: "",
     tpe1: "",
@@ -440,7 +442,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
  * MP3の音楽メタデータの取得
  * @param {Uint8Array} musicData 音楽バイナリデータ`
  */
-function getMetadataMp3(musicData: Uint8Array): {
+function getMetadataMp3(musicData: Uint8Array<ArrayBuffer>): {
   data?: Metadata;
   isID3v2: () => boolean;
 } {
@@ -487,7 +489,7 @@ function getMetadataMp3(musicData: Uint8Array): {
  * VorbisCommentの読み込み関数。
  * @param musicData 音楽情報 UTF-8文字コード配列の音楽データ
  */
-function vorbisCommentTagReader(musicData: Uint8Array) {
+function vorbisCommentTagReader(musicData: Uint8Array<ArrayBuffer>) {
   const vorbisCommentMetadataBlocks = {
     title: "",
     artist: "",
@@ -814,7 +816,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
  * @param {Uint8Array} musicData 音楽バイナリデータ
  * @returns FLACの音楽メタデータ | FLACでない場合はundefined
  */
-function getMetadataFLAC(musicData: Uint8Array): {
+function getMetadataFLAC(musicData: Uint8Array<ArrayBuffer>): {
   data?: Metadata;
   isFLAC: () => boolean;
 } {
