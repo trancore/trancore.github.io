@@ -23,4 +23,8 @@ export const QUALIFICATION_LIST: ComponentProps<typeof Table>["tableBodyRows"] =
       firstCell: "2025.06",
       secondCell: "AWS Certified Cloud Practitioner 合格",
     },
+    {
+      firstCell: "2025.08",
+      secondCell: "AWS Certified Solutions Architect - Associate 合格",
+    },
   ];
