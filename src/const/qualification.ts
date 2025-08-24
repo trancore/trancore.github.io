@@ -16,6 +16,10 @@ export const QUALIFICATION_LIST: ComponentProps<typeof Table>["tableBodyRows"] =
       secondCell: "臨床工学技士免許 取得",
     },
     {
+      firstCell: "2015.07",
+      secondCell: "第１種ME技術実力検定試験 総合合格",
+    },
+    {
       firstCell: "2025.06",
       secondCell: "基本情報技術者試験 合格",
     },
