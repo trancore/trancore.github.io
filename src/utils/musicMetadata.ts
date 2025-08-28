@@ -32,7 +32,6 @@ const HEADER_FRAME_BYTES = 10 as const;
  */
 const ID3_HEADER_EXTENSION = {
   ID3: [73, 68, 51],
-  RIFF: [82, 73, 70, 70],
 } as const;
 /**
  * ID3タグフレームIDとUTF-16文字コードのペア
@@ -57,6 +56,12 @@ const VORBIS_COMMENT = {
   LENGTH: "LENGTH",
   GENRE: "GENRE",
 } as const;
+/**
+ * RIFFヘッダ拡張子とUTF-16文字コードのペア
+ */
+const RIFF_HEADER = {
+  RIFF: [82, 73, 70, 70],
+} as const;
 const RIFF_LIST_TYPE_INFO_ID = {
   IAAT: "IAAT",
   // アーティスト名
@@ -74,10 +79,27 @@ const RIFF_LIST_TYPE_INFO_ID = {
   // 作成に使用されたソフトウェア名
   ISFT: "ISFT",
 } as const;
+/**
+ * MP4のBoxType
+ */
+const MP4_BOX_TYPE = {
+  FTYP: "ftyp",
+  MOOV: "moov",
+  UDTA: "udta",
+  TITL: "titl",
+  PERF: "perf",
+  ALBM: "albm",
+  YRRC: "yrrc",
+  META: "meta",
+  HDLR: "hdlr",
+  ILST: "ilst",
+};
 
 type ID3V2Version = keyof typeof ID3_V2_VERSION;
 
-export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
+export function getMusicMetadata(
+  musicData: Uint8Array<ArrayBuffer>,
+): Metadata | undefined {
   const { data: dataMp3, isID3v2 } = getMetadataMp3(musicData);
   if (isID3v2()) {
     return dataMp3;
@@ -93,6 +115,17 @@ export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
     return dataWAVE;
   }
 
+  // const { data: dataApev2, isApev2 } = getMetadataAAC(musicData);
+  const { isMp4Box } = getMetadataMp4(musicData);
+  console.log(
+    "🚀 ~ getMusicMetadata ~ musicData:",
+    new TextDecoder().decode(musicData),
+  );
+
+  if (isMp4Box()) {
+    // return dataWAVE;
+  }
+
   return;
 }
 
@@ -102,7 +135,7 @@ export function getMusicMetadata(musicData: Uint8Array): Metadata | undefined {
  * @see https://atmarkit.itmedia.co.jp/icd/root/24/92677424.html
  * @param musicData UTF-8文字コード配列の音楽データ
  */
-function ID3v2TagReader(musicData: Uint8Array) {
+function ID3v2TagReader(musicData: Uint8Array<ArrayBuffer>) {
   const ID3Frames = {
     tit2: "",
     tpe1: "",
@@ -409,7 +442,7 @@ function ID3v2TagReader(musicData: Uint8Array) {
  * MP3の音楽メタデータの取得
  * @param {Uint8Array} musicData 音楽バイナリデータ`
  */
-function getMetadataMp3(musicData: Uint8Array): {
+function getMetadataMp3(musicData: Uint8Array<ArrayBuffer>): {
   data?: Metadata;
   isID3v2: () => boolean;
 } {
@@ -456,7 +489,7 @@ function getMetadataMp3(musicData: Uint8Array): {
  * VorbisCommentの読み込み関数。
  * @param musicData 音楽情報 UTF-8文字コード配列の音楽データ
  */
-function vorbisCommentTagReader(musicData: Uint8Array) {
+function vorbisCommentTagReader(musicData: Uint8Array<ArrayBuffer>) {
   const vorbisCommentMetadataBlocks = {
     title: "",
     artist: "",
@@ -783,7 +816,7 @@ function vorbisCommentTagReader(musicData: Uint8Array) {
  * @param {Uint8Array} musicData 音楽バイナリデータ
  * @returns FLACの音楽メタデータ | FLACでない場合はundefined
  */
-function getMetadataFLAC(musicData: Uint8Array): {
+function getMetadataFLAC(musicData: Uint8Array<ArrayBuffer>): {
   data?: Metadata;
   isFLAC: () => boolean;
 } {
@@ -903,10 +936,10 @@ function RIFFTagReader(musicData: Uint8Array) {
    */
   function isWAVE(): boolean {
     return (
-      musicData[0] === ID3_HEADER_EXTENSION["RIFF"][0] &&
-      musicData[1] === ID3_HEADER_EXTENSION["RIFF"][1] &&
-      musicData[2] === ID3_HEADER_EXTENSION["RIFF"][2] &&
-      musicData[3] === ID3_HEADER_EXTENSION["RIFF"][3]
+      musicData[0] === RIFF_HEADER["RIFF"][0] &&
+      musicData[1] === RIFF_HEADER["RIFF"][1] &&
+      musicData[2] === RIFF_HEADER["RIFF"][2] &&
+      musicData[3] === RIFF_HEADER["RIFF"][3]
     );
   }
 
@@ -1205,5 +1238,413 @@ function getMetadataWAVE(musicData: Uint8Array) {
 
   return {
     isWAVE,
+  };
+}
+
+/**
+ * Mp4Boxの読み込み関数。
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ */
+function mp4BoxTagReader(musicData: Uint8Array) {
+  const mp4BoxMetadata = {
+    title: "",
+    artist: "",
+    album: "",
+    albumArtist: "",
+    length: "",
+    genre: "",
+  };
+
+  /**
+   * MP4Boxのクロージャ関数
+   */
+  function mp4Box() {
+    let index = 0;
+
+    return {
+      getIndex: function () {
+        return index;
+      },
+      setIndex: function (newIndex: number) {
+        index = newIndex;
+      },
+      increment: function (byNum: number) {
+        index += byNum;
+      },
+      readBox: function (boxIndex: number, preBoxSize: number) {
+        let skip = boxIndex;
+
+        // BoxSize > 1 なら BoxSize, BoxType を含む全体の長さ。
+        // BoxSize == 0 なら MP4ファイルの終端(BinaryStreamの終端)までがBoxSizeとみなされる
+        // BoxSize == 1 なら BoxData の先頭に8byteの BoxSize (largesize) が格納される
+        const boxSize = getIntNumberFromBinary(musicData, index, 4);
+        index += 4;
+        skip += 4;
+
+        const boxTypeNumber = getIntNumberFromBinary(musicData, index, 4);
+        index += 4;
+        skip += 4;
+
+        const boxTypeText = String.fromCharCode(
+          (boxTypeNumber >> 24) & 0xff,
+          (boxTypeNumber >> 16) & 0xff,
+          (boxTypeNumber >> 8) & 0xff,
+          boxTypeNumber & 0xff,
+        );
+
+        const boxDataSize = boxSize === 0 ? preBoxSize - 8 : boxSize - 8;
+        const boxData = musicData.slice(index, index + boxDataSize);
+
+        if (boxSize === 0) {
+          skip += boxData.length;
+        }
+        // TODO boxSizeOne === 1の時の処理
+
+        return {
+          boxSize,
+          boxType: boxTypeText,
+          boxData,
+          skip,
+        };
+      },
+      readText: function (length: number) {
+        let text = "";
+        for (let n = length; n > 0; n--) {
+          text += String.fromCharCode(musicData[index]);
+          index += 1;
+        }
+        return text;
+      },
+      readMeta: function (boxIndex: number) {
+        let skip = boxIndex;
+
+        const metaSize = getIntNumberFromBinary(musicData, index, 4);
+        index += 4;
+        skip += 4;
+
+        const metaDataSize = metaSize - 4;
+        const metaData = musicData.slice(index, index + metaDataSize);
+
+        return {
+          metaSize,
+          metaData,
+          skip,
+        };
+      },
+      isID3FrameID: function (
+        IDName: keyof typeof ID3_FRAME_ID,
+        metaData: Uint8Array,
+        index: number,
+      ): boolean {
+        return (
+          metaData[index] === ID3_FRAME_ID[IDName][0] &&
+          metaData[index + 1] === ID3_FRAME_ID[IDName][1] &&
+          metaData[index + 2] === ID3_FRAME_ID[IDName][2] &&
+          metaData[index + 3] === ID3_FRAME_ID[IDName][3]
+        );
+      },
+      readID3Text: function (
+        index: number,
+        size: number,
+      ): { text: string; skip: number } {
+        const encodeIndex = index + HEADER_FRAME_BYTES;
+        const code = musicData[encodeIndex];
+
+        let text = "";
+        if (code === HEXADECIMAL["0x00"]) {
+          // ISO-8859-1(Latin-1)
+          text = getStringLatin1(musicData, encodeIndex + 1, size - 1);
+        } else if (code === HEXADECIMAL["0x01"]) {
+          // UTF-16 with BOM
+          text = getStringUTF16(musicData, encodeIndex + 1, size - 3);
+        } else if (code === HEXADECIMAL["0x02"]) {
+          // UTF-16BE without BOM
+          text = getStringUTF16(musicData, encodeIndex + 1, size - 1);
+        } else if (code === HEXADECIMAL["0x03"]) {
+          // UTF-8 (v2.4)
+          text = getStringUTF8(musicData, encodeIndex + 1, size - 1);
+        }
+
+        return {
+          text: text,
+          skip: HEADER_FRAME_BYTES + size,
+        };
+      },
+      /**
+       * フレームサイズを読み込む。
+       * 4バイト分のデータを結合し、32ビットの整数値を生成する。
+       * @param {number} index UTF-8文字コード配列のインデックス。
+       * @returns {number} フレームサイズ。
+       */
+      readID3FrameSize: function (index: number): number {
+        return (
+          // 24ビット左にシフト
+          (musicData[index + 4] << 24) |
+          // 16ビット左にシフト
+          (musicData[index + 5] << 16) |
+          // 8ビット左にシフト
+          (musicData[index + 6] << 8) |
+          // シフト操作無し
+          musicData[index + 7]
+        );
+      },
+    };
+  }
+
+  /**
+   * MP4Boxかどうかを判定する。
+   * @returns {boolean} true: APEv2である / false: APEv2ではない
+   */
+  function isMp4Box(): boolean {
+    // const boxSize = getIntNumberFromBinary(musicData, 0, 4);
+    const ftyp = getIntNumberFromBinary(musicData, 4, 4);
+    const ftypText = String.fromCharCode(
+      (ftyp >> 24) & 0xff,
+      (ftyp >> 16) & 0xff,
+      (ftyp >> 8) & 0xff,
+      ftyp & 0xff,
+    );
+
+    return ftypText === MP4_BOX_TYPE.FTYP;
+  }
+
+  /**
+   * MP4Boxを読み込む。
+   * @returns {void}
+   */
+  function readMp4Boxes(): void {
+    const {
+      getIndex,
+      setIndex,
+      increment,
+      readBox,
+      readText,
+      readMeta,
+      isID3FrameID,
+      readID3Text,
+      readID3FrameSize,
+    } = mp4Box();
+
+    // Data One
+    for (let i = 0; i < musicData.length; i++) {
+      const {
+        boxType: boxTypeOne,
+        boxData: boxDataOne,
+        skip: skipOne,
+      } = readBox(i, musicData.length);
+
+      if (boxTypeOne === MP4_BOX_TYPE.MOOV) {
+        // Data Two
+        for (let j = 0; j < boxDataOne.length; j++) {
+          const {
+            boxSize: boxSizeTwo,
+            boxType: boxTypeTwo,
+            boxData: boxDataTwo,
+            skip: skipTwo,
+          } = readBox(j, boxDataOne.length);
+
+          if (boxTypeTwo === MP4_BOX_TYPE.UDTA) {
+            // Data Three
+            for (let k = 0; k < boxDataTwo.length; k++) {
+              const {
+                boxSize: boxSizeThree,
+                boxType: boxTypeThree,
+                boxData: boxDataThree,
+                skip: skipThree,
+              } = readBox(k, boxDataTwo.length);
+
+              if (boxTypeThree === MP4_BOX_TYPE.TITL) {
+                // Data Four
+                for (let l = 0; l < boxDataThree.length; l++) {
+                  const {
+                    boxSize: boxSizeFour,
+                    boxType: boxTypeFour,
+                    boxData: boxDataFour,
+                    skip: skipFour,
+                  } = readBox(l, boxDataThree.length);
+
+                  const text = readText(boxDataFour.length);
+                  console.log("🚀 ~ readMp4Boxes ~ TITL:", text);
+
+                  l += skipFour;
+                }
+              } else if (boxTypeThree === MP4_BOX_TYPE.ALBM) {
+                // Data Four
+                for (let l = 0; l < boxDataThree.length; l++) {
+                  const {
+                    boxSize: boxSizeFour,
+                    boxType: boxTypeFour,
+                    boxData: boxDataFour,
+                    skip: skipFour,
+                  } = readBox(l, boxDataThree.length);
+
+                  const text = readText(boxDataFour.length);
+                  console.log("🚀 ~ readMp4Boxes ~ ALBM:", text);
+
+                  l += skipFour;
+                }
+              } else if (boxTypeThree === MP4_BOX_TYPE.META) {
+                /**
+                 * @see https://developer.apple.com/documentation/quicktime-file-format/metadata_atom
+                 */
+
+                // DEBUG: あとで削除する
+                console.log(
+                  "🚀 ~ boxDataFour ~ boxDataThree:",
+                  new TextDecoder().decode(boxDataThree),
+                );
+                console.log("🚀 ~ readMp4Boxes ~ boxDataThree:", boxDataThree);
+
+                // meta size前の4バイト分をスキップ
+                increment(4);
+
+                // Data Four
+                for (let l = 0; l < boxDataThree.length - 4; l++) {
+                  const { metaSize, metaData, skip } = readMeta(l);
+                  const metaType = readText(4);
+                  const metaSizeOpt = metaData.length - 4;
+                  console.log("🚀 ~ readMp4Boxes ~ metaType:", metaType);
+
+                  /**
+                   * @see https://developer.apple.com/documentation/quicktime-file-format/metadata_handler_atom
+                   */
+                  if (metaType === MP4_BOX_TYPE.HDLR) {
+                    const text = readText(metaSizeOpt);
+                    console.log("🚀 ~ readMp4Boxes ~ HDLR:", text);
+                  }
+                  if (metaType === MP4_BOX_TYPE.ILST) {
+                    const text = readText(metaSizeOpt);
+                    console.log("🚀 ~ readMp4Boxes ~ ILST:", text);
+                  }
+                  if (metaType === MP4_BOX_TYPE.META) {
+                    // ここでhrlr分をスキップする
+                    // meta size前の4バイト分をスキップ
+                    increment(4);
+
+                    // ここからID3v2タグ
+                    for (let m = 0; m < metaSizeOpt - 4; m++) {
+                      const { metaSize, metaData, skip } = readMeta(m);
+                      const metaType = readText(4);
+                      const metaSizeOpt = metaData.length - 4;
+                      console.log(
+                        "🚀 ~ now ~ readMp4Boxes ~ metaType:",
+                        metaType,
+                      );
+
+                      if (metaType === MP4_BOX_TYPE.HDLR) {
+                        const text = readText(metaSizeOpt);
+                        console.log("🚀 ~ readMp4Boxes ~ HDLR:", text);
+                      }
+                      // isID3FrameIDとreadID3FrameSizeが参考になる
+                      if (isID3FrameID("TPE1", metaData, m)) {
+                        //
+                      }
+                      m += skip;
+                    }
+                  }
+                  // const {
+                  //   boxSize: boxSizeFour,
+                  //   boxType: boxTypeFour,
+                  //   boxData: boxDataFour,
+                  //   skip: skipFour,
+                  // } = readBox(l, boxDataThree.length);
+
+                  // // DEBUG: あとで削除する
+                  // console.log(
+                  //   "🚀 ~ boxDataFour ~ boxDataFour:",
+                  //   new TextDecoder().decode(boxDataFour),
+                  // );
+                  // const metaType = readText(boxDataFour.length);
+                  // console.log("🚀 ~ readMp4Boxes ~ metaType:", metaType);
+                  // const boxTypeNumber = getIntNumberFromBinary(
+                  //   musicData,
+                  //   getIndex(),
+                  //   4,
+                  // );
+                  // const boxTypeText = String.fromCharCode(
+                  //   (boxTypeNumber >> 24) & 0xff,
+                  //   (boxTypeNumber >> 16) & 0xff,
+                  //   (boxTypeNumber >> 8) & 0xff,
+                  //   boxTypeNumber & 0xff,
+                  // );
+                  // increment(4);
+                  // l += 4;
+                  // if (boxTypeText === MP4_BOX_TYPE.HDLR) {
+                  //   /**
+                  //    * @see https://developer.apple.com/documentation/quicktime-file-format/metadata_handler_atom
+                  //    */
+                  //   // Data Five
+                  //   for (let m = 0; m < boxDataThree.length; m++) {
+                  //     const {
+                  //       boxSize: boxSizeFive,
+                  //       boxType: boxTypeFive,
+                  //       boxData: boxDataFive,
+                  //       skip: skipFive,
+                  //     } = readBox(l, boxDataThree.length);
+                  //     const text = readText(boxDataFour.length);
+                  //     console.log("🚀 ~ readMp4Boxes ~ META:", text);
+                  //     /**
+                  //      * @see https://developer.apple.com/documentation/quicktime-file-format/metadata_handler_atom
+                  //      */
+                  //     m += skipFour;
+                  //   }
+                  // }
+                  l += skip;
+                }
+              } else {
+                increment(boxDataThree.length);
+                k += boxDataThree.length;
+              }
+
+              k += skipThree;
+            }
+          } else {
+            increment(boxDataTwo.length);
+            j += boxDataTwo.length;
+          }
+
+          j += skipTwo;
+        }
+      } else {
+        increment(boxDataOne.length);
+        i += boxDataOne.length;
+      }
+
+      i += skipOne;
+    }
+  }
+
+  return { isMp4Box, read: readMp4Boxes };
+}
+
+/**
+ * MP4の音楽メタデータの取得
+ * @param {Uint8Array} musicData 音楽バイナリデータ
+ * @returns MP4の音楽メタデータ | MP4でない場合はundefined
+ */
+function getMetadataMp4(musicData: Uint8Array) {
+  const { isMp4Box, read } = mp4BoxTagReader(musicData);
+
+  read();
+
+  // if (isWAVE()) {
+  //   const musicMetadata: Metadata = {
+  //     title: getTitle(),
+  //     artist: getArtist(),
+  //     album: getAlbum(),
+  //     albumArtists: getAlbumArtist(),
+  //     genre: getGenre(),
+  //     // WAVEはアルバムワークが定義されていないので空文字のまま
+  //     albumWork: "",
+  //   };
+
+  //   return {
+  //     data: musicMetadata,
+  //     isWAVE,
+  //   };
+  // }
+
+  return {
+    isMp4Box,
   };
 }

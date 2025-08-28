@@ -33,10 +33,10 @@ export function getAudioUint8Array(file: File): Promise<Uint8Array> {
  * @returns {Uint8Array} UTF-8コード文字配列の画像データ
  */
 export function getImageInUint8Array(
-  musicData: Uint8Array,
+  musicData: Uint8Array<ArrayBuffer>,
   beginIndex: number,
   size: number,
-): Uint8Array {
+): Uint8Array<ArrayBuffer> {
   return musicData.subarray(beginIndex, beginIndex + size);
 }
 
