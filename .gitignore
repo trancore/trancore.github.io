@@ -5,8 +5,15 @@ dist-ssr
 *.local
 count.txt
 
+# environment
 .env
 .env.development
 
+# build
 .nitro
 .tanstack
+storybook-static
+
+# log
+*storybook.log
+
