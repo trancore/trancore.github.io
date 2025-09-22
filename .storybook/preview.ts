@@ -5,6 +5,7 @@ import {
   RouterProvider,
 } from "@tanstack/react-router";
 import React from "react";
+import { themes } from "storybook/theming";
 
 // Tanstack Router用デコレータ
 const RouterDecorator: Decorator = (Story) => {
@@ -21,6 +22,10 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+    },
+    darkMode: {
+      dark: { ...themes.dark, appBg: "black" },
+      light: { ...themes.normal, appBg: "white" },
     },
   },
   decorators: [RouterDecorator],
