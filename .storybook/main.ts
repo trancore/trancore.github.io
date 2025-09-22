@@ -1,5 +1,5 @@
-import type { StorybookConfig } from "@storybook/react-vite";
 import path from "node:path";
+import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   stories: ["../src/components/**/*.stories.tsx"],
