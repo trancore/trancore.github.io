@@ -11,6 +11,7 @@ https://trancore-github-io.vercel.app/
 | Biome | フォーマッタ、リンタ |
 | React | JavaScript ライブラリ |
 | tailwindCSS | CSS フレームワーク |
+| Headless UI | アクセシブルな UI コンポーネント |
 | Storybook | コンポーネントのデザインカタログ |
 | tanstack router | React, Solid アプリケーション用型安全ルーティングエコシステム |
 | tanstack query | データフェッチと同期的な状態管理ライブラリ |

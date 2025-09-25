@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-router";
 import React from "react";
 import { themes } from "storybook/theming";
+import "~/assets/css/styles.css";
 
 // Tanstack Router用デコレータ
 const RouterDecorator: Decorator = (Story) => {
@@ -16,6 +17,7 @@ const RouterDecorator: Decorator = (Story) => {
 };
 
 const preview: Preview = {
+  decorators: [RouterDecorator],
   parameters: {
     controls: {
       matchers: {
@@ -28,7 +30,7 @@ const preview: Preview = {
       light: { ...themes.normal, appBg: "white" },
     },
   },
-  decorators: [RouterDecorator],
+  tags: ["autodocs"],
 };
 
 export default preview;
