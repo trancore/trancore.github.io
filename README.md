@@ -15,6 +15,7 @@ https://trancore-github-io.vercel.app/
 | Storybook | コンポーネントのデザインカタログ |
 | tanstack router | React, Solid アプリケーション用型安全ルーティングエコシステム |
 | tanstack query | データフェッチと同期的な状態管理ライブラリ |
+| vite | 単体テストツールライブラリ |
 
 ## 環境変数について
 
