@@ -35,4 +35,8 @@ export const QUALIFICATION_LIST: ComponentProps<typeof Table>["tableBodyRows"] =
       firstCell: "2025.11",
       secondCell: "HTML5プロフェッショナル認定試験 レベル1 合格",
     },
+    {
+      firstCell: "2025.11",
+      secondCell: "HTML5プロフェッショナル認定試験 レベル2 合格",
+    },
   ];
