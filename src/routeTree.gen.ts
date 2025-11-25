@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
-import { Route as ProductionsRouteImport } from './routes/productions'
+import { Route as ProductsRouteImport } from './routes/products'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as AboutRouteImport } from './routes/about'
 
@@ -19,9 +19,9 @@ const WorksRoute = WorksRouteImport.update({
   path: '/works',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProductionsRoute = ProductionsRouteImport.update({
-  id: '/productions',
-  path: '/productions',
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -38,34 +38,34 @@ const AboutRoute = AboutRouteImport.update({
 export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/home': typeof HomeRoute
-  '/productions': typeof ProductionsRoute
+  '/products': typeof ProductsRoute
   '/works': typeof WorksRoute
 }
 export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/home': typeof HomeRoute
-  '/productions': typeof ProductionsRoute
+  '/products': typeof ProductsRoute
   '/works': typeof WorksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/about': typeof AboutRoute
   '/home': typeof HomeRoute
-  '/productions': typeof ProductionsRoute
+  '/products': typeof ProductsRoute
   '/works': typeof WorksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/about' | '/home' | '/productions' | '/works'
+  fullPaths: '/about' | '/home' | '/products' | '/works'
   fileRoutesByTo: FileRoutesByTo
-  to: '/about' | '/home' | '/productions' | '/works'
-  id: '__root__' | '/about' | '/home' | '/productions' | '/works'
+  to: '/about' | '/home' | '/products' | '/works'
+  id: '__root__' | '/about' | '/home' | '/products' | '/works'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   HomeRoute: typeof HomeRoute
-  ProductionsRoute: typeof ProductionsRoute
+  ProductsRoute: typeof ProductsRoute
   WorksRoute: typeof WorksRoute
 }
 
@@ -78,11 +78,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/productions': {
-      id: '/productions'
-      path: '/productions'
-      fullPath: '/productions'
-      preLoaderRoute: typeof ProductionsRouteImport
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -105,7 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   HomeRoute: HomeRoute,
-  ProductionsRoute: ProductionsRoute,
+  ProductsRoute: ProductsRoute,
   WorksRoute: WorksRoute,
 }
 export const routeTree = rootRouteImport
