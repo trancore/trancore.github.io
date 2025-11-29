@@ -1,10 +1,10 @@
 ﻿import { Link } from "@tanstack/react-router";
-import type { ComponentProps } from "react";
+import type { To } from "~/types/route";
 import { cn } from "~/utils/cn";
 
 type Props = {
   text: string;
-  to: ComponentProps<typeof Link>["to"];
+  to: To;
   /** 背景色。tailwindCSSのbg-xxxで指定可能 */
   backgroundColor?: string;
 };
