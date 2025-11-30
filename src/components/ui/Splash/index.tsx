@@ -5,7 +5,7 @@ import { cn } from "~/utils/cn";
 type Props = {
   title: string;
   descriptions: string[];
-  linkButtton: {
+  linkButtton?: {
     href: To;
     label: string;
   };
@@ -34,9 +34,9 @@ export default function Splash({
         {linkButtton && (
           <span className={cn("pt-1.5")}>
             <LinkButton
-              text="View My Products"
-              to="/products"
               backgroundColor="bg-blue-500"
+              text={linkButtton.label}
+              to={linkButtton.href}
             />
           </span>
         )}
