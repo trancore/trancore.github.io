@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "px-2 py-4 m-auto max-w-7xl",
+        "px-2 py-4 mx-auto max-w-7xl",
         "flex items-center justify-between",
       )}
     >
