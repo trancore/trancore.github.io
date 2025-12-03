@@ -1,5 +1,6 @@
 import { TabGroup, TabList } from "@headlessui/react";
 import { Link } from "@tanstack/react-router";
+
 import Icon from "~/components/common/Icon";
 import Tab from "~/components/common/Tab";
 import { PAGE_PATH } from "~/consts";
