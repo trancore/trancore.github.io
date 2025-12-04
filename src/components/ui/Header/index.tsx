@@ -1,5 +1,6 @@
 import { TabGroup, TabList } from "@headlessui/react";
 import { Link } from "@tanstack/react-router";
+
 import Icon from "~/components/common/Icon";
 import Tab from "~/components/common/Tab";
 import { PAGE_PATH } from "~/consts";
@@ -11,7 +12,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "px-2 py-4 mx-auto max-w-7xl",
+        "mx-auto max-w-7xl px-2 py-4",
         "flex items-center justify-between",
       )}
     >
