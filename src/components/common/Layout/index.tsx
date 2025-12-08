@@ -1,7 +1,7 @@
-﻿import type { ReactNode } from "react";
-import Footer from "~/components/ui/Footer";
+﻿import Footer from "~/components/ui/Footer";
 import Header from "~/components/ui/Header";
 import { cn } from "~/utils/cn";
+import type { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -9,7 +9,7 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <div className={cn("flex flex-col min-h-screen")}>
+    <div className={cn("flex min-h-screen flex-col")}>
       <div className={cn("shrink-0")}>
         <Header />
       </div>
