@@ -21,8 +21,8 @@ export default function Splash({
 }: Props) {
   return (
     <div className={cn("py-6", `${backgroundColor}`)}>
-      <div className={cn("p-6 m-auto max-w-7xl", "flex flex-col")}>
-        <h1 className={cn("text-6xl font-bold")}>{title}</h1>
+      <div className={cn("m-auto max-w-7xl p-6", "flex flex-col")}>
+        <h1 className={cn("font-bold text-6xl")}>{title}</h1>
         <div className={cn("py-2")}>
           {descriptions.length > 0 &&
             descriptions.map((description, index) => (
