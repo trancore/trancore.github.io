@@ -4,9 +4,13 @@ import {
   createRouter,
   RouterProvider,
 } from "@tanstack/react-router";
+
 import React from "react";
 import { themes } from "storybook/theming";
 import "~/assets/css/styles.css";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 // Tanstack Router用デコレータ
 const RouterDecorator: Decorator = (Story) => {
