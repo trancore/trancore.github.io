@@ -27,3 +27,21 @@ export const Cards: Story = {
     )),
   },
 };
+
+export const Books: Story = {
+  args: {
+    slides: Array.from({ length: 10 }).map((_, index) => (
+      <Card
+        key={index.toString()}
+        card={{
+          imgSrc: "https://placehold.jp/500x300.png",
+          title:
+            "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
+          description:
+            "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
+          url: "/",
+        }}
+      />
+    )),
+  },
+};
