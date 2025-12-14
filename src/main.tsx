@@ -1,13 +1,15 @@
 import { createRouter, RouterProvider } from "@tanstack/react-router";
+
+import * as TanStackQueryProvider from "~/integrations/tanstackQuery/rootProvider";
+import { routeTree } from "~/routeTree.gen";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 
-import * as TanStackQueryProvider from "~/integrations/tanstackQuery/rootProvider";
-
-// Import the generated route tree
-import { routeTree } from "~/routeTree.gen";
-
 import "./styles.css";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
 import reportWebVitals from "~/reportWebVitals.ts";
 
 declare module "@tanstack/react-router" {
