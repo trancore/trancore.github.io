@@ -67,58 +67,56 @@ export default function Home() {
             ]}
           />
         </Section>
-        <div>
-          <Section title="Web Articles">
-            <Carousel
-              slides={[
-                <Card
-                  key={1}
-                  card={{
-                    imgSrc: "https://placehold.jp/500x300.png",
-                    title:
-                      "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                    description:
-                      "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                    url: "/",
-                  }}
-                />,
-                <Card
-                  key={2}
-                  card={{
-                    imgSrc: "https://placehold.jp/500x300.png",
-                    title:
-                      "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                    description:
-                      "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                    url: "/",
-                  }}
-                />,
-                <Card
-                  key={3}
-                  card={{
-                    imgSrc: "https://placehold.jp/500x300.png",
-                    title:
-                      "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                    description:
-                      "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                    url: "/",
-                  }}
-                />,
-                <Card
-                  key={4}
-                  card={{
-                    imgSrc: "https://placehold.jp/500x300.png",
-                    title:
-                      "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                    description:
-                      "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                    url: "/",
-                  }}
-                />,
-              ]}
-            />
-          </Section>
-        </div>
+        <Section title="Web Articles">
+          <Carousel
+            slides={[
+              <Card
+                key={1}
+                card={{
+                  imgSrc: "https://placehold.jp/500x300.png",
+                  title:
+                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
+                  description:
+                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
+                  url: "/",
+                }}
+              />,
+              <Card
+                key={2}
+                card={{
+                  imgSrc: "https://placehold.jp/500x300.png",
+                  title:
+                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
+                  description:
+                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
+                  url: "/",
+                }}
+              />,
+              <Card
+                key={3}
+                card={{
+                  imgSrc: "https://placehold.jp/500x300.png",
+                  title:
+                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
+                  description:
+                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
+                  url: "/",
+                }}
+              />,
+              <Card
+                key={4}
+                card={{
+                  imgSrc: "https://placehold.jp/500x300.png",
+                  title:
+                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
+                  description:
+                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
+                  url: "/",
+                }}
+              />,
+            ]}
+          />
+        </Section>
       </div>
     </>
   );
