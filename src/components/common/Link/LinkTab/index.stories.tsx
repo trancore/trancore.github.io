@@ -1,5 +1,6 @@
 ﻿import { TabGroup, TabList } from "@headlessui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+
 import Tab from "~/components/common/Tab";
 
 const meta = {
