@@ -1,5 +1,5 @@
-﻿import Carousel from "~/components/common/Carousel";
-import Card from "~/components/ui/Card";
+﻿import Card from "~/components/ui/Card";
+import Carousel from "~/components/ui/Carousel";
 import Section from "~/components/ui/Section";
 import Splash from "~/components/ui/Splash";
 import webArticles from "~/consts/webArticles.json";

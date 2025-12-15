@@ -1,7 +1,7 @@
 ﻿import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Carousel from "~/components/common/Carousel";
 import Card from "~/components/ui/Card";
+import Carousel from "~/components/ui/Carousel";
 import Section from "~/components/ui/Section";
 
 const meta = {
