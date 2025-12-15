@@ -1,7 +1,7 @@
 import { TabGroup, TabList } from "@headlessui/react";
 
 import Icon from "~/components/common/Icon";
-import LinkTab from "~/components/common/Link/LinkTab";
+import LinkTab from "~/components/ui/LinkTab";
 import { PAGE_PATH } from "~/consts";
 import { cn } from "~/utils/cn";
 

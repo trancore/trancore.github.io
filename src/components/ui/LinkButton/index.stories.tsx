@@ -1,5 +1,6 @@
 ﻿import type { Meta, StoryObj } from "@storybook/react-vite";
-import LinkButton from "~/components/common/Link/LinkButton";
+
+import LinkButton from "~/components/ui/LinkButton";
 
 const meta = {
   component: LinkButton,
