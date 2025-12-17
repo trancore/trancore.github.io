@@ -67,7 +67,7 @@ export default function Home() {
             ]}
           />
         </Section>
-        <Section title="Web Articles">
+        <Section title="Recent Books">
           <Carousel
             slides={[
               <Card
