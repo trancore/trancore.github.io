@@ -1,0 +1,134 @@
+﻿import { TabGroup } from "@headlessui/react";
+
+import Section from "~/components/ui/Section";
+import Splash from "~/components/ui/Splash";
+import Tab from "~/components/ui/Tab";
+import { cn } from "~/utils/cn";
+
+export default function About() {
+  const themeColor = "blue-200";
+  const backgroundColor = `bg-${themeColor}`;
+  const textColor = `text-${themeColor}`;
+  const skills = [
+    "HTML",
+    "CSS",
+    "SCSS",
+    "TailwindCSS",
+    "JavaScript",
+    "TypeScript",
+    "Vue.js",
+    "Nuxt.js",
+    "React.js",
+    "Next.js",
+  ];
+  const qualifications = [
+    { date: "2012.08", name: "普通自動車免許", status: "取得" },
+    { date: "2015.03", name: "臨床工学技士免許", status: "取得" },
+    { date: "2015.07", name: "第１種ME技術実力検定試験", status: "総合合格" },
+    { date: "2025.06", name: "基本情報技術者試験", status: "合格" },
+    {
+      date: "2025.06",
+      name: "AWS Certified Cloud Practitioner",
+      status: "合格",
+    },
+    {
+      date: "2025.08",
+      name: "AWS Certified Solutions Architect - Associate",
+      status: "合格",
+    },
+    {
+      date: "2025.11",
+      name: "HTML5プロフェッショナル認定試験 レベル1",
+      status: "合格",
+    },
+    {
+      date: "2025.11",
+      name: "HTML5プロフェッショナル認定試験 レベル2",
+      status: "合格",
+    },
+    {
+      date: "2025.11",
+      name: "JSTQB認定テスト技術者資格 Foundation Level試験",
+      status: "合格",
+    },
+  ];
+
+  return (
+    <>
+      <Splash
+        title="About Me"
+        descriptions={[
+          "私のことについて紹介します。",
+          "学歴、スキル、取得した資格について記載します。",
+        ]}
+        linkButtton={{ href: "/products", label: "View My Products" }}
+        backgroundColor={backgroundColor}
+      />
+      <div className={cn("max-w-7xl gap-4 p-6", "m-auto grid grid-cols-2")}>
+        <div className={cn("col-span-2")}>
+          <Section title="Me">
+            <div className={cn("gap-10", "flex items-center")}>
+              <div
+                className={cn(
+                  "size-48",
+                  `overflow-hidden rounded-full ${backgroundColor}`,
+                )}
+              >
+                <img
+                  alt="me"
+                  src="/src/assets/images/me_1024.svg"
+                  className={cn("size-full object-cover")}
+                />
+              </div>
+              <div>
+                <p className={cn("font-bold text-2xl")}>trancore</p>
+                <p className={cn("mt-1", "text-xs", "text-gray-500")}>
+                  (一応本名は避けておきます)
+                </p>
+
+                <p className={cn("mt-3")}>I'm a Frontend Developer.</p>
+                <p>ご訪問いただきありがとうございます。</p>
+                {/* TODO: 何か考える */}
+              </div>
+            </div>
+          </Section>
+        </div>
+        <div className={cn("col-span-1")}>
+          <Section title="Skills">
+            <TabGroup className={cn("gap-2", "flex flex-wrap")}>
+              {skills.map((skillName) => (
+                <Tab
+                  key={skillName}
+                  text={skillName}
+                  backgroundColor={backgroundColor}
+                />
+              ))}
+            </TabGroup>
+          </Section>
+        </div>
+        <div className={cn("col-span-1")}>
+          <Section title="Qualification">
+            <ul>
+              {qualifications.map((qualification) => (
+                <li
+                  key={qualification.name}
+                  className={cn("flex justify-between")}
+                >
+                  <div className={cn("gap-4", "flex")}>
+                    <span>{qualification.date}</span>
+                    <span className={cn("font-semibold")}>
+                      {qualification.name}
+                    </span>
+                  </div>
+                  <span className={cn("font-black", `${textColor}`)}>
+                    {qualification.status}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        </div>
+      </div>
+    </>
+  );
+}

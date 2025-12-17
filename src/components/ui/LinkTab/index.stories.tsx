@@ -1,9 +1,10 @@
 ﻿import { TabGroup, TabList } from "@headlessui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Tab from "~/components/common/Tab";
+
+import LinkTab from "~/components/ui/LinkTab";
 
 const meta = {
-  component: Tab,
+  component: LinkTab,
   parameters: {
     layout: "centered",
   },
@@ -14,7 +15,7 @@ const meta = {
       </TabGroup>
     ),
   ],
-} satisfies Meta<typeof Tab>;
+} satisfies Meta<typeof LinkTab>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -22,6 +23,7 @@ type Story = StoryObj<typeof meta>;
 export const active: Story = {
   args: {
     text: "active",
+    to: "/",
     isActive: true,
     onClick: () => {},
   },
@@ -30,6 +32,7 @@ export const active: Story = {
 export const inactive: Story = {
   args: {
     text: "inactive",
+    to: "/",
     isActive: false,
     onClick: () => {},
   },

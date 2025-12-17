@@ -1,4 +1,4 @@
-﻿import LinkButton from "~/components/common/Link/LinkButton";
+﻿import LinkButton from "~/components/ui/LinkButton";
 import type { To } from "~/types/route";
 import { cn } from "~/utils/cn";
 

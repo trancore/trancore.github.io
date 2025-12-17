@@ -1,5 +1,5 @@
-﻿import Carousel from "~/components/common/Carousel";
-import Card from "~/components/ui/Card";
+﻿import Card from "~/components/ui/Card";
+import Carousel from "~/components/ui/Carousel";
 import Section from "~/components/ui/Section";
 import Splash from "~/components/ui/Splash";
 import webArticles from "~/consts/webArticles.json";
@@ -67,58 +67,56 @@ export default function Home() {
             ]}
           />
         </Section>
-        <div>
-          <Section title="Web Articles">
-            <Carousel
-              slides={[
-                <Card
-                  key={1}
-                  card={{
-                    imgSrc: "https://placehold.jp/500x300.png",
-                    title:
-                      "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                    description:
-                      "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                    url: "/",
-                  }}
-                />,
-                <Card
-                  key={2}
-                  card={{
-                    imgSrc: "https://placehold.jp/500x300.png",
-                    title:
-                      "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                    description:
-                      "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                    url: "/",
-                  }}
-                />,
-                <Card
-                  key={3}
-                  card={{
-                    imgSrc: "https://placehold.jp/500x300.png",
-                    title:
-                      "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                    description:
-                      "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                    url: "/",
-                  }}
-                />,
-                <Card
-                  key={4}
-                  card={{
-                    imgSrc: "https://placehold.jp/500x300.png",
-                    title:
-                      "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                    description:
-                      "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                    url: "/",
-                  }}
-                />,
-              ]}
-            />
-          </Section>
-        </div>
+        <Section title="Recent Books">
+          <Carousel
+            slides={[
+              <Card
+                key={1}
+                card={{
+                  imgSrc: "https://placehold.jp/500x300.png",
+                  title:
+                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
+                  description:
+                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
+                  url: "/",
+                }}
+              />,
+              <Card
+                key={2}
+                card={{
+                  imgSrc: "https://placehold.jp/500x300.png",
+                  title:
+                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
+                  description:
+                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
+                  url: "/",
+                }}
+              />,
+              <Card
+                key={3}
+                card={{
+                  imgSrc: "https://placehold.jp/500x300.png",
+                  title:
+                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
+                  description:
+                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
+                  url: "/",
+                }}
+              />,
+              <Card
+                key={4}
+                card={{
+                  imgSrc: "https://placehold.jp/500x300.png",
+                  title:
+                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
+                  description:
+                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
+                  url: "/",
+                }}
+              />,
+            ]}
+          />
+        </Section>
       </div>
     </>
   );
