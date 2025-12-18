@@ -2,11 +2,29 @@
 import Carousel from "~/components/ui/Carousel";
 import Section from "~/components/ui/Section";
 import Splash from "~/components/ui/Splash";
-import webArticles from "~/consts/webArticles.json";
+import booksJson from "~/consts/books.json";
+import webArticlesJson from "~/consts/web-articles.json";
 import { cn } from "~/utils/cn";
 
 export default function Home() {
-  console.log("🚀 ~ webArticle:", webArticles);
+  const articles = webArticlesJson.sort((a, b) => {
+    return Number(b.No) - Number(a.No);
+  }) as {
+    No: string;
+    url: string;
+    title: string;
+    description: string;
+    // 存在しない場合は""（空文字列）になる
+    image: string;
+  }[];
+  const books = booksJson as {
+    No: string;
+    url: string;
+    title: string;
+    description: string;
+    // 存在しない場合は""（空文字列）になる
+    image: string;
+  }[];
 
   return (
     <>
@@ -17,104 +35,36 @@ export default function Home() {
         backgroundColor="bg-gray-200"
       />
       <div className={cn("m-auto max-w-7xl p-6")}>
-        <Section title="Recent Articles">
+        <Section title="Recent Articles - 最近読んだ記事">
           <Carousel
-            slides={[
+            slides={articles.map((article) => (
               <Card
-                key={1}
+                key={article.No}
                 card={{
-                  hasEmoji: true,
-                  title:
-                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                  description:
-                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                  url: "/",
+                  hasEmoji: article.image === "",
+                  imgSrc: article.image === "" ? undefined : article.image,
+                  title: article.title,
+                  description: article.description,
+                  url: article.url,
                 }}
-              />,
-              <Card
-                key={2}
-                card={{
-                  hasEmoji: true,
-                  title:
-                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                  description:
-                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                  url: "/",
-                }}
-              />,
-              <Card
-                key={3}
-                card={{
-                  hasEmoji: true,
-                  title:
-                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                  description:
-                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                  url: "/",
-                }}
-              />,
-              <Card
-                key={4}
-                card={{
-                  hasEmoji: true,
-                  title:
-                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                  description:
-                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                  url: "/",
-                }}
-              />,
-            ]}
+              />
+            ))}
           />
         </Section>
-        <Section title="Recent Books">
+        <Section title="Books - 読んだ本">
           <Carousel
-            slides={[
+            slides={books.map((book) => (
               <Card
-                key={1}
+                key={book.No}
                 card={{
-                  imgSrc: "https://placehold.jp/500x300.png",
-                  title:
-                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                  description:
-                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                  url: "/",
+                  hasEmoji: book.image === "",
+                  imgSrc: book.image === "" ? undefined : book.image,
+                  title: book.title,
+                  description: book.description,
+                  url: book.url,
                 }}
-              />,
-              <Card
-                key={2}
-                card={{
-                  imgSrc: "https://placehold.jp/500x300.png",
-                  title:
-                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                  description:
-                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                  url: "/",
-                }}
-              />,
-              <Card
-                key={3}
-                card={{
-                  imgSrc: "https://placehold.jp/500x300.png",
-                  title:
-                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                  description:
-                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                  url: "/",
-                }}
-              />,
-              <Card
-                key={4}
-                card={{
-                  imgSrc: "https://placehold.jp/500x300.png",
-                  title:
-                    "タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル",
-                  description:
-                    "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明",
-                  url: "/",
-                }}
-              />,
-            ]}
+              />
+            ))}
           />
         </Section>
       </div>
