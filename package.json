@@ -45,6 +45,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
     "@vueless/storybook-dark-mode": "^10.0.3",
+    "cheerio": "^1.1.2",
     "jsdom": "^27.2.0",
     "storybook": "^10.0.8",
     "typescript": "^5.9.3",
