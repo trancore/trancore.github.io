@@ -11,6 +11,7 @@ type Props = {
 
 export default function Carousel({ slides, swiperOption }: Props) {
   const resultSwiperOption: SwiperOptions = {
+    freeMode: true,
     slidesPerView: 3,
     navigation: true,
     ...swiperOption,
