@@ -1,6 +1,4 @@
-﻿import { Link, Navigate } from "@tanstack/react-router";
-
-import Icon from "~/components/common/Icon";
+﻿import Icon from "~/components/common/Icon";
 import { cn } from "~/utils/cn";
 
 export default function Footer() {
