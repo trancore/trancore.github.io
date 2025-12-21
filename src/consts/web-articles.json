@@ -1,0 +1,1843 @@
+[
+  {
+    "No": "1",
+    "url": "https://logmi.jp/tech/articles/330036",
+    "title": "天才ホワイトハッカーが集まる「エンジニアの楽園」はどう作られた？　“世界レベル”が続々集まる組織の仕組みづくり　 | ログミーBusiness",
+    "description": "入社当日から有給休暇を15日付与・10連休は年間で3回以上2つ目ですが、休みをだいぶ増やしました。我々の会社は中途入社が多くて、中途入社はだいたい入社後半年で有給10日が日本の一般的なルールかと思いますが、中途入社だって休む必要があるよねと...",
+    "image": "https://images.logmi.jp/media/article/330036/images/DVZUcxGVP8JoebyYfBDTg7.png"
+  },
+  {
+    "No": "2",
+    "url": "https://www.techno-edge.net/article/2024/02/05/2753.html",
+    "title": "アップル、新しいプログラミング言語「Pkl」をオープンソースで公開。コンフィグレーション生成用 | テクノエッジ TechnoEdge",
+    "description": "アップルは、コンフィグレーション生成用の静的型付き言語「Pkl」をオープンソースで公開しました。単一コードからJSONやYAML、XMLなどを生成できます。",
+    "image": "https://www.techno-edge.net/imgs/ogp_f/13778.jpg"
+  },
+  {
+    "No": "3",
+    "url": "https://zenn.dev/kou_pg_0131/articles/tanita-health-planet-api",
+    "title": "タニタの Health Planet API を使用して測定情報を取得する",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--ffMKaSFx--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25BF%25E3%2583%258B%25E3%2582%25BF%25E3%2581%25AE%2520Health%2520Planet%2520API%2520%25E3%2582%2592%25E4%25BD%25BF%25E7%2594%25A8%25E3%2581%2597%25E3%2581%25A6%25E6%25B8%25AC%25E5%25AE%259A%25E6%2583%2585%25E5%25A0%25B1%25E3%2582%2592%25E5%258F%2596%25E5%25BE%2597%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:koki%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzRhNjlmNDk5NTMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "4",
+    "url": "https://av.watch.impress.co.jp/docs/news/1565729.html",
+    "title": "水月雨からポータブルCDプレーヤ。PC接続でデスクトップ運用も",
+    "description": "地球世界は、水月雨(MOONDROP)より、バッテリーを内蔵したポータブルCDプレーヤー「DISCDREAM」を、2月9日に発売する。価格はオープンプライスで、店頭予想価格は37,500円前後。",
+    "image": "https://av.watch.impress.co.jp/img/avw/list/1565/729/dd-3.jpg"
+  },
+  {
+    "No": "5",
+    "url": "https://speakerdeck.com/poteboy/kuma-uinokoremadetokorekara",
+    "title": "Kuma UIのこれまでとこれから",
+    "description": "Discover the journey of how someone with no prior OSS experience built this zero-runtime UI component library, the story behind its creation, its evolut&hellip;",
+    "image": "https://files.speakerdeck.com/presentations/c93aca578731436597ed59aee7d49090/slide_0.jpg?27880732"
+  },
+  {
+    "No": "6",
+    "url": "https://codezine.jp/article/detail/18849",
+    "title": "JavaScript／TypeScript向け静的解析ツール「Oxlint」が正式に公開、Rustの採用で大幅に高速化",
+    "description": "JavaScript／TypeScript向け静的解析ツール「Oxlint」の開発チームは、Oxlintのバージョン0.0.20を公開した。このバージョンで正式公開になるとしている。OxlintはMITライセンスで公開しているオープンソース・ソフトウェア。",
+    "image": "https://codezine.jp/static/images/article/18849/16568_ogp.png"
+  },
+  {
+    "No": "7",
+    "url": "https://coliss.com/articles/products/kindle-sale-202401-bnn.html#google_vignette",
+    "title": "良書がいっぱい！ ビー・エヌ・エヌ社の貴重なセールが開催、Web制作・デザイン・イラスト関連のKindle本がお買い得です",
+    "description": "※本ページは、アフィリエイト広告を利用しています。 当ブログでも人気が高く、良書揃いのビー・エヌ・エヌ社のKindle本セールが開催しています！ ビー・エヌ・エヌ社のセールは年に一・二回、非常に貴重で",
+    "image": "https://coliss.com/wp-content/uploads-202401/kindle-20240109@2x.png"
+  },
+  {
+    "No": "8",
+    "url": "https://zenn.dev/sc30gsw/articles/770144a4aa6797",
+    "title": "【Next.js】eslint + pretteirをやめてBiomeにした話",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--eC71jvh1--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590Next.js%25E3%2580%2591eslint%2520%252B%2520pretteir%25E3%2582%2592%25E3%2582%2584%25E3%2582%2581%25E3%2581%25A6Biome%25E3%2581%25AB%25E3%2581%2597%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:kaito%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzA5ZmViMGZmOGUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "9",
+    "url": "https://techblog.lycorp.co.jp/ja/designing-software-like-an-open-source",
+    "title": "オープンソースらしくソフトウェアを設計する",
+    "description": "こんにちは、出前館のプロダクトを担当しているヨンジェです。私は10余りのオープンソースプロジェクトをディレクションして開発し、チームで新しいソフトウェアを設計するときは、なるべくオープンソースへの移行...",
+    "image": "https://techblog.lycorp.co.jp/static/79d399d27485dcbc720a3b9779845d8f/7d66e/1705369631627.png"
+  },
+  {
+    "No": "10",
+    "url": "https://qiita.com/qiita01f/items/922e2d7b6edd76df7689",
+    "title": "404 Not Found - Qiita - Qiita",
+    "description": "",
+    "image": ""
+  },
+  {
+    "No": "11",
+    "url": "https://www.publickey1.jp/blog/24/post_291.html",
+    "title": "ウクライナ軍に入隊したアジャイルコーチが、さまざまなメソッドを駆使して中隊長としてのリーダーシップを実現した話（前編）",
+    "description": "アジャイル開発の代表的な方法論であるスクラムをテーマに、都内で1月に開催されたイベント「Regional Scrum Gathering Tokyo 2024」で、経験豊富なアジャイル開発のエキスパートとしてウクライナを拠点にアジャイルコン...",
+    "image": "https://www.publickey1.jp/2024/rsgtuk02.jpg"
+  },
+  {
+    "No": "12",
+    "url": "https://www.publickey1.jp/blog/24/post_292.html",
+    "title": "ウクライナ軍に入隊したアジャイルコーチが、さまざまなメソッドを駆使して中隊長としてのリーダーシップを実現した話（中編）",
+    "description": "アジャイル開発の代表的な方法論であるスクラムをテーマに、都内で1月に開催されたイベント「Regional Scrum Gathering Tokyo 2024」で、経験豊富なアジャイル開発のエキスパートとしてウクライナを拠点にアジャイルコン...",
+    "image": "https://www.publickey1.jp/2024/rsgtuk23.jpg"
+  },
+  {
+    "No": "13",
+    "url": "https://www.publickey1.jp/blog/24/post_293.html",
+    "title": "ウクライナ軍に入隊したアジャイルコーチが、さまざまなメソッドを駆使して中隊長としてのリーダーシップを実現した話（後編）",
+    "description": "アジャイル開発の代表的な方法論であるスクラムをテーマに、都内で1月に開催されたイベント「Regional Scrum Gathering Tokyo 2024」で、経験豊富なアジャイル開発のエキスパートとしてウクライナを拠点にアジャイルコン...",
+    "image": "https://www.publickey1.jp/2024/rsgtuk36.jpg"
+  },
+  {
+    "No": "14",
+    "url": "https://mainichi.jp/articles/20240212/k00/00m/040/075000c",
+    "title": "人間移植用の臓器持つブタ、国内初誕生　遺伝子改変、25年臨床研究 | 毎日新聞",
+    "description": "遺伝子が改変されて人間への移植用の臓器を持った状態の子ブタが11日、国内で初めて誕生した。種の壁を越えた「異種移植」は、新たな移植医療につながると期待される。今後、国内の研究施設や医療機関でサルへの移植実験を始め、人間に移植する臨床研究を2025年中に始めることを目指す。",
+    "image": "https://cdn.mainichi.jp/vol1/2024/02/12/20240212k0000m040074000p/0c10.jpg?1"
+  },
+  {
+    "No": "15",
+    "url": "https://codezine.jp/article/detail/19043",
+    "title": "中学生の将来つきたい職業、男子では「エンジニア・プログラマー」が1位に",
+    "description": "学研教育総合研究所は、小学生・中学生の子どもをもつ保護者を対象に実施した、「将来つきたい職業」に関する調査結果を2月7日に発表した。",
+    "image": "https://codezine.jp/static/images/article/19043/19043_ogp.png"
+  },
+  {
+    "No": "16",
+    "url": "https://tech.smarthr.jp/entry/cross-departmental-projects-tips",
+    "title": "1000人の会社で部門横断プロジェクトを最短で立ち上げるコツ - SmartHR Tech Blog",
+    "description": "みなさんこんにちは！SmartHRのプロダクトマネージャー@ryopenguinです。 この記事は「SmartHRのプロダクトマネージャー全員でブログ書く2024」への参加記事です。25人が持ち回りで毎週記事を投稿します。ぜひご覧ください！ 今回は「1000人の会社で部門横断プロジェクトを最短で立ち上げるコツ」を取り上げます。 プロダクトマネージャーをしていると、さまざまな社内プロジェクトに関わることがあると思います。他部署とのコミュニケーション、要望管理などなど、プロダクト間で落穂になっている課題のプロジェクトを立ち上げ、解決を目指す…そんなイメージです。 会社の人数が少ないうちは「まずはや…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/eff85cba6a7e90638a8e5714fd524b11a596ab8c/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fs%2Fsmarthr%2F20240208%2F20240208100013.png"
+  },
+  {
+    "No": "17",
+    "url": "https://knowledge.sakura.ad.jp/36776/",
+    "title": "フロントエンドの複雑さに立ち向かう 〜DDDとClean Architectureを携えて〜  |  さくらのナレッジ",
+    "description": "この記事は2023年12月19日に行われた「さくらのテックランチvol.6 〜ローストチキンのフロントエンドパスタとクリスマスFigmaケーキ〜」における発表を文章化したものです。 さくらインターネットでフロントエンドエ […]",
+    "image": "https://knowledge.sakura.ad.jp/wp-content/uploads/2024/01/bc_rikko_00.png"
+  },
+  {
+    "No": "18",
+    "url": "https://www.watch.impress.co.jp/docs/news/1567152.html",
+    "title": "「楽天ヘルスケア」アプリで食事記録 スマホで撮影",
+    "description": "楽天グループは、スマートフォンアプリ「楽天ヘルスケア」において、食事の摂取カロリーなどを記録できる「食事管理」機能を追加した。アプリはiOS、Androidに対応する。",
+    "image": "https://www.watch.impress.co.jp/img/ipw/list/1567/152/00.jpg"
+  },
+  {
+    "No": "19",
+    "url": "https://www.gaji.jp/blog/2024/02/13/18388/",
+    "title": "Reactの気持ちになって理解するWebパフォーマンスチューニング",
+    "description": "快適なUI体験を提供するために、ReactでできるWebパフォーマンスチューニングを考えます。",
+    "image": "https://wp.gaji.jp/wp-content/uploads/2024/02/202402.jpg"
+  },
+  {
+    "No": "20",
+    "url": "https://www.publickey1.jp/blog/24/awsjavascriptllrtlow_latency_runtimeaws_lambda.html",
+    "title": "AWS、高速起動にこだわった軽量なJavaScriptランタイム「LLRT」（Low Latency Runtime）をオープンソースで公開。AWS Lambdaでの利用にフォーカス",
+    "description": "Amazon Web Services（AWS）は、実験的な実装としてサーバレス環境のAWS Lambdaで使うことにフォーカスした軽量なJavaScriptランタイム「LLRT」（Low Latency Runtime）をオープンソースで...",
+    "image": "https://www.publickey1.jp/2024/aws_llrt_beta.png"
+  },
+  {
+    "No": "21",
+    "url": "https://forest.watch.impress.co.jp/docs/news/1569386.html",
+    "title": "Google、「Flutter 3.19」と「Dart 3.3」を発表 ～Gemini組み込みアプリの開発も／Windows Arm64を初期サポート、Windows 7/8のサポートは終了",
+    "description": "米Googleは2月16日（日本時間）、「Flutter 3.19」と「Dart 3.3」を発表した。四半期ごとに行われるアップデートの一環だ。",
+    "image": "https://forest.watch.impress.co.jp/img/wf/list/1569/386/image1.png"
+  },
+  {
+    "No": "22",
+    "url": "https://qiita.com/S4nTo/items/453b5e6ee933765211ec",
+    "title": "今からでも遅くないconsoleを使いこなそう - Qiita",
+    "description": "はじめに この記事では、consoleメソッドについて紹介を行っていきます。consoleメソッドには例えばconsole.log()などが挙げられます。web開発においてconsole.log()を使用する方は多いかもしれません。しかしconsoleにはconsole....",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzMTI1OTA0JTJGM2YzZjY1MGY3MmNiZjM3YmE2MTIzZDZjMzA4YmZmN2JhZjliNzQ1NiUyRmxhcmdlLnBuZyUzRjE2NzU2NTY5MDU_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWQ2ZDllMjRiNjc5MzBhNDYwMmU0ZmZhMDFiYzVlNjYz%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZhNjEwNTBjZTRjMTgyODhlODgzZDY2NTBmMmU2OWMyMGVlZGQyMDBkJTJGb3JpZ2luYWwuanBnJTNGMTY0NTY4NDg3OD9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz01MWZkNjFmOWY4ZDg3NGM4NzQ5MThmY2VmNDllMWJjNA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D7ebac61234d54b328059c3162a72df82?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUU0JUJCJThBJUUzJTgxJThCJUUzJTgyJTg5JUUzJTgxJUE3JUUzJTgyJTgyJUU5JTgxJTg1JUUzJTgxJThGJUUzJTgxJUFBJUUzJTgxJTg0Y29uc29sZSVFMyU4MiU5MiVFNCVCRCVCRiVFMyU4MSU4NCVFMyU4MSU5MyVFMyU4MSVBQSVFMyU4MSU5RCVFMyU4MSU4NiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTZlNWM0OWE4YmYyMDYzZmE0N2U4ZTkzODMzNmY0MmQw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBTNG5UbyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTJkYjA5NmNmODUxZWJlN2MzNDE2MzViMWVmNTU4OTc1&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-TnVjbw&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=99f564587bc5d1ae1db7fd1d0f25c74c"
+  },
+  {
+    "No": "23",
+    "url": "https://logmi.jp/tech/articles/330132",
+    "title": "「国民性にはアジャイル要素があるのに、ビジネス文化になると合わない日本」　多くの人に忘れられがちなトヨタ生産方式のポイント | ログミーBusiness",
+    "description": "登壇者の自己紹介司会者：ここからは、クロージングに入ります。クロージングは、Scrum Inc.、アヴィ・シュナイアーさま、JJ・サザーランドさま、Scrum Inc. Japan、クロエ・オニールさまによるご講演とディスカッションです。そ...",
+    "image": "https://images.logmi.jp/media/article/330132/images/2wY3B2GGupi7CFaQsqxVzM.png"
+  },
+  {
+    "No": "24",
+    "url": "https://logmi.jp/business/articles/330126",
+    "title": "フィードバックしたつもりが、ただのダメ出しになってしまう理由　相手の理解度に合わせてアドバイスを使い分けるコツ | ログミーBusiness",
+    "description": "売り手市場の採用環境、働き手の多様化が進む今、ミドルマネジメントの変容が組織成長の要となっています。本イベントでは、個々を尊重しながら適切な指導を行い、部下を育成していくための職場コミュニケーションについて語られました。本記事では、エール株...",
+    "image": "https://images.logmi.jp/media/article/330126/images/GQr7qRhMkoBERei2ejsAYW.jpg"
+  },
+  {
+    "No": "25",
+    "url": "https://zenn.dev/nekoya/articles/12ebf1fd916db2",
+    "title": "フロントエンドの移り変わりは早すぎるのか",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--9A-jfM2G--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%2595%25E3%2583%25AD%25E3%2583%25B3%25E3%2583%2588%25E3%2582%25A8%25E3%2583%25B3%25E3%2583%2589%25E3%2581%25AE%25E7%25A7%25BB%25E3%2582%258A%25E5%25A4%2589%25E3%2582%258F%25E3%2582%258A%25E3%2581%25AF%25E6%2597%25A9%25E3%2581%2599%25E3%2581%258E%25E3%2582%258B%25E3%2581%25AE%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:nekoya%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzk2ZmU4ZWVmN2UuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "26",
+    "url": "https://www.afpbb.com/articles/-/3506629?act=all",
+    "title": "「医師より優秀」韓国医療業界でAI技術の活発化…チャート整理から診断まで",
+    "description": "",
+    "image": "https://afpbb.ismcdn.jp/mwimgs/6/5/1000x/img_65fcc3c0663b5da1d163eb7c65d617b372032.jpg"
+  },
+  {
+    "No": "27",
+    "url": "https://natgeo.nikkeibp.co.jp/atcl/news/24/020200069/?ST=m_news",
+    "title": "画期的な自閉症チェックアプリを開発、早期発見につながると期待",
+    "description": "子どもが自閉症の診断を受ける時期は遅れがちで、適切なタイミングでの診断を困難にする要因は多い。新たに開発されたアプリは、こうした問題を解決できるだろうか？",
+    "image": "https://natgeo.nikkeibp.co.jp/atcl/news/24/020200069/ph_thumb.jpg"
+  },
+  {
+    "No": "28",
+    "url": "https://www.nikkei.com/article/DGXZQOUF196OV0Z10C24A2000000/",
+    "title": "ニンテンドースイッチ後継機、2025年3月にも発売へ - 日本経済新聞",
+    "description": "任天堂はゲーム機「ニンテンドースイッチ」の後継機を2025年3月にも発売する。スイッチ同様に据え置き型と携帯型の両方の特徴を備えたゲーム機となる見通し。業界では24年の発売を予想する声が多かったが、転売防止対策などで後継機の初期在庫や発売当初の有力ソフトの品ぞろえを確保することを優先した。後継機はスイッチ（標準モデルは6.2インチ）を超える大画面を採用し、より高精細な画質を売りにするゲームにも",
+    "image": "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO4477909019022024000000-1.jpg?auto=format&bg=FFFF&crop=focalpoint&fit=crop&h=630&w=1200&s=888671b8119d045dd750c5ae5944ec6d"
+  },
+  {
+    "No": "29",
+    "url": "https://codezine.jp/article/detail/19094",
+    "title": "Google、マルチプラットフォームのアプリケーションフレームワーク「Flutter 3.19」をリリース",
+    "description": "米Googleは、マルチプラットフォームのアプリケーションフレームワークFlutterの最新バージョンとなる、「Flutter 3.19」を2月16日（現地時間）にリリースした。",
+    "image": "https://codezine.jp/static/images/article/19094/12595_og.jpg"
+  },
+  {
+    "No": "30",
+    "url": "https://zenn.dev/estra/books/algebraic-subtyping-models",
+    "title": "TypeScriptの代数的部分型模型",
+    "description": "本書ではTypeScriptの型と部分型関係がなす代数的構造を解説し、型についての強固かつ柔軟なメンタルモデルを構築します。\n 順序理論、集合論、束論、環論、そして圏論に至るまで、複数の数学理論を利用して多角的にモデルを構築することで、型の直感的な理解を深め、型の互換性に対する自",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--EeqCAXoU--/g_center%2Ch_280%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYm9va19jb3Zlci9hNzY1NzBkMTdjLnBuZw==%2Cw_200/v1627283836/default/og-base-book_yz4z02.jpg?_a=BACAGSGT"
+  },
+  {
+    "No": "31",
+    "url": "https://www.itmedia.co.jp/news/spv/2402/26/news035.html",
+    "title": "2020�N�ɃT�C�o�[�U���󂯂�NTT�R���ɕ����g�����̋��P�h�@���Ȃ𓥂܂��A�ǂ��ς������",
+    "description": "2020�N�ɃT�C�o�[�U�����󂯂�NTT�R���ɓ����̔��ȂƃZ�L�����e�B���P�̌����𕷂��B (1/3)",
+    "image": "https://image.itmedia.co.jp/news/articles/2402/26/cover_news035.jpg"
+  },
+  {
+    "No": "32",
+    "url": "https://gihyo.jp/book/2024/978-4-297-14061-8/content/message",
+    "title": "著者の一言 : 実践Next.js ——App Routerで進化するWebアプリ開発 | 技術評論社",
+    "description": "",
+    "image": "https://gihyo.jp/assets/images/ogp/2024/9784297140618.jpg"
+  },
+  {
+    "No": "33",
+    "url": "https://techfeed.io/entries/65dc09931865972ac3ef20e8",
+    "title": "TechFeed - エンジニアのための技術情報収集＆共有プラットフォーム",
+    "description": "TechFeed is a technical information collection and sharing platform created by engineers for engineers.",
+    "image": "https://techfeed.io/images/ogp/ogimage.png"
+  },
+  {
+    "No": "34",
+    "url": "https://codezine.jp/article/corner/942",
+    "title": "Remixを通じてWebを学ぶ一覧",
+    "description": "CodeZineは、株式会社翔泳社が運営するソフトウェア開発者向けのWebメディアです。「デベロッパーの成長と課題解決に貢献するメディア」をコンセプトに、現場で役立つ最新情報を日々お届けします。",
+    "image": "https://codezine.jp/static/common/images/czlogo4fb_ogp.png"
+  },
+  {
+    "No": "35",
+    "url": "https://www.businessinsider.jp/post-282076",
+    "title": "優秀な社員ほどオフィス復帰義務で辞めてゆく…ガートナーの調査で明らかに | Business Insider Japan",
+    "description": "従業員にオフィス出社の自由を与えない雇用主は、優秀な人材を失う危険性があることがガートナーの調査で判明しました。",
+    "image": "https://media.loom-app.com/bi/dist/images/2024/02/02/65bac77743bb77284ba252e1.jpg?w=1200&h=630"
+  },
+  {
+    "No": "36",
+    "url": "https://speakerdeck.com/yutank34/typescript-x-graphqlde2nian-kai-fa-sitemite",
+    "title": "TypeScript x GraphQLで2年開発してみて",
+    "description": "イベント「【タイミー/Voicy/令和トラベル】Backend LT〜技術選定における“見極める力”とは〜」での登壇資料\nhttps://reiwatravel.connpass.com/event/306794/",
+    "image": "https://files.speakerdeck.com/presentations/44fa86a2646c41498c903af2418aff6e/slide_0.jpg?29119494"
+  },
+  {
+    "No": "37",
+    "url": "https://speakerdeck.com/staka121/three_important_aspects_to_prioritize_in_goal-setting",
+    "title": "「目標設定」で大切にしたい3つのこと",
+    "description": "",
+    "image": "https://files.speakerdeck.com/presentations/6d1f47146170477695985f69eee096bc/slide_0.jpg?29137235"
+  },
+  {
+    "No": "38",
+    "url": "https://speakerdeck.com/soudai/cache-pattern",
+    "title": "キャッシュと向き合う、キャッシュと共に生きる / cache pattern",
+    "description": "PHPerKaigi 2024の登壇資料です。\nhttps://phperkaigi.jp/2024/\n\n- https://speakerdeck.com/moznion/pattern-and-strategy-of-web-application-caching\n- https://sou&hellip;",
+    "image": "https://files.speakerdeck.com/presentations/cf0aa4a8ca8c4fbf956cd7c0f456031e/slide_0.jpg?29152090"
+  },
+  {
+    "No": "39",
+    "url": "https://zenn.dev/y_ta/articles/1eb1403af45909",
+    "title": "Reactはなぜそんなに人気なのか？翳りは訪れるのか？",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--VxyUuCv4--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:React%25E3%2581%25AF%25E3%2581%25AA%25E3%2581%259C%25E3%2581%259D%25E3%2582%2593%25E3%2581%25AA%25E3%2581%25AB%25E4%25BA%25BA%25E6%25B0%2597%25E3%2581%25AA%25E3%2581%25AE%25E3%2581%258B%25EF%25BC%259F%25E7%25BF%25B3%25E3%2582%258A%25E3%2581%25AF%25E8%25A8%25AA%25E3%2582%258C%25E3%2582%258B%25E3%2581%25AE%25E3%2581%258B%25EF%25BC%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:y_ta%2540%25E5%25AD%25A6%25E7%2594%259FWeb%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%2520%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzAyMGI4MDJjZDUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "40",
+    "url": "https://atmarkit.itmedia.co.jp/ait/spv/2402/29/news055.html",
+    "title": "�y���悠��z�T�C�o�[�Z�L�����e�B�l�ނ��~�����I�@�ɉ����閳���̓d�q����",
+    "description": "�l�C�A�ڂ�d�q���Љ����Ė����_�E�����[�h�񋟂��遗IT eBook�V���[�Y�B��115�e�͘A�ځu�Z�L�����e�B�l�ވ琬���l����v�S4���d�q���Љ����܂����BIT�l�ނ̕s�������΂�Ă�������A���ł��Z�L�����e�B�l�ނ͋M�d�ȑ��݂ł��B�{eBook�ł̓Z�L�����e�B�l�ނ��m�ۂ���A�v���[�`�Ƃ��̈琬�m�E�n�E��������܂��B",
+    "image": "https://image.itmedia.co.jp/ait/articles/1409/17/ma_ebookseries_banner.jpg"
+  },
+  {
+    "No": "41",
+    "url": "https://www.contributor-covenant.org/",
+    "title": "Contributor Covenant | A Code of Conduct for Digital Communities",
+    "description": "The most widely adopted code of conduct in open source.",
+    "image": "https://www.contributor-covenant.org/images/og-image.png"
+  },
+  {
+    "No": "42",
+    "url": "https://www.techno-edge.net/article/2024/03/04/2904.html",
+    "title": "M3搭載のMacBook Air、3月8日発売。13インチと15インチ。16万4800円から | テクノエッジ TechnoEdge",
+    "description": "M3搭載のMacBook Airが発表されました。すでに予約がスタートしています。",
+    "image": "https://www.techno-edge.net/imgs/ogp_f/14395.jpg"
+  },
+  {
+    "No": "43",
+    "url": "https://xtech.nikkei.com/atcl/nxt/column/18/00138/030101479/",
+    "title": "客先常駐エンジニアはツライのか、実態に迫るための3つのヒント",
+    "description": "基本的に毎日、顧客先に出向いてそこで業務を進める「客先常駐」。「顧客の言いなりで長時間労働になりやすい」「最新技術に触れられない」など、客先常駐の弊害を指摘する声は多いが、それは本当か。",
+    "image": "https://xtech.nikkei.com/atcl/nxt/column/18/00138/030101479/topm.jpg?20220512"
+  },
+  {
+    "No": "44",
+    "url": "https://www.publickey1.jp/blog/24/denojavascripttypescriptjsrnodejsbuncloudflare.html",
+    "title": "Deno、モダンなJavaScript/TypeScriptに最適化したパッケージレジストリ「JSR」パブリックベータ公開。Node.js、Bun、Cloudflareなどにも対応",
+    "description": "JavaScript/TypeScriptランタイムの「Deno」を開発提供しているDeno Land Inc.は、モダンなJavaScriptおよびTypeScriptに最適化した新しいパッケージレジストリ「JSR」をパブリックベータとし...",
+    "image": "https://www.publickey1.jp/2024/jsr_pb01.png"
+  },
+  {
+    "No": "45",
+    "url": "https://zenn.dev/terass_dev/articles/6f49e44d9cfb0d",
+    "title": "React Forget は何を「忘れ」させてくれるのか",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--C_rrKbJr--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:React%2520Forget%2520%25E3%2581%25AF%25E4%25BD%2595%25E3%2582%2592%25E3%2580%258C%25E5%25BF%2598%25E3%2582%258C%25E3%2580%258D%25E3%2581%2595%25E3%2581%259B%25E3%2581%25A6%25E3%2581%258F%25E3%2582%258C%25E3%2582%258B%25E3%2581%25AE%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:myrear%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzJiZjJkODQzYTQuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Terass%2520Tech%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzUwMzk3MGFmYTAuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "46",
+    "url": "https://zenn.dev/gonta_ganbareyo/articles/09ff8e5481480f",
+    "title": "SEO（検索エンジン最適化）に対する理解を深めたいプロダクト開発に携わるあなたへ",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--G6L_Xm4V--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:SEO%25EF%25BC%2588%25E6%25A4%259C%25E7%25B4%25A2%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%25B3%25E6%259C%2580%25E9%2581%25A9%25E5%258C%2596%25EF%25BC%2589%25E3%2581%25AB%25E5%25AF%25BE%25E3%2581%2599%25E3%2582%258B%25E7%2590%2586%25E8%25A7%25A3%25E3%2582%2592%25E6%25B7%25B1%25E3%2582%2581%25E3%2581%259F%25E3%2581%2584%25E3%2583%2597%25E3%2583%25AD%25E3%2583%2580%25E3%2582%25AF%25E3%2583%2588%25E9%2596%258B%25E7%2599%25BA%25E3%2581%25AB%25E6%2590%25BA%25E3%2582%258F%25E3%2582%258B%25E3%2581%2582%25E3%2581%25AA%25E3%2581%259F%25E3%2581%25B8%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:gonta%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyL2RlZjc0OTgxOWYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:immedio%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzE5NzFlNzc0NzAuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "47",
+    "url": "https://internet.watch.impress.co.jp/docs/news/1573840.html",
+    "title": "管理職が罰ゲームと化している――負担ばかりで新しい仕事もなかなかできない　そうなってしまった背景とは？ 管理職を苦しめている構造を変える4つのアプローチとは？",
+    "description": "管理職への昇進は歓迎されることではなかったのか……。「罰ゲーム化する管理職」と題した報道関係者向けのオンライン勉強会をパーソルホールディングス株式会社が2月28日に開催し、パーソル総合研究所・上席主任研究員の小林祐児氏が登壇。管理職の就業負担について調査した結果などを紹介しながら、管理職が罰ゲーム化してしまった背景や管理職を苦しめる職場の構造を指摘し、罰ゲーム化を防ぐための4つのアプローチについて解説した。",
+    "image": "https://internet.watch.impress.co.jp/img/iw/list/1573/840/persol41.png"
+  },
+  {
+    "No": "48",
+    "url": "https://speakerdeck.com/sumiren/frontend-performance-history-and-new-generation-nextjs-designs-3cdc90df-05be-459f-948d-7a53dc4f4765?slide=3",
+    "title": "フロントエンドパフォーマンスの変遷とNext.jsに見る次の時代",
+    "description": "こちらのイベントのLT登壇資料です。\n https://ochacafe.connpass.com/event/308830/\n\n登壇後、資料内の論理展開を登壇者の判断で改善しております。以下は登壇時からの主な修正点です。\n\n・レガシーMPAについて、FCPのみに着目して初回表示が遅いとしてい&hellip;",
+    "image": "https://files.speakerdeck.com/presentations/298ae30688bc41198bd159b377e42adb/slide_2.jpg?29203928"
+  },
+  {
+    "No": "49",
+    "url": "https://qiita.com/TakahikoKawasaki/items/629ec8badbf5a1257e5f",
+    "title": "いつか起業したいエンジニアへ - Qiita",
+    "description": "はじめに 34 歳のとき、勤めていた会社の経営が傾き早期退職を促されたのを契機に独立しました。その後、41 歳で Authleteオースリート 社を設立しました。諸般の事情で現在も Authlete 社の代表取締役という肩書きを持っていますが、経営者的な仕事は他の人に任せ...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxMDYwNDQlMkZmOTQ5NGYyNWM1ZmQwYjgxZTczOTE0YTZkNmM3YjMxYTRhMTNkNDdhJTJGeF9sYXJnZS5wbmclM0YxNzA3NDc4Mjk1P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0wOGQ2YjgxYTNjZjExNmE5YjQ1NjQ3ZDVlNmYyN2IxYg%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY2YTZiNWFkNjg5YzMwNDY3N2E4YWQ3ZGZjODg1ZTVkOWY3YWU3MmZmJTJGb3JpZ2luYWwuanBnJTNGMTcxMzI1MjQxOT9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1jZjNhNzY4MWUzMGZhMzJiY2EyMmZhY2JkMTc5ZmY0NQ%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D0cf604261acc8165a01bb02855e14afc?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgxJTg0JUUzJTgxJUE0JUUzJTgxJThCJUU4JUI1JUI3JUU2JUE1JUFEJUUzJTgxJTk3JUUzJTgxJTlGJUUzJTgxJTg0JUUzJTgyJUE4JUUzJTgzJUIzJUUzJTgyJUI4JUUzJTgzJThCJUUzJTgyJUEyJUUzJTgxJUI4JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9OWEwYTg0OTVlZGQ5Nzk1ZmMwMmRlMTM1ODgyOTAwN2U&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBUYWthaGlrb0thd2FzYWtpJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YzBmNzk3Y2M0MTYyZjM1NTgwOTVkNDkyZGQxZWMxNDQ&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=QXV0aGxldGU&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=662c21f70070b16a4f71783c4af4e596"
+  },
+  {
+    "No": "50",
+    "url": "https://www.suzukikenichi.com/blog/google-will-update-search-quality-guidelines-on-march-5-2024/",
+    "title": "Google検索品質評価者向けガイドラインが更新【2024年3月5日】、人間の監修がないAI生成コンテンツは最低品質",
+    "description": "Google は検索品質評価者向けガイドラインを 2024 年 3 月 5 日付で更新した。",
+    "image": "https://www.suzukikenichi.com/blog/wp-content/uploads/google-will-update-search-quality-guidelines-on-march-5-2024-600x358.webp"
+  },
+  {
+    "No": "51",
+    "url": "https://www.publickey1.jp/blog/24/github_13.html",
+    "title": "GitHub、無料のパブリックリポジトリへのプッシュに対しても、コードに書いてはいけないシークレットの検知機能をデフォルトで有効に",
+    "description": "GitHubは、ソースコード中に書くべきではないパスワードやアクセストークンなどのシークレットを発見し通知してくれる「Secret scanning」機能を、無料のパブリックリポジトリに対するプッシュにおいてもデフォルトで有効にすることを発...",
+    "image": "https://www.publickey1.jp/2024/push_secretscan01.png"
+  },
+  {
+    "No": "52",
+    "url": "https://speakerdeck.com/kazupon/vue-3-dot-4?slide=6&s=09",
+    "title": "Vue 3.4",
+    "description": "",
+    "image": "https://files.speakerdeck.com/presentations/88cb6917b7844f8f9596197ab0506ccd/slide_5.jpg?29202401"
+  },
+  {
+    "No": "53",
+    "url": "https://www.ipa.go.jp/security/10threats/10threats2024.html",
+    "title": "情報セキュリティ10大脅威 2024 | 情報セキュリティ | IPA 独立行政法人 情報処理推進機構",
+    "description": "情報処理推進機構（IPA）の「情報セキュリティ10大脅威 2024」に関する情報です。",
+    "image": "https://www.ipa.go.jp/k3q2q400000050d7-img/k3q2q400000050dg.png"
+  },
+  {
+    "No": "54",
+    "url": "https://news.yahoo.co.jp/articles/b64d005b4b341b9057b1965116a0b0663b54c664?page=1",
+    "title": "Yahoo!ニュース",
+    "description": "Yahoo!ニュースは、新聞・通信社が配信するニュースのほか、映像、雑誌や個人の書き手が執筆する記事など多種多様なニュースを掲載しています。",
+    "image": "https://s.yimg.jp/images/news-web/versions/20251217-6247e80/all/images/ogp_default.png"
+  },
+  {
+    "No": "55",
+    "url": "https://univ-journal.jp/242628/?cn-reloaded=1",
+    "title": "医用画像診断AIと医学的所見の間に予想外に大きな隔たり、東北大学が検証",
+    "description": "東北大学大学院の曾昱雯（ソウ・イブン）助教らの研究グループは、先行研究で高性能を達成した深層学習モデルの注目領域と、医師の診断に基づく重要領域を比較した結果、",
+    "image": "https://univ-journal.jp/wp-content/uploads/2024/03/pixta_76166875_M_Crop-Image.jpg"
+  },
+  {
+    "No": "56",
+    "url": "https://qiita.com/KanNishida/items/0d88e8b2f98696e07819",
+    "title": "パワポのスライドと箇条書きが人間を駄目にする - Qiita",
+    "description": "パワポのスライドと箇条書きが人間を駄目にする 今から20年前の2003年、データの可視化やインフォメーションデザインの先駆者として有名なイエール大学の教授エドワード・タフティが「パワーポイントの認知スタイル」というエッセイを発表しました。 彼はこのエッセイの中で、パワー...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGMTI0OTc4JTJGcHJvZmlsZS1pbWFnZXMlMkYxNTEyNjU5Mjg3P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz02N2NlYTk3OTNjY2Q2MDdiNWU4OTQ0NzNiNTE1N2NiMA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D030e3df0b23f87a85273fb3f5b7ec2ce?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJTkxJUUzJTgzJUFGJUUzJTgzJTlEJUUzJTgxJUFFJUUzJTgyJUI5JUUzJTgzJUE5JUUzJTgyJUE0JUUzJTgzJTg5JUUzJTgxJUE4JUU3JUFFJTg3JUU2JTlEJUExJUU2JTlCJUI4JUUzJTgxJThEJUUzJTgxJThDJUU0JUJBJUJBJUU5JTk2JTkzJUUzJTgyJTkyJUU5JUE3JTg0JUU3JTlCJUFFJUUzJTgxJUFCJUUzJTgxJTk5JUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MjIxZTUwODQxZmFlNTkzNWI5NWQ0M2ZhMThjMmY2ZTU&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBLYW5OaXNoaWRhJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZmIwZTliY2Y5NTE4YjAzMDQxZjc3ZDY1OTcwMTc0ZWU&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=eb4ce6053bed48b0f02e416abaf8ca5f"
+  },
+  {
+    "No": "57",
+    "url": "https://codezine.jp/article/detail/19182",
+    "title": "Microsoft、プログラミング言語「TypeScript 5.4」をリリース",
+    "description": "米Microsoftは、プログラミング言語TypeScriptの最新バージョンとなる「TypeScript 5.4」を、3月6日（現地時間）にリリースした。",
+    "image": "https://codezine.jp/static/images/article/19182/13529_og.jpg"
+  },
+  {
+    "No": "58",
+    "url": "https://www.publickey1.jp/blog/24/javascriptwinterjs_10wintercgwasixwasmer.html",
+    "title": "新たなサーバサイドJavaScriptランタイム「WinterJS 1.0」正式リリース、WebAssemblyへのコンパイルも可能。Wasmerが開発",
+    "description": "WebAssemblyランタイム「Wasmer」の開発元として知られているWasmer社は、新しいサーバサイドのJavaScriptランタイム「WinterJS」の正式版となる「WinterJS 1.0」のリリースを発表しました。 ❄️ I...",
+    "image": "https://www.publickey1.jp/2024/wZ1y7rC7.jpg"
+  },
+  {
+    "No": "59",
+    "url": "https://gamemakers.jp/article/2024_03_11_62777/",
+    "title": "ゲーム開発に関する30以上の講演が実施されたカンファレンス「CyberAgent Game Conference 2024」、全講演の動画がYouTubeで公開中｜ゲームメーカーズ",
+    "description": "※2024/3/12 追記\nSpeaker Deckにて、「CyberAgent Game Conference 2024」の講演で使われたスライド資料が公開されました。\nなお、一部講演資料の公開期限は2025年3月6日まで。\nhttps://speakerdeck.com/cyberagentdevelopers",
+    "image": "https://gamemakers.jp/cms/wp-content/uploads/2024/03/f350c773947ce980f42f4ba6b49723a2.jpg"
+  },
+  {
+    "No": "60",
+    "url": "https://qiita.com/yamatai12/items/8d229f318a1a57b7af5e",
+    "title": "ESLintで命名規則のチェックをする - Qiita",
+    "description": "背景 こちらのnaming-conventionというルールで命名規則のルールを設定できるということを知り、業務で導入しようと思い調査しました。 実現したいルール カテゴリ 返り値 case prefix suffix ①型エイリアス - Pasca...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MDUxODIlMkY0ZWM3YmMxNDdlMjFjNTJiODI0YjMyYjkyMTFhNjQxMDNhYjNjNjc4JTJGbGFyZ2UucG5nJTNGMTc1OTY1NjUzNT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjliYWZiZTliNDI1NWI1MmU2MzgwMWZmYjEwNTU1ODc%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY5ZGY5NTMwZWYwYWIxNmNkZDg5YzgzNDllZWY3OGY1YzQwZDc4MDNjJTJGb3JpZ2luYWwuanBnJTNGMTY5ODEyNDcwNz9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz04NTFkMThkYzQ5ZmRjNTQ3NGM4ZGI3MWY0N2M4MTYzNQ%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D82c1502c0854c7c386b9f93c8c7df216?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9RVNMaW50JUUzJTgxJUE3JUU1JTkxJUJEJUU1JTkwJThEJUU4JUE2JThGJUU1JTg5JTg3JUUzJTgxJUFFJUUzJTgzJTgxJUUzJTgyJUE3JUUzJTgzJTgzJUUzJTgyJUFGJUUzJTgyJTkyJUUzJTgxJTk5JUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZWYzMWZiOGI2ZjIzYzQwNDdlM2MyMmI1NjI1MWQ2NDA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB5YW1hdGFpMTImdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz04NDY1NmU2ZDJiMTRjNDVhNmVhMTMyNTA5YzhlMTE1MQ&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-aWltb24&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=5979b5f10b6f0ed8ca71a918f234ccb0"
+  },
+  {
+    "No": "61",
+    "url": "https://tvstation.jp/%E3%80%90%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%93%E3%83%A5%E3%83%BC%E3%80%91nhk%E3%81%A7%E3%82%AA%E3%83%BC%E3%83%89%E3%83%AA%E3%83%BC%E6%98%A5%E6%97%A5%E3%81%AE%E4%B8%96%E7%95%8C%E3%81%AE/",
+    "title": "【インタビュー】NHKでオードリー春日の“世界の春日プロジェクト”始動！ １年前からの極秘レッスンで すでに英語がペラペラに!?「365日、引くぐらいやってやろうと思った」【３／26㊋後10時45分から放送】 - TVステーション",
+    "description": "オードリー春日俊彰が世界に進出するためのプロジェクト「世界の春日プロジェクト」がNHKで始動。",
+    "image": "https://tvstation.jp/wp-content/uploads/2024/03/008_トリミング不可.jpg"
+  },
+  {
+    "No": "62",
+    "url": "https://efcl.info/2024/03/21/jsprimer-es2024-proposal/",
+    "title": "JavaScript PrimerのES2024対応を手伝ってくれるContributorとSponsorを募集しています",
+    "description": "JavaScript PrimerのES2024の対応を進めていく予定なので、対応を手伝ってくれるContributorとjsprimerというプロジェクトを支援してくれるSponsorを募集しています。",
+    "image": "https://efcl.info/public/favicon.png"
+  },
+  {
+    "No": "63",
+    "url": "https://president.jp/articles/-/79619?page=1",
+    "title": "エラー | プレジデントオンライン | PRESIDENT Online",
+    "description": "",
+    "image": ""
+  },
+  {
+    "No": "64",
+    "url": "https://www.publickey1.jp/blog/24/openfeature_web_sdk_v1cncf.html",
+    "title": "フロントエンドにおけるフィーチャーフラグ標準化のための「OpenFeature Web SDK v1」がリリース。CNCFから",
+    "description": "Cloud Native Computing Foundation（CNCF）は、Webアプリのフロントエンドにおいて、任意の機能のオンオフを管理するフィーチャーフラグ標準化のための「OpenFeature Web SDK v1」をリリースした。",
+    "image": "https://www.publickey1.jp/2024/GJBLVnZWMAAbSrh.jpg"
+  },
+  {
+    "No": "65",
+    "url": "https://codezine.jp/article/detail/19217",
+    "title": "アーキテクトとして活躍、高安氏が30年の業界経験から見出した「すごいエンジニア」を育む組織の秘訣とは？",
+    "description": "エンジニアとしていい仕事をするために、そして成長するためにはビジネスに対する理解も進める必要がある。とはいえ、技術とビジネスの二刀流を実現するのはなかなか大変だ。30年にわたり、「テクノロジーとコンサルティングの融合」に取り組んできたビッグツリーテクノロジー&amp;コンサルティング（以下、BTC）のCTOである高安厚思氏が、業界経験で出会った「すごいエンジニア」との対話を紐解きながら、エンジニアの成長について語った。",
+    "image": "https://codezine.jp/static/images/article/19217/19217_ogp.jpg"
+  },
+  {
+    "No": "66",
+    "url": "https://digital-gov.note.jp/n/na05192a2e4a1?gs=9da082612f5d",
+    "title": "技術検証事業に関する取り組み：文章認識・不正利用防止技術の実証｜デジタル庁",
+    "description": "こんにちは。デジタル庁・デジタル法制推進担当です。  この記事では、デジタル庁の「技術検証事業に関する取組」のうち、    「情報の加工・流用防止技術等を活用した閲覧の実証」&nbsp;    「センサー、AI 解析等を活用した設備の状態の定期点検の実証」    「カメラ、リモート監査システム等を活用した施設・設備等の遠隔検査の実証」    の技術概要や検証技術のメリットなどを解説します。  我が国では、法令に基づき、文書閲覧時の立ち会いや公的機関の記録・調書の改ざんの有無に関する利用者からの問い合わせ、火薬やガスの取扱所での書類や環境の確認、船舶の環境や設備・保護具などの定期検査につ",
+    "image": "https://assets.st-note.com/production/uploads/images/135376282/rectangle_large_type_2_c8a068a6cbf4b7023a4b8e738aee1288.png?fit=bounds&quality=85&width=1280"
+  },
+  {
+    "No": "67",
+    "url": "https://digital-gov.note.jp/n/n8fcdbe2b5fff",
+    "title": "技術検証事業に関する取り組み：モニタリング技術の実証｜デジタル庁",
+    "description": "こんにちは。デジタル庁・デジタル法制推進担当です。  この記事では、デジタル庁の「技術検証事業に関する取組」のうち、    「センサー、AI 解析等を活用した設備の状態の定期点検の実証」    「カメラ、ドローン、ロボット、AI等を活用した自然物等の実地調査の実証」    「センサー等を活用した環境（水質・大気）の定期検査の実証」    における技術概要や検証技術のメリットなどを解説します。  我が国では、法令に基づき、文書閲覧時の立ち会いや公的機関の記録・調書の改ざんの有無に関する利用者からの問い合わせ、火薬やガスの取扱所での書類や環境の確認、船舶の環境や設備・保護具などの定期検査に",
+    "image": "https://assets.st-note.com/production/uploads/images/135376330/rectangle_large_type_2_328c35bcc2c4235c49c5cd126f17ab38.png?fit=bounds&quality=85&width=1280"
+  },
+  {
+    "No": "68",
+    "url": "https://jp.ign.com/winnie-the-pooh-blood-and-honey-3/74216/news/3",
+    "title": "実写ホラー版「くまのプーさん」、早くも映画第3弾の製作が決定 さらに予算を増やしラビットも登場予定",
+    "description": "『プー あくまのくまさん』の世界がさらに拡大",
+    "image": "https://sm.ign.com/t/ign_jp/news/w/winnie-the/winnie-the-pooh-blood-and-honey-3-will-have-a-bigger-budget_duuv.1200.jpg"
+  },
+  {
+    "No": "69",
+    "url": "https://prtimes.jp/main/html/rd/p/000000181.000049310.html",
+    "title": "世界初、NTTとオリンパスによる クラウド内視鏡システムに関する共同実証実験を開始",
+    "description": "オリンパス株式会社のプレスリリース（2024年3月27日 15時00分）世界初、NTTとオリンパスによる クラウド内視鏡システムに関する共同実証実験を開始",
+    "image": "https://prcdn.freetls.fastly.net/release_image/49310/181/49310-181-57198da9f54d5ec1cdfac9e4aa9dc6ad-873x306.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260"
+  },
+  {
+    "No": "70",
+    "url": "https://www.publickey1.jp/blog/24/web3dbabylonjs_70mmdmikumikudanceapple_vision_pro.html",
+    "title": "Webブラウザで3Dモデルを高速に描画する「Babylon.js 7.0」正式リリース。MMD（MikuMikuDance）やApple Vision Proサポート",
+    "description": "Webブラウザで3Dモデルを高速に描画する「Babylon.js 7.0」正式リリース。MMD（MikuMikuDance）やApple Vision Pro、WebXRなどをサポートし、よりリアルなレンダリングを実現する機能追加も行われた。",
+    "image": "https://www.publickey1.jp/2024/babylonjs701.png"
+  },
+  {
+    "No": "71",
+    "url": "https://gigazine.net/news/20240401-in-app-browsers/",
+    "title": "「TikTokは事実上のキーロガー」と専門家、知らないうちにユーザーを侵害する「アプリ内ブラウザ」の脅威とは？",
+    "description": "開かれたインターネットを目指すソフトウェアエンジニアらによって組織された非営利団体・Open Web Advocacy(OWA)が、ユーザーの目が届かない場所でセキュリティやプライバシーを大きなリスクにさらすアプリ内ブラウザについて提言しました。",
+    "image": "https://i.gzn.jp/img/2024/04/01/in-app-browsers/00.png"
+  },
+  {
+    "No": "72",
+    "url": "https://speakerdeck.com/azukiazusa1/react-huremuwakuno-dong-xiang-toxuan-ding-ji-zhun?slide=22",
+    "title": "React フレームワークの 動向と選定基準",
+    "description": "まずはじめ React に焦点を置き、昨今のフロントエンドでどのようなフレームワークが選択肢にあげられるのかについて紹介します。続いて、技術選定を行う際に、どのようなことを考えるべきかについて話します。最後にこれまで話した点を踏まえて、私が実際に技術選定を行った際にどのような選択をしたのか実践的な内容に&hellip;",
+    "image": "https://files.speakerdeck.com/presentations/40438c1bd88c4c9aa4587ceedb883b62/slide_21.jpg?29540365"
+  },
+  {
+    "No": "73",
+    "url": "https://www.publickey1.jp/blog/24/javascriptnpmvltnpmisaac_z_schlueter.html",
+    "title": "JavaScriptパッケージシステム「npm」は巨大なバグを抱えていると指摘し、新たなパッケージシステムを開発する「vlt」。npm作者らの参加を発表",
+    "description": "npmに代わる新しいJavaScriptのパッケージシステム「vlt」（vōlt：ボールト）を開発しているvlt technologyは、同社にnpmの作者であるIsaac Z. Schlueter氏、npmのスタッフエンジニアリングマネー...",
+    "image": "https://www.publickey1.jp/2024/vlt_join3_02.png"
+  },
+  {
+    "No": "74",
+    "url": "https://coliss.com/articles/build-websites/operation/design/ai-color-combination-generator.html",
+    "title": "UIデザイン用に、AIで色彩理論に基づいたカラーパレットを生成してくれる無料オンラインツール -AI Color Combination Generator",
+    "description": "AIによる便利ツールが増えてきましたね！ WebサイトやスマホアプリのUIデザイン用に、入力されたプロンプトを元に色彩理論に基づいたカラーパレットを生成してくれる無料オンラインツールを紹介します。 A",
+    "image": "https://coliss.com/wp-content/uploads-202402/2024040201@2x.png"
+  },
+  {
+    "No": "75",
+    "url": "https://speakerdeck.com/nkzn/mo-zatsudan-passkey",
+    "title": "次世代Web認証「パスキー」 / mo-zatsudan-passkey",
+    "description": "モニクル社内3分LTで発表しました。技術職以外の人向けに話したので、抽象度高めにしてあります。",
+    "image": "https://files.speakerdeck.com/presentations/9d7ec8b8611744afbfdaf59403904da6/slide_0.jpg?29633617"
+  },
+  {
+    "No": "76",
+    "url": "https://qiita.com/ucan-lab/items/eeef46cee4b928106d1d",
+    "title": "GitHub 返信テンプレート を設定して、レビュー意図を明確に伝えよう！ - Qiita",
+    "description": "概要 レビューコメントを残す際にラベルやアラートを付けるどのような指摘なのかがより明確に伝わり、対応するべきか、そのままでいいのか判断しやすくなります。 Gitシリーズ記事まとめ 各種機能紹介 Saved replies 公式で用意されている、Issu...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGNTI4NzklMkZwcm9maWxlLWltYWdlcyUyRjE1NDAzODA2MDU_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWRmMjkyYzUxMTdkNDdlMDkwNTcxZTU1MmJmYjFiZTlj%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkYyNDkxYmMwZDA0YWM5YzRmZmIwOGFmNmQzZWVlNDdmNDRiZTM1ODc1JTJGb3JpZ2luYWwuanBnJTNGMTUxOTcyMTA4Nj9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz00ZmI4MDZlYzcyNGJiNDQwMmZlN2U5NTIxNzc2YjE0MA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3Dd4edd6065105cea8550356d78672cd88?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9R2l0SHViJTIwJUU4JUJGJTk0JUU0JUJGJUExJUUzJTgzJTg2JUUzJTgzJUIzJUUzJTgzJTk3JUUzJTgzJUFDJUUzJTgzJUJDJUUzJTgzJTg4JTIwJUUzJTgyJTkyJUU4JUE4JUFEJUU1JUFFJTlBJUUzJTgxJTk3JUUzJTgxJUE2JUUzJTgwJTgxJUUzJTgzJUFDJUUzJTgzJTkzJUUzJTgzJUE1JUUzJTgzJUJDJUU2JTg0JThGJUU1JTlCJUIzJUUzJTgyJTkyJUU2JTk4JThFJUU3JUEyJUJBJUUzJTgxJUFCJUU0JUJDJTlEJUUzJTgxJTg4JUUzJTgyJTg4JUUzJTgxJTg2JUVGJUJDJTgxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzQwZDM0N2JkOTVhNWU4YzQ0MjA3N2ZjM2MyZmZlODM&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB1Y2FuLWxhYiZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWYwMDQ1ZGZmZTdmODM2ZmEwMDcwOGVkYTY3MGZiODBj&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-44Of44Op44Kk44OI44OH44K244Kk44Oz&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=98c4106da44f97e488ec05fa8424509d"
+  },
+  {
+    "No": "77",
+    "url": "https://engineering.dena.com/blog/2024/04/voice-graph/",
+    "title": "Flutter と低レイヤ処理を用いたアプリ設計 | BLOG - DeNA Engineering",
+    "description": "こんにちは、ぎもちんです。\n音声ライブ配信アプリ Voice Pococha の Flutter アプリ開発をしています。\nVoice Pococha では昨年、 C 言語による低レイヤな音声処理を行うための音声基盤を導入・リリースしました。\nこの記事では、そのような音声基盤をアプリに導入した背景や、技術選定、実装手法についてお話しします。 …",
+    "image": "https://engineering.dena.com/blog/2024/04/voice-graph/cover.png"
+  },
+  {
+    "No": "78",
+    "url": "https://developers.freee.co.jp/entry/freee-tech-day-2024",
+    "title": "5月31日（金）・6月1日（土）、freee 技術の日 2024開催！ - freee Developers Hub",
+    "description": "DevBrandingチームのmaoです！ すでに公式サイトなどをご覧になった方もいらっしゃるかもしれませんが…今年もfreee 技術の日を開催します！ freee-tech-day.freee.co.jp 「freee 技術の日」って？ freee 技術の日とは、昨年2023年から始まったfreeeのテックカンファレンスです。前回は初開催ながら、オフライン・オンライン総勢726名もの方にご参加いただきました。 ASOBIBA STAGEにて行われたCEO 佐々木のオープニングセッション。場内生中継もされていました。 TAMARIBA STAGEの様子。想定以上に多くの方にいらしていただきまし…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/74834eaabc888903634704b124c425b061426af1/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fm%2Fmaoskm%2F20240405%2F20240405210743.jpg"
+  },
+  {
+    "No": "79",
+    "url": "https://gigazine.net/news/20240411-isp-broadband-consumer-labels/",
+    "title": "インターネットサービスプロバイダーに料金や速度などを一目でわかりやすく表示するよう義務づける規則が施行され各社のプラン比較がめちゃくちゃ簡単に",
+    "description": "インターネット接続サービスを消費者に提供するインターネットサービスプロバイダー(ISP)は、しばしば複雑極まりない割引制度を提示して正式な価格を消費者に誤認させたり、通信速度を曖昧にして消費者を混乱させたりすることがあります。こうした状況を改善すべくアメリカの連邦通信委員会(FCC)が施行した規則により、ISPにはサービスとパフォーマンスに関するわかりやすい情報を提示する義務が課せられることになりました。",
+    "image": "https://i.gzn.jp/img/2024/04/11/isp-broadband-consumer-labels/00.png"
+  },
+  {
+    "No": "80",
+    "url": "https://techfeed.io/events/techfeed-experts-night-27",
+    "title": "TechFeed - エンジニアのための技術情報収集＆共有プラットフォーム",
+    "description": "TechFeed is a technical information collection and sharing platform created by engineers for engineers.",
+    "image": "https://techfeed.io/images/ogp/ogimage.png"
+  },
+  {
+    "No": "81",
+    "url": "https://t.co/VnWiphuCq7",
+    "title": "2024-04-24 New in Angular  (TechFeed Experts Night #27)",
+    "description": "Angular 最新動向 2024 Spring lacolaco Angular GDE @laco2net TechFeed Experts Night #27 bit.ly/3W7VQtH",
+    "image": "https://lh7-us.googleusercontent.com/docs/AHkbwyLszIuCfLk9bz36S_BAKcupXjtn2Ab1Pum5JY6umbVpm5Q6WqKk_Y2Q8494reFMvE9PX1YtYL1rpZrrmR3cBN1bPNsz9iF9AzX7yZJfmHpUPXK_9Eth=w1200-h630-p"
+  },
+  {
+    "No": "82",
+    "url": "https://speakerdeck.com/kazupon/vue-dot-jszui-xin-dong-xiang",
+    "title": "Vue.js最新動向",
+    "description": "",
+    "image": "https://files.speakerdeck.com/presentations/aa1700c40fdd41d49d8aad506327f5a4/slide_0.jpg?29875311"
+  },
+  {
+    "No": "83",
+    "url": "https://speakerdeck.com/baseballyama/techfeed-experts-night-number-27-hurontoendohuremuwakuzui-qian-xian-svelte?slide=31",
+    "title": "TechFeed Experts Night#27 〜 フロントエンドフレームワーク最前線 (Svelte)",
+    "description": "このPDFは、Svelteというフロントエンド開発フレームワークに関する最新情報を提供するプレゼンテーションの内容をまとめたものです。主な内容は以下の通りです：\n\n【Svelteとは】\nHTMLのスーパーセットを使った、コンパイラを活用するフレームワークで、軽量なランタイムをエンドユーザーに提供し&hellip;",
+    "image": "https://files.speakerdeck.com/presentations/ad6d02b8a5d24180b2faf095ee93c650/slide_30.jpg?29865200"
+  },
+  {
+    "No": "84",
+    "url": "https://www.gaad.jp/",
+    "title": "「アクセシビリティ」を考える一日。2025年5月15日（木）開催",
+    "description": "GAAD （Global Accessibility Awareness Day）世界各地で デジタル分野（Web、ソフトウェア、モバイルなど） の「アクセシビリティ」を考える一日。全国各地のどこからでも、そして海外からでも参加できるオンラインセミナーを開催します。",
+    "image": "https://image.jimcdn.com/app/cms/image/transf/none/path/s22be468487184c08/image/ibff4341370734fb2/version/1739162422/image.png"
+  },
+  {
+    "No": "85",
+    "url": "https://www.4gamer.net/games/999/G999903/20231011041/",
+    "title": "�ɥꥭ�㥹�ǽв�ä������ä��ҤȤ�ο�ͧ�ء����֤ʤ��ǥ��������뤰�벹�����餤�ʤ��ʤä����ޤ��Ϻ����ɤ��ˤ��롩��",
+    "description": "�֥ɥ꡼�७�㥹�ȡס����ˡȥ���饤�󥲡���ɤȤ���̴�򸫤�����������̾����������򤷤ʤ��顤���󥿡��ͥåȤǡ��ͤȿͤȤ��Ĥʤ��롣����ʥɥꥭ�㥹��ʶ���ʤ�̤����ä����������ˤ�Ʊ��ǯ�Ρ֥ǥ�����",
+    "image": "https://www.4gamer.net/games/999/G999903/20231011041/SS/024.jpg"
+  },
+  {
+    "No": "86",
+    "url": "https://www.4gamer.net/games/049/G004996/20240425020/",
+    "title": "��CLANNAD�򰦤���ͤϡ�Yahoo!�Ǽ��Ĥˤ�����",
+    "description": "2004ǯ����2024ǯ��Key��̾���CLANNAD�פ�ȯ�䤫��20ǯ���ŻҤγ��ϵ�®�˳�ȯ���ʤߡ������ͤ餬©�򤷤Ƥ������פʤ�Ƥʤˤ�ĤäƤ��ʤ�����������ɡ����ΤȤ������ξ��ˤϡ��Τ��ˡ���",
+    "image": "https://www.4gamer.net/games/049/G004996/20240425020/SS/001.jpg"
+  },
+  {
+    "No": "87",
+    "url": "https://note.com/toshiba_ui/n/n1c1182c8ab84",
+    "title": "デザインスキルを上げるならこれを読むべし！基本の人間工学記事 3選｜東芝 UI デザイン",
+    "description": "こんにちは！東芝UIデザインチームnote事務局の小林Jです。  みなさんは「使いやすさ」について、どのように考え、どのようにデザインしていますか？ちゃんと「使いやすい」ものづくりができているか不安になったことはありませんか？  そんな時によりどころになるのが「人間工学」です。 「人間工学」とは、人間にとって使いやすく、安全な道具や製品、システムを考える学問です。人間特性をもとに環境や道具の使い勝手などを研究する学問でもあります。 「人間特性」とは、知覚から認知、身体に至るまで人間特有のあらゆる機能や性質のことです。どうしてそのような行動をするのか、という原理を知っていることが、モノづ",
+    "image": "https://assets.st-note.com/production/uploads/images/138446675/rectangle_large_type_2_5e11671e675dc07f85117e9b7d496fbc.png?fit=bounds&quality=85&width=1280"
+  },
+  {
+    "No": "88",
+    "url": "https://www.amed.go.jp/koubo/12/01/1201B_00103.html",
+    "title": "令和6年度 「医工連携イノベーション推進事業（開発・事業化事業）」に係る公募（二次公募）について | 国立研究開発法人日本医療研究開発機構",
+    "description": "",
+    "image": "https://www.amed.go.jp/content/000094780.png"
+  },
+  {
+    "No": "89",
+    "url": "https://coliss.com/articles/book-review/isbn-9784802512497.html",
+    "title": "情報を分かりやすく伝えるインフォグラフィックの作り方を学べるデザイン書 -インフォグラフィック制作ガイド",
+    "description": "※本ページは、アフィリエイト広告を利用しています。 情報を解りやすく伝えたい、そんなときに活躍するのがインフォグラフィックです。インフォグラフィックとは情報の関係を視覚的に表現したもので、電車の路線図",
+    "image": "https://coliss.com/wp-content/uploads-202402/9784802512497-01@2x.png"
+  },
+  {
+    "No": "90",
+    "url": "https://speakerdeck.com/yajihum/typescriptnopahuomansugai-shan",
+    "title": "TypeScriptのパフォーマンス改善",
+    "description": "2024/05/11に行われたTSKaigiで発表したLTの資料です！\n\n◎概要\nTypeScriptはJavaScriptのスーパーセットとして、静的型付けと高度な型システムを提供し、大規模なプロジェクトの開発を助けています。しかし、これらの利点を最大限に活用するためには、コンパイルパフォーマン&hellip;",
+    "image": "https://files.speakerdeck.com/presentations/1db2a6165c884f9cadb3ea922ebba57c/slide_0.jpg?30053627"
+  },
+  {
+    "No": "91",
+    "url": "https://zenn.dev/necscat/articles/bc9bba54babaf5",
+    "title": "令和のHTML / CSS / JavaScriptの書き方50選",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--insZ6hmG--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E4%25BB%25A4%25E5%2592%258C%25E3%2581%25AEHTML%2520%252F%2520CSS%2520%252F%2520JavaScript%25E3%2581%25AE%25E6%259B%25B8%25E3%2581%258D%25E6%2596%25B950%25E9%2581%25B8%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:dadada%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzI3MjZkNzYwMWEuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2583%258D%25E3%2582%25AF%25E3%2582%25B9%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2583%25E3%2583%2588%2520%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyL2UwMWFkMzQ1M2QuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "92",
+    "url": "https://gigazine.net/news/20240514-memory-management/",
+    "title": "すべての開発者が知っておくべきメモリ管理についての知識",
+    "description": "プログラミングにおいてメモリ管理は重要な要素の一つですが、その重要性を見過ごされがちなものです。メモリ管理の高レベルな抽象化について、「すべての開発者が知っておくべき要素」としてプログラマーのザカリー・リー氏が解説しています。",
+    "image": "https://i.gzn.jp/img/2024/05/14/memory-management/00.png"
+  },
+  {
+    "No": "93",
+    "url": "https://www.publickey1.jp/blog/24/flutterdartwebassembly.html",
+    "title": "Flutter/DartのWebAssemblyコンパイル機能が安定版に。より高速でスムーズなユーザー体験などを実現",
+    "description": "Googleは、日本時間5月15日から開催中のイベント「Google I/O 2024」で、Dart言語とそのアプリケーションフレームワークであるFlutterの最新版となるDart 3.4/Flutter 3.22で、WebAssembl...",
+    "image": "https://www.publickey1.jp/2024/flutter-wasm-ga01.png"
+  },
+  {
+    "No": "94",
+    "url": "https://www.publickey1.jp/blog/24/googlewebfirebase_app_hostingangularnextjs.html",
+    "title": "Google、フルスタックのWebアプリホスティング環境「Firebase App Hosting」パブリックプレビュー開始。AngularとNext.jsをサポート",
+    "description": "Googleは日本時間5月15日と16日に開催したイベント「Google I/O 2024」で、Webアプリケーションのホスティング環境を提供する新サービス「Firebase App Hosting」のパブリックプレビューを発表しました。 ...",
+    "image": "https://www.publickey1.jp/2024/firebase-web-hosting-p01.png"
+  },
+  {
+    "No": "95",
+    "url": "https://cohamu.com/entry/20240513/1715563800",
+    "title": "ReactとAngularとVue：どれを選ぶべきか2024年版 - コハム",
+    "description": "React vs Angular vs Vue: Which is Better in 2024? 記事は上記記事を意訳したものです。 ※当ブログでの翻訳記事は元サイト様に許可を得て掲載しています。 ウェブ開発の分野が進化を続けるなか、適切なフロントエンドフレームワークを選ぶことが、堅牢でスケーラブルかつメンテナンス性の高いアプリケーションを構築するうえで重要になっています。React、Angular、Vueは最も人気のあるフロントエンドフレームワークの3つで、それぞれユニークな機能と利点を提供しています。このブログ記事では、React、Angular、Vueの特性を掘り下げ、主要な違いを比較…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/4a0ad5f89c1859ee6c7d714d0f136fba89061497/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fcohamucohamu%2F20240401%2F20240401104113.png"
+  },
+  {
+    "No": "96",
+    "url": "https://codezine.jp/article/detail/19545",
+    "title": "ITエンジニアを志望する学生が企業選びで重視するポイントとは？paizaが調査",
+    "description": "paizaは、同社の運営するITエンジニア職専門の就職情報サービス「paiza新卒」の登録者で、ITエンジニアを志望する学生を対象に実施したアンケート調査の結果をまとめた「就職人気企業ランキング」を、5月20日に発表した。同調査は、2月28日〜4月19日の期間に行われ、539名から有効回答を得ている。",
+    "image": "https://codezine.jp/static/images/article/19545/19525_ogp.png"
+  },
+  {
+    "No": "97",
+    "url": "https://logmi.jp/business/articles/330529",
+    "title": "メンバーが地雷を恐れて黙って様子見するチームは成長しない　高パフォーマンスのチームづくりを阻む10項目 | ログミーBusiness",
+    "description": "心理的安全性の実現が難しい具体的な理由――チームのパフォーマンス向上にもつながる重要な要素として、数年前から「心理的安全性」が言われていますが、実際には心理的安全性を実現できていないケースも多いようです。チームビルディングの専門家である仲山...",
+    "image": "https://images.logmi.jp/media/article/330529/images/Vj6vADwQeAGLWmtajmafLb.jpg"
+  },
+  {
+    "No": "98",
+    "url": "https://type.jp/et/feature/25970/",
+    "title": "【ミノ駆動流】「思うように伝わらない」を解消する！エンジニアのための言語化力の鍛え方 - エンジニアtype | 転職type",
+    "description": "「うまく伝えられない」という悩みを抱えるエンジニアは少なくないのでは？2023年のITエンジニア本大賞・技術書部門で大賞を受賞した『良いコード／悪いコードで学ぶ設計入門』（技術評論社）の著者であり、SNSでの情報発信やイベント登壇でも活躍する「言語化のプロ」であるミノ駆動さんに「合意駆動」のコミュニケーションについて教えてもらった。",
+    "image": "https://type.jp/et/feature/wp-content/uploads/2024/05/mino_og.jpg"
+  },
+  {
+    "No": "99",
+    "url": "https://levtech.jp/media/article/column/detail_441/",
+    "title": "スーパーマリオシリーズで「クリア不可能なコース」が作成できることを数学的に証明　米MITの研究者ら【研究紹介】 レバテックラボ（レバテックLAB）",
+    "description": "米マサチューセッツ工科大学の研究者らは、スーパーマリオシリーズの一部のゲームにおいて、プレイヤーのクリアが理論上不可能なコースを数学的に証明したとの研究を報告した。「New スーパーマリオ」「マリオメーカー」シリーズにおいて、特定のステージのクリアに関する決定不可能性の証明を試みた。",
+    "image": "https://levtech.jp/media/wp-content/uploads/2024/05/2-line__TechFrontline_temp_not-sub-5.png"
+  },
+  {
+    "No": "100",
+    "url": "https://react.dev/blog/2024/05/22/react-conf-2024-recap",
+    "title": "React Conf 2024 Recap – React",
+    "description": "The library for web and native user interfaces",
+    "image": "https://react.dev/images/og-blog.png"
+  },
+  {
+    "No": "101",
+    "url": "https://www.publickey1.jp/blog/24/kotlin_20k22.html",
+    "title": "Kotlin 2.0正式リリース。新コンパイラ「K2」採用でコンパイル速度が約2倍、マルチプラットフォーム対応も加速へ",
+    "description": "JetBrainsは、同社が主導して開発しているプログラミング言語「Kotlin」のメジャーバージョンアップとなる「Kotlin 2.0」を、日本時間5月23日に行われたイベント「KotlinConf'24」で発表しました。 Kotlinは...",
+    "image": "https://www.publickey1.jp/2024/kotlin20-ga02.png"
+  },
+  {
+    "No": "102",
+    "url": "https://techblog.lycorp.co.jp/ja/20240527a",
+    "title": "Yahoo!知恵袋 フロントエンドをリアーキテクトしている話",
+    "description": "はじめにこんにちは！　Yahoo!知恵袋の津村です。去年の11月からYahoo!知恵袋のフロントエンドシステムのリアーキテクトに取り組んでいます。この記事では、これまで抱えていた技術的な問題と、それら...",
+    "image": "https://techblog.lycorp.co.jp/static/42e11fc318b72e6e0059e0c09fdb909d/7d66e/1716352482295.png"
+  },
+  {
+    "No": "103",
+    "url": "https://youtu.be/KvMY1uzSC1E?si=DqnhYEOyDFRgTy-v",
+    "title": "Cyberpunk: Edgerunners | “I Really Want to Stay At Your House” by Rosa Walton | Music Video",
+    "description": "Thank you to all of the incredible artists who contributed to the magic that is Cyberpunk: Edgerunners, and to all of the fans who blew the show up to create...",
+    "image": "https://i.ytimg.com/vi/KvMY1uzSC1E/maxresdefault.jpg"
+  },
+  {
+    "No": "104",
+    "url": "https://youtu.be/gzbLODUb1sA?si=O82sOyn2-O96M3ov",
+    "title": "CYBERPUNK 2077 SOUNDTRACK - I REALLY WANT TO STAY AT YOUR HOUSE by Rosa Walton & Hallie Coggins",
+    "description": "Watch the new music video here: https://youtu.be/x3b3439WZncBuy Cyberpunk 2077: https://www.cyberpunk.net/us/en/buyGet Cyberpunk 2077: Radio Vol 1: https://l...",
+    "image": "https://i.ytimg.com/vi/gzbLODUb1sA/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgTChCMA8=&rs=AOn4CLAaMuileC3tZvBJNyiLaxH14mgspQ"
+  },
+  {
+    "No": "105",
+    "url": "https://forest.watch.impress.co.jp/docs/news/1596755.html",
+    "title": "日本人プログラマー向けコーディングフォント「Bizin Gothic」が無償公開／「Ricty」でもお馴染みの「Inconsolata」と読みやすい「BIZ UDゴシック」をかけ合わせ",
+    "description": "「BIZ UDゴシック」と「Inconsolata」をかけ合わせた日本人プログラマー向けのコーディングフォント「Bizin Gothic」（ビジン ゴシック）が5月28日、試験的にリリースされた。現在、「GitHub」のリリースページから無償でダウンロード可能。",
+    "image": "https://forest.watch.impress.co.jp/img/wf/list/1596/755/image1.png"
+  },
+  {
+    "No": "106",
+    "url": "https://www.publickey1.jp/blog/24/fido.html",
+    "title": "「パスキー」のユーザー体験を最適化させるデザインガイドライン、FIDOアライアンスが公開",
+    "description": "パスワードレスなユーザー認証を実現する業界標準である「パスキー」を策定するFIDOアライアンスは、パスキーのユーザー体験を最適化させるためのデザインガイドラインの公開を発表しました。 パスキーは、従来のパスワードによるユーザー認証よりも強力...",
+    "image": "https://www.publickey1.jp/2024/passkey-designgudeline01.png"
+  },
+  {
+    "No": "107",
+    "url": "https://angular.jp/tutorial/first-app",
+    "title": "Home • Angular 日本語版",
+    "description": "モダンなアプリを構築するためのウェブ開発フレームワーク",
+    "image": "https://angular.jp/assets/images/ng-image.jpg"
+  },
+  {
+    "No": "108",
+    "url": "https://zenn.dev/lacolaco/books/angular-after-tutorial",
+    "title": "Angular After Tutorial",
+    "description": "この本ではAngularのチュートリアルを終えた人に向けて、コンポーネントやサービス、アプリケーション全体の設計を改善していく道筋を示します。この本はベストプラクティスの変化に合わせ、不定期にコンテンツをアップデートしていきます。",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--lNHn6o1f--/g_center%2Ch_280%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYm9va19jb3Zlci9lODJmNjkwMWZlLmpwZw==%2Cw_200/v1627283836/default/og-base-book_yz4z02.jpg?_a=BACAGSGT"
+  },
+  {
+    "No": "109",
+    "url": "https://zenn.dev/lacolaco/books/angular-standalone-components",
+    "title": "実践 Angular: Standalone Components【全編無料公開】",
+    "description": "Angular のスタンドアロンコンポーネントをベースにしたアプリケーション開発について基礎から実践的な内容まで学ぶための本です。（全編無料公開）",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--XcXfoHhV--/g_center%2Ch_280%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYm9va19jb3Zlci85ODE0ZGIzZmI2LnBuZw==%2Cw_200/v1627283836/default/og-base-book_yz4z02.jpg?_a=BACAGSGT"
+  },
+  {
+    "No": "110",
+    "url": "https://angular.dev/tutorials",
+    "title": "Tutorials • Angular",
+    "description": "The web development framework for building modern apps.",
+    "image": "https://angular.dev/assets/images/ng-image.jpg"
+  },
+  {
+    "No": "111",
+    "url": "https://github.com/mdn/content/issues/15877",
+    "title": "Missing Angular To Do App? · Issue #15877 · mdn/content",
+    "description": "MDN URL https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Angular_getting_started What specific section or headline is this issue about? The Angular...",
+    "image": "https://opengraph.githubassets.com/f25eaa8327d2d0284a752104c95b1db1cb9084c4434326280a17caaf163e4b0b/mdn/content/issues/15877"
+  },
+  {
+    "No": "112",
+    "url": "https://github.com/kapunahelewong/angular-to-do-example/pull/2",
+    "title": "npm packge update v10.x to v13.x by gurezo · Pull Request #2 · kapunahelewong/angular-to-do-example",
+    "description": "i had to update this repository npm package v10.x to v13.x\nreson why?\n\ntoday(2022.04.23) there was an event in the mdn translation community Japan\ntoday(2022.04.23) , i had translate document en-us...",
+    "image": "https://opengraph.githubassets.com/ad93b12d4f738189ca3db9638ab184f86a8bce8a94efdf5dc03fbad7d39c01ce/kapunahelewong/angular-to-do-example/pull/2"
+  },
+  {
+    "No": "113",
+    "url": "https://github.com/mdn/content/pull/15901",
+    "title": "Drop link to no-longer-maintained GH repo by sideshowbarker · Pull Request #15901 · mdn/content",
+    "description": "Fixes #15877",
+    "image": "https://opengraph.githubassets.com/a6f58cf5732b16be0b5bcdbe9aa60f4499d6afc3cda37d46ce121c10d636b1eb/mdn/content/pull/15901"
+  },
+  {
+    "No": "114",
+    "url": "https://dev.classmethod.jp/articles/storage-access-api/",
+    "title": "3rd Party Cookie へのアクセスを可能にする Storage Access APIを試してみた | DevelopersIO",
+    "description": "",
+    "image": "https://images.ctfassets.net/ct0aopd36mqt/1dD7b8HkT2sbiJzUIewMTD/e5cdc6f33c4fdd9d798f11a4564612ff/eyecatch_developersio_darktone_1200x630.jpg"
+  },
+  {
+    "No": "115",
+    "url": "https://dev.classmethod.jp/articles/update-aws-medical-information-guidelines-v3/",
+    "title": "医療情報システム向け AWS 利用リファレンスが医療情報システムの安全管理に関するガイドラインの第 6.0 版に対応していました | DevelopersIO",
+    "description": "",
+    "image": "https://devio2023-media.developers.io/wp-content/uploads/2024/03/eyecatch_Healthcare_1200x630.png"
+  },
+  {
+    "No": "116",
+    "url": "https://speakerdeck.com/bun913/liang-iyunitutotesutonoxing-zhi-wozheng-li-sitetarakao-erubekishe-ji-mojian-etekitano",
+    "title": "良いユニットテストの性質を整理してたら考えるべき設計も見えてきたの",
+    "description": "JaSST nano vol.37 (https://jasst-nano.connpass.com/event/319899/) で登壇した内容です。\n\n「ユニットテストの定義はこうだよ」とか「うちのディレクトリ構成はこうね。DIの方針はこう」とHowだけ言われるより「良いユニットテストってこうだ&hellip;",
+    "image": "https://files.speakerdeck.com/presentations/be30a6a281d44455a89aa2a3cd63bf35/slide_0.jpg?30658219"
+  },
+  {
+    "No": "117",
+    "url": "https://gamemakers.jp/article/2024_06_12_70508/",
+    "title": "Epic Gamesが開発中のプログラミング言語「Verse」って知ってる？編集部員が感じる2つの特徴「ロールバック」「非同期処理」などを解説｜ゲームメーカーズ",
+    "description": "ゲームメーカーズ編集部の神谷です。本記事では、Epic Gamesが開発するプログラミング言語「Verse」について紹介します。\n\nVerseは個人開発で使っており、モダンだし自分の好みと合うしと魅力を感じています。使用環境が限定されているため人口は少ないのですが、将来性も感じる言語です。もっとたくさんの方に触ってもらえるよう、筆を執りました。\n\nVerseが持つ2つの大きな特徴のほか、私が感じているUnreal Engine 5（以下、UE5）におけるブループリントとの相違点を説明します。",
+    "image": "https://gamemakers.jp/cms/wp-content/uploads/2024/06/f4de554cd35551a3f344780e926cd79e.jpg"
+  },
+  {
+    "No": "118",
+    "url": "https://gigazine.net/news/20240626-polyfill-supply-chain-attack/",
+    "title": "JavaScriptライブラリ「Polyfill.io」にマルウェアが混入され10万以上のサイトに影響",
+    "description": "ウェブブラウザのバージョン間の違いを無効化するJavaScriptライブラリ「Polyfill.io」が、2024年2月のプロジェクトオーナー変更後、マルウェアが混入されてサプライチェーン攻撃に利用され、10万以上のサイトに影響が出ています。",
+    "image": "https://i.gzn.jp/img/2024/06/26/polyfill-supply-chain-attack/00_m.png"
+  },
+  {
+    "No": "119",
+    "url": "https://gigazine.net/news/20240703-ladybird/",
+    "title": "Googleから金銭を受け取らずブラウザエンジンも自前でゼロから開発するあらゆる束縛から解放された真のオープンウェブブラウザ「Ladybird」がGitHub創設者から1億6000万円超の資金を調達",
+    "description": "MozillaのFirefoxやGoogleのChromeに対抗するべく、企業取引や広告収入なしでゼロからウェブブラウザを開発するため、GitHubの創設者であるクリス・ワンストラス氏と、オープンソースのPC向けOSであるSerenityOSの開発者・アンドレアス・クリング氏が、非営利団体の「The Ladybird Browser Initiative」を立ち上げました。同団体が開発しているウェブブラウザの名称は「Ladybird」で、ワンストラス氏から100万ドル(約1億6000万円)の資金援助を受けています。",
+    "image": "https://i.gzn.jp/img/2024/07/03/ladybird/00_m.jpg"
+  },
+  {
+    "No": "120",
+    "url": "https://tech.route06.co.jp/entry/2024/07/03/154219",
+    "title": "チュートリアル: Yjs, valtio, React で実現する共同編集アプリケーション - ROUTE06 Tech Blog",
+    "description": "Yjsは、リアルタイム共同編集を実現するためのアルゴリズムとデータ構造を提供するフレームワークです。Notion や Figma のように、1 つのコンテンツを複数人で同時に更新する体験を提供することができます。 Y.Map, Y.Array, Y.Text といった共有データ型を提供し、それらは JavaScript の Map や Array のように利用できます。さらにそのデータに対する変更は他のクライアントに自動的に配布・同期されます。 Yjs は Conflict-free Replicated Data Types (CRDT) と呼ばれるアルゴリズムの実装であり、複数人が同時にデ…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/a8d334bee240b44b75d5e68fc51d508c7c5de758/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fr%2Froute06%2F20240703%2F20240703154712.png"
+  },
+  {
+    "No": "121",
+    "url": "https://www.publickey1.jp/blog/24/bgm2024.html",
+    "title": "プログラミングのためのBGMや環境音など。仕事や勉強の邪魔にならない無料で使えそうな音源集。2024年版",
+    "description": "在宅で仕事や勉強をしている時間が増えてくると、ずっと無音だと寂しい気がして、できればあまり気にならないBGMや環境音があるといいなあ、と思ったことはありませんか？ 昨年、そうした音源集を記事として紹介しましたが、1年が過ぎると紹介した音源の...",
+    "image": "https://www.publickey1.jp/2024/bgm2024.png"
+  },
+  {
+    "No": "122",
+    "url": "https://rocket-boys.co.jp/trojanized-jquery-spreading-on-npm-and-github/",
+    "title": "トロイの木馬化された「jQuery」がnpmやGitHubで拡散|セキュリティニュースのセキュリティ対策Lab",
+    "description": "海外のセキュリティ企業「Phylum」はトロイの木馬化された「jQuery」がnpmやGitHub、jsDelivr のCDNホストで拡散している事を指摘しました。",
+    "image": "https://rocket-boys.co.jp/wp-content/uploads/2024/07/code-3337044_1280.jpg"
+  },
+  {
+    "No": "123",
+    "url": "https://codezine.jp/article/detail/19842",
+    "title": "IPA、AIの業務利用におけるセキュリティ上の脅威・リスクの認識などを明らかにする「AI利用時の脅威、リスク調査報告書」を公開",
+    "description": "情報処理推進機構（IPA）は、AIの業務利用におけるセキュリティ上の脅威・リスクの認識や対応状況を把握することを目的に、企業・組織における実務担当者を対象に実施したアンケート調査の結果をまとめた、「AI利用時の脅威、リスク調査報告書」を7月4日に公開した。",
+    "image": "https://codezine.jp/static/images/article/19842/17612_ogp.png"
+  },
+  {
+    "No": "124",
+    "url": "https://techblog.lycorp.co.jp/ja/20240709b",
+    "title": "Google I/O 2024 注目のフロントエンド技術",
+    "description": "こんにちは、LINEスキマニのフロントエンド開発担当や、フロントエンド開発に関するイベントの運営をしている板井（@itatchi3_）です。LINEヤフーでは、社員が海外のカンファレンスや学会に参加す...",
+    "image": "https://techblog.lycorp.co.jp/static/9bda873a8ba8c9c22849e65526c3bcc5/7d66e/1720486719172.png"
+  },
+  {
+    "No": "125",
+    "url": "https://www.publickey1.jp/blog/24/eslintjavascriptjsonmarkdown.html",
+    "title": "ESLintがJavaScript以外にも対応言語を広げるとの方針を説明。まずはJSON、Markdownへの対応プラグインを開発",
+    "description": "JavaScriptコードの構文やスタイルをチェックできる「ESLint」の開発者であるNicholas C. Zakas氏は、ESLintのブログに投稿した記事「What's coming next for ESLint」で、今後ESLi...",
+    "image": "https://www.publickey1.jp/2024/p7yIxP9j.png"
+  },
+  {
+    "No": "126",
+    "url": "https://www.joint-kaigo.com/articles/28421/",
+    "title": "新たな「介護情報基盤」、2026年4月開始目指す　厚労省方針　負担減へ情報連携を効率化  |  介護ニュースJoint",
+    "description": "厚生労働省は「介護情報基盤」の整備を本格化させる。事業所・施設、利用者、自治体などがそれぞれ必要な情報を、いつでも速やかに閲覧・確認できる新たなインフラを作る構想だ。【Joint編集部】 8日に開催した審議会（社会保障審 […]",
+    "image": "https://www.joint-kaigo.com/wp-content/uploads/2024/07/c8f3f1459c741740eed04cc6403e0c40-1024x614.jpg"
+  },
+  {
+    "No": "127",
+    "url": "https://gigazine.net/news/20240719-collection-of-dark-pattern/",
+    "title": "まぎらわしいサイトデザインでユーザーをだます「ダークパターン」いろいろまとめ",
+    "description": "ユーザーをだまして判断を誤まるように誘導するような、悪意のあるウェブサイトのデザインを「ダークパターン」といいます。ダークパターンは、ユーザーのプライバシーを侵害したり、ユーザーにより多くのお金を使わせようとしたりするため、問題視されています。そんなダークパターンに該当するさまざまなケースをまとめたサイト「Dark Patterns Hall of Shame(HOS)」が公開されています。",
+    "image": "https://i.gzn.jp/img/2024/07/19/collection-of-dark-pattern/00_m.jpg"
+  },
+  {
+    "No": "128",
+    "url": "https://qiita.com/everpeace/items/bb73ec64d3e682279d26",
+    "title": "CRDT (Conflict-free Replicated Data Type)を15分で説明してみる - Qiita",
+    "description": "CRDTについて勉強したので纏めてみました。15分くらいでざっとわかったつもりになれる感じで纏めてみたつもりです。 全体スライド Slideshareのスライドが埋め込めなかったので、↓からアクセスしてくださいm(-_-)m CRDT in 15 minutes ...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGODY3OCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTQ3MzY4MTExMz9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YTc2MDZiZDk5YmU2ZDQ4NDM5ZDY1Y2QwZTk1NGE0ZDc%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df017912726947a932506ea96a83be7f6?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q1JEVCUyMCUyOENvbmZsaWN0LWZyZWUlMjBSZXBsaWNhdGVkJTIwRGF0YSUyMFR5cGUlMjklRTMlODIlOTIxNSVFNSU4OCU4NiVFMyU4MSVBNyVFOCVBQSVBQyVFNiU5OCU4RSVFMyU4MSU5NyVFMyU4MSVBNiVFMyU4MSVCRiVFMyU4MiU4QiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTI0OTlmZDAxNDMxYTVmOTkwMjk2OGEyNWYwNjUzZjc0&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBldmVycGVhY2UmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1kN2NhZjMyZGQyMDUyMDJhZjE5MWIxMzU0NzRhZmRkYw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=22421c4597d0367de2b554f452b7e3b1"
+  },
+  {
+    "No": "129",
+    "url": "https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type",
+    "title": "Conflict-free replicated data type - Wikipedia",
+    "description": "",
+    "image": ""
+  },
+  {
+    "No": "130",
+    "url": "https://qiita.com/kanta_matsu/items/958f0c69c858f504188a",
+    "title": "YjsとWebSocketで共同編集テキストエディタを作る【オフライン編集と永続化に対応 / Lexical】 - Qiita",
+    "description": "はじめに テキストエディタの開発において、共同編集機能はチャレンジングである。 そんな共同編集の開発をスムーズに始めるためのガイドを目指して本記事を執筆した。 本記事では、共同編集技術の概要とエディタの作り方を紹介する。 まず最初に共同編集とは何かを説明する。次に、共同編...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Fadvent-calendar-ogp-background-7940cd1c8db80a7ec40711d90f43539e.jpg%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYyOTg0Mjg4JTJGNTUyNzQxN2M3YTJlNDc2MGY5MTU4ZDM2MzdkM2RhZWVlMjBiMjFlYiUyRnhfbGFyZ2UucG5nJTNGMTY2OTA4MzEwNj9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NzUyZTgzOTQzMmE1NTMyNDk0MTUxYjY2ZGQ0MTUyMWU%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY4N2MxYzRlYWMyNmYxODdmNDFjYzg4MWM0Mzk3ZjI5ZTkyZDcxZDQ1JTJGb3JpZ2luYWwuanBnJTNGMTY2MDcyMjQwMD9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz05MDc3OGQ4MjU2ZGIyYzE0NDM3NjA0NjZmY2Y4ZDE5Ng%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D14c4c537154ca71f4da73403ff4b0bd5?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9WWpzJUUzJTgxJUE4V2ViU29ja2V0JUUzJTgxJUE3JUU1JTg1JUIxJUU1JTkwJThDJUU3JUI3JUE4JUU5JTlCJTg2JUUzJTgzJTg2JUUzJTgyJUFEJUUzJTgyJUI5JUUzJTgzJTg4JUUzJTgyJUE4JUUzJTgzJTg3JUUzJTgyJUEzJUUzJTgyJUJGJUUzJTgyJTkyJUU0JUJEJTlDJUUzJTgyJThCJUUzJTgwJTkwJUUzJTgyJUFBJUUzJTgzJTk1JUUzJTgzJUE5JUUzJTgyJUE0JUUzJTgzJUIzJUU3JUI3JUE4JUU5JTlCJTg2JUUzJTgxJUE4JUU2JUIwJUI4JUU3JUI2JTlBJUU1JThDJTk2JUUzJTgxJUFCJUU1JUFGJUJFJUU1JUJGJTlDJTIwJTJGJTIwTGV4aWNhbCVFMyU4MCU5MSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzM0EzQzNDJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTYxNjk3OGFlNTc2NDE3NjNhYzQzYmNkY2QyMDE1MTdl&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBrYW50YV9tYXRzdSZ0eHQtY29sb3I9JTIzM0EzQzNDJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTg5NzYwNTMyNDk4NGRlNzJlNzVmZDc2ZjIwZGQ1Yjdm&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5pyd5pel5paw6IGe56S-&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%233A3C3C&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=3323c840260a1fe3b9a510f171146e5b"
+  },
+  {
+    "No": "131",
+    "url": "https://github.com/yjs/yjs/tree/master?tab=readme-ov-file#Yjs-CRDT-Algorithm",
+    "title": "GitHub - yjs/yjs at master",
+    "description": "Shared data types for building collaborative software - GitHub - yjs/yjs at master",
+    "image": "https://repository-images.githubusercontent.com/22392639/419c6c00-995d-11ea-87c6-dc7e997553d4"
+  },
+  {
+    "No": "132",
+    "url": "https://qiita.com/tenda_ryo_y/items/a61d55fc814c3b01086d",
+    "title": "axiosやfetchに替わるKyのススメ - Qiita",
+    "description": "Kyとは Kyは、Sindre Sorhusが開発したJavaScript向けの軽量かつ多機能なHTTPクライアントです。ネーミングの意図はよくわかりませんが、AxiosやネイティブのFetch APIに代わる、より効率的で使いやすい選択肢として設計されています。 ...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYyMjIxNDE4JTJGNGU3MjAzODMwNTRjNzE1NDNlZGMxMWFlNmIyYzQzMjdiNTg1YTlhOCUyRnhfbGFyZ2UucG5nJTNGMTYzNTMxNzkyMT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ODdiNTM2ZWZhNDI3OWZiYTE3YTc2OTVkN2NiMDc3NDI%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY2YmU1ZjgwOGZlN2Q3NDkzMDY1ZjljNTVjNGM1NGRlOGY1MzQ3NDZiJTJGb3JpZ2luYWwuanBnJTNGMTYwMTQ0NTk4OD9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz02MDlmYjdjOGNkNDYwMzQwNzMyMjBjYzk2M2YyODVhOQ%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3De3294f817b1a009d82e18f6fcc84389d?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9YXhpb3MlRTMlODIlODRmZXRjaCVFMyU4MSVBQiVFNiU5QiVCRiVFMyU4MiU4RiVFMyU4MiU4Qkt5JUUzJTgxJUFFJUUzJTgyJUI5JUUzJTgyJUI5JUUzJTgzJUExJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NDVkNzQxMzM4NWZmMmY1NTJmYzk0ZjQzODFlY2UwMmU&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB0ZW5kYV9yeW9feSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWY0NWZhYzBkMWFmYmRkMjA4MTU1MzJlOTk2YTJjYzUz&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-44OG44Oz44OA&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=4d9e050a51379f659450563d728103e5"
+  },
+  {
+    "No": "133",
+    "url": "https://codezine.jp/article/detail/19929",
+    "title": "DMM TV、大手国内配信事業者としてははじめて、次世代動画圧縮コーデック技術「AV1」を採用",
+    "description": "DMM.comは、同社の運営する「DMM TV」が大手国内配信事業者としてははじめて、次世代動画圧縮コーデック技術「AV1」を採用し、同技術を用いた動画配信を7月に本格開始したことを、7月23日に発表した。",
+    "image": "https://codezine.jp/static/images/article/19929/main.png"
+  },
+  {
+    "No": "134",
+    "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-5-6-beta/",
+    "title": "Announcing TypeScript 5.6 Beta - TypeScript",
+    "description": "Today we are excited to announce the availability of TypeScript 5.6 Beta. To get started using the beta, you can get it through NuGet, or through npm with the following command: npm install -D typescript@beta Here’s a quick list of what’s new in TypeScript 5.6! Disallowed Nullish and Truthy Checks Iterator Helper Methods Strict Builtin […]",
+    "image": "https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2018/08/typescriptfeature.png"
+  },
+  {
+    "No": "135",
+    "url": "https://tech.smarthr.jp/entry/2024/07/26/161505",
+    "title": "3年前に勤怠打刻をSlackで完結できるようにしていました 🐢 - SmartHR Tech Blog",
+    "description": "こんにちは、趣味でコーポレートエンジニアをやっていますyamashuです。 タイトルの通りかなり昔の話になるのですが、勤怠打刻の課題解決についてそういえば社外へ向かってアウトプットしていなかったなと思い、この度したためている次第です。 社外と接点が多い営業の社員が弊社での打刻の方法をたまたまお話したりして、その話を聞いた会社様から「話を聞かせてほしい」とヒアリングをいただくことも最近まで何度かありました。 そのため、もしかしたら同じ悩みに直面している方がいらっしゃるかもしれないので、1つの解決策としてやったことを書いておこうと思います。 課題 🤔 勤怠管理SaaS（弊社だとAKASHI）を使っ…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/5e956e563f9abaa81e9641fd40f9a7b80aad4e9c/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fs%2Fsmarthr%2F20240726%2F20240726161523.png"
+  },
+  {
+    "No": "136",
+    "url": "https://nulab.com/ja/blog/nulab/blog-passkey-recommend/",
+    "title": "パスキーをこれから利用してみようかと考えている方へ | 株式会社ヌーラボ(Nulab inc.)",
+    "description": "はじめに",
+    "image": "https://d1u2e6wtudxkpm.cloudfront.net/wp-content/uploads/sites/2/2018/05/ogp_dft1.png"
+  },
+  {
+    "No": "137",
+    "url": "https://www.publickey1.jp/blog/24/webnetlifyastroastro.html",
+    "title": "WebホスティングのNetlifyがAstroと提携、静的サイトジェネレータAstroのオフィシャルなデプロイメントパートナーに",
+    "description": "Webホスティングサービスを提供するNetlifyと静的サイトジェネレータ「Astro」開発チームの両者は提携を発表し、NetlifyがAstroのオフィシャルデプロイパートナーとなったことを発表しました。 @Netlify increas...",
+    "image": "https://www.publickey1.jp/2024/BKOwAfoo.jpg"
+  },
+  {
+    "No": "138",
+    "url": "https://www.publickey1.jp/blog/24/astroserver_islandsweb.html",
+    "title": "静的サイトジェネレータのAstro、「Server Islands」を実験的実装。サーバで動的生成したコンポーネントをWebページ表示後に組み込み",
+    "description": "オープンソースで開発されている静的サイトジェネレータ「Astro」は、新機能の「Server Islands」を実験的実装した新バージョン「Astro 4.12」をリリースしました。 Full details on the blog:htt...",
+    "image": "https://www.publickey1.jp/2024/Snauwee6.jpg"
+  },
+  {
+    "No": "139",
+    "url": "https://dev.classmethod.jp/articles/Active_Listening/",
+    "title": "「はじめての傾聴術」に学ぶ、会話における傾聴の大切さ | DevelopersIO",
+    "description": "ビジネススキルや、日常生活においても大事な要素である傾聴について、  \n「はじめての傾聴術」をもとにその要素や実践例を通してどう活用できるかを考えていきます。",
+    "image": "https://devio2024-media.developers.io/image/upload/v1722753194/user-gen-eyecatch/ezh2ukjayps1hpjfkax2.png"
+  },
+  {
+    "No": "140",
+    "url": "https://codezine.jp/article/detail/19980",
+    "title": "JavaScript実行環境の最新長期サポート版「Node.js 20.16.0」がリリース",
+    "description": "JavaScript実行環境Node.jsの開発チームは、最新の長期サポート版となる「Node.js 20.16.0」を、7月24日（現地時間）にリリースした。",
+    "image": "https://codezine.jp/static/images/article/19980/19980_ogp.jpg"
+  },
+  {
+    "No": "141",
+    "url": "https://techblog.zozo.com/entry/zozotown-css-in-js-followup",
+    "title": "ZOZOTOWNのフロントエンド開発にCSS in JSを導入して2年後の状況 - ZOZO TECH BLOG",
+    "description": "ZOZOTOWNのフロントエンド開発にCSS in JSを導入してから2年後の運用状況ついてご紹介します。",
+    "image": "https://cdn.image.st-hatena.com/image/scale/4b02d73307cb441675438571a916db36de03b35b/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fv%2Fvasilyjp%2F20240731%2F20240731115858.png"
+  },
+  {
+    "No": "142",
+    "url": "https://www.publickey1.jp/blog/24/rustservowebverso.html",
+    "title": "Rust製ブラウザエンジン「Servo」搭載、新たなWebブラウザ「Verso」の開発プロジェクトが立ち上がる",
+    "description": "欧州を基盤にオープンでセキュアなインターネットの実現を支援しているNLnet Foundationは、Rust製ブラウザエンジン「Servo」を用いたWebブラウザ「Verso」の開発プロジェクトの立ち上げを発表しました。 Versoの開発...",
+    "image": "https://www.publickey1.jp/2024/verso-la01.png"
+  },
+  {
+    "No": "143",
+    "url": "https://prtimes.jp/main/html/rd/p/000000019.000103965.html",
+    "title": "退職代行モームリ累計利用者15,934名分のデータ・利用された企業情報を公開",
+    "description": "株式会社アルバトロスのプレスリリース（2024年8月7日 10時00分）退職代行モームリ累計利用者15,934名分のデータ・利用された企業情報を公開",
+    "image": "https://prcdn.freetls.fastly.net/release_image/103965/19/103965-19-62227420d57eeb405ae055b35d7308d9-1920x1080.png?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260"
+  },
+  {
+    "No": "144",
+    "url": "https://cloud.watch.impress.co.jp/docs/news/1614436.html",
+    "title": "急増するパスキーの利用、導入を促進する機能や“よくある誤解”をOktaが解説",
+    "description": "Okta Japan株式会社は6日、パスワードレス認証の手段であるパスキーの状況について説明会を開催した。米Okta アイデンティティスタンダード担当シニアアーキテクトのTim Cappalli氏によると、2024年4月の段階でパスキーを使用しているGoogleアカウント数は4億以上にのぼっているという。",
+    "image": "https://cloud.watch.impress.co.jp/img/clw/list/1614/436/001.jpg"
+  },
+  {
+    "No": "145",
+    "url": "https://codezine.jp/article/detail/20010",
+    "title": "Linux Foundation、オープンソースソフトウェア採用のライセンス課題や解決方法を解説する日本語版WPを公開",
+    "description": "Linux Foundation Japanは、Linux Foundation ResearchがLF AI ＆ Data Foundationと協力して作成したホワイトペーパー「Open Source License Compliance」の日本語版「オープンソース ライセンス コンプライアンス」を、8月7日に公開した。",
+    "image": "https://codezine.jp/static/images/article/20010/20010_ogp.jpg"
+  },
+  {
+    "No": "146",
+    "url": "https://mhlw-grants.niph.go.jp/project/167641",
+    "title": "医療現場における医療AIの導入状況の把握、及び導入に向けた課題の解決策の検討のための研究 | 厚生労働科学研究成果データベース",
+    "description": "厚生労働科学研究成果データベース　MHLW GRANTS SYSTEM",
+    "image": ""
+  },
+  {
+    "No": "147",
+    "url": "https://www.sankei.com/article/20240807-ZFCZQALOWVN5LAZTCITVGBLLJU/",
+    "title": "がん治療の副作用による脱毛、冷却で抑制　コニカミノルタ、頭装着の医療機器",
+    "description": "コニカミノルタは７日、抗がん剤治療の副作用として起こる頭髪の脱毛を抑制する医療機器の販売を始めたと発表した。頭に装着して頭皮を冷却することで、抗がん剤が毛髪の…",
+    "image": "https://www.sankei.com/resizer/v2/VCJEJLPA5NI3XG5K4RUQ6Q56JU.jpg?auth=ff1eafa61c6a1e86a0dc3fd0c13941cabb38c4b85530acd98d170bd0227c69ff&quality=50&smart=true&width=1200&height=630"
+  },
+  {
+    "No": "148",
+    "url": "https://www.publickey1.jp/blog/24/fair_source.html",
+    "title": "オープンソースとは違う新しい取り組み「Fair Source」登場。ビジネスの持続性とソースコード公開の両立を目指す",
+    "description": "企業がソフトウェアビジネスを持続的に行えることと、ソフトウェアのソースコードを公開することの両立を実現するための新しいライセンスへの取り組みとして「Fair Source」が登場しました。 Fair Sourceの定義は下記で示されています...",
+    "image": "https://www.publickey1.jp/2024/fiarsource-01.png"
+  },
+  {
+    "No": "149",
+    "url": "https://piyolog.hatenadiary.jp/entry/2024/08/19/074417",
+    "title": "KADOKAWAグループへのサイバー攻撃や悪質な情報拡散についてまとめてみた - piyolog",
+    "description": "2024年6月9日、KADOKAWAやニコニコ動画などを運営するドワンゴは、同グループの複数のWebサイトが6月8日未明より利用できない事象が発生と公表しました。システム障害の原因はランサムウエアによるもので、ニコニコ動画は復旧まで約2か月を要しました。またリークサイトから盗まれたとみられる情報を取得してSNSへ公開するなど悪質な情報拡散が確認されました。ここでは関連する情報をまとめます。 １．KADOKAWAグループのデータセンターでランサムウエア被害 公式及び報道より、データ暗号化の被害にあったのはKADOKAWAグループ企業 KADOKAWA Connectedのデータセンター（DC6）…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/d3470eaac3fc4bbf63db75e1a107689e53fcab87/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fogimage.blog.st-hatena.com%2F10257846132616586766%2F6801883189129518839%2F1724021057"
+  },
+  {
+    "No": "150",
+    "url": "https://www.publickey1.jp/blog/24/deno_2deno.html",
+    "title": "「Deno 2」が間もなく登場。Denoにとって初めてのメジャーバージョンアップに",
+    "description": "Node.jsの登場は、それまで比較的面倒だったノンブロッキングな非同期のネットワークプログラミングを容易にするAPIと、それをJavaScriptという非常に広く使われているプログラミング言語で利用可能にしたことで、サーバサイドにおけるJ...",
+    "image": "https://www.publickey1.jp/2024/deno146.png"
+  },
+  {
+    "No": "151",
+    "url": "https://www.publickey1.jp/blog/24/javascripttypescriptwebassemblyporffor.html",
+    "title": "JavaScript/TypeScriptからWebAssemblyやネイティブバイナリを生成するコンパイラ「Porffor」の開発が加速へ、開発者がフルタイムで取り組み",
+    "description": "「Porffor」は、JavaScript/TypeScriptをWebAssemblyバイナリやネイティブバイナリへとコンパイルする実験的なツールであり、これまでにない2つの特徴を備えています。 1つ目はJavaScript/TypeSc...",
+    "image": "https://www.publickey1.jp/2024/porffor-202408.png"
+  },
+  {
+    "No": "152",
+    "url": "https://www.publickey1.jp/blog/24/webpackrustrspack10.html",
+    "title": "webpack互換のRust製高速バンドラ「Rspack」が正式版となるバージョン1.0に到達。webpackより10倍高速と",
+    "description": "webpack互換のRust製高速バンドラ「Rspack」が正式版となる「Rspack 1.0」としてリリースされました。 Announcing Rspack 1.0 - the next generation JavaScript bun...",
+    "image": "https://www.publickey1.jp/2024/cyyerDdh.png"
+  },
+  {
+    "No": "153",
+    "url": "https://dev.classmethod.jp/articles/deep-dive-shutsugankanagawa-gmail-failure/",
+    "title": "神奈川県立高校ネット出願システムのGmail到達性問題、改めて深堀りしてみた | DevelopersIO",
+    "description": "神奈川県ネット出願システムのGmailへのメール到達性問題は、不適切なサーバー設定、大量メール送信、DNSミス、バウンスメール処理不備、急激な送信量増加、準備不足、新ドメインの低信頼性が複合的に作用して発生したと推測されます。",
+    "image": "https://devio2024-media.developers.io/image/upload/v1725101402/user-gen-eyecatch/umjv5fri7rya2lmxwws9.jpg"
+  },
+  {
+    "No": "154",
+    "url": "https://stackoverflow.blog/2024/09/05/the-hidden-cost-of-speed/",
+    "title": "The hidden cost of speed - Stack Overflow",
+    "description": "",
+    "image": "https://cdn.sanity.io/images/jo7n4k8s/production/e85fae100063fa1b53b3a4b7107058cb8f96de72-12000x6300.jpg?w=1200&fm=png&auto=format"
+  },
+  {
+    "No": "155",
+    "url": "https://digital-gov.note.jp/n/n05b6f4b7a7dd",
+    "title": "デジタル庁設立3年。世界に誇れるデジタル社会の実現と次世代の行政組織づくりに向けて。｜デジタル庁",
+    "description": "はじめに  デジタル監の浅沼です。&nbsp; デジタル庁は、2024年9月1日に設立3年を迎えました。デジタル政策への取組による様々な成果が、日々の生活や社会の変化の兆しとして現れてきています。  そこで、この1年の主な活動の成果と進捗について振り返るとともに、今後の活動方針や組織強化の取組ついて共有させていただきます。また、デジタル庁の活動の成果の詳細については、数値やデータと合わせてデジタル庁のウェブサイトにも公開しておりますので、ぜひご覧ください。  ◆関連リンク： ・2024年デジタル庁年次報告｜デジタル庁（※外部リンク） ・デジタル庁年次報告 会見資料（PDF／4,849K",
+    "image": "https://assets.st-note.com/production/uploads/images/153257891/rectangle_large_type_2_9e6c7bafbce2c4b6bd886515747beaaa.png?fit=bounds&quality=85&width=1280"
+  },
+  {
+    "No": "156",
+    "url": "https://zenn.dev/comm_vue_nuxt/articles/reactive-props-destructure",
+    "title": "Reactive Props Destructure を支える技術",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--WIuASzWq--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Reactive%2520Props%2520Destructure%2520%25E3%2582%2592%25E6%2594%25AF%25E3%2581%2588%25E3%2582%258B%25E6%258A%2580%25E8%25A1%2593%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:ubugeeei%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzU5MTZlOWFlNjguanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Vue%25E3%2583%25BBNuxt%2520%25E6%2583%2585%25E5%25A0%25B1%25E3%2581%258C%25E9%259B%2586%25E3%2581%25BE%25E3%2582%258B%25E5%25BA%2583%25E5%25A0%25B4%2520%252F%2520P...%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyL2NiZDk4MGE3YzQuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "157",
+    "url": "https://news.denfaminicogamer.jp/news/240909a",
+    "title": "『学園アイドルマスター』開発陣の熱意とこだわりようがヤバすぎてもはや怖い。全ては「モバイル3D美少女の最高クオリティ」を目指すため",
+    "description": "アイドルたちの頭から足まで…にはとどまらず、さらに魅力を引き出すべく光や風表現、髪の毛1本にまで追求する  全ては「モバイル3D美少女の最高クオリティ」を目指すため",
+    "image": "https://news.denfaminicogamer.jp/wp-content/uploads/2024/09/104_1.9.1.jpg"
+  },
+  {
+    "No": "158",
+    "url": "https://www.gizmodo.jp/2024/09/2024-apple-event.html",
+    "title": "【1分で読める】Appleイベントで発表された新製品・発売日まとめ",
+    "description": "濃い発表会になりました。今夜開催されたApple（アップル）の新作発表会ですが、かなり盛り沢山な内容となりました。この記事では今回発表されたAppleの新製品とその発売日をサクッとおさらいしていきます。iPhone 16・iPhone 16 Plus ：9月20日発売 これでいいや、じゃなくて｢これが良い｣1台となったiPhone 16。スタンダードモデルながらもAppleのAIことApple",
+    "image": "https://media.loom-app.com/gizmodo/dist/images/2024/09/10/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%882024-09-107.17.55.png?w=1280&h=630&f=jpg"
+  },
+  {
+    "No": "159",
+    "url": "https://logmi.jp/business/articles/330958",
+    "title": "中堅社員がボロボロ辞める……退職者たちの本音とは　離職の大きな原因となる、中堅層以降の「放置プレイ」問題 | ログミーBusiness",
+    "description": "企業が頭を悩ませる中堅層の離職宮地尚貴氏：それでは時間になりましたので、Webセミナーを開始させていただきます。よろしくお願いいたします。今回はまた新しいWebセミナーでして、中堅社員がボロボロ辞めてしまうのはなぜか、有能な社員を流出させな...",
+    "image": "https://images.logmi.jp/media/article/330958/images/XFX1t1bQi1hU46zGRu9KMq.png"
+  },
+  {
+    "No": "160",
+    "url": "https://codezine.jp/article/detail/20173",
+    "title": "2024年10月前半に開催される注目のITエンジニア向けカンファレンス5選",
+    "description": "ITエンジニアの皆さまにとって、カンファレンスは最新技術や開発トレンドを学び、エンジニアコミュニティの絆を深める絶好の機会です。今回は、2024年10月前半に開催されるITエンジニアやIT職種向けのカンファレンスの中から、特に注目すべき5つのイベントをご紹介します。（※なお、掲載情報は2024年9月17日現在のものです。開催内容が変更となる可能性もありますので、参加される際は最新情報のご確認をお願いします）",
+    "image": "https://codezine.jp/static/images/article/20173/20173_ogp.jpg"
+  },
+  {
+    "No": "161",
+    "url": "https://www.advertimes.com/20240920/article474488/",
+    "title": "1950年代から現代まで、日本のデザインのルーツに迫る企画展 10月25日まで",
+    "description": "東京ミッドタウン・デザインハブ（日本デザイン振興会、日本グラフィックデザイン協会、多摩美術大学 TUB）は9月20日から、企画展「ROOTS OF FUTURE 過去を探って、未来を見つける」を開始した。会期は10月25日まで。",
+    "image": "https://cdn.advertimes.com/wp-content/uploads/2024/09/midtown_ogp.jpg"
+  },
+  {
+    "No": "162",
+    "url": "https://codezine.jp/article/detail/20261",
+    "title": "総務省、社会人がデータサイエンスを学べる無料オンライン講座「社会人のためのデータサイエンス演習」を開講",
+    "description": "総務省は、統計リテラシ向上に向けた取り組みの一環として、データサイエンス力の高い人材を育成すべく、データサイエンスのオンライン講座「社会人のためのデータサイエンス演習」を、9月24日〜12月3日の期間に開講する。",
+    "image": "https://codezine.jp/static/images/article/20261/18900_ogp.png"
+  },
+  {
+    "No": "163",
+    "url": "https://forest.watch.impress.co.jp/docs/news/1629241.html",
+    "title": "「ESLint」がJSONとMarkdownの文法チェックに対応 ～より汎用的なlinterへと進化／JavaScriptのソースコードを静的解析して文法の誤りを検出",
+    "description": "「ESLint」の開発チームは10月3日、「ESLint」がJSONとMarkdownのリンティングに対応したと発表した。",
+    "image": "https://forest.watch.impress.co.jp/img/wf/list/1629/241/eslint.jpg"
+  },
+  {
+    "No": "164",
+    "url": "https://zenn.dev/qnighy/articles/5562746d52712f",
+    "title": "JavaScriptのProxyを使うときに気をつけること",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--5vquzDn2--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:JavaScript%25E3%2581%25AEProxy%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%2586%25E3%2581%25A8%25E3%2581%258D%25E3%2581%25AB%25E6%25B0%2597%25E3%2582%2592%25E3%2581%25A4%25E3%2581%2591%25E3%2582%258B%25E3%2581%2593%25E3%2581%25A8%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Masaki%2520Hara%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2l3aEI4dTM5cFZyM09sWVFLcUU5Z1ozV2d3MHlsMS03cUZad0huYWc9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "165",
+    "url": "https://www.publickey1.jp/blog/24/windows_11passkey_api1passwordbitwardenwindows.html",
+    "title": "Windows 11にサードパーティのパスキー管理を統合できる「Passkey API」搭載へ。1PasswordやBitwardenなどシームレスにWindowsと統合可能に",
+    "description": "マイクロソフトはWindows 11におけるパスキー対応の強化に向けた施策を発表しました。 1つ目はWindows 11にPasskey APIを搭載することです。 Windowsと、1PasswordやBitwardenなどのサードパーテ...",
+    "image": "https://www.publickey1.jp/2024/ms-passkey-api-ann.png"
+  },
+  {
+    "No": "166",
+    "url": "https://www.publickey1.jp/blog/24/deno_2deno_1nodejsjupyter_notebooklts.html",
+    "title": "「Deno 2」正式リリース、Deno 1/Node.js互換性を保ち、フォーマッタ、リンター、Jupyter Notebook機能など統合。LTS版で企業ニーズにも対応",
+    "description": "JavaScript/TypeScriptランタイムのDenoを開発するDeno Landは、Denoの登場以来初となるメジャーバージョンアップ「Deno 2」正式リリースを発表しました。 4 years after Deno 1.0, t...",
+    "image": "https://www.publickey1.jp/2024/GZde9CWW0AAK3tN.jpg"
+  },
+  {
+    "No": "167",
+    "url": "https://rocketnews24.com/2022/06/05/1640711/",
+    "title": "さわやか歴15年が教える 最高に美味しい『げんこつハンバーグ』の食べ方 / 勝手にさわやか通信︰第1回",
+    "description": "静岡のソウルフードとも言われるさわやかの『げんこつハンバーグ』。牛肉100%のハンバーグを超レア状態で頂くその美味しさはいまや全国に知れ渡り、遠方から足を運ぶ人も …",
+    "image": "https://rocketnews24.com/wp-content/uploads/sites/2/2022/06/01sawayaka10.jpg?w=1200&h=630&crop=1"
+  },
+  {
+    "No": "168",
+    "url": "https://zenn.dev/tkithrta/articles/10874f98442970",
+    "title": "Deno 2がリリースされたので、Denoを食べます",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--Y7ijnq_F--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Deno%25202%25E3%2581%258C%25E3%2583%25AA%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25B9%25E3%2581%2595%25E3%2582%258C%25E3%2581%259F%25E3%2581%25AE%25E3%2581%25A7%25E3%2580%2581Deno%25E3%2582%2592%25E9%25A3%259F%25E3%2581%25B9%25E3%2581%25BE%25E3%2581%2599%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E9%25BB%2592%25E3%2583%25B0%25E6%25A8%25B9%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyL2E0NDRlMTA4ZjkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "169",
+    "url": "https://codezine.jp/article/detail/20127",
+    "title": "1on1完全攻略法！組織全体の成長を促進させるための実践テクニックとは？",
+    "description": "上司と部下が1対1で気軽なミーティングを行う「1on1」は、人材育成や組織育成の観点から重要とされている。相互に良好な人間関係を構築することが、生産性を高め、優れたプロダクトを生み出し、ひいては事業貢献へと繋がるためだ。そしてエンジニアリングマネージャーには、1on1を通じて諸課題を解決し、組織をより良い方向へ導くことが求められている。このセッションでは、株式会社ウィルゲート・プロダクト事業部 開発グループ ゼネラルマネージャー／VPoEの池添 誠氏（以下、ZOE氏）が、30人以上のエンジニアと1000時間以上1on1を重ねて磨き上げた独自の1on1手法について紹介した。",
+    "image": "https://codezine.jp/static/images/article/20127/20127_ogp.jpg"
+  },
+  {
+    "No": "170",
+    "url": "https://www.publickey1.jp/blog/24/credential_exchange_specificationsfido.html",
+    "title": "パスキーのクレデンシャルがベンダ間で交換可能に、業界標準「Credential Exchange Specifications」ワーキングドラフトをFIDOアライアンスが公開",
+    "description": "パスワードレスを実現する業界標準「パスキー」（Passkey）の仕様策定や推進を行っているFIDOアライアンス（ファイドアライアンス）は、クレデンシャルを安全に交換するための新仕様「Credential Exchange Specifica...",
+    "image": "https://www.publickey1.jp/2024/credential-exchange-specifications-wd.png"
+  },
+  {
+    "No": "171",
+    "url": "https://qiita.com/YOS0602/items/916ce3a05336d94e1644",
+    "title": "エンジニアとして働く中で気づけた大切だと思うこと - Qiita",
+    "description": "はじめに 自分がIT業界に携わって5年ほどが経過しました。 この5年間、SIerからフリーランスエンジニアに転身し、様々なプロジェクトに参加する中で、数々の失敗と成功を経験しました。特に心構えやマインドの部分で多くを学ぶことができました。 未熟だった自分を振り返って、今で...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY2NDc5NDYlMkY4NjMwMDEwMjc1ZDZjYmEyNTM3ZGFlYTA2MzNiNDkwOWVmODQyNTAxJTJGeF9sYXJnZS5wbmclM0YxNjUyMzk5ODI3P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz05YWYzYTRlMzI5ZDlmNWFjODczYzViNTMzNThkYWU5OA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dafa1bc96111ee1dbec5509bb3b427aa3?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUE4JUUzJTgzJUIzJUUzJTgyJUI4JUUzJTgzJThCJUUzJTgyJUEyJUUzJTgxJUE4JUUzJTgxJTk3JUUzJTgxJUE2JUU1JTgzJThEJUUzJTgxJThGJUU0JUI4JUFEJUUzJTgxJUE3JUU2JUIwJTk3JUUzJTgxJUE1JUUzJTgxJTkxJUUzJTgxJTlGJUU1JUE0JUE3JUU1JTg4JTg3JUUzJTgxJUEwJUUzJTgxJUE4JUU2JTgwJTlEJUUzJTgxJTg2JUUzJTgxJTkzJUUzJTgxJUE4JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZTNiMTJhYWIyM2E1OGI2Mjg1YTRkNzA1NmZjNTA0Mzg&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBZT1MwNjAyJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MmY5NGQwOWE2ZmU1MTJlNDc5MTE0OGVkY2IyYmE4Njg&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=cb54c572fd07491a5ac7ef3aeacde3e5"
+  },
+  {
+    "No": "172",
+    "url": "https://gigazine.net/news/20241020-gosub-web-browser-engine/",
+    "title": "BlinkでもWebKitでもない新開発ブラウザエンジン「Gosub」",
+    "description": "記事作成時点で広く使われているHTMLレンダリングエンジンは、ChromeやEdgeの「Blink」、Safariの「WebKit」、Firefoxの「Gecko」の3種に絞られています。ごく少数の大企業や団体がウェブの将来の決定権を握る状況を打破するべく、「ゼロから書かれた新しいウェブエンジン」として「Gosub」の開発が進められています。",
+    "image": "https://i.gzn.jp/img/2024/10/20/gosub-web-browser-engine/00.png"
+  },
+  {
+    "No": "173",
+    "url": "https://zenn.dev/ubie_dev/articles/b77f3a8e0fe056",
+    "title": "Cloud Profilerを使ってNode.jsのメモリリークの原因を特定する",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--pzNkMxdq--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Cloud%2520Profiler%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6Node.js%25E3%2581%25AE%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25AF%25E3%2581%25AE%25E5%258E%259F%25E5%259B%25A0%25E3%2582%2592%25E7%2589%25B9%25E5%25AE%259A%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:hokaccha%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyL2VlOWMzMWRhODMuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Ubie%2520%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2lpYWctanVyZUl3Q21TY0ZpclkwaUo0eXppaGZYekxOc1RfejZNX3c9czI1MC1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "174",
+    "url": "https://codezine.jp/article/detail/20056",
+    "title": "テスト自動化ツールの導入で発生する課題……事例と共に、業界20年のベテランが解消方法を解説！",
+    "description": "アプリケーション開発において、テスト自動化は今や不可欠な要素である。ローコードのUIテスト自動化ツールの普及により、多くの人々がテスト自動化を導入しているが、運用段階でうまく活用できず、テストの効率を上げられない現場が少なくない。2024年7月24日に開催されたDevelopers Summit 2024 Summerでは、バルテス・ホールディングスのソリューション事業推進部で首席研究員を務めるテスト自動化スペシャリストの江村禎昭氏が登壇。テスト自動化がうまくいかない状況とその解決策について実例を交えて説明した。",
+    "image": "https://codezine.jp/static/images/article/20056/20056_ogp.jpg"
+  },
+  {
+    "No": "175",
+    "url": "https://pc.watch.impress.co.jp/docs/news/1634029.html",
+    "title": "Adobeのペイントアプリ「Fresco」が完全無償化。数千種のブラシが利用可能に",
+    "description": "Adobeは、ペイントアプリ「Fresco」の生誕5周年を記念し、すべてのユーザーに対してすべてのピクセルブラシが使えるバージョンを完全無償で提供する。",
+    "image": "https://pc.watch.impress.co.jp/img/pcw/list/1634/029/1.jpg"
+  },
+  {
+    "No": "176",
+    "url": "https://training.linuxfoundation.org/ja/training/introduction-to-linux-lfs101-jp/",
+    "title": "Linux 入門 (LFS101-JP) | Linux Foundation Education",
+    "description": "この無料の Linux 入門コースで、グラフィカル インターフェイスとコマンド ラインの両方を使用して Linux に関する実践的な知識を深めましょう。",
+    "image": "https://training.linuxfoundation.org/wp-content/uploads/2024/10/LFS101-JP_sg-1.png"
+  },
+  {
+    "No": "177",
+    "url": "https://reinforz.co.jp/bizmedia/62317/",
+    "title": "NVIDIAとMicrosoft、AI医療スタートアップを加速させるため提携 | Reinforz Insight",
+    "description": "NVIDIAとMicrosoftは、AI医療スタートアップの加速を目指し、両社のエコシステムを統合する新たな提携を発表した。NVIDIAの「Inceptionプログラム」とMicrosoftの「Microsoft for Startups」",
+    "image": "https://reinforz.co.jp/bizmedia/wp-content/uploads/2024/04/28713791_s.jpg"
+  },
+  {
+    "No": "178",
+    "url": "https://medical.nikkeibp.co.jp/leaf/mem/pub/report/t350/202410/586215.html",
+    "title": "北海道大学、2025年度から「医療AI」の講義を学部生向けに開始",
+    "description": "北海道大学は2025年4月から「医療AI」に関する講義を学部生向けに開始する。文部科学省などが医学部で医療AI教育を推進する方針を示したのが主なきっかけ。2年生以上の全学部の学生を対象とした選択授業の1つとして新設する。同大学では以前から、医学英語や画像診断学の講義の中で医療AIについて解説…",
+    "image": "https://medical.nikkeibp.co.jp/all/thumb_l/586215_ls.png?202410231115"
+  },
+  {
+    "No": "179",
+    "url": "https://xenospectrum.com/apple-tests-blood-glucose-management-app-a-stepping-stone-to-apple-watch-integration/",
+    "title": "Appleが血糖値管理アプリのテストを実施、Apple Watch統合への布石か | XenoSpectrum",
+    "description": "Appleが糖尿病予防に向けた新たな取り組みを進めている。Bloombergの報道によると、同社は糖尿病予備軍向けの血糖値管理アプリケーションの社内テストを実施。同紙によれば、このアプリは食事と血糖値の関連性を追跡し、ユ ... <a title=\"Appleが血糖値管理アプリのテストを実施、Apple Watch統合への布石か\" class=\"read-more\" href=\"https://xenospectrum.com/apple-tests-blood-glucose-management-app-a-stepping-stone-to-apple-watch-integration/\" aria-label=\"Appleが血糖値管理アプリのテストを実施、Apple Watch統合への布石か についてさらに読む\">Read more</a>",
+    "image": "https://xenospectrum.com/wp-content/uploads/2024/09/Apple-Watch-Series-10-profile-240909-1024x683.jpg"
+  },
+  {
+    "No": "180",
+    "url": "https://www.itmedia.co.jp/news/articles/2410/27/news070.html",
+    "title": "OpenAI�̕����N����AI�uWhisper�v�A��Ì���ł̗��p�Ɍ����҂炪�x��",
+    "description": "ed Press�������̌����҂�ւ̃C���^�r���[�Ɋ�Â��ĕ񂶂��B���ɑ����̈�Ë@�ւ�Whisper�x�[�X�̃c�[����f�@�ɗ��p���Ă��邱�ƂɌx����炷�B",
+    "image": "https://image.itmedia.co.jp/news/articles/2410/27/cover_news070.jpg"
+  },
+  {
+    "No": "181",
+    "url": "https://zenn.dev/shogo0x2e/articles/770146f4f89ae2",
+    "title": "Next.js Conf 2024 全部聞いてみた",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--Oq-N5SxO--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Next.js%2520Conf%25202024%2520%25E5%2585%25A8%25E9%2583%25A8%25E8%2581%259E%25E3%2581%2584%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:shogo0x2e%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUl0YnZtbWdzS2lYYWwyREN3dTFQZG5qOWJtMi13Tkdkd293eFp1Sk02dDA9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "182",
+    "url": "https://x.com/mizchi/status/1851091454984384941?t=45uK6QHvUlGKFUG2SZBgHQ&s=19",
+    "title": "",
+    "description": "",
+    "image": ""
+  },
+  {
+    "No": "183",
+    "url": "https://www.techno-edge.net/article/2024/10/31/3799.html",
+    "title": "任天堂ゲーム音楽聴き放題アプリ『Nintendo Music』突如配信。ゼルダ・とたけけ・スプラまで、ネタバレ防止や曲長指定機能も | テクノエッジ TechnoEdge",
+    "description": "任天堂が、iPhone / Android用の音楽配信アプリ Nintendo Music をサプライズ配信しました。",
+    "image": "https://www.techno-edge.net/imgs/ogp_f/20754.jpg"
+  },
+  {
+    "No": "184",
+    "url": "https://www.publickey1.jp/blog/24/githubpythonjavascript1aigithuboctoverse_2024.html",
+    "title": "GitHubで最も使われている言語、PythonがJavaScriptを抜いて1位に。生成AI関連プロジェクト急増で。GitHubが年次調査「Octoverse 2024」発表",
+    "description": "GitHubは、この1年のGitHubにおけるGitHubの利用動向やオープンソースの動向などをまとめた年次レポート「Octoverse 2024」を発表しました。 コミュニティ参加者はインドが2028年に米国を抜いてトップに 発表によると...",
+    "image": "https://www.publickey1.jp/2024/octoverse2405.png"
+  },
+  {
+    "No": "185",
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/johoka/denkarukyouyuu.html",
+    "title": "電子カルテ情報共有サービス",
+    "description": "",
+    "image": ""
+  },
+  {
+    "No": "186",
+    "url": "https://www.gamespark.jp/article/2024/11/01/146580.html",
+    "title": "『Papers, Please』開発者が昔懐かしい電子ゲーム風ADV『Moida Mansion』を無料公開！ | Game*Spark - 国内・海外ゲーム情報サイト",
+    "description": "立ち入ってはいけないMoida邸に迷い込んでしまった友だちを助けるべく、モンスターが潜む邸宅を探索することとなります。",
+    "image": "https://www.gamespark.jp/imgs/ogp_f/928342.jpg"
+  },
+  {
+    "No": "187",
+    "url": "https://prtimes.jp/main/html/rd/p/000000010.000136183.html",
+    "title": "プレスリリース・ニュースリリース配信シェアNo.1｜PR TIMES",
+    "description": "",
+    "image": ""
+  },
+  {
+    "No": "188",
+    "url": "https://github.blog/jp/2024-11-10-universe-2024-previews-releases/",
+    "title": "GitHub Universe 2024より最新のプレビューとリリースをお届けします",
+    "description": "GitHubとGitHub Copilotの進化と、最新のプレビューやGAリリース情報をご紹介します。",
+    "image": "https://github.blog/jp/wp-content/uploads/sites/2/2024/10/universe-day1-header.png?fit=1600%2C840"
+  },
+  {
+    "No": "189",
+    "url": "https://coliss.com/articles/book-review/isbn-9784802614887.html",
+    "title": "Webサイトのデザインをより良くするにはどうすればよいのか！ 洗練されていく工程が詳しく解説された良書 -WebデザインプロセスBook",
+    "description": "※本ページは、アフィリエイト広告を利用しています。 こういうデザインの解説書は、初めてです！ デザイナーは何を考え、どのように作っていくのか。ヒアリングから始まり、ワイヤーフレームを設計し、デザインカ",
+    "image": "https://coliss.com/wp-content/uploads-202404/9784802614887-01@2x.png"
+  },
+  {
+    "No": "190",
+    "url": "https://cloud.watch.impress.co.jp/docs/news/1639207.html",
+    "title": "IPA、異なる組織・異業種間でデータを共有する「データスペース」を解説するガイドブックの第1.0版を公開",
+    "description": "独立行政法人情報処理推進機構（以下、IPA）は13日、一般的なデータ利活用だけでなく、異なる組織・異業種間でデータを共有する「データスペース」の利用手順やその内容を解説した「データ利活用・データスペースガイドブック第1.0版」を公開した。データをサービス展開などの事業に活用したい企業の経営層・CDO（Chief Data Officer: 最高データ責任者）や、事業部門、IT部門の担当者が参照することで、経営戦略策定からIT戦略・企画策定、データスペースの運用、評価までの8フェーズを包括的に理解し、実施できるとしている。",
+    "image": "https://cloud.watch.impress.co.jp/img/clw/list/1639/207/ipa.png"
+  },
+  {
+    "No": "191",
+    "url": "https://developers.freee.co.jp/entry/2024/11/15/111356",
+    "title": "「機能を削る」以外のスコープの絞り方 - freee Developers Hub",
+    "description": "こんにちは。現在プロダクトマネージャー兼ソフトウェアエンジニアとしてfreee人事労務の開発を行っている金山（@tkanayama_）です。私は現在、労務担当者の勤怠締めにまつわるペインを解消するための「勤怠モニター」という機能を開発しており、この開発を通して特にプロダクトマネージャーとして様々な学びを得ています。今回はその中から、「スコープの絞り方」について考えたことを整理します。 時間・予算・品質・スコープのトレードオフ プロジェクトにおいて、時間・予算・品質・スコープはトレードオフの関係にある場合が多く、私も日々このバランスに頭を悩ませています。 これについて、書籍「アジャイルサムライ」…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/6e50056bbca44852c59799bcccddc971bbea616c/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Ft%2Ftepppei%2F20241114%2F20241114170802.png"
+  },
+  {
+    "No": "192",
+    "url": "https://developers.cyberagent.co.jp/blog/archives/51490/",
+    "title": "薬急便におけるフロントエンド・テストガイドライン | CyberAgent Developers Blog",
+    "description": "はじめに こんにちは、株式会社 MG-DX で Web フロントエンドエンジニアをしている柳萬真伸で ...",
+    "image": "https://developers.cyberagent.co.jp/blog/wp-content/uploads/2024/11/17db55667deaaf8db8a6f6cac09f8a72-2.png"
+  },
+  {
+    "No": "193",
+    "url": "https://developers.freee.co.jp/entry/freee-qa-advent-calendar2024-day1",
+    "title": "テストレシピをやってみた - freee Developers Hub",
+    "description": "こんにちは。QAエンジニアをしているharashinです。 freeeプロダクト共通で利用される従業員情報や取引先などのマスターデータを扱うプロダクトを担当しています。 freee QA Advent Calendar2024 1日目です。 adventar.org 去年に引き続き、QA Advent Calendar2024の発起人です。 今年も無事QAエンジニアだけでアドベントカレンダーを実施できることを大変うれしく思います。 去年のアドベントカレンダーを実施するにあたり、多くの方に圧をかけた結果、社内ではharashin とハラスメントがかけ合わさったハラシンメントという造語が作られまし…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/a4ba3be8c62a1af5b3871bcaae244e26dc087b14/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fh%2Fharashin_freee%2F20241128%2F20241128232413.png"
+  },
+  {
+    "No": "194",
+    "url": "https://dentsu-ho.com/articles/9122",
+    "title": "頭痛の要因1位は、「気圧の変化」～気象からヘルスケアを考える",
+    "description": "テーマは、「気象とヘルスケア」。専門家をゲストに迎え、ウェルネス１万人調査の結果をもとにヘルスケア領域のトレンドやビジネスのヒントを探ります。",
+    "image": "https://cdn.dentsu-ho.com/0d78f017-87ef-4d23-9632-7906b9cc6479/1732008833-healthcare-trend24-01_ogp.jpg"
+  },
+  {
+    "No": "195",
+    "url": "https://www.publickey1.jp/blog/24/denodeno_21webassemblynpm_init.html",
+    "title": "Denoとして初の長期サポート版「Deno 2.1」正式リリース。WebAssemblyの実行が容易に、「npm init」など新機能",
+    "description": "JavaScript/TypeScriptランタイムのDenoを開発するDeno Landは、Denoの初めての長期サポート版（LTS版）となる「Deno 2.1」を正式リリースしました。 Deno 2.1 is outfirst clas...",
+    "image": "https://www.publickey1.jp/2024/deno-lts-202410.png"
+  },
+  {
+    "No": "196",
+    "url": "https://gigazine.net/news/20241202-lego-interfaces/",
+    "title": "LEGOの「操作パネルブロック」から学ぶUXデザイン",
+    "description": "デザインエンジニアのジョージ・ケイブ氏が、パネルやボタンがプリントされたLEGOの「2×2 装飾スロープブロック」をテーマに、インターフェースデザインの基礎を語りました。",
+    "image": "https://i.gzn.jp/img/2024/12/02/lego-interfaces/00_m.jpg"
+  },
+  {
+    "No": "197",
+    "url": "https://react.dev/blog/2024/12/05/react-19",
+    "title": "React v19 – React",
+    "description": "The library for web and native user interfaces",
+    "image": "https://react.dev/images/og-blog.png"
+  },
+  {
+    "No": "198",
+    "url": "https://note.com/makko/n/ncf13c966d855",
+    "title": "次にやるべきなのはWebデザインなのか、UIデザインなのか、それともグラフィックデザインなのか。｜もち | デザイナー・経営者",
+    "description": "UIデザインにも興味があるし、グラフィックデザインもやってみたい！     多くの駆け出しデザイナーから、このような相談を受けます。  一通りデザインの基礎は学んだので、次に何をすべきか悩んでいる人が多いのかもしれません。  今日は、私から次のステップを見つけるためのアドバイスをいくつか提供したいと思います。これを最後まで読めば、多少は次のステップが見えてくるはず！   Webデザイナー、UIデザイナー、グラフィックデザイナーの違いについて知っておこう  デザイナーという職種はそれぞれの専門分野に応じて細分化すると非常に多岐にわたります。  この記事を読んでいる人たちにとって進む可能性",
+    "image": "https://assets.st-note.com/production/uploads/images/164910196/rectangle_large_type_2_2c2a3a90baaa1c9e5e8ddfe926ae549b.jpeg?fit=bounds&quality=85&width=1280"
+  },
+  {
+    "No": "199",
+    "url": "https://engineering.mercari.com/blog/entry/20241210-flutter-hallo-design-system/",
+    "title": "メルカリ ハロのデザインシステムとFlutter | メルカリエンジニアリング",
+    "description": "こんにちは。メルカリ ハロのモバイルチームのEMの@atsumoです。この記事は、連載：メルカリ ハロ 開発の裏側 &#8211; Flutterと支える技術 &#8211;の3回目と、Mercari Advent Calendar 202",
+    "image": "https://storage.googleapis.com/prd-engineering-asset/2024/12/75a0bf62-vol4_ja.png"
+  },
+  {
+    "No": "200",
+    "url": "https://engineering.nifty.co.jp/blog/30940",
+    "title": "Deno、Bun、Node.js: JavaScript/TypeScriptランタイムの比較 - NIFTY engineering",
+    "description": "この記事は、ニフティグループ Advent Calendar 2024 11日目の記事です。 こんにちは！ 今",
+    "image": "https://engineering.nifty.co.jp/wp-content/uploads/2024/12/flat-svg-designs-featured-image-memo_2.png"
+  },
+  {
+    "No": "201",
+    "url": "https://linuc.org/textbooks/linux/",
+    "title": "Linux標準教科書｜無償でダウンロードできる初学者向けLinux学習教材 | Linux技術者認定試験 リナック | LPI-Japan",
+    "description": "Linux技術を基礎から習得するために必須のテキスト。学校教育にも独学にも最適な「Linux標準教科書」の無料ダウンロードページです。LinuCレベル1（101試験、102試験）の教育および学習にも役立てていただけます。",
+    "image": "https://linuc.org/common/assets/linux_sns.png"
+  },
+  {
+    "No": "202",
+    "url": "https://zenn.dev/loglass/articles/74bbb9c51d2f10",
+    "title": "カジュアル面談で考えていること、やっていること",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--qdsTmxbV--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25AB%25E3%2582%25B8%25E3%2583%25A5%25E3%2582%25A2%25E3%2583%25AB%25E9%259D%25A2%25E8%25AB%2587%25E3%2581%25A7%25E8%2580%2583%25E3%2581%2588%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258B%25E3%2581%2593%25E3%2581%25A8%25E3%2580%2581%25E3%2582%2584%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258B%25E3%2581%2593%25E3%2581%25A8%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:shin1988%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzRlNWQ4ZTRjZjguanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2582%25B9%2520%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzMwNDc4NGNjYWIuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "203",
+    "url": "https://developers.cyberagent.co.jp/blog/archives/53108/",
+    "title": "WINTICKET Webの継続的リアーキテクチャのあゆみ | CyberAgent Developers Blog",
+    "description": "この記事は CyberAgent Developers Advent Calendar 2024 2 ...",
+    "image": "https://developers.cyberagent.co.jp/blog/wp-content/uploads/2024/12/ogp_advent1220.png"
+  },
+  {
+    "No": "204",
+    "url": "https://developers.cyberagent.co.jp/blog/archives/52682/",
+    "title": "2024年、Amebaのアクセシビリティを振り返る | CyberAgent Developers Blog",
+    "description": "2024年、Amebaではアクセシビリティに対して様々な取り組みをおこなってきました。そんなこの1年間を振り返ります。",
+    "image": "https://developers.cyberagent.co.jp/blog/wp-content/uploads/2024/12/ogp.png"
+  },
+  {
+    "No": "205",
+    "url": "https://www.publickey1.jp/blog/25/publickeyit2025airdb.html",
+    "title": "PublickeyのIT業界予想2025。AIはプロンプトからエージェントへ、ソブリンクラウドに注目、RDBはスケーラブルが基本になるなど",
+    "description": "2025年はIT業界にとってどんな1年になるでしょうか。今年のIT業界、特にPublickeyが主な守備範囲としているエンタープライズ系のIT業界について、期待を込めた予想をしてみたいと思います。 高くなる国境、続く円安と人手不足 まずはI...",
+    "image": "https://www.publickey1.jp/2024/aurora-dsql-pv01.jpg"
+  },
+  {
+    "No": "206",
+    "url": "https://www.publickey1.jp/blog/25/ghostty_10webassembly.html",
+    "title": "高速多機能なターミナルエミュレータ「Ghostty 1.0」正式リリース、ミッチェル・ハシモト氏が開発。今後はWebAssembly化による対応プラットフォーム拡大も",
+    "description": "HashiCorpの創業者の一人であるミッチェル・ハシモト氏は、個人のプロジェクトとして開発してきたターミナルエミュレータ「Ghostty」の正式リリースとなるバージョン1.0を公開しました（本記事公開時点でバージョン1.0.1が最新バージ...",
+    "image": "https://www.publickey1.jp/2025/gostty-icon.png"
+  },
+  {
+    "No": "207",
+    "url": "https://www.publickey1.jp/blog/25/state_of_javascript_20241reactnextjs14000.html",
+    "title": "「State of JavaScript 2024」公開。フロントエンドライブラリ利用率1位はReact、メタフレームワークはNext.jsなど、1万4000人のエンジニアが回答",
+    "description": "JavaScriptに興味を持つ世界中のIT技術者1万4015人が回答したアンケートの結果をまとめた「State of JavaScript 2024」が公開されました。 State of JavaScript 2023の発表が昨年（202...",
+    "image": "https://www.publickey1.jp/2025/stateofjs2025-00.png"
+  },
+  {
+    "No": "208",
+    "url": "https://financial-field.com/living/entry-361179",
+    "title": "カフェラテが大好きな妻に「エスプレッソマシンが欲しい」と言われました。かなり高価ですが、何杯くらい飲めば元が取れそうですか？|ファイナンシャルフィールド|﻿その他暮らし",
+    "description": "自宅でおいしいコーヒーやカフェラテを飲もうと、エスプレッソマシンを購入する方が増えているようです。 エスプレッソマシンがあれば家にいながら好きなタイミングで、本格的なコーヒーやカフェラテを楽しむことが可能です。エスプレッソマシンは高価なイメージがありますが、エスプレッソマシンを導入するメリットは大きいのでしょうか。 そこで、当記事ではエスプレッソマシンの初期費用とランニングコストについてまとめました。本体価格の元が取れるまでの期間についても解説したので、ぜひ参考にしてください。",
+    "image": "https://financial-field.com/wp/wp-content/uploads/2025/01/shutterstock_2376144845.jpg"
+  },
+  {
+    "No": "209",
+    "url": "https://www.publickey1.jp/blog/25/chromiumsupporters_of_chromium-based_browserslinux_foundation.html",
+    "title": "Chromiumエコシステムに資金提供を行う「Supporters of Chromium-Based Browsers」、Linux Foundationが設立",
+    "description": "Linux Foundationは、Chromiumエコシステムのプロジェクトに対して資金提供などの支援を行う「Supporters of Chromium-Based Browsers」を設立したと発表しました。 Chromiumはオープ...",
+    "image": "https://www.publickey1.jp/2025/supporters-of-chromium-la02.png"
+  },
+  {
+    "No": "210",
+    "url": "https://www.publickey1.jp/blog/25/javascriptwintertcecma_internationalw3cwintergc.html",
+    "title": "サーバサイドJavaScriptの標準策定を目指す「WinterTC」がECMA International傘下で始動、W3CのWinterCGから移行",
+    "description": "W3CでサーバサイドJavaScriptを中心とした非Webブラウザ環境におけるJavaScriptの互換性について議論してきた「Web Interoperable Runtimes Community Group 」（WinterCG） ...",
+    "image": "https://www.publickey1.jp/2025/wintertc-launchico.png"
+  },
+  {
+    "No": "211",
+    "url": "https://techblog.zozo.com/entry/2024-faans-web-test",
+    "title": "フロントエンドテストの正解って？FAANSにおけるテスト戦略の振り返りとこれから - ZOZO TECH BLOG",
+    "description": "はじめに こんにちは、FAANS部フロントエンドブロックでWeb開発をしている平舘です。 Webフロントエンドのテスト戦略って、結局どうすればいいのか、よくわからなくないですか？ この記事では、FAANS Webアプリケーション開発におけるテスト実装の歴史を「リリース期」「急成長期」「現在」という3つの開発フェーズに分けて振り返ります。プロダクト立ち上げからのリアルな現場感とともに振り返りつつ、主にテスト配分についてチームで議論しながらプロダクトへ反映していった歴史のレポートになっています。みなさんのテスト戦略の見直しや実践のヒントになれば幸いです。",
+    "image": "https://cdn.image.st-hatena.com/image/scale/8044ccc281e0b5463f516e1c8b31b959d7ee3daf/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fv%2Fvasilyjp%2F20250121%2F20250121104053.jpg"
+  },
+  {
+    "No": "212",
+    "url": "https://www.publickey1.jp/blog/25/javascriptbunamazon_s3.html",
+    "title": "JavaScriptランタイム「Bun」がAmazon S3クライアント機能を搭載",
+    "description": "オープンソースで開発されているJavaScriptランタイム「Bun」のバージョン1.1.43に、Amazon S3のクライアント機能が搭載されることが発表されています（記事公開時点ですでに1.1.43はリリース済み）。 これによりBunで...",
+    "image": "https://www.publickey1.jp/2025/bun-s3client.png"
+  },
+  {
+    "No": "213",
+    "url": "https://getnavi.jp/homeappliances/1012778/",
+    "title": "ミル洗浄までおまかせOK！ 挽きたてが手軽に味わえるパナソニック「全自動コーヒーメーカー」 | GetNavi web ゲットナビ",
+    "description": "パナソニックは、設置面積が約20％小さくなり（※）、「ストロングコース」追加により6種類の味わいを楽しめる、「全自動コーヒーメーカー",
+    "image": "https://getnavi.jp/wp-content/uploads/2025/01/20250121_getnaviweb_panasonic_001.jpg"
+  },
+  {
+    "No": "214",
+    "url": "https://eslint.org/blog/2025/01/eslint-2024-year-review/",
+    "title": "ESLint's 2024 year in review - ESLint - Pluggable JavaScript Linter",
+    "description": "A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.",
+    "image": "https://eslint.org/icon-512.png"
+  },
+  {
+    "No": "215",
+    "url": "https://www.publickey1.jp/blog/25/javascriptbunpostgresqlmysqldb.html",
+    "title": "JavaScriptランタイムのBun、PostgreSQL/MySQLのDBクライアント機能を搭載",
+    "description": "オープンソースで開発されているJavaScriptランタイム「Bun」の最新版となる「Bun 1.2」正式版が登場しました。 Bun v1.2 is herehttps://t.co/m3Q4xJ7l88— Bun (@bunj...",
+    "image": "https://www.publickey1.jp/2025/bun12-ga01.png"
+  },
+  {
+    "No": "216",
+    "url": "https://minimalist-fudeko.com/why-you-should-embrace-mediocrity/",
+    "title": "平凡であることを受け入れる生き方（TED） – 筆子ジャーナル",
+    "description": "Why You Should Embrace Mediocrity（なぜ、平凡であることを受け入れるべきか？）というTEDトークを紹介。「完璧や優越を求め続けると不安が生まれ、満たされない人生につながるから平凡であることを受け入れよう」という内容です。",
+    "image": "https://minimalist-fudeko.com/wp-content/uploads/2025/01/tea-time.jpg"
+  },
+  {
+    "No": "217",
+    "url": "https://note.com/fukuharatamanegi/n/n57ad71eeaa9d",
+    "title": "\"仕事のできるエンジニアしかいらない\"という怖い世界｜福原たまねぎ",
+    "description": "ぼくは米GAFAMの一角で働いており、シアトルの本社でセールの機能を開発している。オンラインでお買い物をしていると「30%引き」や「20%オフ」のようなディスカウントを発見して喜んでくださっている方もいると思うけれど、あのディスカウントを提供する仕組み自体が一つの大きなプロダクト（システムと言ってもいいかな）になっている。そしてそれを支えるたグローバルにまたがるチームによって開発・管理している。  そんなわけでぼくはPM (プロダクト・マネージャー) として日々セール機能に関するプロジェクトを回している。たくさんの刺激的で興味深いプロジェクトに恵まれてきたわけだけど、その中で一つとても",
+    "image": "https://assets.st-note.com/production/uploads/images/170380426/rectangle_large_type_2_eb3f4617315e63d326f9e27022509c82.jpeg?fit=bounds&quality=85&width=1280"
+  },
+  {
+    "No": "218",
+    "url": "https://www.famitsu.com/article/202502/32335",
+    "title": "『Dark Dice』植松伸夫や古代祐三、崎元仁などのゲーム音楽作曲家が参加するサントラが配信開始。アートワークは天野喜孝が手掛ける | ゲーム・エンタメ最新情報のファミ通.com",
+    "description": "アドベンチャーブック『Dark Dice』のサウンドトラック『Dark Dice: Darker Designs』が配信開始。本サントラには植松伸夫氏や古代祐三氏、崎元仁氏ら名だたるゲーム音楽作曲家が参加。アートワークはアーティストの天野喜孝氏が手掛けている。",
+    "image": "https://cimg.kgl-systems.io/camion/files/32335/thumbnail_UNhN.jpg?x=1280"
+  },
+  {
+    "No": "219",
+    "url": "https://www.docswell.com/s/sakito/Z82RGP-burikaigi2025#p1",
+    "title": "2024年のWebフロントエンドのふりかえりと2025年 | ドクセル",
+    "description": "ドクセルはスライドやPDFをかんたんに共有できるサイトです",
+    "image": "https://bcdn.docswell.com/page/PJXVN93VEX.jpg?width=480"
+  },
+  {
+    "No": "220",
+    "url": "https://www.tv-tokyo.co.jp/adomachi/smp/backnumber/20250201/145657.html",
+    "title": "錦糸町｜2025年2月 1日｜出没！アド街ック天国：テレビ東京",
+    "description": "東京スカイツリーを望む墨田区屈指の繁華街。古くから温泉タウンとしても親しまれてきた。\n【楽天地スパ】\n男性専用施設として受け継がれた歴史ある黒湯の温泉。高度経済成長期に導入したのが当時まだ珍しかったフィンランド式サウナ。1日に15...",
+    "image": "https://www.tv-tokyo.co.jp/adomachi/images/fblogo.jpg"
+  },
+  {
+    "No": "221",
+    "url": "https://cloud.watch.impress.co.jp/docs/news/1658579.html",
+    "title": "IPA、異なる組織・異業種間でデータを共有する「データスペース」のガイドブック第2.0版を公開",
+    "description": "独立行政法人情報処理推進機構（以下、IPA）は29日、一般的なデータ利活用だけでなく、異なる組織・異業種間でデータを共有する「データスペース」の利用手順やその内容を解説した「データ利活用・データスペースガイドブック」を改訂し、第2.0版として公開した。",
+    "image": "https://cloud.watch.impress.co.jp/img/clw/list/1658/579/ipa.png"
+  },
+  {
+    "No": "222",
+    "url": "https://news.biglobe.ne.jp/it/0208/imn_250208_6144269183.html",
+    "title": "BIGLOBEニュース",
+    "description": "",
+    "image": ""
+  },
+  {
+    "No": "223",
+    "url": "https://codezine.jp/article/detail/20892",
+    "title": "Linux Foundation、Kubernetesについて学べる無料オンラインコース「Kubernetes入門（LFS158-JP）」を提供開始",
+    "description": "Linux Foundationは、無料のオンラインコース「Kubernetes入門（LFS158-JP）」の提供を1月30日に開始した。",
+    "image": "https://codezine.jp/static/images/article/20892/20892_fig01.png"
+  },
+  {
+    "No": "224",
+    "url": "https://www.businessinsider.jp/article/2502-roomie-stove-retort-food/",
+    "title": "さらばコンロ！袋麺やレトルト食品もつくれる「ニトリの1台3役ケトル」が時短調理の強い味方に | Business Insider Japan",
+    "description": "朝の忙しい時間や夜疲れて、できるだけ手間をかけずに温かいものが食べたいときに活躍してくれるアイテムを、ニトリで見つけたのでご紹介します。",
+    "image": "https://media.loom-app.com/loom/2025/02/14/fd22f5e4-0266-4725-8932-c3c2ffe102c0/original.jpg?w=1200&h=630"
+  },
+  {
+    "No": "225",
+    "url": "https://forbesjapan.com/articles/detail/77147?read_more=1",
+    "title": "「もっと努力しなければ……」自己啓発疲れを解消する3つの方法 | Forbes JAPAN 公式サイト（フォーブス ジャパン）",
+    "description": "真の成長は、自分を「より良い自分」に変えようと絶えず追い立てることではなく、まずは自己を受け入れることから始まる。ここでは、そのバランスを見いだす方法を紹介する。現代社会では、個人の成長や成功が最終目標として語られがちで、常に「もっと努力し...",
+    "image": "https://images.forbesjapan.com/media/article/77147/images/main_image_24fe6968569ef3c32a556df02589aa59cbbf7f6c.jpg"
+  },
+  {
+    "No": "226",
+    "url": "https://codezine.jp/article/detail/21020",
+    "title": "2025年3月に開催される注目のITエンジニア向けカンファレンス5選",
+    "description": "2025年3月、エンジニアコミュニティが主催する大規模なカンファレンスが多数開催されます。ITエンジニアの皆さんにとって、最新技術や開発トレンドを学び、エンジニアコミュニティの絆を深める絶好の機会です。今回は、その中でも特に注目すべき5つのイベントをご紹介します。（※なお、掲載情報は2025年2月20日現在のものです。開催内容が変更となる可能性もありますので、参加される際は最新情報のご確認をお願いします）",
+    "image": "https://codezine.jp/static/images/article/21020/og.png"
+  },
+  {
+    "No": "227",
+    "url": "https://zenn.dev/ncdc/articles/7807f5b6e3ee88",
+    "title": "GitHub Copilotがプルリクを勝手にレビューしてくれる設定を広めたい",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--IsQphMfz--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:GitHub%2520Copilot%25E3%2581%258C%25E3%2583%2597%25E3%2583%25AB%25E3%2583%25AA%25E3%2582%25AF%25E3%2582%2592%25E5%258B%259D%25E6%2589%258B%25E3%2581%25AB%25E3%2583%25AC%25E3%2583%2593%25E3%2583%25A5%25E3%2583%25BC%25E3%2581%2597%25E3%2581%25A6%25E3%2581%258F%25E3%2582%258C%25E3%2582%258B%25E8%25A8%25AD%25E5%25AE%259A%25E3%2582%2592%25E5%25BA%2583%25E3%2582%2581%25E3%2581%259F%25E3%2581%2584%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E3%2581%2584%25E3%2581%25B0%25E3%2582%2589%25E3%2581%258D%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzNhODZhNDA5ZDMuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:NCDC%2520%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2lXRjZXeUJCMTBrRDZNaV9Fa0tLQi13WFJSUC04eFlJbDV5eWljPXM5Ni1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "228",
+    "url": "https://developers.cyberagent.co.jp/blog/archives/54439/",
+    "title": "Google ChromeのPrivacy Sandboxを利用したブラウザ内でのオークションにおけるJavaScriptコードへのBiome導入事例 | CyberAgent Developers Blog",
+    "description": "PrivacyLabという組織でプライバシーに配慮した広告配信手法の研究、開発をしている松崎(@pp ...",
+    "image": "https://developers.cyberagent.co.jp/blog/wp-content/themes/onepress-child/assets/images/og/og.png"
+  },
+  {
+    "No": "229",
+    "url": "https://jp.ign.com/97th-oscars/78541/news/972025",
+    "title": "第97回アカデミー賞（2025年）受賞結果まとめ",
+    "description": "作品賞は『ANORA アノーラ』",
+    "image": "https://sm.ign.com/t/ign_jp/screenshot/default/2_dy96.1200.jpg"
+  },
+  {
+    "No": "230",
+    "url": "https://qiita.com/viva_tweet_x/items/c0bfd00074301b667b1b",
+    "title": "あなたの組織は迎え入れの準備はできていますか？〜「オンボーディングガイドブック」をリリースしました～ - Qiita",
+    "description": "はじめに 迎え入れる準備できてますか？新卒研修・オンボーディングを集合知に！オンボーディングハンドブック全公開！ オンボーディングハンドブックは、新卒研修や新メンバーのオンボーディングを円滑に進めるためのガイドです。会社の文化や基礎知識を効果的に伝え、新メンバーが組織の中...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjIxNzg4JTJGcHJvZmlsZS1pbWFnZXMlMkYxNjkwNDIwMDUwP2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1iYzFiNWFkNTZiY2EwNTJkNTliOGExZDcyNWMxNzdmYg%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY0M2Q5ZDBkOWYwNWM3ZDg4ZTk0OGQ2YjU0ZjdiMDcyNjg2MzM2MDg3JTJGb3JpZ2luYWwuanBnJTNGMTcyMDQwNzIxND9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1hZTgwMmQ5NTNlNDU4Y2Q5MGQyNDA2YTAyMTZkMGM2OA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D548837635113309d691d90a8a22e74b9?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgxJTgyJUUzJTgxJUFBJUUzJTgxJTlGJUUzJTgxJUFFJUU3JUI1JTg0JUU3JUI5JTk0JUUzJTgxJUFGJUU4JUJGJThFJUUzJTgxJTg4JUU1JTg1JUE1JUUzJTgyJThDJUUzJTgxJUFFJUU2JUJBJTk2JUU1JTgyJTk5JUUzJTgxJUFGJUUzJTgxJUE3JUUzJTgxJThEJUUzJTgxJUE2JUUzJTgxJTg0JUUzJTgxJUJFJUUzJTgxJTk5JUUzJTgxJThCJUVGJUJDJTlGJUUzJTgwJTlDJUUzJTgwJThDJUUzJTgyJUFBJUUzJTgzJUIzJUUzJTgzJTlDJUUzJTgzJUJDJUUzJTgzJTg3JUUzJTgyJUEzJUUzJTgzJUIzJUUzJTgyJUIwJUUzJTgyJUFDJUUzJTgyJUE0JUUzJTgzJTg5JUUzJTgzJTk2JUUzJTgzJTgzJUUzJTgyJUFGJUUzJTgwJThEJUUzJTgyJTkyJUUzJTgzJUFBJUUzJTgzJUFBJUUzJTgzJUJDJUUzJTgyJUI5JUUzJTgxJTk3JUUzJTgxJUJFJUUzJTgxJTk3JUUzJTgxJTlGJUVGJUJEJTlFJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZTJkODBiNDNkYjlmYThjYmVlMGIwOTkwODA1YzZmYmI&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB2aXZhX3R3ZWV0X3gmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0xMDNmMTc1YWJmYTJjMzgyYjQ3ZDVmMzEyNGZmOWFhYg&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-6YeO5p2R57eP5ZCI56CU56m25omA&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=a0d0c6f57fa64f971ccd7df776526d32"
+  },
+  {
+    "No": "231",
+    "url": "https://codezine.jp/article/detail/21073",
+    "title": "Web開発者必見！ 現場で役立つAPI設計のポイントを先人に学ぼう",
+    "description": "Web APIは外部サービス同士の連携だけでなく、システムの内部実装でも広く利用されているが、優れたAPIをデザインするための知見は、十分に共有されているとは言えない。API開発者だけでなく、APIを使いこなす側にとっても、良いAPIとは何かを知ることは重要だ。そこで、Postman株式会社の草薙 昭彦氏が、実際にさまざまなサービスで活用されているガイドラインから抜粋しながら、優れたAPI設計のポイントを紹介する。",
+    "image": "https://codezine.jp/static/images/article/21073/21073_ogp.jpg"
+  },
+  {
+    "No": "232",
+    "url": "https://codezine.jp/article/detail/21273",
+    "title": "JavaScript/TypeScript用サーバーレスドライバー「Neon」がバージョン1.0になり正式リリース",
+    "description": "オープンソースデータベース企業のNeonは、サーバーレスドライバー「Neon」がバージョン1.0の正式リリース版になったことを発表した。",
+    "image": "https://codezine.jp/static/images/article/21273/21273og.png"
+  },
+  {
+    "No": "233",
+    "url": "https://larahogan.me/blog/first-one-on-one-questions/",
+    "title": "Questions for our first 1:1 | Lara HoganTwitter_Logo_Blue",
+    "description": "In the last few years, I’ve had the pleasure of kicking off lots of new reporting relationships with both engineers and engineering managers. Over time, I’ve learned that getting some particular data during an initial 1:1 can be really helpful, as I can refer back to the answers as I need to give a person feedback, recognize them, and find creative ways to support them. Most of these I’ve stolen from some really amazing Etsy coworkers.",
+    "image": "https://larahogan.me/images/twitter-card2.jpg"
+  },
+  {
+    "No": "234",
+    "url": "https://www.itmedia.co.jp/news/articles/2506/10/news129.html",
+    "title": "�j�R�j�R�������A�T�C�o�[�U�����畜���܂ł�2�J���Ԅ����h�����S�����䗠���炩�Ɂ@1�������̃u���O���J",
+    "description": "2024�N6���̃T�C�o�[�U���ɂ��A2�J���ɂ킽��T�[�r�X���~���Ă����j�R�j�R�������B�ĊJ�܂ł̕��䗠���A�h�����S�̊J���}�l�[�W���[��1�������̋Z�p�u���O�ɂ܂Ƃ߂��B",
+    "image": "https://image.itmedia.co.jp/news/articles/2506/10/cover_news129.jpg"
+  },
+  {
+    "No": "235",
+    "url": "https://nodejs.org/en/blog/release/v24.2.0",
+    "title": "Node.js — Node.js v24.2.0 (Current)",
+    "description": "Node.js® is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.",
+    "image": "https://nodejs.org/en/next-data/og/release/Node.js%20%E2%80%94%20Node.js%20v24.2.0%20(Current)"
+  },
+  {
+    "No": "236",
+    "url": "https://digital-gov.note.jp/n/n3640f6b7a009?gs=311f38c4c512",
+    "title": "ガバメントクラウドにおけるモダン化の意味と定義｜デジタル庁",
+    "description": "デジタル庁ガバメントクラウドチーム 町田 宏介（クラウドマイグレーションユニット/クラウドアーキテクト）   デジタル庁ではガバメントクラウドの整備を行い、迅速、柔軟、セキュアでコスト効率の高いシステム構築を行える基盤を、国・地方・独立行政法人等に向け提供を行っています。  ガバメントクラウドは、「デジタルの活用により、一人ひとりのニーズに合ったサービスを選ぶことができ、多様な幸せが実現できる社会」の実現に貢献するため、データの安全な連携を可能とし、ニーズに合わせて柔軟に対応できる情報システムを実現する共通基盤を目指しています。  上記を実現するためには、新しい技術を活用し、システムの",
+    "image": "https://assets.st-note.com/production/uploads/images/194480997/rectangle_large_type_2_ebc5fae199528ca5d6eeacbaa3acb70b.png?fit=bounds&quality=85&width=1280"
+  },
+  {
+    "No": "237",
+    "url": "https://share.google/ZWt3AxfVqaDhPui2I",
+    "title": "ボタンの色やアイコンを変えるだけでクリック率は本当にアップするのか、参考になるA/Bテストのまとめ -abtest.design",
+    "description": "ボタンの色を変えるとどうなる？ アイコンを変えただけで効果はあるのか？ レイアウトはどっちがいいか？ さまざまなWebサイトやスマホアプリでA/Bテストが実施され、どちらの方が効果が高いか測定されてい",
+    "image": "https://coliss.com/wp-content/uploads-202502/2025053100@2x.png"
+  },
+  {
+    "No": "238",
+    "url": "https://levtech.jp/media/article/focus/detail_685/",
+    "title": "Zustand、Jotai、Valtioの作者はなぜReact状態管理OSSを3つ開発したのか【フォーカス】 レバテックラボ（レバテックLAB）",
+    "description": "Zustand、Jotai、Valtio。なぜ作者は、明確に思想の異なるReact状態管理ライブラリを3つも開発したのでしょうか。",
+    "image": "https://levtech.jp/media/wp-content/uploads/2025/06/focus250620.jpg"
+  },
+  {
+    "No": "239",
+    "url": "https://codezine.jp/article/detail/21327",
+    "title": "なぜあなたのWebサイトは遅いのか？ mizchi氏が語るパフォーマンス改善のポイントとは",
+    "description": "Webサイトの“速さ”は、ユーザー体験を左右する重要な指標だ。とはいえ、ブラウザの中で実際にどんな処理が走っていて、どこにボトルネックがあるのかを把握するのは簡単ではない。本セッションに登壇したのは、Node.js／フロントエンド領域を専門とするフリーランスエンジニアであり、各社のWebサイトに一ヶ月単位で入り込み、Web VitalsやCI/CDの改善を行う“パフォーマンスの傭兵”として活動する竹馬光太郎氏。PageSpeed InsightsやLighthouse、DevToolsを駆使した実演を通し、問題の洗い出しからローカルでの再現、修正、そして再測定に至るまでの改善サイクルを丁寧に解説する。",
+    "image": "https://codezine.jp/static/images/article/21327/21327_ogp.jpg"
+  },
+  {
+    "No": "240",
+    "url": "https://automaton-media.com/articles/interviewsjp/oreo-20250701-346741/",
+    "title": "“ゲーム業界向け”SNS監視・分析ツール「Oreo（オレオ）」をゲーム開発ツールのLive2Dが導入し、業務がかなり楽になったらしい。実際どう使っているのか、ゲームに留まらない活用法 - AUTOMATON",
+    "description": "今回弊誌はLive2DとAIQVE ONE双方の担当者を交えてインタビューを実施。Live2DにおけるOreo導入前後の業務の変化や具体的な使用方法などの話を訊いた。",
+    "image": "https://automaton-media.com/wp-content/uploads/2025/07/oreo-20250701-346741-header.png"
+  },
+  {
+    "No": "241",
+    "url": "https://www.publickey1.jp/blog/25/bgm2025.html",
+    "title": "プログラミングのためのBGMや環境音など。仕事や勉強の邪魔にならない無料で使えそうな音源集。2025年版",
+    "description": "在宅で仕事や勉強をしている時間が増えてくると、ずっと無音だと寂しい気がして、できれば仕事の邪魔にならないBGMや環境音があるといいなあ、と思ったことはありませんか？ 今年も、そうした音源を最新のものにアップデートした2025年版を紹介しまし...",
+    "image": "https://www.publickey1.jp/2024/bgm2024.png"
+  },
+  {
+    "No": "242",
+    "url": "https://share.google/69jaCDGDI9qyDL31P",
+    "title": "「どの都道府県の給与が高いか」や「人口と給与は関係あるのか」など日本の膨大な情報を見やすく表示するダッシュボード「Japan Dashboard」をデジタル庁が公開したので使ってみた",
+    "description": "内閣府とデジタル庁が経済・財政・人口・暮らしに関する情報を見やすくまとめた「Japan Dashboard」を公開しました。都道府県ごとの人口や平均給与などを確認したり、各種情報の相関関係を調べたりすることができてデータ好きにはたまらないダッシュボードとなっています。",
+    "image": "https://i.gzn.jp/img/2025/07/11/japan-dashboard/00.png"
+  },
+  {
+    "No": "243",
+    "url": "https://codezine.jp/article/detail/21814",
+    "title": "Webブラウザ上で動画が再生される流れを追ってみよう～MSE/EMEを用いた動画の再生～",
+    "description": "インターネットを利用した動画配信は、ブロードバンドの普及とともに急速に発展し、今や多くの人々がたくさんの動画コンテンツを視聴しています。各関連技術は発展と収束を繰り返し、昔は難解だった動画配信技術もデファクトスタンダードが確立されつつあります。本連載ではインターネットを利用したストリーミング動画配信技術についてわかりやすく紹介し、誰でも、簡単に、動画配信ができることを伝えていきます。第6回となる本記事では、hls.js のコードを例に、ブラウザが動画を再生する裏側の仕組みと、その中核技術である「MSE/EME」について解説します。",
+    "image": "https://codezine.jp/static/images/article/21814/video-distribution_og.png"
+  },
+  {
+    "No": "244",
+    "url": "https://www.lifehacker.jp/article/2508-how-to-move-mac-apps-to-menu-bar-and-why-you-should/",
+    "title": "Macのメニューバーにアプリを置ける「Badgeify」がDockよりも便利だった | ライフハッカー・ジャパン",
+    "description": "MacbookのDockはすぐにアプリを起動できる反面、ときどき邪魔になることも、Dockよりも省スペースなメニューバーにアプリを置くとMacの画面を最大限に生かせます。",
+    "image": "https://media.loom-app.com/loom/2025/08/13/796c6f95-7305-46df-acce-3890d0a3f136/original.png?w=1200&h=630&f=jpg"
+  },
+  {
+    "No": "245",
+    "url": "https://codezine.jp/article/detail/22113",
+    "title": "「jQuery 4.0.0」のリリース候補版が公開",
+    "description": "jQuery Foundationは、8月11日、次期メジャー版の候補として「jQuery 4.0.0 Release Candidate 1」を公開した。",
+    "image": "https://codezine.jp/static/images/article/22113/16568_ogp.png"
+  },
+  {
+    "No": "246",
+    "url": "https://internet.watch.impress.co.jp/docs/column/shimizu/2037089.html",
+    "title": "あなたの家のNASも載ってるかも!? ネット上の“公開資産”を勝手に調査する「Censys」から情報を削除する【イニシャルB】",
+    "description": "NASを外出先から利用している人は要注意だ。環境によっては、NASにアクセスするための情報が収集され、検索可能になっている可能性がある。「Censys」によって、何が公開されるのか？　どうすれば遮断できるのか？　を解説する。",
+    "image": "https://internet.watch.impress.co.jp/img/iw/list/2037/089/001.png"
+  },
+  {
+    "No": "247",
+    "url": "https://engineering.dena.com/blog/2025/08/cedec2025-qa/",
+    "title": "炎上もBANも未然に防ぐ！DeNAがCEDEC2025で語った「社会的品質」への取り組み | BLOG - DeNA Engineering",
+    "description": "はじめに\n  \nはじめまして、DeNA\n\n  品質管理部\n\n \nの花房です。\nこの度、CEDEC2025に登壇する機会を頂戴しまして、2025年7月24日に「社会的品質」に対する取り組みをご紹介させていただきました。\nCEDECをご存じでない方もいらっしゃるかと思いますので、簡単にご紹介いたします。\nCEDECは「Computer Entertainment Developers …",
+    "image": "https://engineering.dena.com/blog/2025/08/cedec2025-qa/cover.png"
+  },
+  {
+    "No": "248",
+    "url": "https://share.google/SZSaskc7JyQGtk3su",
+    "title": "AI駆動開発ツール：コーディングエージェントとTextToAppまとめ（2025年9月版）",
+    "description": "アプリケーション開発の生産性向上において、AIによるプログラミング支援ツールやサービスは欠かせないものになろうとしていますが、一方でこの分野にはさまざまなベンダから新製品やサービスが続々と投入され続けており、その全体像を把握するのが難しくな...",
+    "image": "https://www.publickey1.jp/fbico_pblky.png"
+  },
+  {
+    "No": "249",
+    "url": "https://gigazine.net/news/20251001-gmail-gmailify-pop-support-end/",
+    "title": "GmailでのPOPとGmailifyのサポートが2026年1月で終了、POP経由でGmailのメールをサードパーティークライアントで受信する機能が廃止に",
+    "description": "Googleが2026年1月で、GmailにおけるGmailifyとPOPのサポートを終了すると発表しました。",
+    "image": "https://i.gzn.jp/img/2025/10/01/gmail-gmailify-pop-support-end/00_m.jpg"
+  },
+  {
+    "No": "250",
+    "url": "https://www.publickey1.jp/blog/25/diaai.html",
+    "title": "「Diaブラウザ」正式版に、誰でもダウンロード可能。AI時代の業務のためのブラウザを目指す",
+    "description": "Arcブラウザで知られるThe Browser Companyが新たに開発しているブラウザ「Diaブラウザ」が正式版となり、誰でもダウンロード可能となりました。 macOS 14以降のOSおよびM1チップ以降のプロセッサを搭載したMacで利...",
+    "image": "https://www.publickey1.jp/2025/diabrowser-ga.png"
+  },
+  {
+    "No": "251",
+    "url": "https://share.google/v3nQr76RyzuMXUsQ5",
+    "title": "GoogleがChromeの「プライバシーサンドボックス技術」廃止を決定",
+    "description": "サードパーティーCookieを段階的に廃止する方針をやめ引き続き維持していくことになったGoogleが、サードパーティーCookieの代替技術として提案していたプライバシーサンドボックスの正式な廃止を表明しました。",
+    "image": "https://i.gzn.jp/img/2025/10/21/chrome-privacy-sandbox-retire/00.jpg"
+  },
+  {
+    "No": "252",
+    "url": "https://xtech.nikkei.com/atcl/nxt/column/18/03364/100300006/",
+    "title": "パスキー導入後に残る3つの隙、なりすまし登録・Cookie窃取・救済手段の悪用",
+    "description": "フィッシング耐性を備える「パスキー」を導入すれば、認証の安全性は高まる。ただ、機密性の高い情報を守るという視点に立つと、パスキー導入後も油断はできない。攻撃者は認証の前後にあるプロセスに潜む隙を突いてくる。主な攻撃の手口は3つ考えられる。",
+    "image": "https://xtech.nikkei.com/atcl/nxt/column/18/03364/100300006/topm.jpg?20220512"
+  },
+  {
+    "No": "253",
+    "url": "https://nextjs.org/blog/next-16",
+    "title": "Next.js 16",
+    "description": "Next.js 16 includes Cache Components, stable Turbopack, file system caching, React Compiler support, smarter routing, new caching APIs, and React 19.2 features.",
+    "image": "https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/static/blog/next-16/twitter-card.png"
+  },
+  {
+    "No": "254",
+    "url": "https://nuxt.com/blog/v4-2",
+    "title": "Nuxt 4.2 · Nuxt Blog",
+    "description": "Nuxt 4.2 is out - with experimental TypeScript plugin support, better error handling in development, abort control for data fetching, and more!",
+    "image": "https://nuxt.com/assets/blog/v4.2.png"
+  },
+  {
+    "No": "255",
+    "url": "https://techblog.zozo.com/entry/zozotown-frontend-directory-design",
+    "title": "ZOZOTOWN フロントエンドにおけるディレクトリの分割戦略 - ZOZO TECH BLOG",
+    "description": "はじめに こんにちは。ZOZOTOWN開発本部フロントエンドの菊地（@hiro0218）です。 2021年、ZOZOTOWNはフロントエンドリプレイスを開始しました。現在、ホームページや商品一覧ページなど主要なページのNext.js化が完了し、運用フェーズに入っています。詳細は以下の記事を参照してください。 techblog.zozo.com 開始当初、他社事例を参考にしながら、よくある課題を未然に防ぐディレクトリ構成を設計しました。本記事では、約4年にわたる運用で改善を重ねてきたディレクトリの分割戦略について紹介します。 ※本記事は2025年8月にちょっと株式会社との合同勉強会で発表した内容…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/62316eced367994237fd24babdcc356a374dd0de/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fv%2Fvasilyjp%2F20251104%2F20251104205201.png"
+  },
+  {
+    "No": "256",
+    "url": "https://zenn.dev/assign/articles/ab66b2843d9380",
+    "title": "仕様駆動開発（SDD）を採用したAI駆動開発の実態と課題",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--I091odRI--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E4%25BB%2595%25E6%25A7%2598%25E9%25A7%2586%25E5%258B%2595%25E9%2596%258B%25E7%2599%25BA%25EF%25BC%2588SDD%25EF%25BC%2589%25E3%2582%2592%25E6%258E%25A1%25E7%2594%25A8%25E3%2581%2597%25E3%2581%259FAI%25E9%25A7%2586%25E5%258B%2595%25E9%2596%258B%25E7%2599%25BA%25E3%2581%25AE%25E5%25AE%259F%25E6%2585%258B%25E3%2581%25A8%25E8%25AA%25B2%25E9%25A1%258C%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:CHIHIRO%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzE4YmMzMGUwOGIuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25A2%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%25B3%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzA3NjI3NjRiZTYuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "257",
+    "url": "https://olliewilliams.xyz/blog/sanitizer/?utm_source=ECMAScript.news&utm_medium=Weekly+Newsletter&utm_campaign=2025-11-12",
+    "title": "setHTML(), Trusted Types and the Sanitizer API",
+    "description": "Avoiding cross-site scripting (XSS) attacks with new web APIs",
+    "image": "https://olliewilliams.xyz/sanitizer.png"
+  },
+  {
+    "No": "258",
+    "url": "https://allthingssmitty.com/2025/11/10/error-chaining-in-javascript-cleaner-debugging-with-error-cause/?utm_source=ECMAScript.news&utm_medium=Weekly+Newsletter&utm_campaign=2025-11-12",
+    "title": "Error chaining in JavaScript: cleaner debugging with Error.cause - Matt Smith",
+    "description": "Use JavaScript's 'cause' property to chain errors, preserve context, and simplify debugging. Cleaner stack traces, better test assertions.",
+    "image": "https://allthingssmitty.com/img/posts/sunset-home-office-min.jpg"
+  },
+  {
+    "No": "259",
+    "url": "https://www.polarsignals.com/blog/posts/2025/11/04/javascript-source-maps-internals?utm_source=ECMAScript.news&utm_medium=Weekly+Newsletter&utm_campaign=2025-11-12",
+    "title": "The Inner Workings of JavaScript Source Maps",
+    "description": "A deep dive into how JavaScript source maps work under the hood, with examples showing how all the pieces fit together.",
+    "image": "https://polarsignals.com/api/og?title=The%20Inner%20Workings%20of%20JavaScript%20Source%20Maps&authors=Manoj%20Vivek&tags=JavaScript,Source%20Maps,TypeScript,Developer%20Tools,Symbolization"
+  },
+  {
+    "No": "260",
+    "url": "https://speakerdeck.com/gotalab555/shi-yang-qu-dong-kai-fa-noli-xiang-toxian-shi-sositexiang-kihe-ifang",
+    "title": "仕様駆動開発の理想と現実、そして向き合い方",
+    "description": "AIコーディングにおいて「Vibe Coding」から脱却し、確実な成果を出すための「Spec-Driven Development (SDD / 仕様駆動開発)」について、その理想的なフローと現場で直面する現実（Specの巨大化、検証の難しさ）を紹介。\n\nOSSの仕様駆動開発ツール「cc-sdd」&hellip;",
+    "image": "https://files.speakerdeck.com/presentations/cf86c01616cc4e3dad955bcf0f506af1/slide_0.jpg?37436194"
+  },
+  {
+    "No": "261",
+    "url": "https://share.google/9M5tSsjqQxvwHxgm6",
+    "title": "ソフトウェアエンジニアリング入門",
+    "description": "フリーの新人教育で使ったテキストを公開します。",
+    "image": "https://files.speakerdeck.com/presentations/7a64c2a968bc4f578aba80983a946cd5/slide_0.jpg?37458411"
+  },
+  {
+    "No": "262",
+    "url": "https://codezine.jp/news/detail/22564",
+    "title": "ログがわかればサイト改善やセキュリティに活かせる　『実務で役立つ ログの教科書』発売",
+    "description": "",
+    "image": "https://codezine.jp/static/images/article/22564/22564_share.png"
+  },
+  {
+    "No": "263",
+    "url": "https://nulab.com/ja/blog/nulab/website-redirect-methods/",
+    "title": "ウェブサイトのリダイレクト実装方法の比較 | 株式会社ヌーラボ(Nulab inc.)",
+    "description": "この記事はヌーラボブログリレー2025 冬 の12日目として投稿しています。 こんにちは！ウェブサイトユニットの野津です。",
+    "image": "https://d1u2e6wtudxkpm.cloudfront.net/wp-content/uploads/sites/2/2025/12/Tech-Notsu-2.png"
+  }
+]
