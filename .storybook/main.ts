@@ -1,6 +1,9 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
 import type { StorybookConfig } from "@storybook/react-vite";
+
+import svgr from "vite-plugin-svgr";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -16,6 +19,8 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: async (config) => {
+    config.plugins?.push(svgr());
+
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve?.alias,

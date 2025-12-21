@@ -3,55 +3,20 @@
 import Section from "~/components/ui/Section";
 import Splash from "~/components/ui/Splash";
 import Tab from "~/components/ui/Tab";
+import qualificationsJson from "~/consts/qualifications.json";
+import skillsJson from "~/consts/skills.json";
 import { cn } from "~/utils/cn";
 
 export default function About() {
   const themeColor = "blue-200";
   const backgroundColor = `bg-${themeColor}`;
   const textColor = `text-${themeColor}`;
-  const skills = [
-    "HTML",
-    "CSS",
-    "SCSS",
-    "TailwindCSS",
-    "JavaScript",
-    "TypeScript",
-    "Vue.js",
-    "Nuxt.js",
-    "React.js",
-    "Next.js",
-  ];
-  const qualifications = [
-    { date: "2012.08", name: "普通自動車免許", status: "取得" },
-    { date: "2015.03", name: "臨床工学技士免許", status: "取得" },
-    { date: "2015.07", name: "第１種ME技術実力検定試験", status: "総合合格" },
-    { date: "2025.06", name: "基本情報技術者試験", status: "合格" },
-    {
-      date: "2025.06",
-      name: "AWS Certified Cloud Practitioner",
-      status: "合格",
-    },
-    {
-      date: "2025.08",
-      name: "AWS Certified Solutions Architect - Associate",
-      status: "合格",
-    },
-    {
-      date: "2025.11",
-      name: "HTML5プロフェッショナル認定試験 レベル1",
-      status: "合格",
-    },
-    {
-      date: "2025.11",
-      name: "HTML5プロフェッショナル認定試験 レベル2",
-      status: "合格",
-    },
-    {
-      date: "2025.11",
-      name: "JSTQB認定テスト技術者資格 Foundation Level試験",
-      status: "合格",
-    },
-  ];
+  const skills = skillsJson as string[];
+  const qualifications = qualificationsJson as {
+    date: string;
+    name: string;
+    status: string;
+  }[];
 
   return (
     <>
