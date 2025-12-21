@@ -41,7 +41,7 @@ export default function About() {
               >
                 <img
                   alt="me"
-                  src="/src/assets/images/me_1024.svg"
+                  src="/images/me_1024.svg"
                   className={cn("size-full object-cover")}
                 />
               </div>
