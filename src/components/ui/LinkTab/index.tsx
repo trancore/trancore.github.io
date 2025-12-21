@@ -8,17 +8,15 @@ type Props = {
   text: string;
   to: To;
   isActive?: boolean;
-  onClick: () => void;
 };
 
-export default function Tab({ text, to, isActive = false, onClick }: Props) {
+export default function Tab({ text, to, isActive = false }: Props) {
   return (
     <Link to={to}>
       <HeadlessTab
         className={cn("py-2 text-2xl", "font-bold", "cursor-pointer", {
           "border-b-2": isActive,
         })}
-        onClick={onClick}
       >
         {text}
       </HeadlessTab>

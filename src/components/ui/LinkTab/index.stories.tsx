@@ -25,7 +25,6 @@ export const active: Story = {
     text: "active",
     to: "/",
     isActive: true,
-    onClick: () => {},
   },
 };
 
@@ -34,6 +33,5 @@ export const inactive: Story = {
     text: "inactive",
     to: "/",
     isActive: false,
-    onClick: () => {},
   },
 };
