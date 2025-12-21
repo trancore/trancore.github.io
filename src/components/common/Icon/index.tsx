@@ -1,4 +1,4 @@
-﻿import { Bars3Icon } from "@heroicons/react/24/outline";
+﻿import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import FacebookIcon from "~/assets/images/icons/facebook.svg?react";
 import GithubIcon from "~/assets/images/icons/github.svg?react";
@@ -10,6 +10,7 @@ import { cn } from "~/utils/cn";
 
 type IconType =
   | "BARS"
+  | "X_MARK"
   | "FACEBOOK"
   | "GITHUB"
   | "HATENA"
@@ -39,6 +40,7 @@ type Props = {
 
 const ICON: Record<IconType, IconComponent> = {
   BARS: Bars3Icon,
+  X_MARK: XMarkIcon,
   FACEBOOK: FacebookIcon,
   GITHUB: GithubIcon,
   HATENA: HatenaIcon,
