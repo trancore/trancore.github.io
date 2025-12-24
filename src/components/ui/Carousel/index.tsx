@@ -1,4 +1,5 @@
-﻿import { cn } from "~/utils/cn";
+﻿import { useMediaQuery } from "~/hooks/useMeidaQuery";
+import { cn } from "~/utils/cn";
 import type { ReactNode } from "react";
 import { A11y, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,22 +11,23 @@ type Props = {
 };
 
 export default function Carousel({ slides, swiperOption }: Props) {
+  const { isPC, isTablet, isSP } = useMediaQuery();
+
   const resultSwiperOption: SwiperOptions = {
-    freeMode: true,
-    slidesPerView: 3,
+    spaceBetween: 32,
+    slidesPerView: isSP ? 1.5 : isTablet ? 2.5 : isPC ? 3.5 : 1.25,
     navigation: true,
     ...swiperOption,
   };
 
   return (
-    <Swiper modules={[A11y, Navigation]} {...resultSwiperOption}>
+    <Swiper
+      modules={[A11y, Navigation]}
+      className={cn("flex justify-center")}
+      {...resultSwiperOption}
+    >
       {slides.map((slide, index) => (
-        <SwiperSlide
-          key={`slides-${index.toString()}`}
-          className={cn("nth-[1]:ml-11")}
-        >
-          {slide}
-        </SwiperSlide>
+        <SwiperSlide key={`slides-${index.toString()}`}>{slide}</SwiperSlide>
       ))}
     </Swiper>
   );
