@@ -1,5 +1,4 @@
 ﻿import { useMediaQuery } from "~/hooks/useMeidaQuery";
-import { cn } from "~/utils/cn";
 import type { ReactNode } from "react";
 import { A11y, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,11 +20,7 @@ export default function Carousel({ slides, swiperOption }: Props) {
   };
 
   return (
-    <Swiper
-      modules={[A11y, Navigation]}
-      className={cn("flex justify-center")}
-      {...resultSwiperOption}
-    >
+    <Swiper modules={[A11y, Navigation]} {...resultSwiperOption}>
       {slides.map((slide, index) => (
         <SwiperSlide key={`slides-${index.toString()}`}>{slide}</SwiperSlide>
       ))}
