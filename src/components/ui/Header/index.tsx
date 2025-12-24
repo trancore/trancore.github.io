@@ -3,6 +3,7 @@ import { TabGroup, TabList } from "@headlessui/react";
 import Icon from "~/components/common/Icon";
 import LinkTab from "~/components/ui/LinkTab";
 import { PAGE_PATH } from "~/consts";
+import { useMediaQuery } from "~/hooks/useMeidaQuery";
 import { cn } from "~/utils/cn";
 
 type Props = {
@@ -12,7 +13,7 @@ type Props = {
 };
 
 export default function Header({ hamburgerMenu }: Props) {
-  const isPC = false;
+  const { isPC, isTablet } = useMediaQuery();
 
   return (
     <header
@@ -24,7 +25,7 @@ export default function Header({ hamburgerMenu }: Props) {
       <h1 className={cn("font-bold text-2xl md:text-4xl")}>
         Trancore's Home Page
       </h1>
-      {isPC ? (
+      {isPC || isTablet ? (
         <nav>
           <TabGroup>
             <TabList className={cn("flex gap-8")}>
