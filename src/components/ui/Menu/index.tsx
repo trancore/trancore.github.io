@@ -39,12 +39,13 @@ export default function Menu({ close }: Props) {
           "h-dvh w-4/5",
           "absolute right-0",
           "bg-white dark:bg-black",
+          "animate-fade-in-from-right",
         )}
       >
         <div className={cn("px-2 py-4", "flex justify-end")}>
-          <Icon type="X_MARK" size={48} />
+          <Icon type="X_MARK" size={48} onClick={close.onClick} />
         </div>
-        <div className={cn("mt-4 pl-4")}>
+        <div className={cn("mt-4 pl-6")}>
           <TabGroup>
             <TabList
               className={cn("gap-8", "flex flex-col")}

@@ -5,8 +5,14 @@ import LinkTab from "~/components/ui/LinkTab";
 import { PAGE_PATH } from "~/consts";
 import { cn } from "~/utils/cn";
 
-export default function Header() {
-  const isPC = true;
+type Props = {
+  hamburgerMenu: {
+    onClick: () => void;
+  };
+};
+
+export default function Header({ hamburgerMenu }: Props) {
+  const isPC = false;
 
   return (
     <header
@@ -22,18 +28,14 @@ export default function Header() {
         <nav>
           <TabGroup>
             <TabList className={cn("flex gap-8")}>
-              <LinkTab text="Home" to={PAGE_PATH.HOME} onClick={() => {}} />
-              <LinkTab text="About" to={PAGE_PATH.ABOUT} onClick={() => {}} />
-              <LinkTab
-                text="Products"
-                to={PAGE_PATH.PRODUCTS}
-                onClick={() => {}}
-              />
+              <LinkTab text="Home" to={PAGE_PATH.HOME} />
+              <LinkTab text="About" to={PAGE_PATH.ABOUT} />
+              <LinkTab text="Products" to={PAGE_PATH.PRODUCTS} />
             </TabList>
           </TabGroup>
         </nav>
       ) : (
-        <Icon type="BARS" size={32} />
+        <Icon type="BARS" size={48} onClick={hamburgerMenu.onClick} />
       )}
     </header>
   );
