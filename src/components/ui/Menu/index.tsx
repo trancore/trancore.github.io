@@ -51,9 +51,21 @@ export default function Menu({ close }: Props) {
               className={cn("gap-8", "flex flex-col")}
               onClick={close.onClick}
             >
-              <LinkTab text="Home" to={PAGE_PATH.HOME} />
-              <LinkTab text="About" to={PAGE_PATH.ABOUT} />
-              <LinkTab text="Products" to={PAGE_PATH.PRODUCTS} />
+              <LinkTab
+                text="Home"
+                to={PAGE_PATH.HOME}
+                onClick={close.onClick}
+              />
+              <LinkTab
+                text="About"
+                to={PAGE_PATH.ABOUT}
+                onClick={close.onClick}
+              />
+              <LinkTab
+                text="Products"
+                to={PAGE_PATH.PRODUCTS}
+                onClick={close.onClick}
+              />
             </TabList>
           </TabGroup>
         </div>
