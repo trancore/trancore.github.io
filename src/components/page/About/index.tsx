@@ -58,7 +58,7 @@ export default function About() {
             </div>
           </Section>
         </div>
-        <div className={cn("col-span-1")}>
+        <div className={cn("col-span-2 lg:col-span-1")}>
           <Section title="Skills">
             <TabGroup className={cn("gap-2", "flex flex-wrap")}>
               {skills.map((skillName) => (
@@ -71,7 +71,7 @@ export default function About() {
             </TabGroup>
           </Section>
         </div>
-        <div className={cn("col-span-1")}>
+        <div className={cn("col-span-2 lg:col-span-1")}>
           <Section title="Qualification">
             <ul>
               {qualifications.map((qualification) => (
@@ -79,7 +79,7 @@ export default function About() {
                   key={qualification.name}
                   className={cn("flex justify-between")}
                 >
-                  <div className={cn("gap-4", "flex")}>
+                  <div className={cn("w-72 gap-4 sm:w-auto", "flex")}>
                     <span>{qualification.date}</span>
                     <span className={cn("font-semibold")}>
                       {qualification.name}
