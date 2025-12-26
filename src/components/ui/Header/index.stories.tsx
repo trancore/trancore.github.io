@@ -10,9 +10,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const active_home: Story = {
-  parameters: {
-    backgrounds: {
-      options: {},
+  args: {
+    hamburgerMenu: {
+      onClick: () => {},
     },
   },
 };
