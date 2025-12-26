@@ -49,7 +49,7 @@ export default function Footer() {
         </a>
       </div>
       <p className={cn("flex justify-center", "text-gray-500 text-sm")}>
-        ©︎ 2025 Kosuke Iwasaki
+        ©︎ 2025 trancore
       </p>
     </footer>
   );

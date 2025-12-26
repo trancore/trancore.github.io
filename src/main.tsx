@@ -5,7 +5,7 @@ import { routeTree } from "~/routeTree.gen";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 
-import "./styles.css";
+import "~/assets/css/styles.css";
 
 import "swiper/css";
 import "swiper/css/navigation";
