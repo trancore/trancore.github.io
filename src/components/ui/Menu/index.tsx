@@ -1,4 +1,5 @@
 ﻿import { TabGroup, TabList } from "@headlessui/react";
+import { useRouterState } from "@tanstack/react-router";
 
 import Icon from "~/components/common/Icon";
 import LinkTab from "~/components/ui/LinkTab";
@@ -16,6 +17,8 @@ type Props = {
  * SPの時だけ表示するメニューコンポーネント
  */
 export default function Menu({ close }: Props) {
+  const { location } = useRouterState();
+
   useEffect(() => {
     const originalStyle = window.getComputedStyle(document.body).overflow;
     document.body.style.overflow = "hidden";
@@ -55,16 +58,19 @@ export default function Menu({ close }: Props) {
                 text="Home"
                 to={PAGE_PATH.HOME}
                 onClick={close.onClick}
+                isActive={location.pathname === PAGE_PATH.HOME}
               />
               <LinkTab
                 text="About"
                 to={PAGE_PATH.ABOUT}
                 onClick={close.onClick}
+                isActive={location.pathname === PAGE_PATH.ABOUT}
               />
               <LinkTab
                 text="Products"
                 to={PAGE_PATH.PRODUCTS}
                 onClick={close.onClick}
+                isActive={location.pathname === PAGE_PATH.PRODUCTS}
               />
             </TabList>
           </TabGroup>

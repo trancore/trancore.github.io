@@ -1,4 +1,5 @@
 import { TabGroup, TabList } from "@headlessui/react";
+import { useRouterState } from "@tanstack/react-router";
 
 import Icon from "~/components/common/Icon";
 import LinkTab from "~/components/ui/LinkTab";
@@ -14,6 +15,7 @@ type Props = {
 
 export default function Header({ hamburgerMenu }: Props) {
   const { isPC, isTablet } = useMediaQuery();
+  const { location } = useRouterState();
 
   return (
     <header
@@ -29,9 +31,21 @@ export default function Header({ hamburgerMenu }: Props) {
         <nav>
           <TabGroup>
             <TabList className={cn("flex gap-8")}>
-              <LinkTab text="Home" to={PAGE_PATH.HOME} />
-              <LinkTab text="About" to={PAGE_PATH.ABOUT} />
-              <LinkTab text="Products" to={PAGE_PATH.PRODUCTS} />
+              <LinkTab
+                text="Home"
+                to={PAGE_PATH.HOME}
+                isActive={location.pathname === PAGE_PATH.HOME}
+              />
+              <LinkTab
+                text="About"
+                to={PAGE_PATH.ABOUT}
+                isActive={location.pathname === PAGE_PATH.ABOUT}
+              />
+              <LinkTab
+                text="Products"
+                to={PAGE_PATH.PRODUCTS}
+                isActive={location.pathname === PAGE_PATH.PRODUCTS}
+              />
             </TabList>
           </TabGroup>
         </nav>
