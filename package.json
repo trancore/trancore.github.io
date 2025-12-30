@@ -13,6 +13,7 @@
     "build-storybook": "storybook build",
     "format": "biome format",
     "lint": "biome lint",
+    "check:types": "tsc --noEmit",
     "check": "biome check",
     "test": "vitest run"
   },
