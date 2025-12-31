@@ -7,18 +7,9 @@ export default function About() {
       <Splash
         title="🚧 工事中"
         descriptions={[]}
-        backgroundColor="bg-green-200"
+        backgroundColor="bg-green-400"
       />
-      <div
-        className={cn(
-          "max-w-7xl p-6",
-          "text-black dark:text-white",
-          "bg-white dark:bg-black",
-          "m-auto",
-        )}
-      >
-        WIP...
-      </div>
+      <div className={cn("max-w-7xl p-6", "m-auto")}>WIP...</div>
     </>
   );
 }

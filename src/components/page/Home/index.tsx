@@ -32,15 +32,9 @@ export default function Home() {
         title="Home"
         descriptions={["Welcome to My WebPage !!!", "ようこそ！"]}
         linkButtton={{ href: "/about", label: "View About Me" }}
-        backgroundColor="bg-gray-200"
+        backgroundColor="bg-gray-400"
       />
-      <div
-        className={cn(
-          "m-auto max-w-7xl p-6",
-          "text-black dark:text-white",
-          "bg-white dark:bg-black",
-        )}
-      >
+      <div className={cn("m-auto max-w-7xl p-6")}>
         <Section title="Recent Articles - 最近読んだ記事">
           <Carousel
             slides={articles.map((article) => (

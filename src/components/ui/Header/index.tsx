@@ -22,8 +22,6 @@ export default function Header({ hamburgerMenu }: Props) {
       className={cn(
         "mx-auto max-w-7xl px-2 py-4",
         "flex items-center justify-between",
-        "text-black dark:text-white",
-        "bg-white dark:bg-black",
       )}
     >
       <h1 className={cn("font-bold text-2xl md:text-4xl")}>

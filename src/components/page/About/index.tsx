@@ -8,7 +8,7 @@ import skillsJson from "~/consts/skills.json";
 import { cn } from "~/utils/cn";
 
 export default function About() {
-  const themeColor = "blue-200";
+  const themeColor = "sky-400";
   const backgroundColor = `bg-${themeColor}`;
   const textColor = `text-${themeColor}`;
   const skills = skillsJson as string[];
@@ -29,14 +29,7 @@ export default function About() {
         linkButtton={{ href: "/products", label: "View My Products" }}
         backgroundColor={backgroundColor}
       />
-      <div
-        className={cn(
-          "max-w-7xl gap-4 p-6",
-          "text-black dark:text-white",
-          "bg-white dark:bg-black",
-          "m-auto grid grid-cols-2",
-        )}
-      >
+      <div className={cn("max-w-7xl gap-4 p-6", "m-auto grid grid-cols-2")}>
         <div className={cn("col-span-2")}>
           <Section title="Me">
             <div className={cn("gap-10", "flex items-center")}>
