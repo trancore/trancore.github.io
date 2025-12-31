@@ -11,13 +11,17 @@ fi
 
 echo "start pre-commit."
 
+echo ""
+
 echo "🚀 Running format..."
 pnpm run format --write
 if [ $? -ne 0 ]; then
   echo "👎 format failed. Aborting commit."
   exit 1
 fi
-echo "👍 format checks passed."
+echo "👍 format passed."
+
+echo ""
 
 echo "🚀 Running lint checks..."
 pnpm run lint
@@ -26,6 +30,8 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 echo "👍 lint checks passed."
+
+echo ""
 
 echo "🚀 Running type checks..."
 pnpm run check:types
