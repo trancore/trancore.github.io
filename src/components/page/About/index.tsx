@@ -8,7 +8,7 @@ import skillsJson from "~/consts/skills.json";
 import { cn } from "~/utils/cn";
 
 export default function About() {
-  const themeColor = "blue-200";
+  const themeColor = "sky-400";
   const backgroundColor = `bg-${themeColor}`;
   const textColor = `text-${themeColor}`;
   const skills = skillsJson as string[];
@@ -47,9 +47,7 @@ export default function About() {
               </div>
               <div>
                 <p className={cn("font-bold text-2xl")}>trancore</p>
-                <p className={cn("mt-1", "text-xs", "text-gray-500")}>
-                  (一応本名は避けておきます)
-                </p>
+                <p className={cn("mt-1", "text-xs", "text-gray-500")}></p>
 
                 <p className={cn("mt-3")}>I'm a Frontend Developer.</p>
                 <p>ご訪問いただきありがとうございます。</p>
@@ -60,7 +58,9 @@ export default function About() {
         </div>
         <div className={cn("col-span-2 lg:col-span-1")}>
           <Section title="Skills">
-            <TabGroup className={cn("gap-2", "flex flex-wrap")}>
+            <TabGroup
+              className={cn("gap-2", "dark:text-black", "flex flex-wrap")}
+            >
               {skills.map((skillName) => (
                 <Tab
                   key={skillName}

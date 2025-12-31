@@ -16,10 +16,24 @@ export default function Layout({ children }: Props) {
 
   return (
     <div className={cn("flex min-h-screen flex-col")}>
-      <div className={cn("shrink-0")}>
+      <div
+        className={cn(
+          "shrink-0",
+          "text-black dark:text-white",
+          "bg-white dark:bg-black",
+        )}
+      >
         <Header hamburgerMenu={hamburgerMenu} />
       </div>
-      <main className={cn("flex-1")}>{children}</main>
+      <main
+        className={cn(
+          "flex-1",
+          "text-black dark:text-white",
+          "bg-white dark:bg-black",
+        )}
+      >
+        {children}
+      </main>
       <div className={cn("shrink-0")}>
         <Footer />
       </div>
