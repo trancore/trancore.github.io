@@ -47,9 +47,7 @@ export default function About() {
               </div>
               <div>
                 <p className={cn("font-bold text-2xl")}>trancore</p>
-                <p className={cn("mt-1", "text-xs", "text-gray-500")}>
-                  (一応本名は避けておきます)
-                </p>
+                <p className={cn("mt-1", "text-xs", "text-gray-500")}></p>
 
                 <p className={cn("mt-3")}>I'm a Frontend Developer.</p>
                 <p>ご訪問いただきありがとうございます。</p>
