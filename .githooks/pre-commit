@@ -1,8 +1,18 @@
-﻿#!/usr/bin/env zsh
+#!/bin/sh
+
+# Load user's shell profile to get PATH for pnpm
+if [ -f "$HOME/.zshrc" ]; then
+  source "$HOME/.zshrc"
+elif [ -f "$HOME/.bash_profile" ]; then
+  source "$HOME/.bash_profile"
+elif [ -f "$HOME/.bashrc" ]; then
+  source "$HOME/.bashrc"
+fi
+
 echo "start pre-commit."
 
-echo "🚀 Running format checks..."
-npm run format
+echo "🚀 Running format..."
+pnpm run format --write
 if [ $? -ne 0 ]; then
   echo "👎 format failed. Aborting commit."
   exit 1
@@ -10,15 +20,15 @@ fi
 echo "👍 format checks passed."
 
 echo "🚀 Running lint checks..."
-npm run lint
+pnpm run lint
 if [ $? -ne 0 ]; then
   echo "👎 lint failed. Aborting commit."
   exit 1
 fi
 echo "👍 lint checks passed."
 
-necho "🚀 Running type checks..."
-npm run check:types
+echo "🚀 Running type checks..."
+pnpm run check:types
 if [ $? -ne 0 ]; then
   echo "👎 type-checks failed. Aborting commit."
   exit 1

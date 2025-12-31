@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prepare": "git config --local core.hooksPath .githooks",
     "dev": "vite --port 3000",
     "start": "vite --port 3000",
     "build": "vite build && tsc",
