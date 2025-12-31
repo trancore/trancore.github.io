@@ -41,6 +41,7 @@ export default function Menu({ close }: Props) {
         className={cn(
           "h-dvh w-4/5",
           "absolute right-0",
+          "text-black dark:text-white",
           "bg-white dark:bg-black",
           "animate-fade-in-from-right",
         )}

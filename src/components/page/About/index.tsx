@@ -29,7 +29,14 @@ export default function About() {
         linkButtton={{ href: "/products", label: "View My Products" }}
         backgroundColor={backgroundColor}
       />
-      <div className={cn("max-w-7xl gap-4 p-6", "m-auto grid grid-cols-2")}>
+      <div
+        className={cn(
+          "max-w-7xl gap-4 p-6",
+          "text-black dark:text-white",
+          "bg-white dark:bg-black",
+          "m-auto grid grid-cols-2",
+        )}
+      >
         <div className={cn("col-span-2")}>
           <Section title="Me">
             <div className={cn("gap-10", "flex items-center")}>
@@ -60,7 +67,9 @@ export default function About() {
         </div>
         <div className={cn("col-span-2 lg:col-span-1")}>
           <Section title="Skills">
-            <TabGroup className={cn("gap-2", "flex flex-wrap")}>
+            <TabGroup
+              className={cn("gap-2", "dark:text-black", "flex flex-wrap")}
+            >
               {skills.map((skillName) => (
                 <Tab
                   key={skillName}
