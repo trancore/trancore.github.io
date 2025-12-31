@@ -1,4 +1,5 @@
 ﻿import { Link } from "@tanstack/react-router";
+
 import type { To } from "~/types/route";
 import { cn } from "~/utils/cn";
 
@@ -17,9 +18,9 @@ export default function LinkButton({
   return (
     <div
       className={cn(
-        "px-3 py-1.5 w-fit",
+        "w-fit px-3 py-1.5",
         `font-bold text-white ${backgroundColor}`,
-        "rounded-sm ",
+        "rounded-sm",
       )}
     >
       <Link to={to}>{text}</Link>
