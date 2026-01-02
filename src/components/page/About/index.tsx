@@ -8,9 +8,8 @@ import skillsJson from "~/consts/skills.json";
 import { cn } from "~/utils/cn";
 
 export default function About() {
-  const themeColor = "sky-400";
-  const backgroundColor = `bg-${themeColor}`;
-  const textColor = `text-${themeColor}`;
+  const backgroundColor = "bg-sky-400";
+  const textColor = "text-sky-400";
   const skills = skillsJson as string[];
   const qualifications = qualificationsJson as {
     date: string;
