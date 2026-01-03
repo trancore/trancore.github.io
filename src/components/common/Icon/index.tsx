@@ -1,4 +1,9 @@
-﻿import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+﻿import {
+  Bars3Icon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 
 import FacebookIcon from "~/assets/images/icons/facebook.svg?react";
 import GithubIcon from "~/assets/images/icons/github.svg?react";
@@ -10,6 +15,8 @@ import { cn } from "~/utils/cn";
 
 type IconType =
   | "BARS"
+  | "CHEVRON_DOWN"
+  | "CHEVRON_UP"
   | "X_MARK"
   | "FACEBOOK"
   | "GITHUB"
@@ -17,7 +24,7 @@ type IconType =
   | "LINKEDIN"
   | "X"
   | "ZENN";
-type IconSizePixel = 24 | 32 | 48;
+type IconSizePixel = 16 | 24 | 32 | 48;
 type IconComponent = React.FC<React.SVGProps<SVGSVGElement>>;
 type Props = {
   /** アイコンの種類 */
@@ -40,6 +47,8 @@ type Props = {
 
 const ICON: Record<IconType, IconComponent> = {
   BARS: Bars3Icon,
+  CHEVRON_DOWN: ChevronDownIcon,
+  CHEVRON_UP: ChevronUpIcon,
   X_MARK: XMarkIcon,
   FACEBOOK: FacebookIcon,
   GITHUB: GithubIcon,
@@ -50,6 +59,7 @@ const ICON: Record<IconType, IconComponent> = {
 };
 
 const ICON_SIZE: Record<IconSizePixel, string> = {
+  16: "size-4",
   24: "size-6",
   32: "size-8",
   48: "size-12",
