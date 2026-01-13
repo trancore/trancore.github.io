@@ -16,9 +16,11 @@
     "lint": "biome lint",
     "check:types": "tsc --noEmit",
     "check": "biome check",
-    "test": "vitest run"
+    "test": "vitest run",
+    "generate:graphql": "graphql-codegen --config graphql-codegen.ts"
   },
   "dependencies": {
+    "@graphql-typed-document-node/core": "^3.2.0",
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.18",
@@ -26,8 +28,13 @@
     "@tanstack/react-router": "^1.141.8",
     "@tanstack/router-plugin": "^1.141.9",
     "clsx": "^2.1.1",
+    "graphql": "^16.12.0",
+    "graphql-request": "^7.4.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "react-markdown": "^10.1.0",
+    "rehype-sanitize": "^6.0.0",
+    "remark-gfm": "^4.0.1",
     "swiper": "^12.0.3",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
@@ -35,6 +42,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.10",
+    "@graphql-codegen/cli": "^6.1.0",
+    "@graphql-codegen/typescript": "^5.0.7",
     "@storybook/addon-a11y": "^10.1.10",
     "@storybook/addon-docs": "^10.1.10",
     "@storybook/react-vite": "^10.1.10",

@@ -6,7 +6,14 @@
     ".storybook",
     "routeTree.gen.ts"
   ],
-  "exclude": ["node_modules", "dist", "old", "**/*.test.ts", "**/*.test.tsx"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "old",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "src/graphql/github/query-generated/**"
+  ],
   "compilerOptions": {
     "target": "ES2022",
     "jsx": "react-jsx",
