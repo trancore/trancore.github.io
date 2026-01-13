@@ -14,6 +14,9 @@ const config: CodegenConfig = {
     "src/graphql/github/query-generated/": {
       preset: "client",
       plugins: [],
+      config: {
+        useTypeImports: true
+      }
     },
   },
 };

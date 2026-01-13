@@ -16,15 +16,19 @@ export const Default: Story = {
   args: {
     menuItems: [
       {
+        id: "github",
         title: "GitHub",
       },
       {
+        id: "musicplayer",
         title: "music player",
       },
       {
+        id: "lp",
         title: "LP",
         items: ["test1", "test2", "test3", "test4", "test5"],
       },
     ],
+    onClickMenuItem: () => {},
   },
 };

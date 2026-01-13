@@ -1,21 +1,26 @@
-﻿import {
+import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
 
 import Icon from "~/components/common/Icon";
+import { useMediaQuery } from "~/hooks/useMeidaQuery";
 import { cn } from "~/utils/cn";
 
 type Props = {
   menuItems: {
+    id: string;
     title: string;
     items?: string[];
   }[];
+  onClickMenuItem: (id: string) => void;
 };
 
-export default function MenuSide({ menuItems }: Props) {
-  return (
+export default function MenuSide({ menuItems, onClickMenuItem }: Props) {
+  const { isSP } = useMediaQuery();
+
+  return isSP ? null : (
     <aside
       className={cn(
         "p-6",
@@ -23,21 +28,39 @@ export default function MenuSide({ menuItems }: Props) {
         "rounded-lg border-2 border-gray-100 shadow-xl",
       )}
     >
-      {menuItems.map(({ title, items }) => (
-        <DisclosureItem key={title} title={title} items={items} />
+      {menuItems.map(({ id, title, items }) => (
+        <DisclosureItem
+          key={title}
+          id={id}
+          title={title}
+          items={items}
+          onClickMenuItem={onClickMenuItem}
+        />
       ))}
     </aside>
   );
 }
 
-type DisclosureItemProps = Pick<Props["menuItems"][number], "title" | "items">;
+type DisclosureItemProps = Pick<
+  Props["menuItems"][number],
+  "id" | "title" | "items"
+> &
+  Pick<Props, "onClickMenuItem">;
 
-function DisclosureItem({ title, items }: DisclosureItemProps) {
+function DisclosureItem({
+  id,
+  title,
+  items,
+  onClickMenuItem,
+}: DisclosureItemProps) {
   return (
     <Disclosure>
       {({ open }) => (
         <>
-          <DisclosureButton className={cn("py-2", "cursor-pointer font-bold")}>
+          <DisclosureButton
+            className={cn("py-2", "cursor-pointer font-bold")}
+            onClick={() => onClickMenuItem(id)}
+          >
             <div className={cn("gap-2", "flex items-center")}>
               {title}
               {items &&

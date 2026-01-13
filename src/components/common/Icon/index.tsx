@@ -1,5 +1,6 @@
 ﻿import {
   Bars3Icon,
+  BookOpenIcon,
   ChevronDownIcon,
   ChevronUpIcon,
   XMarkIcon,
@@ -15,6 +16,7 @@ import { cn } from "~/utils/cn";
 
 type IconType =
   | "BARS"
+  | "BOOK_OPEN"
   | "CHEVRON_DOWN"
   | "CHEVRON_UP"
   | "X_MARK"
@@ -47,6 +49,7 @@ type Props = {
 
 const ICON: Record<IconType, IconComponent> = {
   BARS: Bars3Icon,
+  BOOK_OPEN: BookOpenIcon,
   CHEVRON_DOWN: ChevronDownIcon,
   CHEVRON_UP: ChevronUpIcon,
   X_MARK: XMarkIcon,
