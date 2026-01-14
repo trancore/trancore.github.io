@@ -48,7 +48,10 @@
   },
   "css": {
     "formatter": {
-      "enabled": true
+      "enabled": false
+    },
+    "linter": {
+      "enabled": false
     },
     "parser": {
       "tailwindDirectives": true
