@@ -94,7 +94,7 @@
 
   .float-musicplayer {
     @apply opacity-0 will-change-transform;
-    animation: var(--animate-float-music);
+    animation: var(--animate-float-musicplayer);
   }
 
   .float-lp {

@@ -1,7 +1,7 @@
 @theme {
   --animate-fade-in-from-right: fade-in-from-right 0.5s ease-out;
   --animate-float-github: float-github 0.3s ease-out 0.05s forwards;
-  --animate-float-music: float-music 0.3s ease-out 0.1s forwards;
+  --animate-float-musicplayer: float-music 0.3s ease-out 0.1s forwards;
   --animate-float-lp: float-lp 0.3s ease-out 0.15s forwards;
 
   @keyframes fade-in-from-right {
