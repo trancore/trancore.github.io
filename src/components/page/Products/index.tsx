@@ -1,32 +1,22 @@
 ﻿import CardRepository from "~/components/ui/CardRepository";
 import MenuSide from "~/components/ui/MenuSide";
 import Splash from "~/components/ui/Splash";
+import { MENU_SIDE_ITEMS_LIST } from "~/consts/menu";
 import { RepositoryOwnerDocument } from "~/graphql/github/query-generated/graphql";
 import { useFetchGitHub } from "~/hooks/useFetchGitHub";
+import { useMediaQuery } from "~/hooks/useMeidaQuery";
+import type { MenuSideItemsList } from "~/types/menu";
 import { cn } from "~/utils/cn";
 import { useMemo, useState } from "react";
 
-const MENU_ITEMS = [
-  {
-    id: "github",
-    title: "GitHub",
-  },
-  {
-    id: "musicplayer",
-    title: "music player",
-  },
-  {
-    id: "lp",
-    title: "LP",
-    items: ["test1", "test2", "test3", "test4", "test5"],
-  },
-] as const satisfies { id: string; title: string; items?: string[] }[];
-
-type MenuItemsId = (typeof MENU_ITEMS)[number]["id"];
+type MenuSideItemsListId = MenuSideItemsList[number]["id"];
 
 export default function Products() {
   const { data, error, isLoading } = useFetchGitHub(RepositoryOwnerDocument);
-  const [selected, setSelected] = useState<MenuItemsId>(MENU_ITEMS[0].id);
+  const { isSP } = useMediaQuery();
+  const [selected, setSelected] = useState<MenuSideItemsListId>(
+    MENU_SIDE_ITEMS_LIST[0].id,
+  );
 
   const repositories = useMemo(() => {
     return data?.repositoryOwner?.repositories.edges
@@ -92,12 +82,20 @@ export default function Products() {
           {/* LP */}
           {selected === "lp" && <div></div>}
         </main>
-        <div className={cn("h-fit w-64", "sticky top-10")}>
+
+        {isSP ? (
           <MenuSide
-            menuItems={MENU_ITEMS}
-            onClickMenuItem={(id) => setSelected(id as MenuItemsId)}
+            menuItems={MENU_SIDE_ITEMS_LIST}
+            onClickMenuItem={(id) => setSelected(id as MenuSideItemsListId)}
           />
-        </div>
+        ) : (
+          <div className={cn("h-fit w-64", "sticky top-10")}>
+            <MenuSide
+              menuItems={MENU_SIDE_ITEMS_LIST}
+              onClickMenuItem={(id) => setSelected(id as MenuSideItemsListId)}
+            />
+          </div>
+        )}
       </div>
     </>
   );
