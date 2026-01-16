@@ -5,22 +5,78 @@ import {
 } from "@headlessui/react";
 
 import Icon from "~/components/common/Icon";
+import { useDisplayed } from "~/hooks/useDisplayed";
 import { useMediaQuery } from "~/hooks/useMeidaQuery";
+import type { MenuSideItemsList } from "~/types/menu";
 import { cn } from "~/utils/cn";
+import type { ComponentProps } from "react";
 
+type MenuSideItemsListId = MenuSideItemsList[number]["id"];
 type Props = {
-  menuItems: {
-    id: string;
-    title: string;
-    items?: string[];
-  }[];
+  menuItems: (MenuSideItemsList[number] & { items?: string[] })[];
   onClickMenuItem: (id: string) => void;
 };
 
 export default function MenuSide({ menuItems, onClickMenuItem }: Props) {
+  const { displayed, toggleDisplayed } = useDisplayed();
   const { isSP } = useMediaQuery();
 
-  return isSP ? null : (
+  function getIconPosition(id: MenuSideItemsListId) {
+    switch (id) {
+      case "github":
+        return "right-32 bottom-2";
+      case "musicplayer":
+        return "right-20 bottom-20";
+      case "lp":
+        return "right-3 bottom-32";
+      default:
+        return "";
+    }
+  }
+  function getIconType(
+    id: MenuSideItemsListId,
+  ): ComponentProps<typeof Icon>["type"] {
+    switch (id) {
+      case "github":
+        return "GITHUB";
+      case "musicplayer":
+        return "MUSICAL_NOTE";
+      case "lp":
+        return "COMPUTER_DESKTOP";
+    }
+  }
+
+  return isSP ? (
+    <aside className={cn("fixed")}>
+      {displayed &&
+        menuItems.map(({ id }) => (
+          <SmartPhoneFloatButton
+            key={id}
+            className={cn(
+              `float-${id}`,
+              `animate-float-${id}`,
+              getIconPosition(id),
+            )}
+          >
+            <Icon
+              type={getIconType(id)}
+              size={48}
+              onClick={() => {
+                onClickMenuItem(id);
+                toggleDisplayed();
+              }}
+            ></Icon>
+          </SmartPhoneFloatButton>
+        ))}
+      <SmartPhoneFloatButton className={cn("right-3 bottom-2")}>
+        <Icon
+          type="ELLIPSIS_VERTICAL"
+          size={48}
+          onClick={toggleDisplayed}
+        ></Icon>
+      </SmartPhoneFloatButton>
+    </aside>
+  ) : (
     <aside
       className={cn(
         "p-6",
@@ -38,6 +94,29 @@ export default function MenuSide({ menuItems, onClickMenuItem }: Props) {
         />
       ))}
     </aside>
+  );
+}
+
+type SmartPhoneFloatButtonProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+function SmartPhoneFloatButton({
+  children,
+  className,
+}: SmartPhoneFloatButtonProps) {
+  return (
+    <div
+      className={cn(
+        "size-16",
+        "fixed flex items-center justify-center",
+        "rounded-full border-2 bg-white",
+        className,
+      )}
+    >
+      {children}
+    </div>
   );
 }
 

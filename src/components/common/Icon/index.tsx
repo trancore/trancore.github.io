@@ -3,6 +3,9 @@
   BookOpenIcon,
   ChevronDownIcon,
   ChevronUpIcon,
+  ComputerDesktopIcon,
+  EllipsisVerticalIcon,
+  MusicalNoteIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
@@ -19,6 +22,9 @@ type IconType =
   | "BOOK_OPEN"
   | "CHEVRON_DOWN"
   | "CHEVRON_UP"
+  | "COMPUTER_DESKTOP"
+  | "ELLIPSIS_VERTICAL"
+  | "MUSICAL_NOTE"
   | "X_MARK"
   | "FACEBOOK"
   | "GITHUB"
@@ -52,6 +58,9 @@ const ICON: Record<IconType, IconComponent> = {
   BOOK_OPEN: BookOpenIcon,
   CHEVRON_DOWN: ChevronDownIcon,
   CHEVRON_UP: ChevronUpIcon,
+  COMPUTER_DESKTOP: ComputerDesktopIcon,
+  ELLIPSIS_VERTICAL: EllipsisVerticalIcon,
+  MUSICAL_NOTE: MusicalNoteIcon,
   X_MARK: XMarkIcon,
   FACEBOOK: FacebookIcon,
   GITHUB: GithubIcon,
