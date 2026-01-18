@@ -1,6 +1,5 @@
-﻿import { useRef } from "react";
-
-type Accept = "audio/*" | "*" | string;
+﻿import type { Accept } from "~/types/file";
+import { useRef } from "react";
 
 type Options = {
   accept: Accept;
