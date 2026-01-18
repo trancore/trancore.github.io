@@ -9,7 +9,7 @@
   },
   {
     id: "lp",
-    title: "LP",
+    title: "🚧 LP",
     items: ["test1", "test2", "test3", "test4", "test5"],
   },
 ] as const satisfies { id: string; title: string; items?: string[] }[];
