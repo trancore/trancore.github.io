@@ -88,6 +88,40 @@ const GETA = "=" as const;
 const NUM_OF_BYTES = 3 as const;
 
 /**
+ * 引数modの値に応じてGetaを付与する
+ * @param {Uint8Array} binary Base64バイナリデータ
+ * @param {number} index インデックス
+ * @param {number} mod Base64バイナリデータをテキストが始まるByteインデックスで割ったときの剰余
+ * @returns {string[]} Geta
+ */
+function encodePlusGeta(
+  binary: Uint8Array,
+  index: number,
+  mod: number,
+): string[] {
+  switch (mod) {
+    case 1:
+    case 2: {
+      const equalsMod1 = mod === 1;
+      const iNum = equalsMod1
+        ? (binary[index] << 8) + binary[index + 1]
+        : binary[index];
+
+      return [
+        equalsMod1 ? ENCODE_TABLE[iNum >> 10] : ENCODE_TABLE[iNum >> 2],
+        equalsMod1
+          ? ENCODE_TABLE[(iNum >> 4) & HEXADECIMAL["0x3f"]]
+          : ENCODE_TABLE[(iNum << 4) & HEXADECIMAL["0x3f"]],
+        equalsMod1 ? ENCODE_TABLE[(iNum << 2) & HEXADECIMAL["0x3f"]] : GETA,
+        GETA,
+      ];
+    }
+    default:
+      return [];
+  }
+}
+
+/**
  * Latin1文字コードでの文字テキストを取得する。
  *
  * Latin1とは、ISO/IEC 8859という文字コードのパート1の通称のこと。
@@ -233,76 +267,35 @@ export function getStringUTF8(
 }
 
 /**
- * 引数modの値に応じてGetaを付与する
- * @param {Uint8Array} binary Base64バイナリデータ
- * @param {number} index インデックス
- * @param {number} mod Base64バイナリデータをテキストが始まるByteインデックスで割ったときの剰余
- * @returns {string[]} Geta
+ * UTF-8テキストをUTF-16テキストに変換する
+ * @param utf8Text UTF-8でエンコードされているテキスト
+ * @returns UTF-16でエンコードされているテキスト
  */
-function encodePlusGeta(
-  binary: Uint8Array,
-  index: number,
-  mod: number,
-): string[] {
-  switch (mod) {
-    case 1:
-    case 2: {
-      const equalsMod1 = mod === 1;
-      const iNum = equalsMod1
-        ? (binary[index] << 8) + binary[index + 1]
-        : binary[index];
-
-      return [
-        equalsMod1 ? ENCODE_TABLE[iNum >> 10] : ENCODE_TABLE[iNum >> 2],
-        equalsMod1
-          ? ENCODE_TABLE[(iNum >> 4) & HEXADECIMAL["0x3f"]]
-          : ENCODE_TABLE[(iNum << 4) & HEXADECIMAL["0x3f"]],
-        equalsMod1 ? ENCODE_TABLE[(iNum << 2) & HEXADECIMAL["0x3f"]] : GETA,
-        GETA,
-      ];
+export function transformUTF8ToUTF16(utf8Text: string) {
+  let utf16Text = "";
+  for (let i = 0; i < utf8Text.length; ) {
+    const char = utf8Text.charCodeAt(i);
+    if ((char & HEXADECIMAL["0xe0"]) === HEXADECIMAL["0xc0"]) {
+      utf16Text += String.fromCharCode(
+        ((char & HEXADECIMAL["0x1f"]) << 6) |
+          (utf8Text.charCodeAt(i + 1) & HEXADECIMAL["0x3f"]),
+      );
+      i += 2;
+    } else if ((char & HEXADECIMAL["0xf0"]) === HEXADECIMAL["0xe0"]) {
+      utf16Text += String.fromCharCode(
+        ((char & HEXADECIMAL["0x0f"]) << 12) |
+          ((utf8Text.charCodeAt(i + 1) & HEXADECIMAL["0x3f"]) << 6) |
+          (utf8Text.charCodeAt(i + 2) & HEXADECIMAL["0x3f"]),
+      );
+      i += 3;
+    } else {
+      utf16Text += utf8Text[i++];
     }
-    default:
-      return [];
   }
+  return utf16Text;
 }
 
 /**
- * バイナリデータをbase64のテキストデータに変換する
- * @see https://qiita.com/PlanetMeron/items/2905e2d0aa7fe46a36d4
- * @param {Uint8Array} binary Uint8Arrayバイナリデータ
- * @returns {string} base64テキストデータ
- */
-export function encodeBase64(binary: Uint8Array): string {
-  if (!binary) {
-    return "";
-  }
-
-  const outStrArray: string[] = [];
-  const length = binary.length;
-  const count = Math.floor(length / NUM_OF_BYTES);
-  const mod = length % NUM_OF_BYTES;
-
-  for (let i = 0; i < count; i++) {
-    const index = NUM_OF_BYTES * i;
-    const indexNumber =
-      (binary[index] << 16) + (binary[index + 1] << 8) + binary[index + 2];
-
-    outStrArray.push(
-      ...[
-        ENCODE_TABLE[indexNumber >> 18],
-        ENCODE_TABLE[(indexNumber >> 12) & HEXADECIMAL["0x3f"]],
-        ENCODE_TABLE[(indexNumber >> 6) & HEXADECIMAL["0x3f"]],
-        ENCODE_TABLE[indexNumber & HEXADECIMAL["0x3f"]],
-      ],
-    );
-  }
-
-  outStrArray.push(...encodePlusGeta(binary, NUM_OF_BYTES * count, mod));
-
-  return outStrArray.join("");
-}
-
-/**5
  * バイナリデータの配列から引数で指定したバイト数の整数を取り出す
  * @param {Uint8Array} binary Base64バイナリデータ
  * @param {number} index インデックス
@@ -343,30 +336,62 @@ export function getIntNumberFromBinary(
 }
 
 /**
- * UTF-8テキストをUTF-16テキストに変換する
- * @param utf8Text UTF-8でエンコードされているテキスト
- * @returns UTF-16でエンコードされているテキスト
+ * バイナリデータをbase64のテキストデータに変換する
+ * @see https://qiita.com/PlanetMeron/items/2905e2d0aa7fe46a36d4
+ * @param {Uint8Array} binary Uint8Arrayバイナリデータ
+ * @returns {string} base64テキストデータ
  */
-export function utf8ToUtf16(utf8Text: string) {
-  let utf16Text = "";
-  for (let i = 0; i < utf8Text.length; ) {
-    const char = utf8Text.charCodeAt(i);
-    if ((char & HEXADECIMAL["0xe0"]) === HEXADECIMAL["0xc0"]) {
-      utf16Text += String.fromCharCode(
-        ((char & HEXADECIMAL["0x1f"]) << 6) |
-          (utf8Text.charCodeAt(i + 1) & HEXADECIMAL["0x3f"]),
-      );
-      i += 2;
-    } else if ((char & HEXADECIMAL["0xf0"]) === HEXADECIMAL["0xe0"]) {
-      utf16Text += String.fromCharCode(
-        ((char & HEXADECIMAL["0x0f"]) << 12) |
-          ((utf8Text.charCodeAt(i + 1) & HEXADECIMAL["0x3f"]) << 6) |
-          (utf8Text.charCodeAt(i + 2) & HEXADECIMAL["0x3f"]),
-      );
-      i += 3;
-    } else {
-      utf16Text += utf8Text[i++];
-    }
+export function encodeBase64(binary: Uint8Array): string {
+  if (!binary) {
+    return "";
   }
-  return utf16Text;
+
+  const outStrArray: string[] = [];
+  const length = binary.length;
+  const count = Math.floor(length / NUM_OF_BYTES);
+  const mod = length % NUM_OF_BYTES;
+
+  for (let i = 0; i < count; i++) {
+    const index = NUM_OF_BYTES * i;
+    const indexNumber =
+      (binary[index] << 16) + (binary[index + 1] << 8) + binary[index + 2];
+
+    outStrArray.push(
+      ...[
+        ENCODE_TABLE[indexNumber >> 18],
+        ENCODE_TABLE[(indexNumber >> 12) & HEXADECIMAL["0x3f"]],
+        ENCODE_TABLE[(indexNumber >> 6) & HEXADECIMAL["0x3f"]],
+        ENCODE_TABLE[indexNumber & HEXADECIMAL["0x3f"]],
+      ],
+    );
+  }
+
+  outStrArray.push(...encodePlusGeta(binary, NUM_OF_BYTES * count, mod));
+
+  return outStrArray.join("");
+}
+
+/**
+ * UTF-8コード文字配列の画像データを取得する
+ * @param musicData UTF-8文字コード配列の音楽データ
+ * @param beginIndex 画像データの始まりのインデックス
+ * @param size 画像データサイズ
+ * @returns {Uint8Array} UTF-8コード文字配列の画像データ
+ */
+export function getImageInUint8Array(
+  musicData: Uint8Array<ArrayBuffer>,
+  beginIndex: number,
+  size: number,
+): Uint8Array<ArrayBuffer> {
+  return musicData.subarray(beginIndex, beginIndex + size);
+}
+
+/**
+ * Uint8Array形式のバイナリデータを、Base64形式のデータに変換する。
+ * @param {string} mimeType マイムタイプ
+ * @param {Uint8Array} binary バイナリデータ
+ * @returns Base64形式のデータ
+ */
+export function transformImageInBase64(mimeType: string, binary: Uint8Array) {
+  return `data:${mimeType};base64,${encodeBase64(binary)}`;
 }
