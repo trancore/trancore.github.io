@@ -1,11 +1,15 @@
 ﻿import {
+  BackwardIcon,
   Bars3Icon,
   BookOpenIcon,
   ChevronDownIcon,
   ChevronUpIcon,
   ComputerDesktopIcon,
   EllipsisVerticalIcon,
+  ForwardIcon,
   MusicalNoteIcon,
+  PauseIcon,
+  PlayIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
@@ -18,13 +22,17 @@ import ZennIcon from "~/assets/images/icons/zenn.svg?react";
 import { cn } from "~/utils/cn";
 
 type IconType =
+  | "BACKWARD"
   | "BARS"
   | "BOOK_OPEN"
   | "CHEVRON_DOWN"
   | "CHEVRON_UP"
   | "COMPUTER_DESKTOP"
   | "ELLIPSIS_VERTICAL"
+  | "FORWARD"
   | "MUSICAL_NOTE"
+  | "PAUSE"
+  | "PLAY"
   | "X_MARK"
   | "FACEBOOK"
   | "GITHUB"
@@ -54,13 +62,17 @@ type Props = {
 };
 
 const ICON: Record<IconType, IconComponent> = {
+  BACKWARD: BackwardIcon,
   BARS: Bars3Icon,
   BOOK_OPEN: BookOpenIcon,
   CHEVRON_DOWN: ChevronDownIcon,
   CHEVRON_UP: ChevronUpIcon,
   COMPUTER_DESKTOP: ComputerDesktopIcon,
   ELLIPSIS_VERTICAL: EllipsisVerticalIcon,
+  FORWARD: ForwardIcon,
   MUSICAL_NOTE: MusicalNoteIcon,
+  PAUSE: PauseIcon,
+  PLAY: PlayIcon,
   X_MARK: XMarkIcon,
   FACEBOOK: FacebookIcon,
   GITHUB: GithubIcon,

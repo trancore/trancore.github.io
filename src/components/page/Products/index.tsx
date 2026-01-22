@@ -1,5 +1,6 @@
 ﻿import CardRepository from "~/components/ui/CardRepository";
 import MenuSide from "~/components/ui/MenuSide";
+import MusicPlayer from "~/components/ui/MusicPlayer";
 import Splash from "~/components/ui/Splash";
 import { MENU_SIDE_ITEMS_LIST } from "~/consts/menu";
 import { RepositoryOwnerDocument } from "~/graphql/github/query-generated/graphql";
@@ -50,38 +51,53 @@ export default function Products() {
           "Showcasing my self-developed applications.",
           "自分で開発したアプリケーションやミュージックプレイヤー、練習用LPページ掲載しています。",
         ]}
-        backgroundColor="bg-green-600"
+        backgroundColor="bg-product-page-theme"
       />
       <div className={cn("max-w-7xl gap-6 p-6", "m-auto flex")}>
-        <main
-          className={cn(
-            "w-full flex-1 gap-8",
-            isLoading && "flex justify-center",
-            !isLoading && "md:grid md:grid-cols-2",
-          )}
-        >
-          {/* GitHub */}
-          {selected === "github" && isLoading && !error && (
-            <div
-              className={cn("loading-spinner", "mt-10 size-10", "border-5")}
-            />
-          )}
+        {/* GitHub */}
+        {selected === "github" && (
+          <main
+            className={cn(
+              "w-full flex-1 gap-8",
+              isLoading && "flex justify-center",
+              !isLoading && "md:grid md:grid-cols-2",
+            )}
+          >
+            {selected === "github" && isLoading && !error && (
+              <div
+                className={cn("loading-spinner", "mt-10 size-10", "border-5")}
+              />
+            )}
 
-          {selected === "github" &&
-            !isLoading &&
-            !error &&
-            repositories &&
-            repositories?.length > 0 &&
-            repositories.map((repo) => (
-              <CardRepository key={repo.name} content={repo} />
-            ))}
+            {!isLoading &&
+              !error &&
+              repositories &&
+              repositories?.length > 0 &&
+              repositories.map((repo) => (
+                <CardRepository key={repo.name} content={repo} />
+              ))}
+          </main>
+        )}
 
-          {/* musicplayer */}
-          {selected === "musicplayer" && <div></div>}
+        {/* musicplayer */}
+        {selected === "musicplayer" && (
+          <main className={cn("w-full flex-1")}>
+            <MusicPlayer />
+          </main>
+        )}
 
-          {/* LP */}
-          {selected === "lp" && <div></div>}
-        </main>
+        {/* LP */}
+        {selected === "lp" && (
+          <main
+            className={cn(
+              "w-full flex-1",
+              // isLoading && "flex justify-center",
+              // !isLoading && "md:grid md:grid-cols-2",
+            )}
+          >
+            <div></div>
+          </main>
+        )}
 
         {isSP ? (
           <MenuSide
