@@ -81,13 +81,7 @@ export default function Products() {
 
         {/* musicplayer */}
         {selected === "musicplayer" && (
-          <main
-            className={cn(
-              "w-full flex-1",
-              // isLoading && "flex justify-center",
-              // !isLoading && "md:grid md:grid-cols-2",
-            )}
-          >
+          <main className={cn("w-full flex-1")}>
             <MusicPlayer />
           </main>
         )}

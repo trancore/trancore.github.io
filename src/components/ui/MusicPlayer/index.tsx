@@ -143,6 +143,7 @@ export default function MusicPlayer() {
             )}
           />
 
+          {/* コントロール */}
           <div className={cn("mt-[-20px] w-full")}>
             <div
               className={cn(
