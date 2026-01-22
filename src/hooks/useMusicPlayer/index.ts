@@ -44,6 +44,7 @@ export default function useMusicPlayer() {
   // const analyser = context.createAnalyser();
   // volumeControl.connect(context.destination);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: リントに従うと更新されないため
   useEffect(() => {
     /**
      * 再生位置が変化したときに更新するイベントハンドラ
@@ -63,7 +64,7 @@ export default function useMusicPlayer() {
         updateCurrentTime,
       );
     };
-  }, []);
+  }, [currentMusicPlayTime, currentMusic.current, setCurrentMusicPlayTime]);
 
   /**
    * 音楽ソースファイルへのURLをObjectURLに変換した音楽の取得
