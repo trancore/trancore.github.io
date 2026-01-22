@@ -9,12 +9,22 @@
 
   /* Colors */
   --color-black: #111111;
+
+  /* Custom theme colors*/
+  --color-product-page-theme: var(--color-green-600);
 }
 
 /* @layer base {
 } */
 
 @layer components {
+  input[type=range]::-webkit-slider-thumb {
+    @apply  appearance-none border border-black rounded-full size-5 bg-white;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+    @apply  appearance-none bg-product-page-theme rounded-xl;
+  }
   .loading-spinner {
     @apply border-gray-200 border-solid dark:border-gray-700 border-t-blue-500 dark:border-t-blue-400 animate-spin rounded-full;
   }
