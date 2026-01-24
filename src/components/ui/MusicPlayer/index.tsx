@@ -126,7 +126,7 @@ export default function MusicPlayer() {
         </p>
       </div>
 
-      {/* ミュージックプレイヤー */}
+      {/* プレイヤー */}
       {currentMusicList && currentMusicList.length > 0 && (
         <div className={cn("gap-15 px-4", "flex")}>
           {/* アルバムワーク */}
@@ -143,8 +143,8 @@ export default function MusicPlayer() {
             )}
           />
 
-          {/* コントロール */}
           <div className={cn("mt-[-20px] w-full")}>
+            {/* コントロール */}
             <div
               className={cn(
                 "gap-2 pt-10 pb-5",
@@ -220,37 +220,37 @@ export default function MusicPlayer() {
                 </span>
               </div>
             </div>
-          </div>
 
-          {/* ミュージックリスト */}
-          {!isLoading && currentMusicList.length > 0 && (
-            <div className={cn("pb-5")}>
-              {currentMusicList.map((music, index) => (
-                <HeadlessButton
-                  key={`music-row-${(index + 1).toString()}`}
-                  id={(index + 1).toString()}
-                  className={cn(
-                    "mt-4 w-full pb-3",
-                    "text-left",
-                    "grid grid-cols-10 items-center",
-                    "cursor-pointer border-b",
-                    {
-                      "font-bold": currentMusic.current.no === index + 1,
-                      "text-product-page-theme":
-                        currentMusic.current.no === index + 1,
-                    },
-                  )}
-                  onClick={onClickMusicRow}
-                >
-                  <p className={cn("pl-2", "col-start-1")}>{index + 1}</p>
-                  <p className={cn("col-start-2 col-end-10")}>
-                    {music.display.artist} - {music.display.title}
-                  </p>
-                  <p className={cn("col-start-10")}>{music.display.length}</p>
-                </HeadlessButton>
-              ))}
-            </div>
-          )}
+            {/* リスト */}
+            {!isLoading && currentMusicList.length > 0 && (
+              <div className={cn("pb-5")}>
+                {currentMusicList.map((music, index) => (
+                  <HeadlessButton
+                    key={`music-row-${(index + 1).toString()}`}
+                    id={(index + 1).toString()}
+                    className={cn(
+                      "mt-4 w-full pb-3",
+                      "text-left",
+                      "grid grid-cols-10 items-center",
+                      "cursor-pointer border-b",
+                      {
+                        "font-bold": currentMusic.current.no === index + 1,
+                        "text-product-page-theme":
+                          currentMusic.current.no === index + 1,
+                      },
+                    )}
+                    onClick={onClickMusicRow}
+                  >
+                    <p className={cn("pl-2", "col-start-1")}>{index + 1}</p>
+                    <p className={cn("col-start-2 col-end-10")}>
+                      {music.display.artist} - {music.display.title}
+                    </p>
+                    <p className={cn("col-start-10")}>{music.display.length}</p>
+                  </HeadlessButton>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
