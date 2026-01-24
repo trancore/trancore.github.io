@@ -3,6 +3,7 @@ import { useBlocker } from "@tanstack/react-router";
 
 import Button from "~/components/common/Button";
 import Icon from "~/components/common/Icon";
+import Loading from "~/components/common/Loading";
 import useMusicPlayer from "~/hooks/useMusicPlayer";
 import { cn } from "~/utils/cn";
 import { formatSecondsToMMSS } from "~/utils/format";
@@ -125,6 +126,13 @@ export default function MusicPlayer() {
           ※選択したファイルはメモリ上に保持されるだけなので、永続的に保存されません。
         </p>
       </div>
+
+      {/* ローディング */}
+      {isLoading && (
+        <div className={cn("flex justify-center")}>
+          <Loading type="spinner" />
+        </div>
+      )}
 
       {/* プレイヤー */}
       {currentMusicList && currentMusicList.length > 0 && (
