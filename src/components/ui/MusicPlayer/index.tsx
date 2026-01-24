@@ -1,8 +1,10 @@
 ﻿import { Button as HeadlessButton } from "@headlessui/react";
 import { useBlocker } from "@tanstack/react-router";
 
+import NoImage from "~/assets/images/no-album-work.jpg";
 import Button from "~/components/common/Button";
 import Icon from "~/components/common/Icon";
+import Loading from "~/components/common/Loading";
 import useMusicPlayer from "~/hooks/useMusicPlayer";
 import { cn } from "~/utils/cn";
 import { formatSecondsToMMSS } from "~/utils/format";
@@ -126,14 +128,21 @@ export default function MusicPlayer() {
         </p>
       </div>
 
-      {/* ミュージックプレイヤー */}
+      {/* ローディング */}
+      {isLoading && (
+        <div className={cn("flex justify-center")}>
+          <Loading type="spinner" />
+        </div>
+      )}
+
+      {/* プレイヤー */}
       {currentMusicList && currentMusicList.length > 0 && (
         <div className={cn("gap-15 px-4", "flex")}>
           {/* アルバムワーク */}
           <img
             src={
               currentMusicList[currentMusic.current.no - 1].display.albumWork ||
-              "/src/assets/images/no-album-work.jpg"
+              NoImage
             }
             alt="album-work"
             className={cn(
@@ -143,8 +152,8 @@ export default function MusicPlayer() {
             )}
           />
 
-          {/* コントロール */}
           <div className={cn("mt-[-20px] w-full")}>
+            {/* コントロール */}
             <div
               className={cn(
                 "gap-2 pt-10 pb-5",
@@ -221,13 +230,7 @@ export default function MusicPlayer() {
               </div>
             </div>
 
-            {/* ローディング */}
-            {isLoading && (
-              <div
-                className={cn("loading-spinner", "mt-10 size-10", "border-5")}
-              />
-            )}
-            {/* ミュージックリスト */}
+            {/* リスト */}
             {!isLoading && currentMusicList.length > 0 && (
               <div className={cn("pb-5")}>
                 {currentMusicList.map((music, index) => (
