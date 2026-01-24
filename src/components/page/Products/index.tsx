@@ -1,4 +1,5 @@
-﻿import CardRepository from "~/components/ui/CardRepository";
+﻿import Loading from "~/components/common/Loading";
+import CardRepository from "~/components/ui/CardRepository";
 import MenuSide from "~/components/ui/MenuSide";
 import MusicPlayer from "~/components/ui/MusicPlayer";
 import Splash from "~/components/ui/Splash";
@@ -64,9 +65,7 @@ export default function Products() {
             )}
           >
             {selected === "github" && isLoading && !error && (
-              <div
-                className={cn("loading-spinner", "mt-10 size-10", "border-5")}
-              />
+              <Loading type="spinner" />
             )}
 
             {!isLoading &&
