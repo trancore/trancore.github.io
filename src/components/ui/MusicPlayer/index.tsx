@@ -1,6 +1,7 @@
 ﻿import { Button as HeadlessButton } from "@headlessui/react";
 import { useBlocker } from "@tanstack/react-router";
 
+import NoImage from "~/assets/images/no-album-work.jpg";
 import Button from "~/components/common/Button";
 import Icon from "~/components/common/Icon";
 import Loading from "~/components/common/Loading";
@@ -141,7 +142,7 @@ export default function MusicPlayer() {
           <img
             src={
               currentMusicList[currentMusic.current.no - 1].display.albumWork ||
-              "/src/assets/images/no-album-work.jpg"
+              NoImage
             }
             alt="album-work"
             className={cn(
