@@ -104,7 +104,7 @@ export default function MusicPlayer() {
   }, [currentMusicPlayTime, currentMusic.current.audioElement.ended, forward]);
 
   return (
-    <div className={cn("flex flex-col gap-6")}>
+    <div className={cn("gap-6", "flex flex-col")}>
       {/* ファイル選択 */}
       <div
         className={cn(
@@ -137,7 +137,9 @@ export default function MusicPlayer() {
 
       {/* プレイヤー */}
       {currentMusicList && currentMusicList.length > 0 && (
-        <div className={cn("gap-15 px-4", "flex")}>
+        <div
+          className={cn("gap-5 px-4 md:gap-15", "flex flex-col md:flex-row")}
+        >
           {/* アルバムワーク */}
           <img
             src={
@@ -147,7 +149,7 @@ export default function MusicPlayer() {
             alt="album-work"
             className={cn(
               "size-75",
-              "sticky top-10",
+              "top-10 md:sticky",
               "aspect-square object-contain",
             )}
           />
@@ -157,7 +159,7 @@ export default function MusicPlayer() {
             <div
               className={cn(
                 "gap-2 pt-10 pb-5",
-                "sticky top-0 flex flex-col items-center",
+                "sticky flex flex-col items-center md:top-0",
                 "bg-white dark:bg-black",
               )}
             >
@@ -169,7 +171,7 @@ export default function MusicPlayer() {
                 {/* シークバー */}
                 <input
                   className={cn(
-                    "h-3 w-3/4 grow",
+                    "w-3/4 grow",
                     "cursor-pointer appearance-none rounded-xl bg-gray-300",
                   )}
                   type="range"
@@ -185,7 +187,7 @@ export default function MusicPlayer() {
                 </p>
               </div>
               {/* TODO: 横に流れるようにする */}
-              <p className={cn("mb-2.5", "font-bold text-lg")}>
+              <p className={cn("mt-2.5 mb-2.5", "font-bold text-sm")}>
                 {currentMusic.current.no}
                 {". "}
                 {currentMusicList[currentMusic.current.no - 1].display.artist} -{" "}
