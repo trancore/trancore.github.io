@@ -28,6 +28,9 @@ async function fetchMetadata(article: any): Promise<{
   description: string;
   image: string;
 }> {
+  if (article.title) {
+    return Promise.resolve(article);
+  }
   try {
     const res = await fetch(article.url, {
       headers: {
