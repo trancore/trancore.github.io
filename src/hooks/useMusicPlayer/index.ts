@@ -1,4 +1,5 @@
-﻿import type { DisplayMetadata } from "~/types/music";
+﻿import useSpectrumAnalyzer from "~/hooks/useSpectrumAnalyzer";
+import type { DisplayMetadata } from "~/types/music";
 import { loadAudioMetadata } from "~/utils/music";
 import { useEffect, useRef, useState } from "react";
 
@@ -37,12 +38,14 @@ export default function useMusicPlayer() {
   const [currentMusicStatus, setCurrentMusicStatus] = useState<Status>(
     STATUS.STOP,
   );
-
-  // 音量用コンテキスト。今のところ実装予定がないためコメントアウト。
-  // const context = new AudioContext();
-  // const volumeControl = context.createGain();
-  // const analyser = context.createAnalyser();
-  // volumeControl.connect(context.destination);
+  const {
+    canvasRef,
+    start: startSpectrumAnalyzer,
+    pause: pauseSpectrumAnalyzer,
+    stop: stopSpectrumAnalyzer,
+  } = useSpectrumAnalyzer({
+    audioSrc: currentMusic.current.audioElement.src,
+  });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: リントに従うと更新されないため
   useEffect(() => {
@@ -99,14 +102,19 @@ export default function useMusicPlayer() {
     setCurrentMusicPlayTime(0);
     setCurrentMusicDuration(0);
     setCurrentMusicStatus(STATUS.STOP);
+    stopSpectrumAnalyzer();
   }
 
   /**
    * 音楽の再生
    */
-  async function play(): Promise<void> {
+  async function play(
+    /** 最初からスタートさせるかどうか */
+    isRestart?: boolean,
+  ): Promise<void> {
     await currentMusic.current.audioElement.play();
     setCurrentMusicStatus(STATUS.PLAY);
+    startSpectrumAnalyzer(isRestart);
   }
 
   /**
@@ -115,6 +123,7 @@ export default function useMusicPlayer() {
   function pause(): void {
     currentMusic.current.audioElement.pause();
     setCurrentMusicStatus(STATUS.PAUSE);
+    pauseSpectrumAnalyzer();
   }
 
   /**
@@ -124,6 +133,7 @@ export default function useMusicPlayer() {
     currentMusic.current.audioElement.pause();
     currentMusic.current.audioElement.currentTime = 0;
     setCurrentMusicStatus(STATUS.STOP);
+    stopSpectrumAnalyzer();
   }
 
   /**
@@ -131,6 +141,7 @@ export default function useMusicPlayer() {
    */
   async function forward() {
     stop();
+    stopSpectrumAnalyzer();
     currentMusic.current.audioElement.remove();
     const nextMusic = new Audio();
     const nextNo =
@@ -140,6 +151,7 @@ export default function useMusicPlayer() {
     nextMusic.src = currentMusicList[nextNo - 1].url;
     currentMusic.current = { no: nextNo, audioElement: nextMusic };
     await play();
+    startSpectrumAnalyzer();
   }
 
   /**
@@ -147,6 +159,7 @@ export default function useMusicPlayer() {
    */
   async function backForward(): Promise<void> {
     stop();
+    stopSpectrumAnalyzer();
     currentMusic.current.audioElement.remove();
     const previousMusic = new Audio();
     const previousNo =
@@ -156,6 +169,7 @@ export default function useMusicPlayer() {
     previousMusic.src = currentMusicList[previousNo - 1].url;
     currentMusic.current = { no: previousNo, audioElement: previousMusic };
     await play();
+    startSpectrumAnalyzer();
   }
 
   return {
@@ -171,6 +185,7 @@ export default function useMusicPlayer() {
     setIsLoading,
     currentMusicStatus,
     setCurrentMusicStatus,
+    spectrumAnalyzerRef: canvasRef,
     clear,
     play,
     stop,

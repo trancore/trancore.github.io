@@ -4,14 +4,16 @@
   BookOpenIcon,
   ChevronDownIcon,
   ChevronUpIcon,
-  ComputerDesktopIcon,
-  EllipsisVerticalIcon,
   ForwardIcon,
-  MusicalNoteIcon,
   PauseIcon,
   PlayIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import {
+  ComputerDesktopIcon,
+  EllipsisVerticalIcon,
+  MusicalNoteIcon,
+} from "@heroicons/react/24/solid";
 
 import FacebookIcon from "~/assets/images/icons/facebook.svg?react";
 import GithubIcon from "~/assets/images/icons/github.svg?react";

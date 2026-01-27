@@ -61,6 +61,7 @@ export default function MenuSide({ menuItems, onClickMenuItem }: Props) {
             <Icon
               type={getIconType(id)}
               size={48}
+              fillColor="fill-black"
               onClick={() => {
                 onClickMenuItem(id);
                 toggleDisplayed();
@@ -72,6 +73,7 @@ export default function MenuSide({ menuItems, onClickMenuItem }: Props) {
         <Icon
           type="ELLIPSIS_VERTICAL"
           size={48}
+          fillColor="fill-black"
           onClick={toggleDisplayed}
         ></Icon>
       </SmartPhoneFloatButton>
