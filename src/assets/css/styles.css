@@ -18,12 +18,12 @@
 } */
 
 @layer components {
-  input[type=range]::-webkit-slider-thumb {
-    @apply  appearance-none border border-black rounded-full size-5 bg-white;
+  input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none border border-black rounded-full size-2 bg-white scale-300;
   }
 
-  input[type=range]::-webkit-slider-runnable-track {
-    @apply  appearance-none bg-product-page-theme rounded-xl;
+  input[type="range"]::-webkit-slider-runnable-track {
+    @apply appearance-none bg-product-page-theme rounded-xl size-2;
   }
   .loading-spinner {
     @apply border-gray-200 border-solid dark:border-gray-700 border-t-blue-500 dark:border-t-blue-400 animate-spin rounded-full;
@@ -115,14 +115,14 @@
 
 body {
   @apply m-0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
