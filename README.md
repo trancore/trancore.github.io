@@ -19,6 +19,14 @@ https://trancore-github-io.vercel.app/
 
 ## 環境変数について
 
-- dev 環境の設定ファイル`.env.development`には、`REACT_APP_GITHUB_ACCESS_TOKEN_KEY={Github access token}`を追記して下さい
+| 環境変数名 | 説明 |
+| --- | --- |
+| `REACT_APP_GITHUB_ACCESS_TOKEN_KEY` | GitHubのアクセストークンキー。リポジトリの情報を取得するために必要。 |
 
-## React + Tanstack Router について
+## 「最近読んだ記事」「読んだ本」の取得手順
+
+1. `scripts/getURLMetadata.ts`の`inputPath`, `outputPath`を変更する。
+2. それぞれの定数ファイルにNoとurlを更新する。
+3. そのほかの値は空文字列に設定する。
+4. `node ./scripts/getURLMetadata.ts`を実行して、metadataを取得する。
+5. 完了
