@@ -1,6 +1,4 @@
-﻿/**
- * 音楽メタデータ
- */
+﻿/** 音楽メタデータ */
 export type Metadata = {
   title: string;
   artist: string;
@@ -10,9 +8,7 @@ export type Metadata = {
   albumWork: string;
 };
 
-/**
- * 表示用音楽メタデータ
- */
+/** 表示用音楽メタデータ */
 export type DisplayMetadata = Pick<
   Metadata,
   "title" | "artist" | "albumWork"

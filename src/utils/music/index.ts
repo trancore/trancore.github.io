@@ -1,5 +1,6 @@
 ﻿/**
  * 音楽のBinary Dataを取得
+ *
  * @param {File} file 音楽ファイル
  * @returns {Promise<string | ArrayBuffer | null>} Binary Data
  */
@@ -28,6 +29,7 @@ export function getAudioUint8Array(
 // TODO: この関数を見直す
 /**
  * 音楽メタタグ情報の読み込み
+ *
  * @param {HTMLAudioElement} audioElement 音楽要素
  * @returns {number} （今のところ）再生時間
  */

@@ -3,7 +3,7 @@ import CardRepository from "~/components/ui/CardRepository";
 import MenuSide from "~/components/ui/MenuSide";
 import MusicPlayer from "~/components/ui/MusicPlayer";
 import Splash from "~/components/ui/Splash";
-import { MENU_SIDE_ITEMS_LIST } from "~/consts/menu";
+import { MENU_SIDE_ITEMS_LIST } from "~/consts";
 import { RepositoryOwnerDocument } from "~/graphql/github/query-generated/graphql";
 import { useFetchGitHub } from "~/hooks/useFetchGitHub";
 import { useMediaQuery } from "~/hooks/useMeidaQuery";

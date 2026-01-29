@@ -1,1 +1,2 @@
-﻿export * from "~/consts/page";
+﻿export * from "~/consts/menu";
+export * from "~/consts/page";

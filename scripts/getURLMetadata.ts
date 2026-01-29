@@ -6,9 +6,9 @@ import * as cheerio from "cheerio";
 
 const __dirname = new URL("..", import.meta.url).pathname;
 // 入力ファイルを設定する
-const inputPath = `${__dirname}src/consts/books.json`;
+const inputPath = `${__dirname}src/consts/web-articles.json`;
 // 出力ファイルを設定する
-const outputPath = `${__dirname}src/consts/books_result.json`;
+const outputPath = `${__dirname}src/consts/web-articles-result.json`;
 
 // JSONファイルを読み込む
 const fileContent = fs.readFileSync(inputPath, "utf-8");
@@ -17,6 +17,7 @@ const jsons = JSON.parse(fileContent);
 /**
 /**
  * 指定された記事オブジェクトのURLからOGPメタデータ(title, description, image)を取得します。
+ * 1件ごとに500msスリープし、アクセス集中を回避します。
  *
  * @param {any} article - メタデータを取得する記事情報（少なくとも `url` と `No` プロパティを含むオブジェクト）
  * @returns {Promise<{ No: string, url: string, title: string, description: string, image: string }>} メタデータを格納したオブジェクト
@@ -28,6 +29,10 @@ async function fetchMetadata(article: any): Promise<{
   description: string;
   image: string;
 }> {
+  if (article.title) {
+    return Promise.resolve(article);
+  }
+
   try {
     const res = await fetch(article.url, {
       headers: {
@@ -50,6 +55,9 @@ async function fetchMetadata(article: any): Promise<{
       $("meta[property='og:image']").attr("content") ||
       $("meta[name='twitter:image']").attr("content") ||
       "";
+
+    // アクセス集中回避
+    await new Promise((r) => setTimeout(r, 500));
 
     return {
       No: article.No,
@@ -77,7 +85,6 @@ async function fetchMetadata(article: any): Promise<{
  *
  * fetchMetadata関数で各記事URLからメタデータ（OGP等）を取得し整形します。
  * 取得失敗時は空の値を返します。
- * 1件ごとに500msスリープし、アクセス集中を回避します。
  */
 async function main() {
   const results = [];
@@ -87,8 +94,7 @@ async function main() {
     const data = await fetchMetadata(json);
     results.push(data);
 
-    // アクセス集中回避
-    await new Promise((r) => setTimeout(r, 500));
+
   }
 
   fs.writeFileSync(outputPath, JSON.stringify(results, null, 2), "utf-8");
