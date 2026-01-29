@@ -71,6 +71,7 @@ export default function useMusicPlayer() {
 
   /**
    * 音楽ソースファイルへのURLをObjectURLに変換した音楽の取得
+   *
    * @param {File} file 選択されたファイル
    * @returns {string} ObjectURLに変換した音楽
    */
@@ -80,6 +81,7 @@ export default function useMusicPlayer() {
 
   /**
    * 現在再生する曲情報とソースを更新
+   *
    * @param {number} id 曲ID
    * @param {CurrentMusic} updatedMusic 更新する曲情報
    */
@@ -93,9 +95,7 @@ export default function useMusicPlayer() {
     setCurrentMusicDuration(duration);
   }
 
-  /**
-   * 状態の初期化
-   */
+  /** 状態の初期化 */
   function clear() {
     currentMusic.current.audioElement.remove();
     currentMusic.current = { no: 0, audioElement: new Audio() };
@@ -105,9 +105,7 @@ export default function useMusicPlayer() {
     stopSpectrumAnalyzer();
   }
 
-  /**
-   * 音楽の再生
-   */
+  /** 音楽の再生 */
   async function play(
     /** 最初からスタートさせるかどうか */
     isRestart?: boolean,
@@ -117,18 +115,14 @@ export default function useMusicPlayer() {
     startSpectrumAnalyzer(isRestart);
   }
 
-  /**
-   * 音楽の一時停止
-   */
+  /** 音楽の一時停止 */
   function pause(): void {
     currentMusic.current.audioElement.pause();
     setCurrentMusicStatus(STATUS.PAUSE);
     pauseSpectrumAnalyzer();
   }
 
-  /**
-   * 音楽の停止
-   */
+  /** 音楽の停止 */
   function stop() {
     currentMusic.current.audioElement.pause();
     currentMusic.current.audioElement.currentTime = 0;
@@ -136,9 +130,7 @@ export default function useMusicPlayer() {
     stopSpectrumAnalyzer();
   }
 
-  /**
-   * 次の音楽へ進む
-   */
+  /** 次の音楽へ進む */
   async function forward() {
     stop();
     stopSpectrumAnalyzer();
@@ -154,9 +146,7 @@ export default function useMusicPlayer() {
     startSpectrumAnalyzer();
   }
 
-  /**
-   * 前の音楽に戻る
-   */
+  /** 前の音楽に戻る */
   async function backForward(): Promise<void> {
     stop();
     stopSpectrumAnalyzer();

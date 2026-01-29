@@ -1839,5 +1839,103 @@
     "title": "ウェブサイトのリダイレクト実装方法の比較 | 株式会社ヌーラボ(Nulab inc.)",
     "description": "この記事はヌーラボブログリレー2025 冬 の12日目として投稿しています。 こんにちは！ウェブサイトユニットの野津です。",
     "image": "https://d1u2e6wtudxkpm.cloudfront.net/wp-content/uploads/sites/2/2025/12/Tech-Notsu-2.png"
+  },
+  {
+    "No": "264",
+    "url": "https://share.google/ilQxtXIzOkvaOyRtf",
+    "title": "部下が「考えていない」と感じる理由とは　仕事が進む人が身につける“考える力”の2つの要素",
+    "description": "【3行要約】・「考えて動く」ことの重要性は認識されていますが、その具体的な意味を理解できていない人が多いのが実情です。・変化の激しい時代やAIの普及、人手不足という背景から、やり方を自分で選び、目的に対して最適な行動を考える力が不可欠になっ...",
+    "image": "https://images.logmi.jp/media/article/332832/images/main_image_e18ac6704ab05cdd8612c4e3d17889b85fa2a298.jpg"
+  },
+  {
+    "No": "265",
+    "url": "https://developers.freee.co.jp/entry/freee-qa-advent-calendar2025-day19",
+    "title": "99 回の成功と 1 回の失敗は同じ仕組みから生まれる ―障害に対する視座の転換 - freee Developers Hub",
+    "description": "はじめに ―障害について考える時の視点 こんにちは．品質企画の kuritaro です．freee QA Advent Calendar 2025 の 19 日目です．本日は，障害について考える時の視座について掘り下げてみたいと思います．障害（欠陥，バグ）が発生したら，もう同じ（ような）ことが，二度と起こらないよう（起こさないよう）に，原因を調査・探求して対策を打つ．これは基本的かつ重要なことです．また，単一の障害を見るだけではなく，複数の障害を俯瞰して分析し，たとえば欠陥が集中している箇所（いわゆる「バグの巣」）を見つけたり，アーキテクチャや仕事やプロセス等のシステムのより根本的な問題に目を…",
+    "image": "https://cdn.image.st-hatena.com/image/scale/d1160cde25fe83312dd29fcd4836cf93bad0fceb/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fk%2Fkuritaro_freee%2F20251210%2F20251210135031.png"
+  },
+  {
+    "No": "266",
+    "url": "https://nulab.com/ja/blog/nulab/accessibility-basics-for-frontend-engineers/",
+    "title": "フロントエンドエンジニアに伝えたいアクセシビリティの基本 | 株式会社ヌーラボ(Nulab inc.)",
+    "description": "Moi! UXエンジニアのヨーナスです。今回は、フロントエンドエンジニアに向けて、アクセシビリティに関する3つの誤解について解説したいと思います。",
+    "image": "https://d1u2e6wtudxkpm.cloudfront.net/wp-content/uploads/sites/2/2025/12/tech-joonas-2025-12-24.png"
+  },
+  {
+    "No": "267",
+    "url": "https://codezine.jp/news/detail/22896",
+    "title": "GitHub、npmへのサプライチェーン攻撃「Shai-Hulud」対応方針を発表",
+    "description": "",
+    "image": "https://codezine.jp/static/images/article/22896/1200git.png"
+  },
+  {
+    "No": "268",
+    "url": "https://www.publickey1.jp/blog/26/googlemcp202512.html",
+    "title": "プログラミングに適したフォントまとめ／GoogleがすべてのサービスにMCPサーバ／リーナス氏「あなたが修正するのは自分だけのバグではない」ほか、2025年12月の人気記事",
+    "description": "読者の皆様、年明けはいかがお過ごしでしょうか。年末年始の長い休み明けにフルで1週間働くのはなかなかつらいですね。 とはいえ2026年は年明けからすぐに、昨年ハマったアニメ「ミルキー★サブウェイ」の劇場版が公開されるので、これを楽しみに頑張っ...",
+    "image": "https://www.publickey1.jp/fbico_pblky.png"
+  },
+  {
+    "No": "269",
+    "url": "https://gigazine.net/news/20260111-vibium/",
+    "title": "Seleniumの作者によるAIと人間のためのブラウザ自動化「Vibium」",
+    "description": "ブラウザ自動化ツールのSeleniumを開発したジェイソン・ハギンズ氏が新たにAIエージェントとの親和性を高めた新しいブラウザ自動化ツール「Vibium」を公開しました。",
+    "image": "https://i.gzn.jp/img/2026/01/11/vibium/00.png"
+  },
+  {
+    "No": "270",
+    "url": "https://www.publickey1.jp/blog/26/aitypescriptgithub.html",
+    "title": "AIはなぜTypeScriptのような型付き言語の普及を促進するのか、GitHubが理由を説明",
+    "description": "GitHubは1月8日付けの同社のブログ「Why AI is pushing developers toward typed languages」（なぜAIは開発者を型付け言語に向かわせるのか）で、AIによるコード生成が広がることがType...",
+    "image": "https://www.publickey1.jp/2026/ai-typed-github.png"
+  },
+  {
+    "No": "271",
+    "url": "https://blog.google/company-news/inside-google/message-ceo/nrf-2026-remarks/",
+    "title": "The AI platform shift and the opportunity ahead for retail",
+    "description": "Google is partnering with retailers to improve the shopping experience for customers end-to-end.",
+    "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/social-share-NRF_Big_Show_2026_-_Jason_Dixson.width-1300_sDyIRzs.jpg"
+  },
+  {
+    "No": "272",
+    "url": "https://www.publickey1.jp/blog/26/webkitorionmaclinux.html",
+    "title": "WebKitベースの新ブラウザ「Orion」。Mac対応の正式版に続き、Linux対応アルファ版を発表",
+    "description": "検索エンジンなどを提供するKagiは、WebKitベースのWebブラウザ「Orion」のLinux対応版のアルファ版を発表しました。 To all Orion+ subscribers, you're going to receiv...",
+    "image": "https://www.publickey1.jp/2026/kagi-orion-linux-alpha.png"
+  },
+  {
+    "No": "273",
+    "url": "https://www.publickey1.jp/blog/26/ecaiuniversal_commerce_protocolucp.html",
+    "title": "人間がECサイトを訪れることなく、AIエージェントとの対話だけで商品を探し、購入、決済まで実現する「Universal Commerce Protocol」（UCP）登場",
+    "description": "現在のオンラインショッピングは、人間がWebブラウザを操作してAmazon.co.jpや楽天やヨドバシ.comなどのECサイトを訪問し、そこで商品を選び、購入手続きと決済をするものです。 しかしAIエージェントと、Googleらが発表した新...",
+    "image": "https://www.publickey1.jp/2026/ucp-launch01.png"
+  },
+  {
+    "No": "274",
+    "url": "https://knowledge.sakura.ad.jp/48894/",
+    "title": "使い方を軸に価値を伝えるドキュメント作成の考え方  |  さくらのナレッジ",
+    "description": "エンジニアリング業務において、ドキュメント作成は欠かせないプロセスです。しかし、専門知識を保有していることと、それを他者へ正確かつわかりやすく伝えられることは、必ずしも一致しません。今回、長年マニュアル制作および技術コミ […]",
+    "image": "https://knowledge.sakura.ad.jp/wp-content/uploads/2025/12/document_value_thinking-1200x630.png"
+  },
+  {
+    "No": "275",
+    "url": "https://eslint.org/blog/2026/01/eslint-2025-year-review/",
+    "title": "ESLint's 2025 year in review - ESLint - Pluggable JavaScript Linter",
+    "description": "A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.",
+    "image": "https://eslint.org/icon-512.png"
+  },
+  {
+    "No": "276",
+    "url": "https://share.google/2OvXHwKsQCa1LPu9Y",
+    "title": "2段階認証突破する「リアルタイムフィッシング」、ワンタイムPWも窃取",
+    "description": "「リアルタイムフィッシング」とは、正規ユーザーが偽サイト（フィッシングサイト）にID、パスワード、ワンタイムパスワード（OTP）などの認証情報を入力したタイミングで攻撃者がこれらを正規サイトに入力し、不正にログインする詐欺手法だ。2025年はこの手法を利用した証券会社への不正ログインが相次いだ。",
+    "image": "https://xtech.nikkei.com/atcl/nxt/keyword/18/00002/010500302/topm.jpg?20220512"
+  },
+  {
+    "No": "277",
+    "url": "https://www.publickey1.jp/blog/26/jquery_4010ie10xss.html",
+    "title": "jQuery 4.0正式版が公開。10年振りのメジャーバージョンアップ。IE10以前がサポート外、XSS防止など",
+    "description": "jQuery開発チームは、10年振りのメジャーバージョンアップとなる「JQuery 4.0」正式版のリリースを発表しました。 ちなみに2026年1月は、最初のバージョンのjQueryが2006年1月にはじめて公開されてからちょうど20周年に...",
+    "image": "https://www.publickey1.jp/2026/jquery40ga.png"
   }
 ]

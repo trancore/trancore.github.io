@@ -87,6 +87,7 @@ export default function useSpectrumAnalyzer({ audioSrc }: Options) {
     };
   }, [audioSrc]);
 
+  /** スペクトルアナライザの描画ループ */
   function render() {
     // canavs要素やanalyserが取得できない場合は終了
     if (!canvasRef.current || !analyserRef.current) {
@@ -121,6 +122,7 @@ export default function useSpectrumAnalyzer({ audioSrc }: Options) {
     animationFrameIdRef.current = requestAnimationFrame(render);
   }
 
+  /** スペクトルアナライザの開始・再開 */
   function start(
     /** 最初からスタートさせるかどうか */
     isRestart?: boolean,
@@ -179,6 +181,7 @@ export default function useSpectrumAnalyzer({ audioSrc }: Options) {
     render();
   }
 
+  /** スペクトルアナライザの一時停止 */
   const pause = () => {
     // AudioContextが実行中の場合のみ一時停止する
     if (audioContextRef.current?.state === "running") {
@@ -191,6 +194,7 @@ export default function useSpectrumAnalyzer({ audioSrc }: Options) {
     }
   };
 
+  /** スペクトルアナライザの停止 */
   const stop = () => {
     // 再生中のsourceがあれば停止
     if (sourceRef.current) {

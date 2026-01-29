@@ -1,4 +1,5 @@
-﻿export const MENU_SIDE_ITEMS_LIST = [
+﻿/** サイドメニューの項目リスト */
+export const MENU_SIDE_ITEMS_LIST = [
   {
     id: "github",
     title: "GitHub",

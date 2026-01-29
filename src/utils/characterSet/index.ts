@@ -13,9 +13,8 @@ const HEXADECIMAL = {
   "0XFE": 0xfe,
   "0XFF": 0xff,
 };
-/**
- * エンコードテーブル
- */
+
+/** エンコードテーブル */
 const ENCODE_TABLE = [
   "A",
   "B",
