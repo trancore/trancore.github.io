@@ -61,7 +61,7 @@ export default function Products() {
             className={cn(
               "w-full flex-1 gap-8",
               "flex flex-col",
-              isLoading && "justify-center",
+              isLoading && "items-center",
               !isLoading && "md:grid md:grid-cols-2",
             )}
           >
