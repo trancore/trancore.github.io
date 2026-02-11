@@ -60,7 +60,8 @@ export default function Products() {
           <main
             className={cn(
               "w-full flex-1 gap-8",
-              isLoading && "flex justify-center",
+              "flex flex-col",
+              isLoading && "justify-center",
               !isLoading && "md:grid md:grid-cols-2",
             )}
           >
