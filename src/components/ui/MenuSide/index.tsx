@@ -5,6 +5,7 @@ import {
 } from "@headlessui/react";
 
 import Icon from "~/components/common/Icon";
+import useAtBottom from "~/hooks/useAtBottom";
 import { useDisplayed } from "~/hooks/useDisplayed";
 import { useMediaQuery } from "~/hooks/useMeidaQuery";
 import type { MenuSideItemsList } from "~/types/menu";
@@ -18,6 +19,7 @@ type Props = {
 };
 
 export default function MenuSide({ menuItems, onClickMenuItem }: Props) {
+  const { isAtBottom } = useAtBottom();
   const { displayed, toggleDisplayed } = useDisplayed();
   const { isSP } = useMediaQuery();
 
@@ -69,7 +71,9 @@ export default function MenuSide({ menuItems, onClickMenuItem }: Props) {
             ></Icon>
           </SmartPhoneFloatButton>
         ))}
-      <SmartPhoneFloatButton className={cn("right-3 bottom-2")}>
+      <SmartPhoneFloatButton
+        className={cn(isAtBottom ? "right-3 bottom-32" : "right-3 bottom-2")}
+      >
         <Icon
           type="ELLIPSIS_VERTICAL"
           size={48}
