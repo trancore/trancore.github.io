@@ -1937,5 +1937,110 @@
     "title": "jQuery 4.0正式版が公開。10年振りのメジャーバージョンアップ。IE10以前がサポート外、XSS防止など",
     "description": "jQuery開発チームは、10年振りのメジャーバージョンアップとなる「JQuery 4.0」正式版のリリースを発表しました。 ちなみに2026年1月は、最初のバージョンのjQueryが2006年1月にはじめて公開されてからちょうど20周年に...",
     "image": "https://www.publickey1.jp/2026/jquery40ga.png"
+  },
+  {
+    "No": "278",
+    "url": "https://japan.cnet.com/article/35242975/",
+    "title": "Geminiの日本語名は「ジェミニ」です　Googleが再告知",
+    "description": "Googleは1月20日、同社の生成AIサービス「Gemini」について、日本での正式な読み方は「ジェミニ」であると改めて告知した。",
+    "image": "https://japan.cnet.com/storage/2026/01/21/ef00afb1f6c023ed7ed691451953983c/2026-01-21_10.38の画像.jpeg"
+  },
+  {
+    "No": "279",
+    "url": "https://dev.classmethod.jp/articles/yondemita_reiwa7_touitukijun/",
+    "title": "令和7年度版「政府機関等のサイバーセキュリティ対策のための統一基準群」(政府統一基準)読んでみた！！ | DevelopersIO",
+    "description": "",
+    "image": "https://devio2024-media.developers.io/image/upload/v1769165767/user-gen-eyecatch/wvmjvx0a9mnnbmpc5vbz.png"
+  },
+  {
+    "No": "280",
+    "url": "https://eslint.org/blog/2026/02/eslint-v10.0.0-released/",
+    "title": "ESLint v10.0.0 released - ESLint - Pluggable JavaScript Linter",
+    "description": "A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.",
+    "image": "https://eslint.org/assets/images/blog-covers/eslint-10-cover.png"
+  },
+  {
+    "No": "281",
+    "url": "https://zenn.dev/noda_k/articles/f66ad45a1c76b8",
+    "title": "新たな情報収集手段として ─ Stream Feed ─ というWebアプリを作成したらエンジニアとして１番大事な事を学んだ",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--lSII3Jn6--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E6%2596%25B0%25E3%2581%259F%25E3%2581%25AA%25E6%2583%2585%25E5%25A0%25B1%25E5%258F%258E%25E9%259B%2586%25E6%2589%258B%25E6%25AE%25B5%25E3%2581%25A8%25E3%2581%2597%25E3%2581%25A6%2520%25E2%2594%2580%2520Stream%2520Feed%2520%25E2%2594%2580%2520%25E3%2581%25A8%25E3%2581%2584%25E3%2581%2586Web%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E3%2582%2592%25E4%25BD%259C%25E6%2588%2590%25E3%2581%2597%25E3%2581%259F%25E3%2582%2589%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%25A8%25E3%2581%2597%25E3%2581%25A6%25EF%25BC%2591%25E7%2595%25AA%25E5%25A4%25A7%25E4%25BA%258B%25E3%2581%25AA...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:noda%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzg0MTYyOTRjNGUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "282",
+    "url": "https://developers.cyberagent.co.jp/blog/archives/62064/",
+    "title": "生成 AI による仕様書作成とレビューの考え方 | CyberAgent Developers Blog",
+    "description": "仕様書の作成・レビューに生成 AI を活用するための実践的なアプローチを紹介します。",
+    "image": "https://developers.cyberagent.co.jp/blog/wp-content/uploads/2026/02/ogp.png"
+  },
+  {
+    "No": "283",
+    "url": "https://gigazine.net/news/20260212-liftkit-ui/",
+    "title": "無料であらゆるUIを黄金比で生成するオープンソースフレームワーク「LiftKit」",
+    "description": "ウェブデザインやUI構築で悩んだ際に、人間が最も美しいと感じると言われている「黄金比」を数学的に計算して生成してくれるUIフレームワーク「LiftKit」を使うと、無料かつオープンソースで細部までこだわったビジュアル設計が可能です。",
+    "image": "https://i.gzn.jp/img/2026/02/12/liftkit-ui/00.png"
+  },
+  {
+    "No": "284",
+    "url": "https://future-architect.github.io/articles/20260210a/",
+    "title": "ログ設計ガイドラインを公開しました | フューチャー技術ブログ",
+    "description": "はじめにTechnology Innovation Groupの八木です。 フューチャー社内の有志メンバーでログ設計ガイドラインを作成し公開しました！ ログは、システムの稼働状況を可視化し、トラブルが発生した際に迅速に原因特定するための生命線になります。しかし、その重要性の一方で、プロジェクトごとに設計がバラバラになりがちだったり、とりあえず標準出力しているだけになっていたりと、十分に活用",
+    "image": "https://future-architect.github.io/images/2026/20260210a/top.jpg"
+  },
+  {
+    "No": "285",
+    "url": "https://zenn.dev/akito_tsukahara/articles/1d15cb875b0f82",
+    "title": "React, Vue, Svelteの「危険なHTML挿入」と「javascript: URL」の実装を読み比べてみた",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--OVsLi2dx--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:React%252C%2520Vue%252C%2520Svelte%25E3%2581%25AE%25E3%2580%258C%25E5%258D%25B1%25E9%2599%25BA%25E3%2581%25AAHTML%25E6%258C%25BF%25E5%2585%25A5%25E3%2580%258D%25E3%2581%25A8%25E3%2580%258Cjavascript%253A%2520URL%25E3%2580%258D%25E3%2581%25AE%25E5%25AE%259F%25E8%25A3%2585%25E3%2582%2592%25E8%25AA%25AD%25E3%2581%25BF%25E6%25AF%2594%25E3%2581%25B9%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Akito.Tsukahara%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzNlOTQ1MDE3YjYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "286",
+    "url": "https://note.com/vivion_design/n/n0224e7cb851f",
+    "title": "【資料公開】Figma MCP対応ガイド：デザイナーが知っておくべき実装への渡し方｜viviON Design",
+    "description": "こんにちは、viviONプロダクトデザインチームです！  今年（2026年）に入ってますますAI関連の技術革新が加速しており、Figmaのデザインからコードを自動生成することも注目されています。 そこでよくFigma MCP（Model Context Protocol）という言葉を目にする機会も増えてきました。  実際には、存在は知っていても「導入するメリットがわからない」「何から始めたら良いのかわからない」という悩みがあったり、実際にやってみても「実装時のデザインの再現性が低い」「思っていたコードと違う」「修正に時間がかかる」など、現状難しいことも多いかもしれません。  その原因の",
+    "image": "https://assets.st-note.com/production/uploads/images/251408499/rectangle_large_type_2_5a945fac908641ae369e2e19284f3ddf.jpeg?fit=bounds&quality=85&width=1280"
+  },
+  {
+    "No": "287",
+    "url": "https://resources.anthropic.com/2026-agentic-coding-trends-report",
+    "title": "2026 Agentic Coding Trends Report",
+    "description": "How coding agents are transforming software development - and what it means for engineering teams in 2026. Insights on multi-agent systems, human-AI collaboration, and scaling agentic coding across organizations. Includes case studies from Rakuten, TELUS, Zapier, and more.",
+    "image": "https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report%20Social%20Card.png"
+  },
+  {
+    "No": "288",
+    "url": "https://www.publickey1.jp/blog/26/nistaiai_agent_standards_initiative.html",
+    "title": "NIST（米国国立標準技術研究所）がAIエージェントの技術標準を作る取り組み「AI Agent Standards Initiative」発表。相互運用可能かつ安全なイノベーションのために",
+    "description": "米国商務省傘下のNIST（National Institute of Standards and Technology：米国国立標準技術研究所）は、AIエージェントの技術標準策定に取り組む「AI Agent Standards Initia...",
+    "image": "https://www.publickey1.jp/2026/aiagentstandardsinitiative-ann01.png"
+  },
+  {
+    "No": "289",
+    "url": "https://codezine.jp/news/detail/23477",
+    "title": "AnthropicがAIの責任ある拡張方針「RSP」最新版を公開",
+    "description": "",
+    "image": "https://codezine.jp/static/images/article/23477/ClaudeCode.png"
+  },
+  {
+    "No": "290",
+    "url": "https://zenn.dev/dragon1208/articles/a705242460dea4",
+    "title": "フロントエンド向けに「汎用API」を構築すべきではない理由と実践的アプローチ",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--3y_kQKmK--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%2595%25E3%2583%25AD%25E3%2583%25B3%25E3%2583%2588%25E3%2582%25A8%25E3%2583%25B3%25E3%2583%2589%25E5%2590%2591%25E3%2581%2591%25E3%2581%25AB%25E3%2580%258C%25E6%25B1%258E%25E7%2594%25A8API%25E3%2580%258D%25E3%2582%2592%25E6%25A7%258B%25E7%25AF%2589%25E3%2581%2599%25E3%2581%25B9%25E3%2581%258D%25E3%2581%25A7%25E3%2581%25AF%25E3%2581%25AA%25E3%2581%2584%25E7%2590%2586%25E7%2594%25B1%25E3%2581%25A8%25E5%25AE%259F%25E8%25B7%25B5%25E7%259A%2584%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AD%25E3%2583%25BC%25E3%2583%2581%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Nao8%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzczYmFlMWUxMzAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+  },
+  {
+    "No": "291",
+    "url": "https://www.ted.com/talks/sam_altman_openai_s_sam_altman_talks_chatgpt_ai_agents_and_superintelligence_live_at_ted2025?user_email_address=4314ebefa57d58b90eb26066a4ddd532&lctg=62d1b96d54733608145e03fe",
+    "title": "OpenAI's Sam Altman talks ChatGPT, AI agents and superintelligence — live at TED2025",
+    "description": "The AI revolution is here to stay, says Sam Altman, the CEO of OpenAI. In a probing, live conversation with head of TED Chris Anderson, Altman discusses the astonishing growth of AI and shows how models like ChatGPT could soon become extensions of ourselves. He also addresses questions of safety, power and moral authority, reflecting on the world he envisions — where AI will almost certainly outpace human intelligence. (Recorded on April 11, 2025)",
+    "image": "https://pi.tedcdn.com/r/talkstar-assets.s3.amazonaws.com/production/talks/talk_148296/4f775345-82e9-42d5-83cc-ff50aa8fa007/SamAltman_2025-embed.jpg?u%5Br%5D=2&u%5Bs%5D=0.5&u%5Ba%5D=0.8&u%5Bt%5D=0.03&quality=82c=1050%2C550&w=1050"
+  },
+  {
+    "No": "292",
+    "url": "https://gigazine.net/news/20260301-ai-copyright-law-broken/",
+    "title": "AIは著作権法を壊したのではなく「元から壊れていた著作権法の仕組み」を露呈させただけ",
+    "description": "生成AIをめぐる著作権問題では「学習データに著作物を使っていいのか」「出力結果が著作物と似てしまったら誰が責任を負うのか」といった論点が繰り返し議論されています。テック系ブロガーのジェイソン・ウィレムズ氏は、そもそも著作権法は人間の規模で成り立つ前提に依存してきたのであり、生成AIはその前提を崩して曖昧さを表面化させただけだと自らのブログで指摘しています。",
+    "image": "https://i.gzn.jp/img/2026/03/01/ai-copyright-law-broken/00.png"
   }
 ]

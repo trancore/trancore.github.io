@@ -6,9 +6,9 @@ import * as cheerio from "cheerio";
 
 const __dirname = new URL("..", import.meta.url).pathname;
 // 入力ファイルを設定する
-const inputPath = `${__dirname}src/consts/web-articles.json`;
+const inputPath = `${__dirname}src/consts/books.json`;
 // 出力ファイルを設定する
-const outputPath = `${__dirname}src/consts/web-articles-result.json`;
+const outputPath = `${__dirname}src/consts/books-result.json`;
 
 // JSONファイルを読み込む
 const fileContent = fs.readFileSync(inputPath, "utf-8");
