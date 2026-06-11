@@ -1269,9 +1269,9 @@
   {
     "No": "182",
     "url": "https://x.com/mizchi/status/1851091454984384941?t=45uK6QHvUlGKFUG2SZBgHQ&s=19",
-    "title": "",
-    "description": "",
-    "image": ""
+    "title": "mizchi (@mizchi) on X",
+    "description": "flutterはGoogle内の優先度が低く、またflutterを使ったことがない人で構成されているために重要度や緊急性が伝わらず、また外部からの変更を受け入れるための文化にも欠けているためフォークすることにした、とのこと https://t.co/EpP3GfJvmw",
+    "image": "https://pbs.twimg.com/profile_images/2507664307/viccruw2m1zb0xkkisil_200x200.jpeg"
   },
   {
     "No": "183",
@@ -2042,5 +2042,110 @@
     "title": "AIは著作権法を壊したのではなく「元から壊れていた著作権法の仕組み」を露呈させただけ",
     "description": "生成AIをめぐる著作権問題では「学習データに著作物を使っていいのか」「出力結果が著作物と似てしまったら誰が責任を負うのか」といった論点が繰り返し議論されています。テック系ブロガーのジェイソン・ウィレムズ氏は、そもそも著作権法は人間の規模で成り立つ前提に依存してきたのであり、生成AIはその前提を崩して曖昧さを表面化させただけだと自らのブログで指摘しています。",
     "image": "https://i.gzn.jp/img/2026/03/01/ai-copyright-law-broken/00.png"
+  },
+  {
+    "No": "293",
+    "url": "https://www.publickey1.jp/blog/26/nodejslts.html",
+    "title": "Node.js、今後は年に一度のリリースとなり、すべてのリリースがLTS版になると発表",
+    "description": "Node.jsのリリースチームは、これまで6カ月ごとに年に2回行われていたNode.jsのリリースを年に1回とし、すべてのリリースがLTS版になることを発表しました。 毎年4月にリリースされ、安定化期間を経てLTSに移行 現在までNode....",
+    "image": "https://www.publickey1.jp/2026/nodejs-release-onceayear202603.png"
+  },
+  {
+    "No": "294",
+    "url": "https://qiita.com/melhts/items/6e5bc00f8426194d0978",
+    "title": "【deepwiki-open】いいパソコンはもってないけど、ローカルLLMで社内Wikiをつくりたい - Qiita",
+    "description": "１.はじめに こんにちは。 みなさん、『 いいパソコン 』持っていますか？ GPUが積まれた高性能マシン。 メモリたっぷり。 ローカルでLLMをブン回せる環境。 私は持っていません。 （パソコンってお高いですからね...設定も大変だし。） それでもローカルLLMで社内...",
+    "image": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzODg0Mjk4JTJGY2NkYThjZTU2MzRkYTQ3ZWQ4NzUxN2NiY2QxODEzODZiMjQ1NTE1MiUyRnhfbGFyZ2UucG5nJTNGMTcyNjU0NzA0MT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OTMxMjFhYmJjMmYyODJmZGZjNTI3NTgxYmYzM2E4ODc%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZhMmQyMDYxNjQyM2Q4YmZiZjJkMjhjYzZhZjE4NDI0ZDkwZWNhYzM0JTJGb3JpZ2luYWwuanBnJTNGMTcxOTM3NTMyMz9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz02MmY3MTA2YzlmYmVmZDBhYTBhZGRiMDhlNzFmZGU5ZA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3Dde73829e1280640ac00c4c53e05093b4?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwZGVlcHdpa2ktb3BlbiVFMyU4MCU5MSVFMyU4MSU4NCVFMyU4MSU4NCVFMyU4MyU5MSVFMyU4MiVCRCVFMyU4MiVCMyVFMyU4MyVCMyVFMyU4MSVBRiVFMyU4MiU4MiVFMyU4MSVBMyVFMyU4MSVBNiVFMyU4MSVBQSVFMyU4MSU4NCVFMyU4MSU5MSVFMyU4MSVBOSVFMyU4MCU4MSVFMyU4MyVBRCVFMyU4MyVCQyVFMyU4MiVBQiVFMyU4MyVBQkxMTSVFMyU4MSVBNyVFNyVBNCVCRSVFNSU4NiU4NVdpa2klRTMlODIlOTIlRTMlODElQTQlRTMlODElOEYlRTMlODIlOEElRTMlODElOUYlRTMlODElODQmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz00YjAxZGI2YjU4Njg3NDFjNWY3NTdhMjhmZGU4M2Q3Yg&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtZWxodHMmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz01Njc4YThmMzk5M2I2MDJhMTNmOGFkYjU1YzMxZWNmMg&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5LiJ6I-x6Zu75qmf5qCq5byP5Lya56S-IOaDheWgseaKgOihk-e3j-WQiOeglOeptuaJgCDjgq_jg6njgqbjg4nmioDooZPogIXjgrPjg5_jg6Xjg4vjg4bjgqM&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=3a62f95e56a0581721abdaa03ca6880c"
+  },
+  {
+    "No": "295",
+    "url": "https://www.ipa.go.jp/security/10threats/10threats2026.html",
+    "title": "情報セキュリティ10大脅威 2026 | 情報セキュリティ | IPA 独立行政法人 情報処理推進機構",
+    "description": "情報処理推進機構（IPA）の「情報セキュリティ10大脅威 2026」に関する情報です。",
+    "image": "https://www.ipa.go.jp/k3q2q400000050d7-img/k3q2q400000050dg.jpg"
+  },
+  {
+    "No": "296",
+    "url": "https://gaadjp.connpass.com/event/388081/",
+    "title": "GAAD Japan 2026（2026/05/21 YouTubeライブ） (2026/05/21 10:30〜)",
+    "description": "## デジタル分野のアクセシビリティを啓発する日、今年もオンラインセミナー開催    * YouTubeでライブ配信   * 配信用URL、録画＆スライド配布URLなどのご案内は、connpassのメッセージ機能でお送りします。   * 全てのセッションで「UDトーク」を使用したリアルタイム字幕を提供します。当日にリアルタイムで参加される場合は、お手元のスマホやタブレットのアプリやWebブラウザでも字幕をご覧いただくことができます。   * また、全てのセッションで手話通訳を提供する予定です（専用のZoomウェビナールーム）。   * 最新情報は、GAAD Japan 公式ウェブサイトま...",
+    "image": "https://media.connpass.com/thumbs/a7/c6/a7c635b50c5de61dbbd30fb7d86a56b5.png"
+  },
+  {
+    "No": "297",
+    "url": "https://gigazine.net/news/20260328-scanopy/",
+    "title": "無料でネットワーク構成図を自動的に更新するツール「Scanopy」、一度設定すればメンテナンスは不要でネットワークをスキャンしてホストやサービスを検出し接続関係をインタラクティブに可視化、オープンソースでセルフホスト可能",
+    "description": "ネットワーク管理者の悩みとして、ネットワーク構成図を更新するのが面倒だということがあります。「Scanopy」は、ネットワークをスキャンしてホストやサービスを検出し接続関係をインタラクティブに可視化するツールです。一度設定すればメンテナンスは不要で、ネットワーク構成図を自動的に更新することができます。",
+    "image": "https://i.gzn.jp/img/2026/03/28/scanopy/00.png"
+  },
+  {
+    "No": "298",
+    "url": "https://zenn.dev/53able/articles/630552356f6ba1",
+    "title": "TypeScript 7.0 Betaを試した。速い。でも本題は移行だ。",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--67rrxxQb--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:TypeScript%25207.0%2520Beta%25E3%2582%2592%25E8%25A9%25A6%25E3%2581%2597%25E3%2581%259F%25E3%2580%2582%25E9%2580%259F%25E3%2581%2584%25E3%2580%2582%25E3%2581%25A7%25E3%2582%2582%25E6%259C%25AC%25E9%25A1%258C%25E3%2581%25AF%25E7%25A7%25BB%25E8%25A1%258C%25E3%2581%25A0%25E3%2580%2582%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:53able%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzFiZWE2OGI5M2YuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  {
+    "No": "299",
+    "url": "https://share.google/jG6sbEHnt83mAje6P",
+    "title": "JavaScriptの日付の概念を変革するTemporalオブジェクト誕生までの9年間の道のり",
+    "description": "JavaScriptの標準であるECMAScriptに元々組み込まれているDateオブジェクトを置き換える新しい日時API「Temporal」が導入されます。TemporalはJavaScriptの日時操作における多くの課題を解決することを目指しています。",
+    "image": "https://i.gzn.jp/img/2026/04/29/fix-time-in-javascript/00.jpg"
+  },
+  {
+    "No": "300",
+    "url": "https://japan.zdnet.com/article/35247011/",
+    "title": "従来のユーザーインターフェースが消えていく--「使い捨て」UIの到来",
+    "description": "ユーザーインターフェースは、何十年も見なれた固定的・静的な画面から、簡素なテキストボックスで表示されるエージェント寄りになろうとしている。",
+    "image": "https://japan.zdnet.com/storage/2026/04/29/e633cda41d4eafb15fd33f081f63de62/nomoreui-screenshot-2026-04-28-131937_l.jpg"
+  },
+  {
+    "No": "301",
+    "url": "https://webtan.impress.co.jp/e/2026/05/27/52616",
+    "title": "子どもがワクワクするWebサイトをどう作ったか？ 三菱自動車「クルマづくりマイスター」がリニューアル | Webサイトリニューアル特集 | Web担当者Forum",
+    "description": "【Web担】子どもの心をつかむポイントについて、リニューアルを担当した三菱自動車工業の菊地麻衣氏に聞いた。",
+    "image": "https://webtan.impress.co.jp/sites/default/files/styles/1200x630/public/images/article2026/mitsubishi-motors/mitsubishi_ogp.jpg?itok=KQ6ecIP0"
+  },
+  {
+    "No": "302",
+    "url": "https://dev.classmethod.jp/articles/mini-typescript-add-let-compiler/",
+    "title": "mini-typescript に let を追加して TypeScript コンパイラの中身を覗いてみた | DevelopersIO",
+    "description": "TSKaigiで刺激を受けた私が、mini-typescriptの教材を使ってTypeScriptコンパイラの仕組みを学んでみました。一見シンプルな「let追加」という課題を通じて、Lex・Parse・Bind・Check・Transform・Emitという全フェーズを体験できました。",
+    "image": "https://images.ctfassets.net/ct0aopd36mqt/wp-thumbnail-c571649dbbcec5de8ede099370219c46/4ea60fd4ac865c70d3c2e8f2589acc3a/ts-eyecatch.png"
+  },
+  {
+    "No": "303",
+    "url": "https://codezine.jp/article/corner/1046",
+    "title": "",
+    "description": "",
+    "image": ""
+  },
+  {
+    "No": "304",
+    "url": "https://github.blog/changelog/2026-05-22-staged-publishing-and-new-install-time-controls-for-npm/",
+    "title": "Staged publishing and new install-time controls for npm - GitHub Changelog",
+    "description": "Today we’re shipping two updates focused on supply-chain security for npm: Staged publishing is generally available. New --allow-* install source flags (--allow-file, --allow-remote, --allow-directory) complement the existing --allow-git flag. Both…",
+    "image": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-new-releases.jpg"
+  },
+  {
+    "No": "305",
+    "url": "https://gihyo.jp/book/2026/978-4-297-15704-3",
+    "title": "基本からしっかり学ぶフロントエンドテスト入門 | 技術評論社",
+    "description": "AIによるコード生成が現実となった今、ソフトウェアテストの重要性はますます高まっています。AIエージェントの能力を最大限に発揮する上でも、テスト自動化などを含む開発基盤の整備は必須のものになってくるでしょう。本書では、フロントエンド開発の現場で効果的にテストを導入・運用するための力を身に付けることを目的に、フロントエンドテストの全体像を基礎から体系的に解説します。テストの意義や種類といった基礎から始まり、静的テスト、ロジックテスト、コンポーネントテスト、E2Eテスト、そしてビジュアルリグレッションテスト（VRT）まで幅広くカバー。さらに、Storybookを活用したテスト手法やAPI通信を含む実践的なケース、テスト戦略の設計、そして現場視点でのAI活用ノウハウまでを丁寧に解説します。フロントエンド開発におけるテストを本格的に学びたい方に最適な一冊です。",
+    "image": "https://gihyo.jp/assets/images/ogp/2026/9784297157043.jpg"
+  },
+  {
+    "No": "306",
+    "url": "https://engineering.mercari.com/blog/entry/20260605-moneyflow-bridging-payment-and-accounting/",
+    "title": "決済プラットフォームと経理を繋ぐ MoneyFlow | メルカリエンジニアリング",
+    "description": "こんにちは、Merpay の Payment Core チームと Payment Solution チームで Engineering Manager (EM) をやっている komatsu です。普段は決済基盤や決済体験の開発をするチームを",
+    "image": "https://storage.googleapis.com/prd-engineering-asset/2026/06/9e1bb5d2-mfgen-web.png"
+  },
+  {
+    "No": "307",
+    "url": "https://nodejs.org/ja/blog/release/v26.3.0",
+    "title": "Node.js — Node.js 26.3.0 (Current)",
+    "description": "Node.js® is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.",
+    "image": "https://nodejs.org/en/next-data/og/release/Node.js%20%E2%80%94%20Node.js%2026.3.0%20(Current)"
   }
 ]
