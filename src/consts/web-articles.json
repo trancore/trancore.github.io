@@ -2147,5 +2147,40 @@
     "title": "Node.js — Node.js 26.3.0 (Current)",
     "description": "Node.js® is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.",
     "image": "https://nodejs.org/en/next-data/og/release/Node.js%20%E2%80%94%20Node.js%2026.3.0%20(Current)"
+  },
+  {
+    "No": "308",
+    "url": "https://zenn.dev/sjbworks/articles/41a5c76dce4b36",
+    "title": "JavaScriptのClass離れの歴史をたどる話",
+    "description": "",
+    "image": "https://res.cloudinary.com/zenn/image/upload/s--K5R58Un---/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:JavaScript%25E3%2581%25AEClass%25E9%259B%25A2%25E3%2582%258C%25E3%2581%2581%25E3%2581%25AE%25E6%25AD%25B4%25E5%258F%25B2%25E3%2582%2592%25E3%2581%259F%25E3%2581%25A9%25E3%2582%258B%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:sjbworks%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzE0YmU4ZDIzZDYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+  },
+  {
+    "No": "309",
+    "url": "https://github.blog/security/supply-chain-security/how-we-took-malware-advisories-beyond-npm/",
+    "title": "How we took malware advisories beyond npm",
+    "description": "GitHub malware advisories no longer stop at npm. Here's how we wired OpenSSF's malicious-packages data into the Advisory Database.",
+    "image": "https://github.blog/wp-content/uploads/2026/01/generic-security-logo-github-blocks.png"
+  },
+  {
+    "No": "310",
+    "url": "https://devsumi.connpass.com/event/403026/",
+    "title": "Developers Summit 2026 FUKUOKA (2026/09/11 12:30〜)",
+    "description": "## Developers Summit 2026 FUKUOKAとは  「Developers Summit FUKUOKA（デブサミ福岡）」は、活気に満ちあふれ、IT産業振興も盛んな福岡で、ITエンジニアの祭りを開催したいという想いから2015年に始まりました。  過去には、IT産業の発展とエンジニアの成長を支える場として、多くの方にご参加いただきました。  AIが飛躍的に進化した現在。向き合うべきは、単なる実装のスキルだけではなく、その先にある「技術をどう価値に変えるか」という本質的な問いです。  Developers Summit 2026 FUKUOKAでは、「コードを超えて、...",
+    "image": "https://media.connpass.com/thumbs/a7/4a/a74a4f6bb5c24b6621e971771b1aebaa.png"
+  },
+  {
+    "No": "311",
+    "url": "https://techfeed.io/entries/6a98afb59c9ab1d41866efa1",
+    "title": "TechFeed - エンジニアのための技術情報収集＆共有プラットフォーム",
+    "description": "TechFeed is a technical information collection and sharing platform created by engineers for engineers.",
+    "image": "https://techfeed.io/images/ogp/ogimage.png"
+  },
+  {
+    "No": "312",
+    "url": "https://www.tokyoartbeat.com/articles/-/teamlab-tokyo-news-202609",
+    "title": "チームラボによる過去最大規模のミュージアム「チームラボ TOKYO（仮称）」が有明に2032年開館へ",
+    "description": "約3万平米規模のミュージアムや、広場、カフェなどを併設",
+    "image": "https://tab-prod-public.s3.ap-northeast-1.amazonaws.com/asset_files/uploaded/2026-09/c8a5ebf8/teamlab-1.jpg?w=1200"
   }
 ]

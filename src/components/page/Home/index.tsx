@@ -17,7 +17,9 @@ export default function Home() {
     // 存在しない場合は""（空文字列）になる
     image: string;
   }[];
-  const books = booksJson as {
+  const books = [...booksJson].sort((a, b) => {
+    return Number(b.No) - Number(a.No);
+  }) as {
     No: string;
     url: string;
     title: string;
